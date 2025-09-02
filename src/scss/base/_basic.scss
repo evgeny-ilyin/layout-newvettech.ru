@@ -1,0 +1,47 @@
+@use '../abstracts' as *;
+
+html {
+	min-width: $min-width;
+	scroll-behavior: smooth;
+	cursor: default;
+	/* overflow-x: hidden; */ // не будет работать position sticky
+
+	&.is-lock {
+		height: 100vh;
+		overflow: hidden;
+		scrollbar-gutter: stable;
+	}
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+/* ширина контента не прыгает при появлении или скрытии скроллбара, но на странице остается зарезервированный отступ для скролла */
+/* добавлено только для html.is-lock */
+/* html,
+body {
+	scrollbar-gutter: stable both-edges;
+} */
+
+/* position sticky для сайдбара не работает, если для html стоит overflow-x: hidden; (выше), нужен clip (ниже), но тогда возникают проблемы у body.noscroll */
+/* html,
+body {
+	overflow-x: clip;
+} */
+
+* {
+	outline: none;
+	touch-action: manipulation; // отключить зум по двойному нажатию на сенсорных устройствах
+
+	&:focus-visible {
+		@include focus-visible;
+	}
+}
+
+svg,
+svg * {
+	transition: all $transition-default;
+}

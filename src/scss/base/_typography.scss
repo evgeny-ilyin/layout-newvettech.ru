@@ -1,0 +1,174 @@
+@use '../abstracts' as *;
+@use 'typography-placeholders' as *;
+
+/*
+https://learn.javascript.ru/css-units
+rem - от html
+em - от текущего шрифта
+% - от размера шрифта родителя / margin-left - от родительской ширины / line-height - от текущего размера шрифта (не от родителя) / width/height - от ширины/высоты родителя/окна (при position:fixed)
+vw – 1% ширины окна
+vh – 1% высоты окна
+vmin – наименьшее из (vw, vh), в IE9 обозначается vm
+vmax – наибольшее из (vw, vh)
+*/
+
+body {
+	font: normal 1rem / 1.2 $ff-base;
+	color: $color-text;
+}
+
+// Заголовки
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-family: $ff-header;
+}
+
+h1,
+.h1 {
+	@extend %h1-heading;
+}
+
+h2,
+.h2 {
+	@extend %h2-heading;
+}
+
+h3,
+.h3 {
+	@extend %h3-heading;
+}
+
+h4,
+.h4 {
+	@extend %h4-heading;
+}
+
+h5,
+.h5 {
+	@extend %h5-heading;
+}
+
+h6,
+.h6 {
+	@extend %h6-heading;
+}
+
+// Текст
+a:not([class]) {
+	@extend %link-default;
+}
+
+p {
+	margin-bottom: 16px;
+	line-height: 1.4;
+
+	@extend %paragraph;
+}
+
+b,
+strong {
+	@extend %strong;
+}
+
+ul,
+ol {
+	display: block;
+	list-style-type: disc;
+	margin-bottom: 15px;
+	margin-left: 12px;
+	padding-left: 20px;
+
+	li {
+		margin-bottom: 5px;
+	}
+}
+
+ol {
+	list-style-type: decimal;
+}
+
+.text-cols-2 {
+	columns: 300px 2;
+	column-gap: 60px;
+}
+
+// Цвет текста
+.text-black {
+	color: var(--color-black);
+}
+
+.text-white {
+	color: var(--color-white) !important;
+}
+
+.error {
+	color: var(--color-error);
+}
+
+// Размеры текста
+.small {
+	font-size: 0.85rem !important;
+}
+
+.smaller {
+	font-size: 0.75rem !important;
+}
+
+.large {
+	font-size: 1.25rem !important;
+}
+
+.larger {
+	font-size: 1.5rem !important;
+}
+
+// Трансформация текста
+.uppercase {
+	text-transform: uppercase !important;
+}
+
+.lowercase {
+	text-transform: lowercase !important;
+}
+
+// Текстовые утилиты
+.center {
+	text-align: center !important;
+}
+
+.left {
+	text-align: left !important;
+}
+
+.right {
+	text-align: right !important;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.ellipsis {
+	@include line-clamp(1);
+}
+
+/* // Margin / Padding
+.m-0 {
+	margin: 0 !important;
+}
+.mt-0 {
+	margin-top: 0 !important;
+}
+.p-0 {
+	padding: 0 !important;
+} */

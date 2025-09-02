@@ -1,0 +1,23 @@
+/* Общие элементы определены в abstracts/index и автоматически импортируются через sass-loader во внутренних scss файлах: */
+/* @use "abstracts" as *; */
+
+/* 1. Абстракции */
+/* @use "abstracts/root-vars"; */
+
+/* 2. Вендоры */
+@use 'vendors/vendors';
+
+/* 3. Базовые стили */
+@use 'base' as *;
+
+/* 4. Секции */
+@use 'layout' as *;
+
+/* 5. Компоненты */
+@use 'components' as *;
+
+/* 6. Специфичные для определённых страниц стили */
+@use 'pages' as *;
+
+/* 7. Темы */
+@use 'themes' as *;

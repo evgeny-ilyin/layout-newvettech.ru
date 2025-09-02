@@ -1,0 +1,222 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:selector';
+
+@use 'variables' as *;
+@use 'functions' as *;
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+	@if $self {
+		&,
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+	} @else {
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+	}
+}
+
+@mixin on-hover() {
+	&:hover {
+		@content;
+	}
+}
+
+@mixin on-active() {
+	&:active {
+		@content;
+	}
+}
+
+@mixin on-focus() {
+	&:focus {
+		@content;
+	}
+}
+
+@mixin on-focus-visible() {
+	&:focus-visible {
+		@content;
+	}
+}
+
+@mixin on-disabled() {
+	&:disabled {
+		@content;
+	}
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+	#{$context} & {
+		@content;
+	}
+}
+
+/// And one more
+/// https://sass-lang.com/documentation/at-rules/at-root
+@mixin unify-parent($child) {
+	@at-root #{selector.unify(&, $child)} {
+		@content;
+	}
+}
+
+/// Media queries
+@mixin resp-from($breakpoint) {
+	@if map.has-key($breakpoints, $breakpoint) {
+		@media (min-width: #{map.get($breakpoints, $breakpoint)}) {
+			@content;
+		}
+	} @else {
+		@warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+		+ "Available breakpoints are: #{map.keys($breakpoints)}.";
+	}
+}
+
+@mixin resp-to($breakpoint) {
+	@if map.has-key($breakpoints, $breakpoint) {
+		@media (max-width: #{map.get($breakpoints, $breakpoint) - 1}) {
+			@content;
+		}
+	} @else {
+		@warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+		+ "Available breakpoints are: #{map.keys($breakpoints)}.";
+	}
+}
+
+@mixin resp-range($from, $to) {
+	@media (min-width: #{map.get($breakpoints, $from)}) and (max-width: #{map.get($breakpoints, $to) - 1}) {
+		@content;
+	}
+}
+
+//** MORE
+/// Simple arrows, angles and checkmark: https://codepen.io/andgatjens/pen/PmLqaN
+
+//** Новое 2025
+// Скрыть текст визуально, но оставить доступным для скринридеров
+@mixin visually-hidden {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	clip-path: inset(50%); // современная замена rect()
+	white-space: nowrap;
+	border: 0;
+}
+
+/// Универсальный миксин clamp с конвертацией в rem и фолбеком в px
+/// @param {String} $property - font-size, padding, margin, gap, width и т.д.
+/// @param {Num} $min - min размер в пикселях
+/// @param {Num} $max - max размер в пикселях
+/// @return {String}
+/// @require "sass:math"
+@mixin clamp($property, $min, $max) {
+	$fallback: math.div(($min + $max), 2);
+	$val: fluid($min, $max);
+	#{$property}: #{$fallback * 1px}; // fallback в px
+	#{$property}: #{$val};
+}
+
+/// Миксин для многострочного обрезания текста с троеточием
+/// @param {Number} $lines - количество строк (по умолчанию 3)
+@mixin line-clamp($lines: 3) {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $lines;
+	text-overflow: ellipsis;
+}
+
+/// Стили при наведении: hover для устройств с указателем и active для тач
+@mixin hover($mobileEffect: true) {
+	@media (any-hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+
+	@if $mobileEffect {
+		@media (any-hover: none) {
+			&:active {
+				@content;
+			}
+		}
+	}
+}
+
+@mixin flex-center($isInline: false) {
+	@if $isInline {
+		display: inline-flex;
+	} @else {
+		display: flex;
+	}
+
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin hide {
+	visibility: hidden;
+	opacity: 0;
+}
+
+@mixin show {
+	visibility: visible;
+	opacity: 1;
+}
+
+@mixin abs-cover {
+	position: absolute;
+	inset: 0;
+}
+
+@mixin abs-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+}
+
+@mixin abs-x {
+	position: absolute;
+	left: 50%;
+	translate: -50%;
+}
+
+@mixin abs-y {
+	position: absolute;
+	top: 50%;
+	translate: 0 -50%;
+}
+
+@mixin square($size) {
+	width: $size;
+	height: $size;
+}
+
+@mixin focus-visible {
+	outline: 1px dashed $brand-color-accent;
+	outline-offset: 2px;
+	transition: none !important;
+}
+
+@mixin disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}

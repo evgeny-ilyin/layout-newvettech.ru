@@ -1,0 +1,11 @@
+@use '../abstracts' as *;
+
+.btn {
+	cursor: pointer;
+
+	// .btn_default
+	&_default {
+		@include on-event {
+		}
+	}
+}

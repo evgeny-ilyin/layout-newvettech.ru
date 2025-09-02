@@ -1,0 +1,16 @@
+@use '../abstracts' as *;
+
+.bg-white {
+	--bg-full: var(--color-white);
+	background: var(--color-white);
+}
+
+.bg-full {
+	box-shadow: 0 0 0 100vmax var(--bg-full);
+	clip-path: inset(0 -100vmax);
+}
+
+.bg-full-vertical {
+	box-shadow: 0 0 0 100vmax var(--bg-full);
+	clip-path: inset(-100vmax 0);
+}

@@ -1,0 +1,90 @@
+@use '../abstracts' as *;
+
+/* squeeze style from https://jonsuh.com/hamburgers/ */
+
+.hamburger-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	z-index: 4;
+	width: $hamburger-size;
+	height: $hamburger-size;
+	cursor: pointer;
+
+	@include resp-from(md) {
+		display: none;
+	}
+}
+
+.hamburger-inner,
+.hamburger-inner::after,
+.hamburger-inner::before {
+	position: absolute;
+	width: $hamburger-size;
+	height: $hamburger-line;
+	background: $hamburger-color;
+	transition-timing-function: ease;
+	transition-duration: 0.15s;
+	transition-property: transform;
+}
+
+.hamburger-inner::after,
+.hamburger-inner::before {
+	display: block;
+	content: '';
+}
+
+.hamburger-inner {
+	top: calc(50% - 2px);
+	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+	transition-duration: 75ms;
+}
+
+.hamburger-inner::before {
+	top: -10px;
+	transition:
+		top 75ms ease 0.12s,
+		opacity 75ms ease;
+}
+
+.hamburger-inner::after {
+	bottom: -10px;
+	transition:
+		bottom 75ms ease 0.12s,
+		transform 75ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.menu-toggle {
+	display: none !important;
+	opacity: 0 !important;
+	visibility: hidden !important;
+
+	&:checked {
+		/* ~ .menu-container {
+			transform: $mobile-menu-active;
+		} */
+
+		~ .hamburger-box .hamburger-inner {
+			transition-delay: 0.12s;
+			transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+			transform: rotate(45deg);
+		}
+
+		~ .hamburger-box .hamburger-inner::before {
+			top: 0;
+			transition:
+				top 75ms ease,
+				opacity 75ms ease 0.12s;
+			opacity: 0;
+		}
+
+		~ .hamburger-box .hamburger-inner::after {
+			bottom: 0;
+			transition:
+				bottom 75ms ease,
+				transform 75ms cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+			transform: rotate(-90deg);
+		}
+	}
+}

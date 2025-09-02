@@ -1,0 +1,68 @@
+//** Шрифты
+$ff-header: var(--font-family-header);
+$ff-base: var(--font-family-base);
+
+//** Цвета
+// Бренд
+$brand-color-primary: var(--color-primary);
+$brand-color-secondary: var(--color-secondary);
+$brand-color-accent: var(--color-accent, var(--color-primary)); // также используется для focus-visible
+// Текст
+$color-text: var(--color-black);
+$color-link: var(--color-link);
+$color-link-hover: var(--color-link-hover);
+// Формы
+$placeholder-color: var(--color-black);
+$input-color: var(--color-black);
+// Выделенный в браузере текст
+$selection-bg: var(--color-selection);
+$selection-text: inherit;
+
+//** Другое
+// Ширина контейнера
+$min-width: 360px;
+$max-width: 1440px;
+// Отступы контейнера
+$min-padding: 15px;
+$max-padding: 30px;
+// Гамбургер
+$hamburger-size: 40px;
+$hamburger-line: 4px;
+$hamburger-color: $brand-color-primary;
+// Мобильное меню
+$mobile-menu-closed: var(--mobile-menu-closed);
+$mobile-menu-active: var(--mobile-menu-active);
+// Переходы
+$transition-default: var(--transition-duration) ease-in-out;
+
+//** Переменные для scss/components
+
+//** SVGs --var
+$svg-fetch-ring: var(--svg-fetch-ring);
+// $svg-arrow-long: var(--svg-arrow-long);
+// $svg-arrow-black: var(--svg-arrow-black);
+// $svg-arrow-white: var(--svg-arrow-white);
+// $svg-angle: var(--svg-angle);
+// $svg-close: var(--svg-close);
+// $svg-nav-search: var(--svg-nav-search);
+// $svg-geo: var(--svg-geo);
+// $svg-checked: var(--svg-checked);
+// $svg-download: var(--svg-download);
+
+//** Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+/// @require "sass:map"
+$breakpoints: (
+	'xs': 375px,
+	'sm': 425px,
+	'xm': 577px,
+	'md': 768px,
+	'lg': 1024px,
+	'xl': 1280px,
+	'hd': 1440px,
+	'fhd': 1920px,
+);
+
+/// Icons base64
+// $menu-arrow-white: "data:image/svg+xml;base64,.....";

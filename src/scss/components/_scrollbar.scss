@@ -1,0 +1,73 @@
+@use '../abstracts' as *;
+
+.scrollblock {
+	overflow: hidden;
+
+	// https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior
+	/*
+	// overscroll-behavior: contain; 
+	// overscroll-behavior-x: contain;
+	// overscroll-behavior-y: contain; 
+	*/
+
+	&.scroll-x {
+		overflow-x: auto;
+
+		&::-webkit-scrollbar-track {
+			border-bottom: 2px solid var(--color-gray);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-bottom: 7px solid var(--color-red);
+		}
+	}
+
+	&.scroll-y {
+		overflow-y: auto;
+
+		&::-webkit-scrollbar-track {
+			border-right: 2px solid var(--color-gray);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-right: 6px solid var(--color-red);
+		}
+	}
+
+	// Chrome, Edge and Safari
+	&::-webkit-scrollbar {
+		width: 14px;
+		height: 14px;
+	}
+
+	&::-webkit-scrollbar-track,
+	&::-webkit-scrollbar-thumb {
+		border-radius: 0;
+	}
+
+	&::-webkit-scrollbar-track,
+	&::-webkit-scrollbar-track:hover,
+	&::-webkit-scrollbar-track:active {
+		background-color: var(--color-white);
+	}
+
+	&::-webkit-scrollbar-thumb:hover,
+	&::-webkit-scrollbar-thumb:active {
+		border-color: var(--color-red);
+	}
+
+	// Firefox
+	@supports (-moz-appearance: none) {
+		scrollbar-width: thin;
+		scrollbar-color: var(--color-black) var(--color-gray);
+	}
+}
+
+.hide-scroll {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}

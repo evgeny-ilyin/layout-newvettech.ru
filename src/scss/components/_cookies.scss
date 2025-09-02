@@ -1,0 +1,36 @@
+@use '../abstracts' as *;
+
+.cookie {
+	display: flex;
+	flex-wrap: wrap;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	padding: 8px;
+	background: var(--color-gray);
+
+	// .cookie__description
+	&__description {
+		padding: 10px 16px;
+	}
+
+	// .cookie__buttons
+	&__buttons {
+		display: flex;
+		flex-flow: row nowrap;
+		flex-grow: 1;
+		justify-content: space-between;
+		align-items: flex-end;
+		padding: 10px 16px;
+	}
+
+	// .cookie__accept
+	&__accept {
+	}
+
+	// .cookie__more
+	&__more {
+	}
+}

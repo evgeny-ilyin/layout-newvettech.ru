@@ -1,0 +1,21 @@
+@use '../abstracts' as *;
+
+::-moz-selection {
+	color: $selection-text;
+	background: $selection-bg;
+}
+
+::selection {
+	color: $selection-text;
+	background: $selection-bg;
+}
+
+img::-moz-selection {
+	color: transparent;
+	background: rgba($selection-bg, 0.5);
+}
+
+img::selection {
+	color: transparent;
+	background: rgba($selection-bg, 0.5);
+}

@@ -1,0 +1,81 @@
+@use '../abstracts' as *;
+
+/**
+ * Текст недоступен визуально, но полностью читаем для скринридеров
+ * Когда использовать
+ * Для иконок с текстовой альтернативой
+ * Для доп. описаний, которые должны быть слышны, но не видны
+ * Для SEO-заголовков, если они нужны только для скринридеров (осторожно и только по назначению)
+ */
+.visually-hidden {
+	@include visually-hidden;
+}
+
+// Скрыть только на мобилках (<768px)
+.hidden-mobile {
+	@include resp-to(md) {
+		display: none !important;
+	}
+}
+
+// Скрыть только на планшетах (768px–1023px)
+.hidden-tablet {
+	@include resp-range(md, lg) {
+		display: none !important;
+	}
+}
+
+// Скрыть на десктопе (≥1024px)
+.hidden-desktop {
+	@include resp-from(lg) {
+		display: none !important;
+	}
+}
+
+// Показывать только на мобилках (<768px)
+.visible-mobile {
+	display: none !important;
+
+	@include resp-to(md) {
+		display: block !important;
+	}
+}
+
+// Показывать только на планшетах (768px–1023px)
+.visible-tablet {
+	display: none !important;
+
+	@include resp-range(md, lg) {
+		display: block !important;
+	}
+}
+
+// Показывать на десктопе (≥1024px)
+.visible-desktop {
+	display: none !important;
+
+	@include resp-from(lg) {
+		display: block !important;
+	}
+}
+
+.hidden {
+	display: none !important;
+}
+
+.visible {
+	display: block !important;
+}
+
+/* .inline {
+	display: inline !important;
+}
+.inline-block {
+	display: inline-block !important;
+} */
+
+/* перенесено в _basic.scss как is-lock */
+/* .noscroll {
+	height: 100vh;
+	overflow: hidden;
+} */

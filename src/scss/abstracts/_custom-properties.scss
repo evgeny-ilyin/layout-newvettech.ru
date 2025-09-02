@@ -1,0 +1,20 @@
+:root {
+	--font-family-header: 'Gogh Variable', 'Roboto', 'Helvetica', sans-serif;
+	--font-family-base: 'Gogh Variable', 'Roboto', 'Helvetica', sans-serif;
+	--color-white: #fff;
+	--color-black: #18222c;
+	--color-black-50: rgb(0 0 0 / 50%);
+	--color-gray: #ebedf2;
+	--color-silver: #d2d3dd;
+	--color-red: #ff2e00;
+	--color-primary: #8965fd;
+	--color-secondary: #d6cefd;
+	--color-accent: var(--color-primary); /* focus-visible */
+	--color-selection: var(--color-secondary);
+	--color-link: var(--color-black);
+	--color-link-hover: var(--color-primary);
+	--color-error: var(--color-red);
+	--transition-duration: 0.2s;
+	--mobile-menu-active: translateX(0);
+	--mobile-menu-closed: translateX(-100%);
+}

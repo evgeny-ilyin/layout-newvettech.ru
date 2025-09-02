@@ -1,0 +1,60 @@
+@use '../abstracts' as *;
+@use '../base/typography-placeholders' as *;
+
+// https://codepen.io/forestdump/pen/LYrMOLa
+
+.menu-container {
+	@include resp-to(md) {
+		display: flex;
+		flex-direction: column;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 3;
+		width: 100%;
+		max-width: 360px;
+		padding: 70px 30px;
+		overflow: hidden;
+		overflow-y: auto;
+		background: var(--color-gray);
+		transform: $mobile-menu-closed;
+
+		&.is-active {
+			transform: $mobile-menu-active;
+		}
+
+		// transition применяется только к активному и закрывающемуся классам,
+		// чтобы неактивное меню не "выползало" при изменении размера окна или переключении вкладки (при перерисовке браузером)
+		// transition-duration должен совпадать с таймаутом closeMenu js-функции hamburgerMenu
+		&.is-active,
+		&.is-closing {
+			transition: transform 500ms ease-in-out;
+		}
+	}
+}
+
+.nav {
+	// .nav__list
+	&__list {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 10px 20px;
+
+		@include resp-from(md) {
+			flex-direction: row;
+		}
+	}
+	// .nav__item
+	&__item {
+		margin: 0;
+		padding: 0;
+	}
+	// .nav__link
+	&__link {
+		white-space: nowrap;
+
+		@extend %link-default;
+	}
+}

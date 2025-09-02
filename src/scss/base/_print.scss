@@ -1,0 +1,91 @@
+@media print {
+	*,
+	*::before,
+	*::after {
+		color: #000 !important;
+		background: #fff !important;
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+
+	body {
+		font-size: 12pt;
+	}
+
+	/* Убираем лишнее */
+	nav,
+	aside,
+	footer,
+	.no-print,
+	[data-print='false'] {
+		display: none !important;
+	}
+
+	a,
+	a:visited {
+		text-decoration: underline;
+	}
+
+	a[href]::after {
+		content: ' (' attr(href) ')';
+		font-size: 90%;
+		color: #555 !important;
+	}
+
+	abbr[title]::after {
+		content: ' (' attr(title) ')';
+		font-size: 90%;
+		color: #555 !important;
+	}
+
+	/* Убираем автоматическую подпись (attr(href)) у пустых ссылок. */
+	a[href^='#']::after,
+	a[href^='javascript:']::after {
+		content: '';
+	}
+
+	pre {
+		white-space: pre-wrap !important;
+	}
+
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		break-after: avoid;
+	}
+
+	/* Избегаем разрыва важных блоков */
+	tr,
+	img,
+	pre,
+	blockquote {
+		break-inside: avoid;
+	}
+
+	pre,
+	blockquote {
+		border: 1px solid #999;
+	}
+
+	/* Картинки и медиа */
+	img,
+	svg,
+	video {
+		max-width: 100% !important;
+		height: auto !important;
+	}
+}

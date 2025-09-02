@@ -1,0 +1,45 @@
+@use '../abstracts' as *;
+
+.header {
+	// .header__wrapper
+	&__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0 5px;
+		position: relative;
+		padding: 15px 0;
+	}
+
+	// .header__logo
+	&__logo {
+		margin: 10px 0;
+
+		a {
+			display: flex;
+			color: var(--color-black);
+		}
+
+		svg {
+			width: 145px;
+			height: 50px;
+			fill: currentcolor;
+
+			@include resp-from(lg) {
+				transition: width 0s;
+			}
+		}
+
+		@include resp-from(md) {
+			margin: 0;
+		}
+	}
+
+	// .header__nav
+	&__nav {
+		display: flex;
+		align-items: center;
+		position: relative;
+	}
+}

@@ -1,0 +1,26 @@
+@use '../abstracts' as *;
+
+.form {
+	margin-top: 40px;
+
+	// .form__fieldgroup
+	&__fieldgroup {
+	}
+
+	input[type='text'],
+	input[type='email'],
+	select,
+	textarea {
+		&::placeholder {
+			color: $placeholder-color;
+		}
+	}
+
+	textarea {
+		resize: vertical;
+	}
+}
+
+.required {
+	border-color: var(--color-red) !important;
+}

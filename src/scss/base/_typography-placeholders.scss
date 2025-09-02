@@ -1,0 +1,89 @@
+@use '../abstracts' as *;
+
+// Заголовки
+%h1-heading {
+	font-weight: 500;
+	line-height: 1.2;
+
+	@include clamp(font-size, 33, 58);
+}
+
+%h2-heading {
+	font-weight: 500;
+	line-height: 1.2;
+
+	@include clamp(font-size, 20, 38);
+}
+
+%h3-heading {
+	font-weight: 500;
+	line-height: 1.2;
+
+	@include clamp(font-size, 18, 32);
+}
+
+%h4-heading {
+	font-weight: 500;
+	line-height: 1.2;
+
+	@include clamp(font-size, 16, 30);
+}
+
+%h5-heading {
+	font-weight: 500;
+	line-height: 1.2;
+
+	@include clamp(font-size, 15, 24);
+}
+
+%h6-heading {
+	font-weight: 500;
+	line-height: 1.2;
+
+	@include clamp(font-size, 14, 20);
+}
+
+%paragraph {
+	font-weight: 360;
+	line-height: 1.2;
+
+	@include clamp(font-size, 16, 20);
+}
+
+%strong {
+	font-weight: 600;
+}
+
+// Ссылки
+%link-default {
+	position: relative;
+	/* text-decoration: underline; */
+	text-decoration-thickness: 1px;
+	text-decoration-color: currentcolor;
+	text-underline-offset: 3px;
+	color: $color-link;
+	transition: all $transition-default;
+
+	@include hover() {
+		color: $color-link-hover;
+	}
+}
+
+%link-default-old {
+	color: currentcolor;
+
+	@include on-event {
+		color: currentcolor;
+	}
+}
+
+%link-classic-old {
+	text-decoration: underline;
+	text-decoration-color: var(--color-gray);
+	text-underline-offset: 1px;
+	transition: all 0.15s ease;
+
+	@include on-hover {
+		text-decoration-color: var(--color-black);
+	}
+}

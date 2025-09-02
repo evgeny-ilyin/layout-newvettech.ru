@@ -1,0 +1,98 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'variables' as *;
+
+/// Конветирование px в rem
+/// @author Maksim Vasyanovich
+/// @link https://github.com/maxdenaro/gulp-maxgraph
+/// @param {Num} $pixels
+// @function rem($pixels, $context: 16) {
+// 	@return math.div($pixels, $context) * 1rem;
+// }
+
+/// Установить цвет как css var(--xxx)
+/// А если его нет в мапе, добавить дефолтный чёрный
+/// @author Evgeny Ilyin
+/// @param {String} $color-name - $colors set at _root-vars-map.scss
+/// @return {String}
+/// @require "sass:map"
+@function color($color-name) {
+	@if map.get($colors, $color-name) {
+		@return var(--#{$color-name});
+	} @else {
+		@return var(--#{$color-name}, #000);
+	}
+}
+
+//** Not used yet
+/// Native `url(..)` function wrapper
+/// @param {String} $base - base URL for the asset
+/// @param {String} $type - asset type folder (e.g. `fonts/`)
+/// @param {String} $path - asset path
+/// @return {Url}
+// @function asset($base, $type, $path) {
+// 	@return url($base + $type + $path);
+// }
+
+/// Returns URL to an image based on its path
+/// @param {String} $path - image path
+/// @param {String} $base [$base-url] - base URL
+/// @return {Url}
+/// @require $base-url
+// @function image($path, $base: $base-url) {
+// 	@return asset($base, "images/", $path);
+// }
+
+/// Returns URL to a font based on its path
+/// @param {String} $path - font path
+/// @param {String} $base [$base-url] - base URL
+/// @return {Url}
+/// @require $base-url
+// @function font($path, $base: $base-url) {
+// 	@return asset($base, "fonts/", $path);
+// }
+
+// @function fluid($min: 10, $max: 100) {
+// 	$minViewportWidth: math.div($min-width, 1px);
+// 	$maxViewportWidth: math.div($max-width, 1px);
+
+// 	$minSize: math.div($min, 16);
+// 	$maxSize: math.div($max, 16);
+// 	$minWidth: math.div($minViewportWidth, 16);
+// 	$maxWidth: math.div($maxViewportWidth, 16);
+
+// 	$slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+// 	$yAxisIntersections: -$minWidth * $slope + $minSize;
+
+// 	@return clamp(#{$minSize * 1rem}, #{$yAxisIntersections * 1rem} + #{$slope * 100vw}, #{$maxSize * 1rem});
+// }
+
+//** Новое 2025
+/// Функция для вычисления fluid размера
+/// @author Evgeny Ilyin
+/// @param {Num} $min - min размер в px
+/// @param {Num} $max - max размер в px
+/// @param {String} $minViewport - min ширина вьюпорта из настроек (с указанием px)
+/// @param {String} $maxViewport - max ширина вьюпорта из настроек (с указанием px)
+/// @return {String}
+/// @require "sass:math"
+@function fluid($min: 16, $max: 32, $minViewport: $min-width, $maxViewport: $max-width) {
+	// Преобразуем размеры вьюпорта в числа без единиц
+	$minViewportNum: math.div($minViewport, 1px);
+	$maxViewportNum: math.div($maxViewport, 1px);
+
+	// px -> rem
+	$minSize: math.div($min, 16);
+	$maxSize: math.div($max, 16);
+	$minViewportWidth: math.div($minViewportNum, 16);
+	$maxViewportWidth: math.div($maxViewportNum, 16);
+
+	$slope: math.div(($maxSize - $minSize), ($maxViewportWidth - $minViewportWidth));
+	$intercept: -$minViewportWidth * $slope + $minSize;
+
+	// Округлим до 2 знаков
+	$slope: math.div(round($slope * 10000), 10000);
+	$intercept: math.div($intercept * 100, 100);
+
+	@return clamp(#{$minSize}rem, #{$intercept}rem + #{$slope * 100}vw, #{$maxSize}rem);
+}

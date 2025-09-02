@@ -1,0 +1,33 @@
+@use '../abstracts' as *;
+
+// Основной контейнер
+.container {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+}
+
+// Вложенный в основной контейнер для контента
+.content {
+	position: relative;
+	width: 100%;
+	max-width: $max-width;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $min-padding;
+	padding-right: $min-padding;
+
+	// .content_wide
+	&_wide {
+		display: flex;
+		justify-content: center;
+		max-width: 100%;
+		padding: 0;
+	}
+
+	@include resp-from(xl) {
+		padding-left: $max-padding;
+		padding-right: $max-padding;
+	}
+}
