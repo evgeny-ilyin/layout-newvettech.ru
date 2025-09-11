@@ -109,3 +109,32 @@ export function stickyHeader() {
 	window.addEventListener('scroll', handleScroll);
 	handleScroll();
 }
+
+export function bodyBackground() {
+	const background = document.querySelector('.body-background .content');
+
+	const circles = [
+		{ top: '0%', left: '-30%', opacity: 0.5, scale: 1, delay: 0.7 },
+		{ top: '0%', left: '65%', opacity: 0.4, scale: 0.7, delay: 2 },
+		// { top: '300px', left: '95%', scale: 1, delay: 0.3 },
+		// { top: '500px', left: '300px', scale: 1, delay: 0.6 },
+		// { top: '150px', left: '200px', scale: 1, delay: 0.9 },
+		// { top: '99%', left: '5px', scale: 1, delay: 1.2 },
+	];
+
+	circles.forEach(({ top, left, opacity, scale, delay }) => {
+		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+		svg.classList.add('circle-item');
+		svg.style.top = top;
+		svg.style.left = left;
+		svg.style.opacity = opacity;
+		svg.style.setProperty('--scale', scale);
+		svg.style.animationDelay = `${delay}s`;
+
+		const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+		use.setAttribute('href', '#circle-blurry');
+
+		svg.appendChild(use);
+		background.appendChild(svg);
+	});
+}

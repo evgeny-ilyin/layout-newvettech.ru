@@ -5,6 +5,7 @@ addEventListener('DOMContentLoaded', () => {
 	// console.log("JS");
 	// useDynamicAdapt();
 
+	fn.bodyBackground();
 	fn.isTouchDevice();
 	// fn.isWebp();
 	// fn.stickyHeader();
