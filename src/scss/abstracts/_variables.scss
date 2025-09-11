@@ -4,6 +4,10 @@ $ff-base: var(--font-family-base);
 
 //** Цвета
 // Бренд
+$brand-colors-hex: (
+	primary: #8965fd,
+	secondary: #d6cefd,
+);
 $brand-color-primary: var(--color-primary);
 $brand-color-secondary: var(--color-secondary);
 $brand-color-accent: var(--color-accent, var(--color-primary)); // также используется для focus-visible
@@ -16,15 +20,15 @@ $placeholder-color: var(--color-black);
 $input-color: var(--color-black);
 // Выделенный в браузере текст
 $selection-bg: var(--color-selection);
-$selection-text: inherit;
+$selection-text: var(--color-white);
 
 //** Другое
-// Ширина контейнера
-$min-width: 360px;
-$max-width: 1440px;
-// Отступы контейнера
+// Отступы контейнера с контентом
 $min-padding: 15px;
 $max-padding: 30px;
+// Ширина контейнера с контентом
+$min-width: 360px;
+$max-width: 1280px + $max-padding * 2;
 // Гамбургер
 $hamburger-size: 40px;
 $hamburger-line: 4px;
@@ -65,4 +69,4 @@ $breakpoints: (
 );
 
 /// Icons base64
-// $menu-arrow-white: "data:image/svg+xml;base64,.....";
+// $svg-checkbox: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 15 11'%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-width='2' d='m1.5 5.5 4 4L14 1'/%3E%3C/svg%3E";

@@ -52,6 +52,7 @@
 
 @mixin on-disabled() {
 	&:disabled {
+		cursor: not-allowed;
 		@content;
 	}
 }
@@ -144,7 +145,7 @@
 }
 
 /// Стили при наведении: hover для устройств с указателем и active для тач
-@mixin hover($mobileEffect: true) {
+@mixin hover-media($mobileEffect: true) {
 	@media (any-hover: hover) {
 		&:hover {
 			@content;
@@ -154,8 +155,18 @@
 	@if $mobileEffect {
 		@media (any-hover: none) {
 			&:active {
+				transition: none;
 				@content;
 			}
+		}
+	}
+}
+
+/// Стили при наведении: active только для устройств с указателем
+@mixin hover-media-active() {
+	@media (any-hover: hover) {
+		&:active {
+			@content;
 		}
 	}
 }

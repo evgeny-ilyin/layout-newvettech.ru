@@ -1,0 +1,24 @@
+$svgs: (
+	'svg-checkbox':
+		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 15 11'%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-width='2' d='m1.5 5.5 4 4L14 1'/%3E%3C/svg%3E"),
+	'svg-fetch-ring':
+		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3E%3Cpath fill='%23333' fill-rule='evenodd' d='M8 2.6A5.4 5.4 0 1 0 13.4 8a.6.6 0 1 1 1.2 0A6.6 6.6 0 1 1 8 1.4a.6.6 0 0 1 0 1.2Z' clip-rule='evenodd'/%3E%3Cpath fill='%23333' fill-opacity='.3' fill-rule='evenodd' d='M4.182 11.818a5.4 5.4 0 1 0 0-7.636.6.6 0 0 1-.849-.849 6.6 6.6 0 1 1 0 9.334.6.6 0 1 1 .849-.849Z' clip-rule='evenodd'/%3E%3C/svg%3E"),
+	// "svg-arrow-long":
+	// 	url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M7.161 2 1.5 8m0 0 5.661 6M1.5 8H15'/%3E%3C/svg%3E"),
+	// "svg-arrow-black":
+	// 	url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.2' d='M2 3h7.001m0 0v7m0-7L2 10'/%3E%3C/svg%3E"),
+	// "svg-arrow-white":
+	// 	url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.2' d='M2 3h7.001m0 0v7m0-7L2 10'/%3E%3C/svg%3E"),
+	// "svg-angle":
+	// 	url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 7 10'%3E%3Cpath stroke='%23333' stroke-linecap='round' stroke-linejoin='round' d='m1 1 5 4-4.999 4'/%3E%3C/svg%3E"),
+	// "svg-close":
+	// 	url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Cpath stroke='%23333' stroke-linecap='round' stroke-width='1.5' d='m7 7 12.728 12.728M20 7 7.272 19.728'/%3E%3C/svg%3E"),
+	// "svg-nav-search":
+	// 	url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23858585' fill-rule='evenodd' d='M2.1 7a5.4 5.4 0 1 1 10.8 0A5.4 5.4 0 0 1 2.1 7ZM7.5.4a6.6 6.6 0 1 0 4.224 11.672l3.352 3.352a.6.6 0 1 0 .849-.848l-3.353-3.353A6.6 6.6 0 0 0 7.5.4Z' clip-rule='evenodd'/%3E%3C/svg%3E"),
+	// "svg-geo":
+	// 	url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 18'%3E%3Cpath fill-rule='evenodd' d='M9.255 18a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm4.19-10.009c0 4.014-4.19 7.41-4.19 7.41s-4.19-3.396-4.19-7.41c0-2.387 1.876-4.322 4.19-4.322 2.314 0 4.19 1.935 4.19 4.322Zm-2.028.03a2.16 2.16 0 1 1-4.32 0 2.16 2.16 0 0 1 4.32 0Z' clip-rule='evenodd'/%3E%3C/svg%3E"),
+	// "svg-checked":
+	// 	url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 10'%3E%3Cpath stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m1.5 3.8 4 4.8 5.2-7.2'/%3E%3C/svg%3E"),
+	// "svg-download":
+	 // 	url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 17'%3E%3Cpath stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.2' d='M12.5 7.579 8 12m0 0L3.5 7.58M8 12V1.5'/%3E%3Cpath stroke='%23333' stroke-width='1.2' d='M14.5 11v3a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1v-3'/%3E%3C/svg%3E"),,,
+);

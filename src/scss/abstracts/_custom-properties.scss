@@ -1,20 +1,45 @@
+@use 'variables' as *;
+@use 'variables-map' as *;
+
 :root {
 	--font-family-header: 'Gogh Variable', 'Roboto', 'Helvetica', sans-serif;
 	--font-family-base: 'Gogh Variable', 'Roboto', 'Helvetica', sans-serif;
+	--font-weight-normal: 360;
+	--font-weight-medium: 500;
+	--font-weight-bold: 580;
 	--color-white: #fff;
+	--color-white-gray: #fcfcff;
 	--color-black: #18222c;
 	--color-black-50: rgb(0 0 0 / 50%);
 	--color-gray: #ebedf2;
 	--color-silver: #d2d3dd;
-	--color-red: #ff2e00;
+	--color-red: #f45e61;
 	--color-primary: #8965fd;
 	--color-secondary: #d6cefd;
 	--color-accent: var(--color-primary); /* focus-visible */
-	--color-selection: var(--color-secondary);
+	--color-selection: var(--color-primary);
 	--color-link: var(--color-black);
 	--color-link-hover: var(--color-primary);
 	--color-error: var(--color-red);
+	--border-radius: 10px;
+	--border-radius-small: 4px;
+	--border-radius-circle: 50%;
+	--form-control-color: var(--color-primary);
+	--form-control-color-secondary: var(--color-secondary);
+	--form-control-color-darker: var(--color-primary-dark-5, var(--form-control-color));
+	--form-control-disabled-bd: var(--color-silver);
+	--form-control-disabled-bg: var(--color-silver);
 	--transition-duration: 0.2s;
 	--mobile-menu-active: translateX(0);
 	--mobile-menu-closed: translateX(-100%);
+
+	@each $name, $color in $brand-colors-hex {
+		@for $i from 1 through 1 {
+			--color-#{$name}-dark-#{$i * 5}: #{darken($color, $i * 5%)};
+		}
+	}
+
+	@each $name, $svg in $svgs {
+		--#{$name}: #{$svg};
+	}
 }

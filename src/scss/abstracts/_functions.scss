@@ -6,9 +6,9 @@
 /// @author Maksim Vasyanovich
 /// @link https://github.com/maxdenaro/gulp-maxgraph
 /// @param {Num} $pixels
-// @function rem($pixels, $context: 16) {
-// 	@return math.div($pixels, $context) * 1rem;
-// }
+@function rem($pixels, $context: 16) {
+	@return math.div($pixels, $context) * 1rem;
+}
 
 /// Установить цвет как css var(--xxx)
 /// А если его нет в мапе, добавить дефолтный чёрный
