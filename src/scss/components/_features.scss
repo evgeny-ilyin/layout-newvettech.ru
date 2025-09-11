@@ -6,9 +6,9 @@
 	--btn-bgr: var(--section-bgr);
 	display: flex;
 	flex-direction: column;
-	gap: 35px;
+	gap: 25px;
 	position: relative;
-	padding: 30px 25px;
+	padding: 35px 25px;
 	overflow: hidden;
 	background: var(--section-bgr);
 	border-radius: 30px;
@@ -17,19 +17,40 @@
 	&__col {
 		display: flex;
 		flex-direction: column;
-		gap: 40px;
+		gap: 25px;
 		z-index: 1;
+		transition: all $transition-default;
 		// .f-section__col_left
 		&_left {
 		}
 		// .f-section__col_right
 		&_right {
 		}
+
+		@include resp-from(md) {
+			gap: 30px;
+		}
+
+		@include resp-from(lg) {
+			gap: 40px;
+		}
 	}
 	// .f-section__header
 	&__header {
+		display: flex;
+		justify-content: center;
+		gap: 10px;
+
 		svg {
-			max-width: 416px;
+			max-width: 275px;
+
+			@include resp-from(md) {
+				max-width: 416px;
+			}
+		}
+
+		@include resp-from(lg) {
+			justify-content: flex-start;
 		}
 	}
 	// .f-section__body
@@ -79,9 +100,14 @@
 	// .f-section__footer
 	&__footer {
 		display: flex;
+		justify-content: center;
 		align-items: flex-end;
 		gap: 10px;
 		margin-top: auto;
+
+		@include resp-from(lg) {
+			justify-content: flex-start;
+		}
 	}
 	// .f-section__icon (svg use)
 	// &__icon {
@@ -94,47 +120,60 @@
 	// .f-section_bg-center
 	&_bg-center {
 		.f-section__col {
-			min-width: 316px;
-			max-width: 360px;
-			transition: all $transition-default;
-
 			&_left {
+				@include resp-from(lg) {
+					min-width: 316px;
+					max-width: 360px;
+				}
+
 				@include resp-from(xl) {
 					max-width: 416px;
 				}
 			}
 
 			&_right {
-				width: 33%;
-				min-width: 335px;
-				max-width: 375px;
+				@include resp-from(lg) {
+					width: 33%;
+					min-width: 335px;
+					max-width: 375px;
+				}
 			}
 		}
 
 		.f-section__body_left {
 			@include resp-from(lg) {
-				padding-right: 20%;
+				padding-right: 18%;
 			}
 		}
 
 		.f-section__bg {
-			position: absolute;
-			bottom: 0;
-			left: calc(50% - 60px);
-			transform: translateX(-50%);
-			width: 38%;
-			max-width: 485px;
+			align-self: center;
+			position: relative;
+			bottom: -35px;
+			max-width: 345px;
 			mix-blend-mode: darken;
+
+			@include resp-from(lg) {
+				align-self: auto;
+				position: absolute;
+				bottom: 0;
+				left: calc(50% - 70px);
+				transform: translateX(-50%);
+				width: 38%;
+				max-width: 485px;
+			}
 		}
 	}
 
 	@include resp-from(md) {
+		gap: 30px;
 		padding: 35px;
 	}
 
 	@include resp-from(lg) {
 		flex-direction: row;
 		justify-content: space-between;
+		gap: 35px;
 		padding: 50px 45px;
 	}
 }

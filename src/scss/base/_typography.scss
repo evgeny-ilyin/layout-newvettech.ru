@@ -156,6 +156,12 @@ ol {
 	text-align: center !important;
 }
 
+.center-to-lg {
+	@include resp-to(lg) {
+		text-align: center !important;
+	}
+}
+
 .left {
 	text-align: left !important;
 }
