@@ -1,0 +1,114 @@
+@use '../abstracts' as *;
+
+// https://moderncss.dev/pure-css-custom-checkbox-style/
+// https://codepen.io/shshaw/pen/zYKJGgG
+
+input[type='radio'],
+input[type='checkbox'] {
+	display: grid;
+	width: 20px;
+	height: 20px;
+
+	/* Not removed via appearance */
+	margin: 0;
+	font: inherit;
+	color: var(--form-control-color);
+
+	/* For iOS < 15 */
+	background-color: var(--form-control-color);
+	border: 1px solid var(--form-control-color);
+	cursor: pointer;
+	transition:
+		background-color $transition-default,
+		border-color $transition-default;
+
+	/* Remove most all native input styles */
+	appearance: none;
+	place-content: center;
+
+	@include hover-media() {
+		background-color: var(--form-control-color-darker);
+		border-color: var(--form-control-color-darker);
+	}
+
+	@include on-disabled {
+		color: var(--form-control-disabled-bd);
+		background-color: var(--form-control-disabled-bg);
+		border-color: var(--form-control-disabled-bd);
+	}
+}
+
+input[type='radio']::before,
+input[type='checkbox']::before {
+	width: 18px;
+	height: 18px;
+	background-color: var(--form-control-color);
+	// transition: 120ms transform ease-in-out;
+	content: '';
+	transform: scale(0);
+	transform-origin: center;
+}
+
+input[type='radio']:checked::before,
+input[type='checkbox']:checked::before {
+	transform: scale(1);
+	border-color: transparent;
+}
+
+input[type='radio'] {
+	border-radius: var(--border-radius-circle);
+}
+
+input[type='checkbox'] {
+	border-radius: var(--border-radius-small);
+}
+
+input[type='radio']:checked::before {
+	width: 10px;
+	height: 10px;
+	background-color: var(--color-white);
+	border-radius: var(--border-radius-circle);
+}
+
+input[type='checkbox']:checked::before {
+	background: transparent var(--svg-checkbox) center / 15px 10px no-repeat;
+	// transition-delay: 0s;
+	// background-color: var(--color-white);
+	// clip-path: polygon(28% 38%, 41% 53%, 75% 24%, 86% 38%, 40% 78%, 15% 50%);
+}
+
+input {
+	--input-text-height: 44px;
+	height: var(--input-text-height, 44px);
+	padding: 9px 17px 6px;
+}
+
+textarea {
+	min-height: 80px;
+	padding: 9px 17px 6px;
+	resize: vertical;
+}
+
+input,
+select,
+textarea {
+	font-weight: var(--font-weight-normal);
+	background: var(--color-white);
+	border: 2px solid var(--form-control-color);
+	border-radius: var(--border-radius);
+
+	&::placeholder {
+		font-weight: var(--font-weight-normal);
+		color: $placeholder-color !important;
+	}
+
+	// &:focus {
+	// 	outline: none;
+	// 	border-color: var(--form-control-color-secondary) !important;
+	// }
+}
+
+fieldset {
+	padding: 0;
+	border: 0;
+}

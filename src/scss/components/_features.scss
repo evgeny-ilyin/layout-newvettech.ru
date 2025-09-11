@@ -1,0 +1,140 @@
+/* stylelint-disable selector-class-pattern */
+@use '../abstracts' as *;
+
+.f-section {
+	--section-bgr: var(--color-white-gray);
+	--btn-bgr: var(--section-bgr);
+	display: flex;
+	flex-direction: column;
+	gap: 35px;
+	position: relative;
+	padding: 30px 25px;
+	overflow: hidden;
+	background: var(--section-bgr);
+	border-radius: 30px;
+	margin-bottom: 60px;
+	// .f-section__col
+	&__col {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		z-index: 1;
+		// .f-section__col_left
+		&_left {
+		}
+		// .f-section__col_right
+		&_right {
+		}
+	}
+	// .f-section__header
+	&__header {
+		svg {
+			max-width: 416px;
+		}
+	}
+	// .f-section__body
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+
+		// .f-section__body_left
+		&_left {
+		}
+
+		& > strong,
+		& > b {
+			display: block;
+			font-weight: var(--font-weight-bold);
+			color: var(--color-primary);
+
+			@include clamp(font-size, 16, 30);
+		}
+
+		ol,
+		ul {
+			margin: 0;
+
+			li {
+				line-height: 1.3;
+
+				&:not(:last-child) {
+					margin-bottom: 8px;
+				}
+
+				@include clamp(font-size, 16, 18);
+			}
+		}
+
+		ul {
+			padding-left: 23px;
+
+			li {
+				&::marker {
+					font-size: 24px;
+				}
+			}
+		}
+	}
+	// .f-section__footer
+	&__footer {
+		display: flex;
+		align-items: flex-end;
+		gap: 10px;
+		margin-top: auto;
+	}
+	// .f-section__icon (svg use)
+	// &__icon {
+	// 	margin-bottom: -4px;
+	// }
+	// .f-section__bg
+	&__bg {
+	}
+
+	// .f-section_bg-center
+	&_bg-center {
+		.f-section__col {
+			min-width: 316px;
+			max-width: 360px;
+			transition: all $transition-default;
+
+			&_left {
+				@include resp-from(xl) {
+					max-width: 416px;
+				}
+			}
+
+			&_right {
+				width: 33%;
+				min-width: 335px;
+				max-width: 375px;
+			}
+		}
+
+		.f-section__body_left {
+			@include resp-from(lg) {
+				padding-right: 20%;
+			}
+		}
+
+		.f-section__bg {
+			position: absolute;
+			bottom: 0;
+			left: calc(50% - 60px);
+			transform: translateX(-50%);
+			width: 38%;
+			max-width: 485px;
+			mix-blend-mode: darken;
+		}
+	}
+
+	@include resp-from(md) {
+		padding: 35px;
+	}
+
+	@include resp-from(lg) {
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 50px 45px;
+	}
+}

@@ -1,11 +1,101 @@
 @use '../abstracts' as *;
 
 .btn {
+	height: var(--btn-height, 34px);
+	padding: 8px 20px 6px;
+	box-sizing: border-box;
+	font-weight: var(--font-weight-medium);
+	line-height: 1;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: var(--form-control-color);
+	background: var(--btn-bgr, transparent);
+	// background: var(--color-white);
+	border: 2px solid var(--form-control-color);
+	border-radius: var(--border-radius);
 	cursor: pointer;
+	transition:
+		color $transition-default,
+		background $transition-default;
+	user-select: none;
+	white-space: nowrap;
 
-	// .btn_default
-	&_default {
-		@include on-event {
+	// .btn_sm
+	&_sm {
+		--btn-height: 34px;
+
+		@include clamp(font-size, 15, 15);
+	}
+
+	// .btn_md
+	&_md {
+		--btn-height: 44px;
+
+		@include clamp(font-size, 16, 18);
+	}
+
+	// .btn_lg
+	&_lg {
+		--btn-height: 50px;
+
+		@include clamp(font-size, 18, 20);
+	}
+
+	// .btn_wide
+	&_wide {
+		width: 100%;
+		min-width: fit-content;
+
+		@include clamp(padding-left, 6, 40);
+		@include clamp(padding-right, 6, 40);
+	}
+
+	// .btn_disabled
+	&_disabled {
+		color: var(--form-control-disabled-bd);
+		border-color: var(--form-control-disabled-bd);
+		background: var(--color-white);
+		pointer-events: none;
+	}
+
+	// .btn_3d-tour
+	&_3d-tour {
+		--size: 52px;
+		--gap: 11px;
+		position: relative;
+
+		@include resp-from(sm) {
+			margin-left: calc(var(--size) + var(--gap));
+
+			&::before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: calc((var(--size) + var(--gap)) * -1);
+				transform: translateY(-50%);
+				width: var(--size);
+				height: var(--size);
+				background: url('/img/icons/icon-3d.svg') no-repeat center / contain;
+			}
 		}
+	}
+
+	@include flex-center(true);
+	@include clamp(font-size, 15, 15);
+
+	@include hover-media() {
+		color: var(--color-white);
+		background: var(--form-control-color);
+	}
+
+	@include hover-media-active() {
+		color: var(--form-control-color);
+		background: var(--form-control-color-secondary);
+	}
+
+	@include on-disabled {
+		@extend .btn_disabled;
 	}
 }
