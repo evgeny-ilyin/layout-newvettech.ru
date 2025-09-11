@@ -7,40 +7,15 @@
 
 				<main class="main container">
 					<div class="content">
-						<h1>Заголовок h1, .h1</h1>
-						<p>
-							Lorem ipsum, <a href="javascript:void(0)">dolor sit amet</a> consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
-						</p>
-						<h2>Заголовок h2, .h2</h2>
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
-						</p>
-						<h3>Заголовок h3, .h3</h3>
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
-						</p>
-						<h4>Заголовок h4, .h4</h4>
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
-						</p>
-						<h5>Заголовок h5, .h5</h5>
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
-						</p>
-						<h6>Заголовок h6, .h6</h6>
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
-						</p>
-						<p class="ellipsis">
-							<strong>.ellipsis</strong>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora assumenda magni doloribus eius eum deserunt fuga animi, quae quisquam dolorum repellendus nemo explicabo temporibus natus inventore architecto
-						</p>
+						<%= _.template(require('../components/features/block-team.html').default)() %>
+
 					</div>
 				</main>
 
-				<%= _.template(require('../components/footer.html').default)() %>
+				<%= _.template(require('../components/body-background.html').default)() %>
+					<%= _.template(require('../components/footer.html').default)() %>
 
-					<%= sprite %>
+						<%= sprite %>
 
 		</body>
 		</html>
