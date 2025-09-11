@@ -130,7 +130,10 @@ const config = {
 			},
 			{
 				test: /\.html$/,
-				include: path.resolve(__dirname, 'src/html/components'),
+				include: [
+					path.resolve(__dirname, 'src/html/components'),
+					// path.resolve(__dirname, 'src/html/layout'),
+				],
 				use: [
 					{
 						loader: 'html-loader',
