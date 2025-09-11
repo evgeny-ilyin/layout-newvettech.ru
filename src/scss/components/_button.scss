@@ -2,7 +2,7 @@
 
 .btn {
 	height: var(--btn-height, 34px);
-	padding: 8px 20px 6px;
+	padding: 8px 15px 6px;
 	box-sizing: border-box;
 	font-weight: var(--font-weight-medium);
 	line-height: 1;
@@ -51,6 +51,11 @@
 		@include clamp(padding-right, 6, 40);
 	}
 
+	// .btn_wrap
+	&_wrap {
+		white-space: wrap;
+	}
+
 	// .btn_disabled
 	&_disabled {
 		color: var(--form-control-disabled-bd);
@@ -80,6 +85,11 @@
 				background: url('/img/icons/icon-3d.svg') no-repeat center / contain;
 			}
 		}
+	}
+
+	@include resp-from(xm) {
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 
 	@include flex-center(true);
