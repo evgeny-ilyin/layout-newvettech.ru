@@ -59,6 +59,19 @@
 	}
 }
 
+// текстовый блок спрятан для обычных пользователей, но читается скринридерами
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
 .hidden {
 	display: none !important;
 }
@@ -79,3 +92,10 @@
 	height: 100vh;
 	overflow: hidden;
 } */
+
+// 100% ширина элемента
+.w-full {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+}

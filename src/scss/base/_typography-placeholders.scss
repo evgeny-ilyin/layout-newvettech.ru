@@ -2,56 +2,56 @@
 
 // Заголовки
 %h1-heading {
-	font-weight: 500;
+	font-weight: var(--font-weight-bold);
 	line-height: 1.2;
 
 	@include clamp(font-size, 33, 58);
 }
 
 %h2-heading {
-	font-weight: 500;
+	font-weight: var(--font-weight-bold);
 	line-height: 1.2;
 
 	@include clamp(font-size, 20, 38);
 }
 
 %h3-heading {
-	font-weight: 500;
+	font-weight: var(--font-weight-bold);
 	line-height: 1.2;
 
 	@include clamp(font-size, 18, 32);
 }
 
 %h4-heading {
-	font-weight: 500;
+	font-weight: var(--font-weight-normal);
 	line-height: 1.2;
 
 	@include clamp(font-size, 16, 30);
 }
 
 %h5-heading {
-	font-weight: 500;
+	font-weight: var(--font-weight-medium);
 	line-height: 1.2;
 
 	@include clamp(font-size, 15, 24);
 }
 
 %h6-heading {
-	font-weight: 500;
+	font-weight: var(--font-weight-medium);
 	line-height: 1.2;
 
 	@include clamp(font-size, 14, 20);
 }
 
 %paragraph {
-	font-weight: 360;
-	line-height: 1.2;
+	font-weight: var(--font-weight-normal);
+	line-height: 1.4;
 
 	@include clamp(font-size, 16, 20);
 }
 
 %strong {
-	font-weight: 600;
+	font-weight: var(--font-weight-medium);
 }
 
 // Ссылки
@@ -62,9 +62,9 @@
 	text-decoration-color: currentcolor;
 	text-underline-offset: 3px;
 	color: $color-link;
-	transition: all $transition-default;
+	transition: color $transition-default;
 
-	@include hover() {
+	@include hover-media() {
 		color: $color-link-hover;
 	}
 }

@@ -2,9 +2,9 @@
 
 html {
 	min-width: $min-width;
-	scroll-behavior: smooth;
+	// overflow-x: hidden; // не будет работать position sticky
 	cursor: default;
-	/* overflow-x: hidden; */ // не будет работать position sticky
+	scroll-behavior: smooth;
 
 	&.is-lock {
 		height: 100vh;
@@ -17,6 +17,9 @@ body {
 	display: flex;
 	flex-direction: column;
 	position: relative;
+	background:
+		linear-gradient(to top, #cfc9f3, rgb(0 0 0 / 0%)) bottom / 100% 30vw no-repeat,
+		var(--color-gray);
 }
 
 /* ширина контента не прыгает при появлении или скрытии скроллбара, но на странице остается зарезервированный отступ для скролла */
@@ -43,5 +46,11 @@ body {
 
 svg,
 svg * {
-	transition: all $transition-default;
+	@media (any-hover: hover) {
+		transition: all $transition-default;
+	}
+}
+
+svg * {
+	transition-property: fill, stroke;
 }

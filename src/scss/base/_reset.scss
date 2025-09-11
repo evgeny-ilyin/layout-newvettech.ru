@@ -39,6 +39,11 @@ dd {
 	margin-block-end: 0;
 }
 
+/* Отступ для параграфа без атрибута class, расположенного не последним среди своих соседей */
+p:where(:not([class], :last-child)) {
+	margin-bottom: 16px;
+}
+
 /* Убираем эффект подсветки при тапе на мобильных устройствах */
 label,
 input,
@@ -96,8 +101,8 @@ img,
 svg,
 picture {
 	display: block;
-	max-width: 100%;
 	height: auto;
+	max-width: 100%;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -107,6 +112,13 @@ button,
 textarea {
 	font-family: inherit;
 	font-size: inherit;
+}
+
+fieldset {
+	min-width: 0; // чтобы не ломалось в flex/grid
+	margin: 0;
+	padding: 0;
+	border: 0;
 }
 
 /* Make sure textareas without a rows attribute are not tiny */
