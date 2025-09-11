@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+.body-background {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	overflow: hidden;
+}
+
+.circle-item {
+	position: absolute;
+	width: 80vw;
+	height: 80vw;
+	max-width: 900px;
+	max-height: 900px;
+	/* border: 1px solid #000; */
+	transition: none;
+	animation: wobble-anim 20s ease-in-out infinite;
+	transform: scale(var(--scale, 1));
+}
+
+@keyframes wobble-anim {
+	0% {
+		transform: translate(0, 0) scale(var(--scale, 1));
+	}
+
+	25% {
+		transform: translate(10px, -100px) scale(var(--scale, 1));
+	}
+
+	50% {
+		transform: translate(100px, 150px) scale(var(--scale, 1));
+	}
+
+	75% {
+		transform: translate(-100px, -50px) scale(var(--scale, 1));
+	}
+
+	100% {
+		transform: translate(0, 0) scale(var(--scale, 1));
+	}
+}

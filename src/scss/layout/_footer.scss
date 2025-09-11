@@ -1,1 +1,258 @@
 @use '../abstracts' as *;
+
+.footer {
+	// .footer__animals
+	&__animals {
+		picture {
+			width: 100%;
+			max-width: 310px;
+			margin: 0 auto;
+			padding: 0 10px;
+
+			@include resp-from(xm) {
+				max-width: 1240px;
+				padding: 0 30px;
+			}
+		}
+	}
+	// .footer__body
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: 35px;
+		padding: 30px 25px;
+		background: var(--color-white-gray);
+		border-radius: 30px;
+		box-shadow: 0 10px 10px 0 rgb(102 115 153 / 10%);
+
+		@include resp-from(md) {
+			padding: 35px;
+		}
+
+		@include resp-from(lg) {
+			padding: 35px 50px;
+		}
+	}
+
+	// .footer__main
+	&__row {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 25px;
+
+		@include resp-from(md) {
+			flex-flow: row wrap;
+			justify-content: space-between;
+			align-items: normal;
+			gap: 50px;
+		}
+	}
+	// .footer__left
+	&__left {
+		width: 243px;
+
+		@include resp-from(md) {
+			width: 25%;
+			min-width: 180px;
+		}
+	}
+	// .footer__right
+	&__right {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		gap: 25px;
+		max-width: 690px;
+
+		// .footer__right_end-md
+		&_end-md {
+			@include resp-from(md) {
+				align-self: flex-end;
+			}
+		}
+
+		@include resp-from(md) {
+			gap: 35px;
+		}
+	}
+	// .footer__form-label
+	&__form-label {
+		text-align: center;
+
+		@include resp-from(md) {
+			text-align: left;
+		}
+	}
+	// .footer__bottom
+	&__bottom {
+	}
+
+	@include clamp(margin-bottom, 30, 85);
+}
+
+.footer-logo {
+	margin-bottom: 42px;
+
+	// .footer-logo__link
+	&__link {
+		display: flex;
+		align-items: flex-start;
+		max-width: 243px;
+		border-radius: 4px;
+	}
+}
+
+.footer-metapets {
+	// .footer-metapets__link
+	&__link {
+		--color-square: var(--color-secondary);
+		--color-figure: var(--color-primary);
+		display: flex;
+		align-items: flex-start;
+		max-width: 234px;
+		border-radius: 4px;
+
+		@include hover-media() {
+			--color-square: var(--color-primary);
+			--color-figure: #af9ffb;
+		}
+	}
+}
+
+.footer-links-svg {
+	display: flex;
+	justify-content: center;
+	gap: 7px;
+	margin-bottom: 25px;
+
+	@include resp-from(md) {
+		justify-content: flex-start;
+	}
+}
+
+.footer-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+	grid-auto-rows: auto;
+	gap: 20px;
+
+	// .footer-grid_special-cols
+	&_special-cols {
+		@include resp-to(md) {
+			gap: 27px;
+			text-align: center;
+		}
+
+		@include resp-from(md) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
+
+.footer-form {
+	align-items: center;
+	// grid-template-columns: repeat(auto-fill, minmax(205px, 305px));
+	// grid-template-columns: repeat(2, 50%);
+
+	// .footer-form__label
+	&__label {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		font-size: rem(12);
+	}
+}
+
+.footer-contacts {
+	// .footer-contacts__contact
+	&__contact {
+	}
+	// .footer-contacts__label
+	&__label {
+		margin-bottom: 8px;
+
+		@include clamp(font-size, 14, 16);
+	}
+	// .footer-contacts__phone
+	&__phone {
+		font-weight: var(--font-weight-medium);
+
+		a {
+			text-decoration: none;
+		}
+
+		@include clamp(font-size, 20, 25);
+	}
+	// .footer-contacts__addresses
+	&__addresses {
+		@include resp-from(xm) {
+			display: flex;
+			gap: 9px;
+		}
+	}
+	// .footer-contacts__pointer
+	&__pointer {
+		display: none;
+		fill: var(--color-primary);
+
+		@include resp-from(xm) {
+			display: block;
+			flex: 0 0 28px;
+			margin-left: -14px;
+		}
+
+		@include resp-from(md) {
+			margin-left: 0;
+		}
+
+		@include resp-from(lg) {
+			margin-left: -14px;
+		}
+
+		@include resp-from(xl) {
+			flex-basis: 32px;
+			margin-left: -16px;
+		}
+	}
+	// .footer-contacts__list
+	&__list {
+		b,
+		strong {
+			font-weight: var(--font-weight-bold);
+			color: var(--color-primary);
+		}
+
+		@include clamp(font-size, 14, 16);
+	}
+}
+
+.footer-bottom {
+	font-size: rem(12);
+	line-height: 1.3;
+
+	// .footer-bottom_end-md
+	&_end-md {
+		@include resp-from(md) {
+			place-self: end end;
+		}
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			margin-bottom: 16px;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+
+			@include resp-from(md) {
+				margin-bottom: 8px;
+			}
+		}
+	}
+}

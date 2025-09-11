@@ -4,4 +4,14 @@
 	display: flex;
 	flex: 1;
 	padding: 30px 0;
+
+	path.logo-text-hide {
+		display: none !important;
+	}
+}
+
+.logo-no-text {
+	path.logo-text-hide {
+		display: none !important;
+	}
 }

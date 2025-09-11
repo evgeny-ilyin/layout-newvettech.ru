@@ -9,31 +9,11 @@
 		align-items: center;
 		gap: 0 5px;
 		position: relative;
-		padding: 15px 0;
+		padding: 20px 0;
 	}
 
 	// .header__logo
 	&__logo {
-		margin: 10px 0;
-
-		a {
-			display: flex;
-			color: var(--color-black);
-		}
-
-		svg {
-			width: 145px;
-			height: 50px;
-			fill: currentcolor;
-
-			@include resp-from(lg) {
-				transition: width 0s;
-			}
-		}
-
-		@include resp-from(md) {
-			margin: 0;
-		}
 	}
 
 	// .header__nav
@@ -42,4 +22,11 @@
 		align-items: center;
 		position: relative;
 	}
+}
+
+.logo-link {
+	display: flex;
+	width: 88px;
+	height: 88px;
+	border-radius: 8px;
 }
