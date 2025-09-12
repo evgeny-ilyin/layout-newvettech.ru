@@ -1,5 +1,5 @@
 .vscode
-fonts/
+./fonts/
 
 # Dependency directories
 node_modules/
