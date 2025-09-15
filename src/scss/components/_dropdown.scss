@@ -1,0 +1,137 @@
+/* stylelint-disable selector-class-pattern */
+@use '../abstracts' as *;
+
+.dropdown {
+	--arrow-color: var(--color-primary);
+	--arrow-width: 11px;
+	--arrow-margin: -4px 15px 0;
+	display: flex;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+
+	&::after {
+		content: '';
+		transform: rotate(225deg);
+		width: var(--arrow-width, 14px);
+		height: var(--arrow-width, 14px);
+		margin: var(--arrow-margin, 20px);
+		border-top: 2px solid var(--arrow-color, currentcolor);
+		border-left: 2px solid var(--arrow-color, currentcolor);
+		transition: all $transition-default;
+	}
+
+	// .dropdown__label
+	&__label {
+	}
+
+	// .dropdown__collapse
+	&__collapse {
+		display: grid;
+		grid-template-rows: 0fr;
+		position: absolute;
+		top: 100%;
+		z-index: 4;
+		margin-top: -2px;
+		overflow: hidden;
+		background: var(--color-white);
+		transition: grid-template-rows $transition-default;
+	}
+
+	// .dropdown__wrapper
+	&__wrapper {
+		min-height: 0;
+	}
+
+	// .dropdown__content
+	&__content {
+		padding: 15px;
+		cursor: default;
+	}
+
+	// .dropdown_nav
+	&_nav {
+		@include resp-to(desktop) {
+			display: block;
+			height: auto;
+			font-size: rem(18);
+
+			&::after {
+				display: none;
+			}
+
+			.dropdown__label {
+				display: none;
+			}
+
+			.dropdown__collapse {
+				display: block;
+				position: static;
+				margin-top: 0;
+			}
+
+			.dropdown__content {
+				padding: 0;
+			}
+		}
+
+		@include resp-from(desktop) {
+			height: 100%;
+			font-size: rem(14);
+			border-radius: 5px;
+			// border: 2px solid var(--color-primary);
+			box-shadow: inset 0 0 0 2px var(--color-primary);
+
+			.dropdown__label {
+				display: flex;
+				align-items: center;
+				gap: 11px;
+				height: 100%;
+				padding-left: 10px;
+				// padding: 7px 0 0 10px;
+
+				svg {
+					width: 16px;
+					height: 23px;
+					color: var(--color-primary);
+				}
+
+				span {
+					padding-top: 7px;
+				}
+			}
+
+			.dropdown__collapse {
+				border-radius: 5px;
+			}
+
+			.dropdown__content {
+				border: 2px solid var(--color-primary);
+				border-radius: 5px;
+			}
+		}
+	}
+
+	@include on-hover {
+		.dropdown__collapse {
+			grid-template-rows: 1fr;
+		}
+	}
+}
+
+/* 
+	@include resp-from(desktop) {
+
+
+		// .nav-dropdown__collapse
+		&__collapse {
+
+		}
+
+		@include on-hover {
+			.nav-dropdown__collapse {
+				display: block;
+			}
+		}
+	}
+	 */
