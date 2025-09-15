@@ -12,8 +12,16 @@
 	height: $hamburger-size;
 	cursor: pointer;
 
-	@include resp-from(md) {
+	@include resp-from(desktop) {
 		display: none;
+	}
+
+	@include hover-media() {
+		.hamburger-inner,
+		.hamburger-inner::after,
+		.hamburger-inner::before {
+			background: var(--color-primary);
+		}
 	}
 }
 
@@ -24,15 +32,14 @@
 	width: $hamburger-size;
 	height: $hamburger-line;
 	background: $hamburger-color;
-	transition-timing-function: ease;
-	transition-duration: 0.15s;
-	transition-property: transform;
+	border-radius: $hamburger-radius;
+	transition: transform 0.15s ease;
 }
 
 .hamburger-inner::after,
 .hamburger-inner::before {
-	display: block;
 	content: '';
+	display: block;
 }
 
 .hamburger-inner {
@@ -81,10 +88,10 @@
 
 		~ .hamburger-box .hamburger-inner::after {
 			bottom: 0;
+			transform: rotate(-90deg);
 			transition:
 				bottom 75ms ease,
 				transform 75ms cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
-			transform: rotate(-90deg);
 		}
 	}
 }
