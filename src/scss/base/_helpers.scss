@@ -25,9 +25,9 @@
 	}
 }
 
-// Скрыть на десктопе (≥1024px)
+// Скрыть на десктопе ($breakpoints[$desktop])
 .hidden-desktop {
-	@include resp-from(lg) {
+	@include resp-from(desktop) {
 		display: none !important;
 	}
 }
@@ -50,11 +50,11 @@
 	}
 }
 
-// Показывать на десктопе (≥1024px)
+// Показывать на десктопе ($breakpoints[$desktop])
 .visible-desktop {
 	display: none !important;
 
-	@include resp-from(lg) {
+	@include resp-from(desktop) {
 		display: block !important;
 	}
 }
