@@ -13,7 +13,7 @@ vmax – наибольшее из (vw, vh)
 */
 
 body {
-	font: var(--font-weight-normal) 1rem / 1.2 $ff-base;
+	font: var(--font-weight-normal) 1rem / 1.2 var(--font-family-base);
 	color: $color-text;
 }
 
@@ -30,7 +30,7 @@ h5,
 .h5,
 h6,
 .h6 {
-	font-family: $ff-header;
+	font-family: var(--font-family-header);
 }
 
 h1,
