@@ -194,7 +194,7 @@
 	// .footer-contacts__pointer
 	&__pointer {
 		display: none;
-		fill: var(--color-primary);
+		color: var(--color-primary);
 
 		@include resp-from(xm) {
 			display: block;

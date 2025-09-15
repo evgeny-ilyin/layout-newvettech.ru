@@ -21,6 +21,11 @@
 	user-select: none;
 	white-space: nowrap;
 
+	// .btn_white
+	&_white {
+		--btn-bgr: var(--color-white);
+	}
+
 	// .btn_sm
 	&_sm {
 		--btn-height: 34px;
