@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const svgstore = require('svgstore');
+const { optimize } = require('svgo');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 class RemoveCopiedFilePlugin {
@@ -27,19 +28,30 @@ class RemoveCopiedFilePlugin {
 function inlineSprite() {
 	const options = {
 		inline: true,
-		renameDefs: true, // Rename defs content ids to make them inherit files' names to avoid defs with same ids in the output file
 		svgAttrs: {
 			class: 'svg-sprite',
 		},
 	};
-	const sprites = svgstore(options);
 	const iconsDir = path.resolve(__dirname, 'src/svg');
+	const sprites = svgstore(options);
 
 	fs.readdirSync(iconsDir).forEach((file) => {
+		if (!file.endsWith('.svg')) {
+			return;
+		}
 		const filepath = path.join(iconsDir, file);
 		const id = path.parse(file).name;
 		const svg = fs.readFileSync(filepath, 'utf8');
-		sprites.add(id, svg);
+
+		// оптимизируем только текущий svg и задаём уникальный префикс
+		const optimized = optimize(svg, {
+			multipass: true,
+			plugins: [
+				{ name: 'prefixIds', params: { prefix: `${id}` } }, // уникальный префикс
+			],
+		});
+
+		sprites.add(id, optimized.data);
 	});
 
 	return sprites.toString();
