@@ -53,6 +53,12 @@
 		height: 22px;
 	}
 
+	&.swiper-button-disabled {
+		color: var(--color-white);
+		background: var(--color-silver);
+		opacity: 1;
+	}
+
 	@include hover-media() {
 		color: var(--color-primary);
 		background: var(--color-secondary);
