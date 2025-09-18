@@ -100,7 +100,9 @@
 			"cursor",
 			"transition",
 			"animation",
-			"opacity"
+			"opacity",
+			"white-space",
+			"user-select"
 		],
 		"value-no-vendor-prefix": null,
 		"at-rule-no-vendor-prefix": null,
