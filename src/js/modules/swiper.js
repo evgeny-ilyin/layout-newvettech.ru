@@ -14,7 +14,7 @@ export function swipersInit() {
 			slidesPerView: 1,
 			slidesPerGroup: 1,
 			spaceBetween: 20,
-			loop: true,
+			// loop: true,
 			pagination: {
 				enabled: true,
 				el: pagination,

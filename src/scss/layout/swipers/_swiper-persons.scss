@@ -41,10 +41,10 @@
 	// .swiper-persons__name
 	&__name {
 		margin-bottom: 5px;
-		font-size: rem(23);
-		font-weight: var(--font-weight-medium);
-		line-height: 1.2;
-		letter-spacing: -0.01em;
+		// font-size: rem(23);
+		// font-weight: var(--font-weight-medium);
+		// line-height: 1.2;
+		// letter-spacing: -0.01em;
 	}
 	// .swiper-persons__position
 	&__position {
@@ -58,6 +58,5 @@
 	}
 
 	.swiper-slide {
-		// width: 25%; //!
 	}
 }
