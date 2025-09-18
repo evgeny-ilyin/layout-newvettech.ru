@@ -108,14 +108,16 @@
 	&__link {
 		--color-square: var(--color-secondary);
 		--color-figure: var(--color-primary);
+		--color-text: var(--color-black);
 		display: flex;
 		align-items: flex-start;
-		max-width: 234px;
+		max-width: 246px;
 		border-radius: 4px;
 
 		@include hover-media() {
 			--color-square: var(--color-primary);
 			--color-figure: #af9ffb;
+			--color-text: var(--color-white);
 		}
 	}
 }
@@ -176,29 +178,30 @@
 	}
 	// .footer-contacts__phone
 	&__phone {
+		font-size: rem(26);
 		font-weight: var(--font-weight-medium);
 
 		a {
 			text-decoration: none;
 		}
 
-		@include clamp(font-size, 20, 25);
+		@include resp-from(md) {
+			font-size: rem(25);
+		}
 	}
 	// .footer-contacts__addresses
 	&__addresses {
-		@include resp-from(xm) {
-			display: flex;
-			gap: 9px;
-		}
+		display: flex;
+		gap: 9px;
 	}
 	// .footer-contacts__pointer
 	&__pointer {
-		display: none;
+		display: block;
+		flex: 0 0 20px;
 		color: var(--color-primary);
 
 		@include resp-from(xm) {
-			display: block;
-			flex: 0 0 28px;
+			flex-basis: 28px;
 			margin-left: -14px;
 		}
 
