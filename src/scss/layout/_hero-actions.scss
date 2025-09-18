@@ -1,0 +1,138 @@
+@use '../abstracts' as *;
+
+.hero-actions {
+	--hero-margin-bottom: 40px;
+	--hero-btn-height: 56px;
+	display: flex;
+	flex-direction: column;
+	gap: 21px;
+	margin-bottom: var(--hero-margin-bottom);
+
+	// .hero-actions__btn
+	&__btn {
+		height: var(--hero-btn-height);
+		font-weight: var(--font-weight-medium);
+		line-height: 1;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+		color: var(--hero-btn-color, var(--color-white));
+		background: var(--hero-btn-background, var(--color-primary));
+		border-radius: var(--hero-btn-height);
+		box-shadow: 0 10px 15px 0 rgb(164 136 255 / 15%);
+		transition: all $transition-default;
+		user-select: none;
+
+		@include flex-center(true);
+	}
+
+	@include resp-from(md) {
+		--hero-btn-height: 50px;
+		flex-direction: row;
+		justify-content: center;
+		gap: 7px;
+	}
+
+	@include resp-from(lg) {
+		gap: 21px;
+	}
+
+	@include resp-from(desktop) {
+		--hero-btn-height: 70px;
+	}
+}
+
+.action-emergency {
+	--hero-btn-background: var(--color-primary);
+	--hero-btn-color: var(--color-white);
+	--icon-size: 45px;
+	position: relative;
+	// padding: 6px calc(var(--hero-btn-height) + 2px);
+	padding: 6px 48px 6px calc(var(--hero-btn-height) + 2px);
+	font-size: rem(18);
+	letter-spacing: 0.02em;
+
+	svg {
+		position: absolute;
+		left: 6px;
+		width: var(--icon-size);
+
+		@include resp-from(desktop) {
+			left: 10px;
+		}
+	}
+
+	@include hover-media() {
+		--hero-btn-background: var(--color-secondary);
+		--hero-btn-color: var(--color-primary);
+
+		svg {
+			--icon-stroke-color: var(--color-primary);
+		}
+	}
+
+	@include resp-from(md) {
+		--icon-size: 38px;
+		padding-right: 14px;
+		font-size: rem(15);
+	}
+
+	@include resp-from(desktop) {
+		--icon-size: 52px;
+		padding-right: 29px;
+		font-size: rem(24);
+	}
+}
+
+.action-metapets {
+	--hero-btn-background: var(--color-secondary);
+	padding: 0 22px;
+
+	svg {
+		height: 44px;
+
+		@include resp-from(md) {
+			height: 34px;
+		}
+
+		@include resp-from(desktop) {
+			height: 50px;
+		}
+	}
+
+	@include hover-media() {
+		--hero-btn-background: var(--color-secondary-dark-5);
+	}
+
+	@include resp-from(md) {
+	}
+
+	@include resp-from(desktop) {
+		padding: 0 33px;
+	}
+}
+
+.action-tel {
+	--hero-btn-background: var(--color-white);
+	--hero-btn-color: var(--color-primary);
+	padding: 0 22px;
+	font-size: rem(28);
+
+	@include hover-media() {
+		--hero-btn-background: var(--color-primary);
+		--hero-btn-color: var(--color-white);
+	}
+
+	@include resp-from(md) {
+		// --icon-size: 38px;
+		// padding-right: 14px;
+		font-size: rem(18);
+	}
+
+	@include resp-from(desktop) {
+		padding: 0 33px;
+		// --icon-size: 52px;
+		// padding-right: 29px;
+		font-size: rem(33);
+	}
+}
