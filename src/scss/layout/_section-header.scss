@@ -1,0 +1,85 @@
+@use '../abstracts' as *;
+
+.section-header {
+	--header-margin-bottom: 35px;
+	--max-width: 550px;
+	// display: flex;
+	// flex-direction: column;
+	// align-items: center;
+	max-width: var(--max-width);
+	margin-right: auto;
+	margin-bottom: var(--header-margin-bottom);
+	margin-left: auto;
+	text-align: center;
+	hyphens: none;
+
+	// .section-header_main-logo
+	&_main-logo {
+		margin-bottom: -10px;
+
+		svg {
+			transition-duration: 0s;
+		}
+
+		.logo-letter-no-slogan {
+			max-width: 240px;
+
+			@include resp-from(md) {
+				display: none;
+			}
+		}
+
+		.logo-text-no-slogan {
+			display: none;
+
+			@include resp-from(md) {
+				display: block;
+
+				@include clamp(max-width, 377, 550);
+
+				// @include fluid(max-width, 377px, 550px, map-get($breakpoints, 'md'), map-get($breakpoints, 'desktop'));
+			}
+
+			@include resp-from(desktop) {
+				max-width: 720px;
+			}
+		}
+
+		@include resp-from(lg) {
+			margin-bottom: -20px;
+		}
+
+		@include resp-from(desktop) {
+			margin-bottom: -40px;
+		}
+	}
+
+	// .section-header__title
+	&__title {
+		display: flex;
+		justify-content: center;
+	}
+
+	// .section-header__subtitle
+	&__subtitle {
+		font-size: rem(20);
+
+		b,
+		strong {
+			color: var(--color-primary);
+		}
+
+		@include resp-from(desktop) {
+			font-size: rem(30);
+		}
+	}
+
+	@include resp-from(md) {
+		--header-margin-bottom: 45px;
+	}
+
+	@include resp-from(desktop) {
+		--header-margin-bottom: 90px;
+		--max-width: 900px;
+	}
+}
