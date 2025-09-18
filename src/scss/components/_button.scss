@@ -56,6 +56,15 @@
 		@include clamp(padding-right, 6, 40);
 	}
 
+	// .btn_wide-mobile
+	&_wide-mobile {
+		@extend .btn_wide;
+
+		@include resp-from(md) {
+			max-width: 50%;
+		}
+	}
+
 	// .btn_wrap
 	&_wrap {
 		white-space: wrap;
