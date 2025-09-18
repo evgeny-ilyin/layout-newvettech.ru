@@ -7,10 +7,12 @@
 .menu-container {
 	display: flex;
 	gap: 22px;
+	min-width: $min-width;
 	background: var(--color-white);
 
 	@include resp-to(desktop) {
 		flex-direction: column;
+		justify-content: space-between;
 		position: fixed;
 		top: 0;
 		bottom: 0;
@@ -19,7 +21,7 @@
 		z-index: 3;
 		width: 100%;
 		// max-width: $min-width;
-		padding: 120px 30px 70px 25px;
+		padding: 120px 30px 55px 25px;
 		overflow: hidden;
 		overflow-y: auto;
 
@@ -46,6 +48,8 @@
 
 .nav {
 	font-family: var(--font-family-nav);
+	user-select: none;
+
 	// ul.nav__list
 	ul#{&}__list {
 		display: flex;
