@@ -14,7 +14,7 @@
 	hyphens: none;
 
 	// .section-header_main-logo
-	&_main-logo {
+	#{&}_main-logo {
 		margin-bottom: -10px;
 
 		svg {
@@ -56,8 +56,18 @@
 
 	// .section-header__title
 	&__title {
+		--title-margin-bottom: 20px;
 		display: flex;
 		justify-content: center;
+		margin-bottom: var(--title-margin-bottom);
+
+		@include resp-from(md) {
+			--title-margin-bottom: 20px;
+		}
+
+		@include resp-from(desktop) {
+			--title-margin-bottom: 25px;
+		}
 	}
 
 	// .section-header__subtitle
