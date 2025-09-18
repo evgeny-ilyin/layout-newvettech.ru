@@ -8,11 +8,11 @@
 	flex-direction: column;
 	gap: 25px;
 	position: relative;
+	margin-bottom: 60px;
 	padding: 35px 25px;
 	overflow: hidden;
 	background: var(--section-bgr);
 	border-radius: 30px;
-	margin-bottom: 60px;
 	// .f-section__col
 	&__col {
 		display: flex;
