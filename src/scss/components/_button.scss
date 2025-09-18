@@ -18,8 +18,8 @@
 	transition:
 		color $transition-default,
 		background $transition-default;
-	user-select: none;
 	white-space: nowrap;
+	user-select: none;
 
 	// .btn_white
 	&_white {
@@ -93,8 +93,8 @@
 	}
 
 	@include resp-from(xm) {
-		padding-left: 20px;
 		padding-right: 20px;
+		padding-left: 20px;
 	}
 
 	@include flex-center(true);

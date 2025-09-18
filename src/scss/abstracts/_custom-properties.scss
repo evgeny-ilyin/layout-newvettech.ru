@@ -1,5 +1,6 @@
 @use 'variables' as *;
 @use 'variables-map' as *;
+// @use 'mixins' as *;
 
 :root {
 	--font-family-header: 'Gogh Variable', 'Roboto', 'Helvetica', sans-serif;

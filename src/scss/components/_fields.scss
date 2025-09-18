@@ -40,12 +40,12 @@ input[type='checkbox'] {
 
 input[type='radio']::before,
 input[type='checkbox']::before {
-	width: 18px;
-	height: 18px;
-	background-color: var(--form-control-color);
 	// transition: 120ms transform ease-in-out;
 	content: '';
 	transform: scale(0);
+	width: 18px;
+	height: 18px;
+	background-color: var(--form-control-color);
 	transform-origin: center;
 }
 
