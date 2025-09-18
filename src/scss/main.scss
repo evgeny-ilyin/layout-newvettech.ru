@@ -5,7 +5,7 @@
 /* @use "abstracts/root-vars"; */
 
 /* 2. Вендоры */
-@use 'vendors/vendors';
+@use 'vendors' as *;
 
 /* 3. Базовые стили */
 @use 'base' as *;
