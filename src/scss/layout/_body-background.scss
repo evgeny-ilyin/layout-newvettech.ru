@@ -9,6 +9,7 @@
 
 .circle-item {
 	position: absolute;
+	transform: scale(var(--scale, 1));
 	width: 80vw;
 	height: 80vw;
 	max-width: 900px;
@@ -16,7 +17,6 @@
 	/* border: 1px solid #000; */
 	transition: none;
 	animation: wobble-anim 20s ease-in-out infinite;
-	transform: scale(var(--scale, 1));
 }
 
 @keyframes wobble-anim {
