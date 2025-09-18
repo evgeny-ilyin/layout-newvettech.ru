@@ -6,7 +6,11 @@
 	height: 0;
 }
 
-.logo-top {
+.logo-text-no-slogan {
+	--path-slogan-visibility: hidden;
+}
+
+.logo-letter-no-slogan {
 	--path-slogan-visibility: hidden;
 }
 
@@ -71,10 +75,10 @@
 	// }
 }
 
-.icon-all-day {
-	--icon-background-color: transparent;
-	--icon-stroke-color: var(--color-white);
-}
+// .icon-all-day {
+// 	--icon-background-color: transparent;
+// 	--icon-stroke-color: var(--color-white);
+// }
 
 .icon-fill {
 	--icon-background-color: #{$brand-color-primary};
