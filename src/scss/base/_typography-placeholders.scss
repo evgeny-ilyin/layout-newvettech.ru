@@ -2,21 +2,21 @@
 
 // Заголовки
 %h1-heading {
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-medium);
 	line-height: 1.2;
 
 	@include clamp(font-size, 33, 58);
 }
 
 %h2-heading {
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-medium);
 	line-height: 1.2;
 
 	@include clamp(font-size, 20, 38);
 }
 
 %h3-heading {
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-medium);
 	line-height: 1.2;
 
 	@include clamp(font-size, 18, 32);
