@@ -122,6 +122,8 @@
 }
 
 /// Универсальный миксин clamp с конвертацией в rem и фолбеком в px
+/// Используется для всего диапазона вьюпорта от $min-width до $max-width
+/// @author Evgeny Ilyin
 /// @param {String} $property - font-size, padding, margin, gap, width и т.д.
 /// @param {Num} $min - min размер в пикселях
 /// @param {Num} $max - max размер в пикселях
@@ -132,6 +134,28 @@
 	$val: fluid($min, $max);
 	#{$property}: #{$fallback * 1px}; // fallback в px
 	#{$property}: #{$val};
+}
+
+/// Миксин для изменения свойства в заданном диапазоне вьюпорта
+/// Используется для определённого диапазона вьюпорта
+/// @author Evgeny Ilyin
+/// @param {String} $property - CSS-свойство (например, max-width)
+/// @param {Number} $min-value - минимальное значение (например 768px)
+/// @param {Number} $max-value - максимальное значение (например 1200px)
+/// @param {Number} $min-vw - минимальная ширина экрана (по умолчанию $min-width)
+/// @param {Number} $max-vw - максимальная ширина экрана (по умолчанию $max-width)
+@mixin fluid($property, $min-value, $max-value, $min-vw: $min-width, $max-vw: $max-width) {
+	// убираем единицы измерения через math.div
+	$min: math.div($min-value, 1px);
+	$max: math.div($max-value, 1px);
+	$min-screen: math.div($min-vw, 1px);
+	$max-screen: math.div($max-vw, 1px);
+
+	#{$property}: clamp(
+		#{$min-value},
+		calc(#{$min-value} + (#{$max} - #{$min}) * ((100vw - #{$min-vw}) / (#{$max-screen} - #{$min-screen}))),
+		#{$max-value}
+	);
 }
 
 /// Миксин для многострочного обрезания текста с троеточием
@@ -230,4 +254,17 @@
 @mixin disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
+}
+
+// текстовый блок спрятан для обычных пользователей, но читается скринридерами
+@mixin sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+	clip-path: inset(50%);
+	white-space: nowrap;
 }
