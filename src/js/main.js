@@ -1,16 +1,17 @@
 import * as fn from './modules/functions.js';
+import * as sw from './modules/swiper.js';
+
 // import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
 
 addEventListener('DOMContentLoaded', () => {
-	// console.log("JS");
-	// useDynamicAdapt();
-
 	fn.bodyBackground();
 	fn.isTouchDevice();
+	fn.hamburgerMenu('noscroll');
+	sw.swipersInit();
 	// fn.isWebp();
 	// fn.stickyHeader();
-	fn.hamburgerMenu('noscroll');
 	// fn.closeMenuHandler();
+	// useDynamicAdapt();
 });
 
 // import "./modules/cookies.js";

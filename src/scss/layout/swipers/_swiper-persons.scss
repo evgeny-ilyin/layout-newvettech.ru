@@ -1,0 +1,63 @@
+@use '../../abstracts' as *;
+
+.swiper-persons {
+	// .swiper-persons__photo
+	&__photo {
+		--photo-height: 285px;
+		height: var(--photo-height);
+		overflow: hidden;
+
+		picture,
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		@include resp-from(lg) {
+			--photo-height: 320px;
+		}
+	}
+
+	// .swiper-persons__wrapper
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		overflow: hidden;
+		background: var(--color-white-gray-2);
+		border-radius: 20px;
+	}
+
+	// .swiper-persons__text
+	&__text {
+		display: flex;
+		// height: 100%;
+		flex: 1;
+		flex-direction: column;
+		padding: 23px 18px 19px;
+	}
+
+	// .swiper-persons__name
+	&__name {
+		margin-bottom: 5px;
+		font-size: rem(23);
+		font-weight: var(--font-weight-medium);
+		line-height: 1.2;
+		letter-spacing: -0.01em;
+	}
+	// .swiper-persons__position
+	&__position {
+		margin-bottom: 24px;
+		font-family: var(--font-family-other);
+		font-size: rem(16);
+	}
+	// .swiper-persons__link
+	&__link {
+		margin-top: auto;
+	}
+
+	.swiper-slide {
+		// width: 25%; //!
+	}
+}
