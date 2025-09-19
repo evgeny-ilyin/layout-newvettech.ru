@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @use '../abstracts' as *;
 @use 'typography-placeholders' as *;
 
@@ -31,6 +32,11 @@ h5,
 h6,
 .h6 {
 	font-family: var(--font-family-header);
+
+	strong,
+	b {
+		color: var(--color-primary);
+	}
 }
 
 h1,
@@ -80,10 +86,11 @@ strong {
 ul,
 ol {
 	display: block;
-	list-style-type: disc;
+	margin-top: 0;
 	margin-bottom: 15px;
-	margin-left: 12px;
+	// margin-left: 12px;
 	padding-left: 20px;
+	list-style-type: disc;
 
 	li {
 		margin-bottom: 5px;
