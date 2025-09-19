@@ -7,14 +7,16 @@ export function swipersInit() {
 		const swiper = el.querySelector('.swiper'),
 			pagination = el.querySelector('.swiper-pagination'),
 			next = el.querySelector('.swiper-button-next'),
-			prev = el.querySelector('.swiper-button-prev');
+			prev = el.querySelector('.swiper-button-prev'),
+			loop = el.dataset.loop ? el.dataset.loop === 'true' : false;
 
 		new Swiper(swiper, {
 			modules: [Navigation, Pagination],
 			slidesPerView: 1,
 			slidesPerGroup: 1,
 			spaceBetween: 20,
-			// loop: true,
+			autoHeight: false,
+			loop: loop,
 			pagination: {
 				enabled: true,
 				el: pagination,
@@ -61,6 +63,43 @@ export function swipersInit() {
 		});
 	});
 
+	const swiperSingle = document.querySelectorAll('.js-swiper-single');
+	swiperSingle.forEach((el) => {
+		const swiper = el.querySelector('.swiper'),
+			pagination = el.querySelector('.swiper-pagination'),
+			next = el.querySelector('.swiper-button-next'),
+			prev = el.querySelector('.swiper-button-prev'),
+			loop = el.dataset.loop ? el.dataset.loop === 'true' : false;
+
+		new Swiper(swiper, {
+			modules: [Navigation, Pagination],
+			slidesPerView: 1,
+			slidesPerGroup: 1,
+			spaceBetween: 20,
+			autoHeight: true,
+			loop: loop,
+			pagination: {
+				enabled: true,
+				el: pagination,
+				type: 'bullets',
+				clickable: true,
+			},
+			navigation: {
+				enabled: false,
+				nextEl: next,
+				prevEl: prev,
+			},
+			breakpoints: {
+				1280: {
+					navigation: {
+						enabled: true,
+					},
+				},
+			},
+		});
+	});
+
+	//TODO удалить ненужные
 	const swiperTop = document.querySelectorAll('.swiper-top');
 	swiperTop.forEach((el) => {
 		const swiper = el.querySelector('.swiper'),
