@@ -50,7 +50,7 @@ export function swipersInit() {
 				},
 				1280: {
 					slidesPerView: 4,
-					slidesPerGroup: 2,
+					slidesPerGroup: 1,
 					spaceBetween: 20,
 					pagination: {
 						enabled: false,
