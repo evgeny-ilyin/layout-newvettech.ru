@@ -2,7 +2,7 @@
 
 .swiper {
 	--swiper-theme-color: var(--color-primary);
-	--swiper-pagination-bottom: 12px;
+	--swiper-pagination-bottom: 9px;
 	--swiper-pagination-bullet-inactive-color: var(--color-secondary);
 	--swiper-pagination-bullet-inactive-opacity: 1;
 	// --swiper-pagination-bullet-border-radius: 0;
@@ -20,6 +20,13 @@
 
 	.swiper-slide {
 		height: auto;
+
+		// .swiper-slide_reverse
+		&_reverse {
+			& > :first-child {
+				order: 1;
+			}
+		}
 
 		img {
 			&::selection {

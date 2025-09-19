@@ -1,0 +1,89 @@
+@use '../../abstracts' as *;
+@use '../../base/typography-placeholders' as *;
+
+.swiper-single {
+	// .swiper-single__wrapper
+	&__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		overflow: hidden;
+		background: var(--color-white-gray);
+		border-radius: 15px;
+
+		& > div {
+			flex: 1 1 300px;
+		}
+
+		@include resp-from(desktop) {
+			min-height: 550px;
+			border-radius: 30px;
+		}
+	}
+
+	// .swiper-single_photo-wide
+	&_photo-wide {
+	}
+
+	// .swiper-single__photo
+	&__photo {
+		picture,
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: left;
+		}
+
+		@include when-inside('.swiper-single_photo-wide') {
+			flex: 2 1 600px;
+		}
+	}
+
+	// .swiper-single__text
+	&__text {
+		display: flex;
+		flex-direction: column;
+		padding: 26px 30px;
+
+		@include resp-from(desktop) {
+			padding: 50px 150px 50px 115px;
+			hyphens: none;
+		}
+
+		@include when-inside('.swiper-single_photo-wide') {
+			padding: 26px 30px;
+		}
+
+		@include when-inside('.swiper-single_text-wide') {
+			flex: 2 1 600px;
+			padding: 26px 30px;
+
+			// @include resp-from(desktop) {
+			// 	padding: 26px 150px 26px 115px;
+			// }
+		}
+	}
+
+	// .swiper-single__title
+	&__title {
+		margin-bottom: 25px;
+	}
+
+	// .swiper-single__description
+	&__description {
+		margin-bottom: 35px;
+
+		@extend %paragraph;
+	}
+
+	// .swiper-single__link
+	&__link {
+		margin-top: auto;
+
+		@include flex-center;
+
+		@include resp-from(md) {
+			display: block;
+		}
+	}
+}
