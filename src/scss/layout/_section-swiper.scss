@@ -5,6 +5,8 @@
 
 	// .section-swiper__showall
 	&__showall {
+		margin-top: 8px;
+
 		@include flex-center;
 
 		@include resp-from(desktop) {

@@ -89,7 +89,7 @@
 	}
 
 	@include resp-from(desktop) {
-		--header-margin-bottom: 90px;
+		--header-margin-bottom: 60px;
 		--max-width: 900px;
 	}
 }

@@ -27,6 +27,7 @@
 	}
 
 	@include resp-from(md) {
+		--hero-margin-bottom: 31px;
 		--hero-btn-height: 50px;
 		flex-direction: row;
 		justify-content: center;
@@ -38,6 +39,7 @@
 	}
 
 	@include resp-from(desktop) {
+		--hero-margin-bottom: 88px;
 		--hero-btn-height: 70px;
 	}
 }
