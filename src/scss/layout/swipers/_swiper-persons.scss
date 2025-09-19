@@ -26,8 +26,12 @@
 		height: 100%;
 		overflow: hidden;
 		background: var(--color-white-gray-2);
-		border-radius: 20px;
+		border-radius: 15px;
 		box-shadow: 0 10px 15px 0 rgb(164 136 255 / 7%);
+
+		@include resp-from(desktop) {
+			border-radius: 20px;
+		}
 	}
 
 	// .swiper-persons__text

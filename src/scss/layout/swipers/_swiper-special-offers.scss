@@ -22,11 +22,12 @@
 		padding: 15px 18px 19px;
 		overflow: hidden;
 		background: var(--card-bg);
-		border-radius: 20px;
+		border-radius: 15px;
 		box-shadow: 0 10px 15px 0 rgb(164 136 255 / 7%);
 
 		@include resp-from(desktop) {
 			// gap: 20px;
+			border-radius: 20px;
 		}
 	}
 
