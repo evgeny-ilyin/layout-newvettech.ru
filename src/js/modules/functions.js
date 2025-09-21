@@ -138,3 +138,104 @@ export function bodyBackground() {
 		background.appendChild(svg);
 	});
 }
+
+/**
+ * @fileoverview Модуль аккордеона для управления раскрывающимися списками.
+ * Поддерживает обычный режим и режим "только один открыт".
+ *
+ * @copyright 2025 Evgeny Ilyin
+ */
+
+/**
+ * Инициализация аккордеона.
+ *
+ * Функция навешивает обработчики на элементы с классом `js-accordion`.
+ * Поддерживаются два режима работы:
+ * 1. Стандартный — можно открыть несколько элементов одновременно.
+ * 2. Одноэлементный (`.js-accordion-single`) — при открытии одного элемента
+ *    автоматически закрываются все остальные в пределах данного аккордеона.
+ *
+ * Поведение:
+ * - По клику на триггер (`.js-accordion-trigger`) открывается или закрывается
+ *   соответствующий блок контента (следующий соседний элемент).
+ * - Высота контента управляется через `max-height`, что позволяет использовать
+ *   CSS-переходы для плавной анимации.
+ * - При `window.load` и `window.resize` пересчитывается высота всех открытых элементов,
+ *   чтобы соответствовать их фактическому содержимому.
+ *
+ * Зависимости от разметки:
+ * ```html
+ * <div class="accordion js-accordion js-accordion-single">
+ *   <div class="accordioт__item">
+ *     <div class="accordion__header js-accordion-trigger">Заголовок</div>
+ *     <div class="accordion__content">Контент</div>
+ *   </div>
+ * </div>
+ * ```
+ *
+ * Побочные эффекты:
+ * - Добавляет слушатели событий `click` для триггеров.
+ * - Добавляет глобальные слушатели `load` и `resize` для пересчёта высоты.
+ *
+ * @export
+ * @function accordion
+ * @returns {void} Ничего не возвращает, изменяет DOM-состояние.
+ */
+
+export function accordion() {
+	const accordionClass = 'js-accordion';
+	const isOpenedClass = 'is-opened';
+	const triggerClass = 'js-accordion-trigger';
+	const singleModeClass = 'js-accordion-single';
+	const accordions = document.querySelectorAll(`.${accordionClass}`);
+
+	accordions.forEach((accordion) => {
+		const triggers = accordion.querySelectorAll(`.${triggerClass}`);
+		const singleMode = accordion.classList.contains(`${singleModeClass}`);
+
+		triggers.forEach((trigger) => {
+			const accordionParent = trigger.parentElement;
+			const accordionContent = trigger.nextElementSibling;
+
+			trigger.addEventListener('click', () => {
+				const isOpen = accordionParent.classList.contains(isOpenedClass);
+
+				if (singleMode) {
+					accordion.querySelectorAll(`.${isOpenedClass}`).forEach((openItem) => {
+						if (openItem !== accordionParent) {
+							openItem.classList.remove(isOpenedClass);
+
+							// ищем контент именно у этого openItem
+							const openTrigger = openItem.querySelector(`.${triggerClass}`);
+							const openContent = openTrigger?.nextElementSibling;
+							if (openContent) {
+								openContent.style.maxHeight = null;
+							}
+						}
+					});
+				}
+
+				accordionParent.classList.toggle(isOpenedClass);
+				if (!isOpen) {
+					accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+				} else {
+					accordionContent.style.maxHeight = null;
+				}
+			});
+		});
+	});
+
+	// глобальный пересчёт открытых элементов
+	const recalc = () => {
+		document.querySelectorAll(`.${accordionClass} .${isOpenedClass}`).forEach((openItem) => {
+			const openTrigger = openItem.querySelector(`.${triggerClass}`);
+			const openContent = openTrigger?.nextElementSibling;
+			if (openContent) {
+				openContent.style.maxHeight = openContent.scrollHeight + 'px';
+			}
+		});
+	};
+
+	window.addEventListener('load', recalc);
+	window.addEventListener('resize', recalc);
+}
