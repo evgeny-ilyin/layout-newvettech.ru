@@ -1,5 +1,5 @@
 .vscode
-./fonts/
+/fonts
 
 # Dependency directories
 node_modules/
@@ -8,4 +8,4 @@ node_modules/
 .env
 
 # dist directory
-dist
+/dist
