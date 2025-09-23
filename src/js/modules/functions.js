@@ -184,6 +184,7 @@ export function bodyBackground() {
 
 export function accordion() {
 	const accordionClass = 'js-accordion';
+	const accordionItemClass = 'accordion__item';
 	const isOpenedClass = 'is-opened';
 	const triggerClass = 'js-accordion-trigger';
 	const singleModeClass = 'js-accordion-single';
@@ -194,32 +195,38 @@ export function accordion() {
 		const singleMode = accordion.classList.contains(`${singleModeClass}`);
 
 		triggers.forEach((trigger) => {
-			const accordionParent = trigger.parentElement;
-			const accordionContent = trigger.nextElementSibling;
+			const accordionItem = trigger.closest(`.${accordionItemClass}`);
+			const accordionContent = trigger.parentElement.nextElementSibling;
 
 			trigger.addEventListener('click', () => {
-				const isOpen = accordionParent.classList.contains(isOpenedClass);
+				const isOpen = accordionItem.classList.contains(isOpenedClass);
 
 				if (singleMode) {
 					accordion.querySelectorAll(`.${isOpenedClass}`).forEach((openItem) => {
-						if (openItem !== accordionParent) {
+						if (openItem !== accordionItem) {
 							openItem.classList.remove(isOpenedClass);
 
 							// ищем контент именно у этого openItem
 							const openTrigger = openItem.querySelector(`.${triggerClass}`);
-							const openContent = openTrigger?.nextElementSibling;
+							const openContent = openTrigger?.parentElement.nextElementSibling;
 							if (openContent) {
 								openContent.style.maxHeight = null;
+								openTrigger.setAttribute('aria-expanded', 'false');
+								openContent.setAttribute('aria-hidden', 'true');
 							}
 						}
 					});
 				}
 
-				accordionParent.classList.toggle(isOpenedClass);
+				accordionItem.classList.toggle(isOpenedClass);
 				if (!isOpen) {
 					accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+					trigger.setAttribute('aria-expanded', 'true');
+					accordionContent.setAttribute('aria-hidden', 'false');
 				} else {
 					accordionContent.style.maxHeight = null;
+					trigger.setAttribute('aria-expanded', 'false');
+					accordionContent.setAttribute('aria-hidden', 'true');
 				}
 			});
 		});
@@ -229,7 +236,7 @@ export function accordion() {
 	const recalc = () => {
 		document.querySelectorAll(`.${accordionClass} .${isOpenedClass}`).forEach((openItem) => {
 			const openTrigger = openItem.querySelector(`.${triggerClass}`);
-			const openContent = openTrigger?.nextElementSibling;
+			const openContent = openTrigger?.parentElement.nextElementSibling;
 			if (openContent) {
 				openContent.style.maxHeight = openContent.scrollHeight + 'px';
 			}
@@ -238,4 +245,26 @@ export function accordion() {
 
 	window.addEventListener('load', recalc);
 	window.addEventListener('resize', recalc);
+}
+
+export function accordionCircle() {
+	const accordionCircleClass = 'accordion-circle';
+	const accordionItemClass = 'accordion__item';
+	const accordions = document.querySelectorAll(`.${accordionCircleClass}`);
+
+	accordions.forEach((accordion) => {
+		const blocks = accordion.querySelectorAll(`.${accordionItemClass}`);
+		accordion.style.setProperty('--total', blocks.length);
+
+		const half = Math.ceil(blocks.length / 2);
+		blocks.forEach((block, i) => {
+			block.style.setProperty('--i', i);
+			block.style.setProperty('--shift', i < half ? 1 : -1);
+			block.style.setProperty('--z', i < half ? half - i : i - half + 1);
+
+			if (!(i < half)) {
+				block.style.setProperty('--fd', 'row-reverse');
+			}
+		});
+	});
 }

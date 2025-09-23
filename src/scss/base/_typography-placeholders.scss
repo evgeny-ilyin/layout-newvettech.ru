@@ -2,10 +2,14 @@
 
 // Заголовки
 %h1-heading {
+	font-size: rem(33);
 	font-weight: var(--font-weight-medium);
 	line-height: 1.2;
 
-	@include clamp(font-size, 33, 58);
+	@include resp-from(md) {
+		// @include clamp(font-size, 33, 58);
+		@include fluid(font-size, 33px, 58px, map-get($breakpoints, 'md'), map-get($breakpoints, 'desktop'));
+	}
 }
 
 %h2-heading {

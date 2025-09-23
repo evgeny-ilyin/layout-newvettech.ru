@@ -268,3 +268,10 @@
 	clip-path: inset(50%);
 	white-space: nowrap;
 }
+
+// убираем синий фон при тапе
+@mixin no-tap-highlight {
+	-webkit-tap-highlight-color: transparent; // убирает синий фон при тапе
+	// -webkit-touch-callout: none; // убирает меню при долгом тапе
+	user-select: none;
+}

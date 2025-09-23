@@ -8,6 +8,7 @@ addEventListener('DOMContentLoaded', () => {
 	fn.isTouchDevice();
 	fn.hamburgerMenu('noscroll');
 	fn.accordion();
+	fn.accordionCircle();
 	sw.swipersInit();
 	// fn.isWebp();
 	// fn.stickyHeader();
