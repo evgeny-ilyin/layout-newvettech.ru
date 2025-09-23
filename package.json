@@ -9,7 +9,7 @@
 		"start": "webpack serve --no-client-overlay-warnings",
 		"dev": "webpack --profile --progress",
 		"build": "webpack --mode=production --profile --progress",
-		"deploy": "gh-pages -d ./dist --no-history"
+		"deploy": "gh-pages -d dist -f"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.28.3",
