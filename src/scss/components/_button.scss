@@ -1,17 +1,19 @@
 @use '../abstracts' as *;
 
 .btn {
+	--btn-color: var(--form-control-color);
+	--btn-bgr: transparent;
 	height: var(--btn-height, 34px);
 	padding: 8px 15px 6px;
 	box-sizing: border-box;
+	font-size: rem(15);
 	font-weight: var(--font-weight-medium);
 	line-height: 1;
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
-	color: var(--form-control-color);
+	color: var(--btn-color);
 	background: var(--btn-bgr, transparent);
-	// background: var(--color-white);
 	border: 2px solid var(--form-control-color);
 	border-radius: var(--border-radius);
 	cursor: pointer;
@@ -29,8 +31,7 @@
 	// .btn_sm
 	&_sm {
 		--btn-height: 34px;
-
-		@include clamp(font-size, 15, 15);
+		font-size: rem(15);
 	}
 
 	// .btn_md
@@ -43,8 +44,11 @@
 	// .btn_lg
 	&_lg {
 		--btn-height: 50px;
+		font-size: rem(18);
 
-		@include clamp(font-size, 18, 20);
+		@include resp-from(desktop) {
+			font-size: rem(20);
+		}
 	}
 
 	// .btn_wide
@@ -101,22 +105,37 @@
 		}
 	}
 
+	// .btn_metapets
+	&_metapets {
+		--form-control-color-hover-text: var(--color-primary);
+		--form-control-color-hover: var(--color-secondary);
+		gap: 10px;
+		position: relative;
+
+		&::before {
+			content: '';
+			display: block;
+			width: 44px;
+			height: 36px;
+			background: $svg-metapets-helper no-repeat center / contain;
+		}
+	}
+
 	@include resp-from(xm) {
 		padding-right: 20px;
 		padding-left: 20px;
 	}
 
 	@include flex-center(true);
-	@include clamp(font-size, 15, 15);
 
 	@include hover-media() {
-		color: var(--color-white);
-		background: var(--form-control-color);
+		--btn-color: var(--form-control-color-hover-text);
+		--btn-bgr: var(--form-control-color-hover);
 	}
 
 	@include hover-media-active() {
-		color: var(--form-control-color);
-		background: var(--form-control-color-secondary);
+		--btn-color: var(--form-control-color);
+		--btn-bgr: var(--form-control-color-secondary);
 	}
 
 	@include on-disabled {
