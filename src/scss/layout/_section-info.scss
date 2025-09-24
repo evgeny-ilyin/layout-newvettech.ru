@@ -1,0 +1,224 @@
+@use '../abstracts' as *;
+
+.section-info {
+	--margin-bottom: 40px;
+	margin-bottom: var(--margin-bottom);
+
+	// .section-info_grid
+	&_grid {
+		--grid-gap: 29px;
+		display: grid;
+		// grid-template-columns: repeat(auto-fit, minmax(calc((1024px - $min-padding * 2 - var(--grid-gap)) / 2), 1fr));
+		// grid-template-columns: repeat(auto-fit, minmax(calc((1024px - $min-padding * 2 - var(--grid-gap)) / 2), 1fr));
+		gap: var(--grid-gap);
+
+		@include resp-from(md) {
+			--grid-gap: 20px;
+		}
+
+		@include resp-from(lg) {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		@include resp-from(desktop) {
+			--grid-gap: 18px;
+		}
+	}
+	// .section-info__item
+	&__item {
+		--radius: 11px;
+		--min-height: 380px;
+		position: relative;
+		min-height: var(--min-height);
+		overflow: hidden;
+		background: var(--color-white);
+		border-radius: var(--radius);
+
+		@include resp-from(md) {
+			--radius: 15px;
+		}
+
+		@include resp-from(desktop) {
+			--min-height: 404px;
+			--radius: 20px;
+		}
+	}
+	// .section-info__content
+	&__content {
+		--padding-y: 25px;
+		--padding-x: 25px;
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+		position: relative;
+		z-index: 1;
+		height: 100%;
+		padding: var(--padding-y) var(--padding-x);
+
+		// .section-info__content_right
+		&_right {
+			width: 75%;
+			max-width: 280px;
+			margin-left: auto;
+			background: linear-gradient(90deg, rgb(248 249 255 / 0%) 0%, #f6f8ff 41.74%);
+
+			@include resp-from(md) {
+				width: 50%;
+				max-width: 400px;
+			}
+
+			@include resp-from(lg) {
+				width: 75%;
+				max-width: 335px;
+			}
+		}
+
+		// .section-info__content_bubbles
+		&_bubbles {
+			color: var(--color-white);
+			background: var(--color-primary);
+		}
+
+		@include resp-from(md) {
+			--padding-x: 40px;
+		}
+
+		@include resp-from(desktop) {
+			--padding-x: 35px;
+		}
+	}
+	// .section-info__header
+	&__header {
+		font-size: rem(28);
+		font-weight: var(--font-weight-medium);
+		letter-spacing: 0.05em;
+		text-align: center;
+		text-transform: uppercase;
+
+		@include when-inside('.section-info__content_bubbles') {
+			margin-top: 17px;
+		}
+	}
+	// .section-info__body
+	&__body {
+		ul {
+			display: flex;
+			flex-direction: column;
+			gap: 14px;
+			margin: 0;
+			padding-left: 0;
+			list-style-type: none;
+
+			li {
+				--min-height: 30px;
+				display: flex;
+				align-items: center;
+				width: fit-content;
+				min-height: var(--min-height);
+				margin: 0;
+				padding: 4px 16px;
+				font-size: rem(16);
+				font-weight: var(--font-weight-medium);
+				line-height: 1;
+				letter-spacing: -0.01em;
+				color: var(--color-primary);
+				background: var(--color-white);
+				border: 2px solid var(--color-primary);
+				border-radius: var(--min-height);
+				user-select: none;
+
+				@include resp-from(md) {
+					--min-height: 38px;
+					font-size: rem(18);
+				}
+			}
+
+			@include resp-from(desktop) {
+				padding-left: 17px;
+			}
+		}
+
+		@include when-inside('.section-info__content_bubbles') {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+	// .section-info__footer
+	&__footer {
+		align-self: center;
+		margin-top: auto;
+	}
+	// .section-info__bg
+	&__bg {
+		position: absolute;
+		// z-index: -1;
+		overflow: hidden;
+		inset: 0;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: -50px;
+		}
+	}
+
+	@include resp-from(desktop) {
+		--margin-bottom: 108px;
+	}
+}
+
+.bubble {
+	display: inline-block;
+	position: relative;
+	max-width: 310px;
+	margin-bottom: 20px;
+	padding: 15px 15px 15px 22px;
+	font-size: rem(18);
+	user-select: none;
+
+	// .bubble_to
+	&_to {
+		align-self: end;
+		color: var(--color-primary);
+		background: var(--color-white);
+		border-radius: 12px 12px 0;
+
+		&::before {
+			content: '';
+			position: absolute;
+			right: 0;
+			bottom: -10px;
+			width: 0;
+			height: 0;
+			border: 10px solid transparent;
+			border-right-color: var(--color-white);
+		}
+	}
+
+	// .bubble_from
+	&_from {
+		color: var(--color-black);
+		background: var(--color-secondary);
+		border-radius: 12px 12px 12px 0;
+
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: -10px;
+			left: 0;
+			width: 0;
+			height: 0;
+			border: 10px solid transparent;
+			border-left-color: var(--color-secondary);
+		}
+	}
+
+	@include resp-from(md) {
+		margin-bottom: -15px;
+	}
+
+	@include resp-from(lg) {
+		margin-bottom: -10px;
+	}
+}
