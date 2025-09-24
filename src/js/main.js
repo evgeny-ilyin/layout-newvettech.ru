@@ -9,6 +9,7 @@ addEventListener('DOMContentLoaded', () => {
 	fn.hamburgerMenu('noscroll');
 	fn.accordion();
 	fn.accordionCircle();
+	fn.initFilterSystem();
 	sw.swipersInit();
 	// fn.isWebp();
 	// fn.stickyHeader();

@@ -121,6 +121,20 @@
 		}
 	}
 
+	// .btn_tab
+	&_tab {
+		min-height: 30px;
+		font-size: rem(18);
+		letter-spacing: 0.02em;
+		border-radius: 30px;
+		white-space: nowrap;
+	}
+
+	&.is-active {
+		--btn-color: var(--form-control-color-hover-text);
+		--btn-bgr: var(--form-control-color-hover);
+	}
+
 	@include resp-from(xm) {
 		padding-right: 20px;
 		padding-left: 20px;

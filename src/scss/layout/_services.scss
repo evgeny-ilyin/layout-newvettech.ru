@@ -213,22 +213,46 @@
 	}
 }
 
+.services-nav {
+	display: none;
+
+	@include resp-from(lg) {
+		flex-wrap: wrap;
+		gap: 12px;
+		margin-bottom: 50px;
+
+		@include flex-center;
+	}
+}
+
 .services-list {
 	display: grid;
 	gap: 22px;
 	margin-bottom: 43px;
+	transition: all $transition-default;
 
 	.service {
 		--color-title: var(--color-black);
-		--color-title-strong: var(--color-primary);
-		// .service .service__decor
-		// & .service__decor {
-		// 	margin-top: auto;
-		// }
+		--time: 150ms;
+		display: none;
+		transform: translateY(10px);
+		transition: all var(--time) ease;
+		opacity: 0;
 
-		// & .service__decor + .service__footer {
-		// 	margin-top: auto;
-		// }
+		// transition применяется только к активному и промежуточным классам
+		// transition-duration должен совпадать с таймаутом transitionDuration js-функции initFilterSystem
+		&.is-visible {
+			display: flex;
+			transform: translateY(0);
+			opacity: 1;
+		}
+
+		&.is-showing,
+		&.is-hiding {
+			display: flex;
+			transform: translateY(10px);
+			opacity: 0;
+		}
 
 		@include resp-to(lg) {
 			min-height: auto;

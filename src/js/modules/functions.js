@@ -181,7 +181,6 @@ export function bodyBackground() {
  * @function accordion
  * @returns {void} Ничего не возвращает, изменяет DOM-состояние.
  */
-
 export function accordion() {
 	const accordionClass = 'js-accordion';
 	const accordionItemClass = 'accordion__item';
@@ -247,6 +246,7 @@ export function accordion() {
 	window.addEventListener('resize', recalc);
 }
 
+/* расчёт и добавление инлайн css переменных в элементы аккордеона для их корректного размещения по окружности */
 export function accordionCircle() {
 	const accordionCircleClass = 'accordion-circle';
 	const accordionItemClass = 'accordion__item';
@@ -266,5 +266,91 @@ export function accordionCircle() {
 				block.style.setProperty('--fd', 'row-reverse');
 			}
 		});
+	});
+}
+
+/* фильтрация элементов в контейнере по нажатию кнопки */
+export function initFilterSystem({
+	buttonContainerClass = 'js-filter-buttons',
+	dataAttr = 'filters',
+	activeClass = 'is-active',
+	visibleClass = 'is-visible',
+	showingClass = 'is-showing',
+	hidingClass = 'is-hiding',
+	transitionDuration = 150, // ms, должно совпадать с CSS
+} = {}) {
+	const btnContainers = document.querySelectorAll(`.${buttonContainerClass}`);
+
+	const showWithAnimation = (item) => {
+		if (item.classList.contains(visibleClass) || item.classList.contains(showingClass)) {
+			return;
+		}
+
+		// Если был скрывающийся элемент, убираем класс hiding
+		item.classList.remove(hidingClass);
+		item.style.display = ''; // вернуть в поток
+		item.classList.add(showingClass);
+
+		requestAnimationFrame(() => {
+			item.classList.add(visibleClass);
+			setTimeout(() => {
+				item.classList.remove(showingClass);
+			}, transitionDuration);
+		});
+	};
+
+	const hideWithAnimation = (item) => {
+		if (!item.classList.contains(visibleClass)) {
+			return;
+		}
+
+		item.classList.add(hidingClass);
+		item.classList.remove(visibleClass);
+
+		setTimeout(() => {
+			item.classList.remove(hidingClass, showingClass);
+			item.style.display = 'none';
+		}, transitionDuration);
+	};
+
+	btnContainers.forEach((container) => {
+		const buttons = container.querySelectorAll('button');
+		const targetClass = container.dataset.target;
+
+		if (!targetClass) {
+			return;
+		}
+
+		const itemsContainer = document.querySelector(`.${targetClass}`);
+		const items = itemsContainer ? itemsContainer.querySelectorAll(':scope > *') : [];
+
+		const filterSelection = (filter) => {
+			items.forEach((item) => {
+				const filters = (item.dataset[dataAttr] || '').split(/\s+/).filter(Boolean);
+				const shouldShow = filter === 'all' || filters.includes(filter);
+
+				if (shouldShow) {
+					showWithAnimation(item);
+				} else {
+					hideWithAnimation(item);
+				}
+			});
+		};
+
+		container.addEventListener('click', (e) => {
+			const btn = e.target.closest('button');
+			if (!btn) {
+				return;
+			}
+
+			buttons.forEach((b) => b.classList.remove(activeClass));
+			btn.classList.add(activeClass);
+
+			const filter = btn.dataset.filter;
+			filterSelection(filter);
+		});
+
+		// инициализация
+		filterSelection('all');
 	});
 }

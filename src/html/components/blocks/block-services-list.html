@@ -1,6 +1,14 @@
-<div class="services-list">
+<div class="services-nav js-filter-buttons" data-target="js-filter-services">
+	<button class="btn btn_tab is-active" data-filter="all">Все направления</button>
+	<button class="btn btn_tab" data-filter="emergency">Экстренная помощь</button>
+	<button class="btn btn_tab" data-filter="therapy">Терапия</button>
+	<button class="btn btn_tab" data-filter="diagnosis">Диагностика</button>
+	<button class="btn btn_tab" data-filter="surgery">Хирургия</button>
+</div>
 
-	<a href="javascript:void(0)" class="service">
+<div class="services-list js-filter-services">
+
+	<a href="javascript:void(0)" class="service" data-filters="emergency">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -25,7 +33,7 @@
 		<div class="service__footer">Больше 10 направлений</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service">
+	<a href="javascript:void(0)" class="service" data-filters="emergency therapy">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -42,7 +50,7 @@
 		<div class="service__footer">Работаем круглосуточно</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service">
+	<a href="javascript:void(0)" class="service" data-filters="emergency">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -58,7 +66,7 @@
 		<div class="service__footer">Работаем круглосуточно</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service service_violet">
+	<a href="javascript:void(0)" class="service service_violet" data-filters="therapy surgery">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -76,7 +84,7 @@
 		<div class="service__footer">Работаем круглосуточно</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service">
+	<a href="javascript:void(0)" class="service" data-filters="therapy">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -94,7 +102,7 @@
 		<div class="service__footer">Для тех, кому требуется особое внимание</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service service_violet">
+	<a href="javascript:void(0)" class="service service_violet" data-filters="therapy surgery">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -113,7 +121,7 @@
 		<div class="service__footer">Работаем круглосуточно</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service">
+	<a href="javascript:void(0)" class="service" data-filters="diagnosis">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -132,7 +140,7 @@
 		<div class="service__footer">Работаем круглосуточно</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service">
+	<a href="javascript:void(0)" class="service" data-filters="diagnosis">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -148,7 +156,7 @@
 		<div class="service__footer">Работаем круглосуточно</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service service_violet">
+	<a href="javascript:void(0)" class="service service_violet" data-filters="diagnosis">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -168,7 +176,7 @@
 		<div class="service__footer">Работаем круглосуточно</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service">
+	<a href="javascript:void(0)" class="service" data-filters="surgery">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -185,7 +193,7 @@
 		<div class="service__footer">Работаем круглосуточно</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service">
+	<a href="javascript:void(0)" class="service" data-filters="surgery">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -204,7 +212,7 @@
 		<div class="service__footer">Работаем круглосуточно</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service">
+	<a href="javascript:void(0)" class="service" data-filters="therapy emergency">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -220,7 +228,7 @@
 		<div class="service__footer">Для тех, кому требуется особое внимание</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service">
+	<a href="javascript:void(0)" class="service" data-filters="diagnosis therapy surgery">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -238,7 +246,7 @@
 		<div class="service__footer">Для тех, кому требуется особое внимание</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service service_violet">
+	<a href="javascript:void(0)" class="service service_violet" data-filters="emergency">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -255,7 +263,5 @@
 		</div>
 		<div class="service__footer"></div>
 	</a>
-
-
 
 </div>
