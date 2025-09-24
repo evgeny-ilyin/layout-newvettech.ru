@@ -39,7 +39,8 @@ $transition-default: var(--transition-duration) ease-in-out;
 //** Переменные для scss/components
 
 //** SVGs --var
-$svg-fetch-ring: var(--svg-fetch-ring);
+$svg-metapets-helper: var(--svg-metapets-helper);
+// $svg-fetch-ring: var(--svg-fetch-ring);
 // $svg-arrow-long: var(--svg-arrow-long);
 // $svg-arrow-black: var(--svg-arrow-black);
 // $svg-arrow-white: var(--svg-arrow-white);
@@ -65,6 +66,3 @@ $breakpoints: (
 	'hd': 1440px,
 	'fhd': 1920px,
 );
-
-/// Icons base64
-// $svg-checkbox: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 15 11'%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-width='2' d='m1.5 5.5 4 4L14 1'/%3E%3C/svg%3E";
