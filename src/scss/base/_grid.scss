@@ -3,8 +3,8 @@
 // Основной контейнер
 .container {
 	width: 100%;
-	margin-left: auto;
 	margin-right: auto;
+	margin-left: auto;
 	padding: 0;
 }
 
@@ -13,10 +13,10 @@
 	position: relative;
 	width: 100%;
 	max-width: $max-width;
-	margin-left: auto;
 	margin-right: auto;
-	padding-left: $min-padding;
+	margin-left: auto;
 	padding-right: $min-padding;
+	padding-left: $min-padding;
 
 	// .content_wide
 	&_wide {
@@ -26,8 +26,8 @@
 		padding: 0;
 	}
 
-	@include resp-from(xl) {
-		padding-left: $max-padding;
+	@include resp-from(md) {
 		padding-right: $max-padding;
+		padding-left: $max-padding;
 	}
 }
