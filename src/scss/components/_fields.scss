@@ -12,11 +12,11 @@ input[type='checkbox'] {
 	/* Not removed via appearance */
 	margin: 0;
 	font: inherit;
-	color: var(--form-control-color);
+	color: var(--form-control-color-secondary);
 
 	/* For iOS < 15 */
-	background-color: var(--form-control-color);
-	border: 1px solid var(--form-control-color);
+	background-color: var(--form-control-color-secondary);
+	border: 1px solid var(--form-control-color-secondary);
 	cursor: pointer;
 	transition:
 		background-color $transition-default,
@@ -27,8 +27,8 @@ input[type='checkbox'] {
 	place-content: center;
 
 	@include hover-media() {
-		background-color: var(--form-control-color-darker);
-		border-color: var(--form-control-color-darker);
+		background-color: var(--form-control-color);
+		border-color: var(--form-control-color);
 	}
 
 	@include on-disabled {
@@ -36,6 +36,14 @@ input[type='checkbox'] {
 		background-color: var(--form-control-disabled-bg);
 		border-color: var(--form-control-disabled-bd);
 	}
+}
+
+input[type='radio'] {
+	border-radius: var(--border-radius-circle);
+}
+
+input[type='checkbox'] {
+	border-radius: var(--border-radius-small);
 }
 
 input[type='radio']::before,
@@ -49,18 +57,22 @@ input[type='checkbox']::before {
 	transform-origin: center;
 }
 
+input[type='radio']:checked,
+input[type='checkbox']:checked {
+	background-color: var(--form-control-color);
+	border-color: var(--form-control-color);
+
+	@include on-disabled {
+		color: var(--form-control-disabled-bd);
+		background-color: var(--form-control-disabled-bg);
+		border-color: var(--form-control-disabled-bd);
+	}
+}
+
 input[type='radio']:checked::before,
 input[type='checkbox']:checked::before {
 	transform: scale(1);
 	border-color: transparent;
-}
-
-input[type='radio'] {
-	border-radius: var(--border-radius-circle);
-}
-
-input[type='checkbox'] {
-	border-radius: var(--border-radius-small);
 }
 
 input[type='radio']:checked::before {
