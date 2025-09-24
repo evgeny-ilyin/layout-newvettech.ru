@@ -45,6 +45,15 @@
 		flex-direction: column;
 		padding: 26px 30px;
 
+		@include resp-from(md) {
+			padding: 26px 15px 26px 17px;
+		}
+
+		@include resp-from(lg) {
+			padding-right: 30px;
+			padding-left: 50px;
+		}
+
 		@include resp-from(desktop) {
 			padding: 50px 150px 50px 115px;
 			hyphens: none;
@@ -71,7 +80,11 @@
 
 	// .swiper-single__description
 	&__description {
-		margin-bottom: 35px;
+		margin-bottom: 9px;
+
+		ul {
+			padding-left: 27px;
+		}
 
 		@extend %paragraph;
 	}
