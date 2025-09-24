@@ -1,19 +1,19 @@
-@use '../../abstracts' as *;
+@use '../abstracts' as *;
 
-.swiper-offers {
+.offers {
 	--card-bg: var(--color-secondary);
 
-	// .swiper-offers_white-gray
+	// .offers_white-gray
 	&_white-gray {
 		--card-bg: var(--color-white-gray);
 	}
 
-	// .swiper-offers_silver
+	// .offers_silver
 	&_silver {
 		--card-bg: var(--color-silver);
 	}
 
-	// .swiper-offers__wrapper
+	// .offers__wrapper
 	&__wrapper {
 		display: flex;
 		flex-direction: column;
@@ -31,7 +31,7 @@
 		}
 	}
 
-	// .swiper-offers__label
+	// .offers__label
 	&__label {
 		margin-bottom: 23px;
 
@@ -50,7 +50,7 @@
 		}
 	}
 
-	// .swiper-offers__great
+	// .offers__great
 	&__great {
 		display: flex;
 		margin-bottom: 8px;
@@ -76,7 +76,7 @@
 		}
 	}
 
-	// .swiper-offers__title
+	// .offers__title
 	&__title {
 		margin-bottom: 13px;
 		font-size: rem(24);
@@ -93,7 +93,7 @@
 		}
 	}
 
-	// .swiper-offers__description
+	// .offers__description
 	&__description {
 		margin-bottom: 21px;
 		font-size: rem(15);
@@ -105,20 +105,17 @@
 		}
 	}
 
-	// .swiper-offers__decor
+	// .offers__decor
 	&__decor {
 		margin-top: auto;
 	}
 
-	// .swiper-offers__link
+	// .offers__link
 	&__link {
 		margin-top: auto;
 	}
 
 	&__decor + &__link {
 		margin-top: 10px;
-	}
-
-	.swiper-slide {
 	}
 }
