@@ -13,16 +13,24 @@
 }
 
 %h2-heading {
+	font-size: rem(21);
 	font-weight: var(--font-weight-medium);
 	line-height: 1.2;
+	letter-spacing: -0.01em;
 
-	@include clamp(font-size, 20, 38);
+	// @include clamp(font-size, 20, 38);
+
+	@include resp-from(md) {
+		@include fluid(font-size, 21px, 38px, map-get($breakpoints, 'md'), map-get($breakpoints, 'desktop'));
+	}
 }
 
 %h3-heading {
 	font-weight: var(--font-weight-medium);
 	line-height: 1.2;
+	letter-spacing: -0.01em;
 
+	//! замена на fluid
 	@include clamp(font-size, 18, 32);
 }
 
@@ -30,6 +38,7 @@
 	font-weight: var(--font-weight-normal);
 	line-height: 1.2;
 
+	//! замена на fluid
 	@include clamp(font-size, 16, 30);
 }
 
@@ -37,6 +46,7 @@
 	font-weight: var(--font-weight-medium);
 	line-height: 1.2;
 
+	//! замена на fluid
 	@include clamp(font-size, 15, 24);
 }
 
@@ -44,14 +54,20 @@
 	font-weight: var(--font-weight-medium);
 	line-height: 1.2;
 
+	//! замена на fluid
 	@include clamp(font-size, 14, 20);
 }
 
 %paragraph {
+	font-size: rem(16);
 	font-weight: var(--font-weight-normal);
 	line-height: 1.4;
 
-	@include clamp(font-size, 16, 20);
+	// @include clamp(font-size, 16, 20);
+
+	@include resp-from(desktop) {
+		font-size: rem(20);
+	}
 }
 
 %strong {
