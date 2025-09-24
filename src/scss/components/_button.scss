@@ -116,7 +116,7 @@
 			content: '';
 			display: block;
 			width: 44px;
-			height: 36px;
+			height: calc(100% + 10px);
 			background: $svg-metapets-helper no-repeat center / contain;
 		}
 	}
