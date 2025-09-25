@@ -200,6 +200,7 @@
 			img {
 				width: var(--img-size);
 				border-radius: 50%;
+				user-select: none;
 			}
 
 			@include flex-center;
