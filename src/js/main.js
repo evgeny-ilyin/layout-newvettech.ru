@@ -1,5 +1,6 @@
 import * as fn from './modules/functions.js';
-import * as sw from './modules/swiper.js';
+import { tabsInit } from './modules/tabs.js';
+import { swipersInit } from './modules/swiper.js';
 
 // import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
 
@@ -10,7 +11,10 @@ addEventListener('DOMContentLoaded', () => {
 	fn.accordion();
 	fn.accordionCircle();
 	fn.initFilterSystem();
-	sw.swipersInit();
+
+	tabsInit();
+	swipersInit();
+
 	// fn.isWebp();
 	// fn.stickyHeader();
 	// fn.closeMenuHandler();
