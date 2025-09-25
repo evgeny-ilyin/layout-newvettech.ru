@@ -5,6 +5,11 @@
 	inset: 0;
 	z-index: -1;
 	overflow: hidden;
+
+	// .body-background__content
+	&__content {
+		height: 100%;
+	}
 }
 
 .circle-item {
