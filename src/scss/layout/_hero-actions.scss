@@ -73,6 +73,10 @@
 		}
 	}
 
+	@include hover-media-active() {
+		--hero-btn-background: var(--color-white);
+	}
+
 	@include resp-from(md) {
 		--icon-size: 38px;
 		padding-right: 14px;
@@ -106,6 +110,10 @@
 		--hero-btn-background: var(--color-secondary-dark-5);
 	}
 
+	@include hover-media-active() {
+		--hero-btn-background: var(--color-white);
+	}
+
 	@include resp-from(md) {
 	}
 
@@ -123,6 +131,11 @@
 	@include hover-media() {
 		--hero-btn-background: var(--color-primary);
 		--hero-btn-color: var(--color-white);
+	}
+
+	@include hover-media-active() {
+		--hero-btn-background: var(--color-secondary);
+		--hero-btn-color: var(--color-primary);
 	}
 
 	@include resp-from(md) {
