@@ -1,14 +1,14 @@
 <div class="services-nav js-filter-buttons" data-target="js-filter-services">
 	<button type="button" class="btn btn_tab is-active" data-filter="all">Все направления</button>
+	<button type="button" class="btn btn_tab" data-filter="surgery">Хирургия</button>
 	<button type="button" class="btn btn_tab" data-filter="emergency">Экстренная помощь</button>
 	<button type="button" class="btn btn_tab" data-filter="therapy">Терапия</button>
-	<button type="button" class="btn btn_tab" data-filter="diagnosis">Диагностика</button>
-	<button type="button" class="btn btn_tab" data-filter="surgery">Хирургия</button>
+	<button type="button" class="btn btn_tab" data-filter="diagnosis">Диагностика / Исследования</button>
 </div>
 
 <div class="services-list js-filter-services">
 
-	<a href="javascript:void(0)" class="service" data-filters="emergency">
+	<a href="javascript:void(0)" class="service service_violet" data-filters="therapy">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -21,36 +21,30 @@
 			Общая практика
 		</div>
 		<div class="service__body">
-			<div class="service__decor">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 264 205">
-					<path fill="#D2D3DD" d="M146.449 90.78s4.32 1.276 8.871 6.978c8.041 10.084 10.585 21.064 10.585 21.064l5.735 6.582 33.943-4.051a28.228 28.228 0 0 1 1.533-.041c16.195-.07 29.735 12.324 31.888 28.298l1.303 9.696s16.864 2.635 22.487 15.8c5.624 13.164-10.25 24.025-10.25 24.025l-21.826-30.94-.829 14.481 7.108 7.574-5.951 13.747h-10.913c-.188-2.955 1.882-5.576 4.816-6.09l.48-.083.614-9.634-6.969-1.851c-6.083-.881-11.442-6.631-13.456-12.415l-1.415-4.079-24.152 10.05a22.5 22.5 0 0 1-19.254-.936l-3.491-1.873v5.188c0 5.785-3.624 10.952-9.08 12.942l-.844.306-5.114 8.482-5.547-.049c-.725-3.773-.864-4.071 1.979-6.665l3.094-1.082-.209-20.259s-7.129-5.154-13.394-13.664c-10.738-14.579-10.25-28.964-5.289-38.514 2.321-4.467 5.429-7.962 8.063-9.849l-.495-4.134-8.369.16a11.653 11.653 0 0 1-8.223-3.392L111 103.688l17.526-6.256a7.37 7.37 0 0 1 3.589-4.96l1.909-1.088-1.213-2.643a.582.582 0 0 1 .405-.811l4.125-.916a.581.581 0 0 1 .634.278l1.561 2.663a.233.233 0 0 0 .376.035l1.854-2.206a1.8 1.8 0 0 1 1.651-.617l2.077.319a1.798 1.798 0 0 1 1.324 2.608l-.369.7v-.014Z" />
-					<path stroke="#8965FD" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.015" d="m190.374 203.688 1.162-2.072a18.901 18.901 0 0 0 .455-16.494l-3.861-8.54 12.805-33.958a85.788 85.788 0 0 0 5.498-28.127c.172-6.781-.98-13.543-3.214-19.95l-2.355-6.761s10.036-14.079 9.581-26.652c-.343-9.682-.05-17.02-.677-24.63-.495-6.053 3.942-11.4 9.975-12.067l8.854-.98a15.708 15.708 0 0 0 12.32-8.59l2.911-5.832-27.399-2.244S215.984 1 202.956 1c-14.826 0-21.557 13.876-27.853 30.492-2.376 6.276-6.671 13.947-11.108 21.082-8.489 13.644-23.639 21.689-39.698 21.042-7.459-.293-14.918-.596-22.366-.89-8.945-.353-17.97-1.232-26.924-.707-7.924.465-16.222 3.224-23.943.132-11.34-4.548-14.493-18.506-11.754-27.622 1.799-5.993 7.246-10.703 12.563-10.329 6.973.495 6.074 4.568 5.397 5.387-1.031 1.263-2.578 1.284-4.053.87-1.274-.365-2.011 1.384-.84 2.01.425.233.91.425 1.456.577 2.284.616 3.891.747 6.135-1.951 2.961-3.558 1.465-8.884-4.75-10.258-9.844-2.173-16.96 2.92-21.002 9.884-4.042 6.963-3.598 19.091 0 25.833 3.598 6.74 7.186 10.884 7.186 10.884l-4.043 1.91 7.186 3.144-5.74 3.092 7.883 2.194a36.345 36.345 0 0 0-5.084 11.36l-7.853 38.404a44.22 44.22 0 0 1-13.23 23.549l-7.862 7.317a35.092 35.092 0 0 0-9.975 16.524" />
-					<path stroke="#8965FD" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.015" d="M40.79 203.679s17.514.152 33.24-17.666c15.938-18.061 16.19-43.782 16.19-50.139.374 3.83 10.906 16.898 23.781 23.185 25.125 12.269 38.628 11.683 38.628 11.683v11.157c0 12.118 7.438 18.667 14.634 21.79" />
-					<path fill="#8965FD" d="M66.339 171.049c-1.51 1.824-4.388 2.664-7.676.446-5.38-3.63-10.942-14.955-10.942-14.955l-.045.068c-1.328-2.481-3.226-4.791-5.99-6.586-6.656-4.322-19.279-2.355-23.78-2.75-4.503-.394-6.36-4.024-6.36-4.024l3.72-3.928s.246 2.836 5.432 4.116c5.186 1.275 7.494-1.269 7.494-1.269l-4.975-5.099s-.217-.589-.023-3.242c.194-2.652-.883-5.499-3.522-6.871-2.644-1.372-4.405.886-4.405.886l-2.758-2.207a2.906 2.906 0 0 0-3.739.097l-7.402 6.58.746.829 9.625-3.441s-7.243 7.557-8.32 18.654c-1.077 11.096 2.416 19.157 2.416 19.157L7.5 190.286l-1.226 5.883c-1.413.72-4.376 3.533-6.274 5.831h5.283l3.778-5.168 1.772-8.324.422-19.546 3.106 1.572.906 22.382-1.846 4.168c-1.214.617-3.397 2.378-4.907 4.91h6.656l3.032-8.003 1.47-23.268s2.838.297 7.437-3.339c4.599-3.63 4.792-7.266 4.792-7.266l1.99.412-.383 7.615a13.6 13.6 0 0 0 2.554 8.632l5.624 7.792-2.74 12.469c-.799.434-2.85 2.527-3.939 4.956h5.602l4.502-18.997-5.87-10.113 2.935-6.774s.393 1.766 3.328 6.38c2.935 4.613 8.218 12.074 8.218 12.074l.296 12.171c-1.208 1.035-2.131 3.63-2.644 5.254h5.482v-18.998s-5.482-10.21-6.166-15.807c-.005-.063-.017-.131-.023-.194 2.485 2.67 5.471 5.397 8.138 6.529 5.973 2.538 8.195-2.207 8.195-2.207s.011-1.103-.661-.292v.029Z" />
-				</svg>
-			</div>
+			<div class="service__great">9</div>
+			<div class="service__title">Ключевых отделений</div>
 		</div>
-		<div class="service__footer">Больше 10 направлений</div>
+		<div class="service__footer"></div>
 	</a>
 
-	<a href="javascript:void(0)" class="service" data-filters="emergency therapy">
+	<a href="javascript:void(0)" class="service" data-filters="diagnosis">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
 					<rect width="44" height="44" x="1" y="1" stroke="currentColor" stroke-width="2" rx="7" />
-					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.718 39.553h20.938a1.944 1.944 0 0 0 0-3.888H18.029A7.03 7.03 0 0 1 11 28.635c0-3.881 2.974-5.71 4.732-6.635M19.428 15.7l-3.124-5.248a2.95 2.95 0 0 1 1.053-4.044 2.95 2.95 0 0 1 4.044 1.053L30.293 22.4l-5.097 2.997-3.303-5.496" />
-					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.66 20.225a2.43 2.43 0 1 0 0-4.86 2.43 2.43 0 0 0 0 4.86ZM32.833 26.402 27.742 29.4" />
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M35.353 10H9.936v17.257h25.417V10Z" />
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M39.285 37.085H6l3.936-9.83h25.418l3.93 9.83ZM13.422 20.31h4.736l1.746-3.6 2.741 5.996 3.236-5.995 1.25 3h4.732" />
 				</svg>
 			</div>
-			Исследования
+			Диагностика
 		</div>
 		<div class="service__body">
-			<div class="service__title">Сделаем <br><strong>всё возможное,</strong> и&nbsp;даже больше</div>
+			<div class="service__title">Регулярная диагностика&nbsp;&mdash; <strong>ключ к&nbsp;здоровью</strong></div>
 		</div>
-		<div class="service__footer">Работаем круглосуточно</div>
+		<div class="service__footer">КТ, УЗИ, рентген</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service" data-filters="emergency">
+	<a href="javascript:void(0)" class="service" data-filters="surgery">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -63,10 +57,10 @@
 		<div class="service__body">
 			<div class="service__title">Сделаем <br><strong>всё возможное,</strong> и&nbsp;даже больше</div>
 		</div>
-		<div class="service__footer">Работаем круглосуточно</div>
+		<div class="service__footer">Рядом в&nbsp;любой ситуации 24/7</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service service_violet" data-filters="therapy surgery">
+	<a href="javascript:void(0)" class="service" data-filters="therapy">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -78,10 +72,11 @@
 			Гастроэнтерология
 		</div>
 		<div class="service__body">
-			<div class="service__great">5</div>
-			<div class="service__title">Комплексных программ</div>
+			<div class="service__decor">
+				<img src="./img/decoration-service-cats.svg" width="" height="" alt="" loading="lazy">
+			</div>
 		</div>
-		<div class="service__footer">Работаем круглосуточно</div>
+		<div class="service__footer">Разработка индивидуального плана питания</div>
 	</a>
 
 	<a href="javascript:void(0)" class="service" data-filters="therapy">
@@ -97,12 +92,12 @@
 			Онкология
 		</div>
 		<div class="service__body">
-			<div class="service__title">Комфорт и&nbsp;забота <strong>24/7</strong></div>
+			<div class="service__title">Работаем даже со&nbsp;<strong>сложными случаями</strong></div>
 		</div>
 		<div class="service__footer">Для тех, кому требуется особое внимание</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service service_violet" data-filters="therapy surgery">
+	<a href="javascript:void(0)" class="service service_violet" data-filters="therapy">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -118,10 +113,97 @@
 				<img src="./img/upload/services-img-1.jpg" width="243" height="243" alt="" loading="lazy" decoding="async">
 			</div>
 		</div>
-		<div class="service__footer">Работаем круглосуточно</div>
+		<div class="service__footer">Специализация на&nbsp;сложных случаях</div>
+	</a>
+
+	<a href="javascript:void(0)" class="service" data-filters="therapy">
+		<div class="service__label">
+			<div class="service__icon">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
+					<rect width="44" height="44" x="1" y="1" stroke="currentColor" stroke-width="2" rx="7" />
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23.209 33.284c4.172 0 7.554-3.452 7.554-7.71 0-4.257-3.382-7.708-7.554-7.708-4.172 0-7.555 3.451-7.555 7.709 0 4.257 3.383 7.709 7.555 7.709Z" />
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.195 17.311h5.755l2.757 2.99M7 25.575l3.726-2.807h4.929M15.654 28.314l-4.328.088-3.146 4.884M18.842 12l1.857 3.112M37.608 17.311h-5.75l-2.756 2.99M39.81 25.575l-3.732-2.807h-4.924M31.154 28.314l4.328.088 3.14 4.884M27.966 12l-1.863 3.112M23.21 17.867c1.094 0 2.137.245 3.077.672.144-.38.236-.79.236-1.228 0-1.866-1.485-3.38-3.314-3.38-1.828 0-3.313 1.514-3.313 3.38 0 .433.087.843.235 1.229a7.433 7.433 0 0 1 3.078-.673Z" />
+				</svg>
+			</div>
+			Дерматология
+		</div>
+		<div class="service__body">
+			<div class="service__title">Собственная современная <strong>лаборатория</strong></div>
+		</div>
+		<div class="service__footer">Находим и&nbsp;устраняем причины болезни</div>
 	</a>
 
 	<a href="javascript:void(0)" class="service" data-filters="diagnosis">
+		<div class="service__label">
+			<div class="service__icon">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
+					<rect width="44" height="44" x="1" y="1" stroke="currentColor" stroke-width="2" rx="7" />
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.718 39.553h20.938a1.944 1.944 0 0 0 0-3.888H18.029A7.03 7.03 0 0 1 11 28.635c0-3.881 2.974-5.71 4.732-6.635M19.428 15.7l-3.124-5.248a2.95 2.95 0 0 1 1.053-4.044 2.95 2.95 0 0 1 4.044 1.053L30.293 22.4l-5.097 2.997-3.303-5.496" />
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.66 20.225a2.43 2.43 0 1 0 0-4.86 2.43 2.43 0 0 0 0 4.86ZM32.833 26.402 27.742 29.4" />
+				</svg>
+			</div>
+			Лаборатория
+		</div>
+		<div class="service__body">
+			<div class="service__title"><strong>Быстрое</strong> получение результатов</div>
+		</div>
+		<div class="service__footer">Все виды анализов</div>
+	</a>
+
+	<a href="javascript:void(0)" class="service" data-filters="therapy">
+		<div class="service__label">
+			<div class="service__icon">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
+					<rect width="44" height="44" x="1" y="1" stroke="currentColor" stroke-width="2" rx="7" />
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M37.789 13.442a8.344 8.344 0 0 0-11.797 0l-2.877 2.877-2.877-2.877a8.344 8.344 0 0 0-11.796 0 8.344 8.344 0 0 0 0 11.796L22.995 39.79l.12-.12.12.12L37.79 25.238a8.344 8.344 0 0 0 0-11.796Z" />
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m11.588 27.284 5.978-8.471 3.737 8.7 4.735-4.866 1.891 5.377 4.018-4.391h12.467" />
+				</svg>
+			</div>
+			Кардиология
+		</div>
+		<div class="service__body">
+			<div class="service__decor">
+				<img src="./img/decoration-service-dogs-2.svg" width="" height="" alt="" loading="lazy">
+			</div>
+		</div>
+		<div class="service__footer">Системный подход к&nbsp;схемам лечения</div>
+	</a>
+
+	<a href="javascript:void(0)" class="service" data-filters="surgery">
+		<div class="service__label">
+			<div class="service__icon">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
+					<rect width="44" height="44" x="1" y="1" stroke="currentColor" stroke-width="2" rx="7" />
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.837 11.361c-3.002-2.845-7.652-3.156-11.012-.73-3.69 2.66-4.882 7.55-2.819 11.561l6.964 13.546c.858 1.668 3.275 1.686 4.164.036l2.124-4.406c.414-.86 1.644-.896 2.113-.06l2.495 4.466c.889 1.65 3.306 1.632 4.164-.036l6.964-13.546c2.063-4.01.87-8.9-2.819-11.56-3.36-2.427-8.017-2.116-11.011.729l-6.149 5.84" />
+				</svg>
+			</div>
+			Стоматология
+		</div>
+		<div class="service__body">
+			<div class="service__title">Здоровье зубов <strong>под контролем</strong></div>
+		</div>
+		<div class="service__footer">Регулярные осмотры и&nbsp;экстренные ситуации</div>
+	</a>
+
+	<a href="javascript:void(0)" class="service" data-filters="therapy">
+		<div class="service__label">
+			<div class="service__icon">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
+					<rect width="44" height="44" x="1" y="1" stroke="currentColor" stroke-width="2" rx="7" />
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M24.132 23.933h-4.48l-3.837-6.783c-.93-1.65-2.93-2.454-4.814-1.943-2.988.82-4.679 3.846-3.743 6.693l3.638 11.017c.503 1.515 1.965 2.549 3.626 2.549 1.45 0 2.773-.792 3.41-2.038l2.293-4.459h3.813" />
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.225 22.012c0 .758-.637 1.37-1.427 1.37s-1.427-.612-1.427-1.37M17.938 25.49c0 .757-.637 1.37-1.427 1.37s-1.427-.613-1.427-1.37M15.557 29.605c0 .758-.637 1.37-1.427 1.37s-1.427-.613-1.427-1.37M19.559 18.537h6.825M19.559 33.815l7.72.09M21.945 23.933h4.48l3.837-6.783c.93-1.65 2.93-2.454 4.814-1.943 2.989.82 4.679 3.846 3.743 6.693l-3.638 11.017c-.503 1.515-1.965 2.549-3.626 2.549-1.45 0-2.773-.792-3.41-2.038l-2.293-4.459H22.04" />
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M31.854 22.012c0 .758.637 1.37 1.427 1.37s1.427-.612 1.427-1.37M28.139 25.49c0 .757.637 1.37 1.427 1.37s1.427-.613 1.427-1.37M30.52 29.605c0 .758.637 1.37 1.427 1.37s1.427-.613 1.427-1.37M26.992 22.468v-4.907c0-.927.205-1.847.597-2.695l1.907-4.127c.233-.41.356-.87.356-1.336V7.965c0-1.09-.918-1.965-2.047-1.965h-.573c-1.135 0-2.047.882-2.047 1.965v.354c0 .741-1.597 2.027-2.147 2.55-.544-.523-2.146-1.809-2.146-2.55v-.354c0-1.09-.918-1.965-2.047-1.965h-.573c-1.135 0-2.047.882-2.047 1.965v1.438c0 .466.122.926.356 1.336l1.907 4.127a6.43 6.43 0 0 1 .597 2.695v4.907M27.186 31.345v8.175h-8.293v-8.175" />
+				</svg>
+			</div>
+			Эндокринология
+		</div>
+		<div class="service__body">
+			<div class="service__title">Возвращаем <strong>качество жизни</strong></div>
+		</div>
+		<div class="service__footer">Современные научные методы, международные протоколы</div>
+	</a>
+
+	<a href="javascript:void(0)" class="service service_violet" data-filters="therapy diagnosis">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -135,28 +217,31 @@
 			Офтальмология
 		</div>
 		<div class="service__body">
-			<div class="service__title">Сделаем <br><strong>всё возможное,</strong> и&nbsp;даже больше</div>
+			<div class="service__img">
+				<img src="./img/upload/services-img-2.jpg" width="243" height="243" alt="" loading="lazy" decoding="async">
+			</div>
 		</div>
-		<div class="service__footer">Работаем круглосуточно</div>
+		<div class="service__footer">Консервативная и&nbsp;хирургическая</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service" data-filters="diagnosis">
+	<a href="javascript:void(0)" class="service" data-filters="emergency">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
 					<rect width="44" height="44" x="1" y="1" stroke="currentColor" stroke-width="2" rx="7" />
-					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.837 11.361c-3.002-2.845-7.652-3.156-11.012-.73-3.69 2.66-4.882 7.55-2.819 11.561l6.964 13.546c.858 1.668 3.275 1.686 4.164.036l2.124-4.406c.414-.86 1.644-.896 2.113-.06l2.495 4.466c.889 1.65 3.306 1.632 4.164-.036l6.964-13.546c2.063-4.01.87-8.9-2.819-11.56-3.36-2.427-8.017-2.116-11.011.729l-6.149 5.84" />
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M32.014 11H13.987A6.987 6.987 0 0 0 7 17.987v10.507a6.987 6.987 0 0 0 6.987 6.986h18.027A6.987 6.987 0 0 0 39 28.494V17.986A6.987 6.987 0 0 0 32.014 11Z" />
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 23.246h6.093l3.536-8.311 9.681 16.014 5.32-8.007H39" />
 				</svg>
 			</div>
-			Стоматология
+			Реанимация
 		</div>
 		<div class="service__body">
-			<div class="service__title">Сделаем <br><strong>всё возможное,</strong> и&nbsp;даже больше</div>
+			<div class="service__title">Лечение и&nbsp;реабилитация <strong>с&nbsp;первого дня</strong></div>
 		</div>
-		<div class="service__footer">Работаем круглосуточно</div>
+		<div class="service__footer">Всё для спасения жизни</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service service_violet" data-filters="diagnosis">
+	<a href="javascript:void(0)" class="service service_violet" data-filters="emergency">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -170,49 +255,13 @@
 		</div>
 		<div class="service__body">
 			<div class="service__img">
-				<img src="./img/upload/services-img-2.jpg" width="243" height="243" alt="" loading="lazy" decoding="async">
+				<img src="./img/upload/services-img-3.jpg" width="243" height="243" alt="" loading="lazy" decoding="async">
 			</div>
 		</div>
-		<div class="service__footer">Работаем круглосуточно</div>
+		<div class="service__footer">Постоянный мониторинг состояния</div>
 	</a>
 
-	<a href="javascript:void(0)" class="service" data-filters="surgery">
-		<div class="service__label">
-			<div class="service__icon">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
-					<rect width="44" height="44" x="1" y="1" stroke="currentColor" stroke-width="2" rx="7" />
-					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23.209 33.284c4.172 0 7.554-3.452 7.554-7.71 0-4.257-3.382-7.708-7.554-7.708-4.172 0-7.555 3.451-7.555 7.709 0 4.257 3.383 7.709 7.555 7.709Z" />
-					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.195 17.311h5.755l2.757 2.99M7 25.575l3.726-2.807h4.929M15.654 28.314l-4.328.088-3.146 4.884M18.842 12l1.857 3.112M37.608 17.311h-5.75l-2.756 2.99M39.81 25.575l-3.732-2.807h-4.924M31.154 28.314l4.328.088 3.14 4.884M27.966 12l-1.863 3.112M23.21 17.867c1.094 0 2.137.245 3.077.672.144-.38.236-.79.236-1.228 0-1.866-1.485-3.38-3.314-3.38-1.828 0-3.313 1.514-3.313 3.38 0 .433.087.843.235 1.229a7.433 7.433 0 0 1 3.078-.673Z" />
-				</svg>
-			</div>
-			Дерматология
-		</div>
-		<div class="service__body">
-			<div class="service__title">Сделаем <br><strong>всё возможное,</strong> и&nbsp;даже больше</div>
-		</div>
-		<div class="service__footer">Работаем круглосуточно</div>
-	</a>
-
-	<a href="javascript:void(0)" class="service" data-filters="surgery">
-		<div class="service__label">
-			<div class="service__icon">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
-					<rect width="44" height="44" x="1" y="1" stroke="currentColor" stroke-width="2" rx="7" />
-					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M37.789 13.442a8.344 8.344 0 0 0-11.797 0l-2.877 2.877-2.877-2.877a8.344 8.344 0 0 0-11.796 0 8.344 8.344 0 0 0 0 11.796L22.995 39.79l.12-.12.12.12L37.79 25.238a8.344 8.344 0 0 0 0-11.796Z" />
-					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m11.588 27.284 5.978-8.471 3.737 8.7 4.735-4.866 1.891 5.377 4.018-4.391h12.467" />
-				</svg>
-			</div>
-			Кардиология
-		</div>
-		<div class="service__body">
-			<div class="service__decor">
-				<img src="./img/decoration-service-dog.svg" width="" height="" alt="" loading="lazy">
-			</div>
-		</div>
-		<div class="service__footer">Работаем круглосуточно</div>
-	</a>
-
-	<a href="javascript:void(0)" class="service" data-filters="therapy emergency">
+	<a href="javascript:void(0)" class="service" data-filters="emergency">
 		<div class="service__label">
 			<div class="service__icon">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
@@ -223,45 +272,9 @@
 			Скорая помощь
 		</div>
 		<div class="service__body">
-			<div class="service__title">Комфорт и&nbsp;забота <strong>24/7</strong></div>
+			<div class="service__title">Круглосуточная <strong>выделенная линия</strong></div>
 		</div>
-		<div class="service__footer">Для тех, кому требуется особое внимание</div>
-	</a>
-
-	<a href="javascript:void(0)" class="service" data-filters="diagnosis therapy surgery">
-		<div class="service__label">
-			<div class="service__icon">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
-					<rect width="44" height="44" x="1" y="1" stroke="currentColor" stroke-width="2" rx="7" />
-					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M24.132 23.933h-4.48l-3.837-6.783c-.93-1.65-2.93-2.454-4.814-1.943-2.988.82-4.679 3.846-3.743 6.693l3.638 11.017c.503 1.515 1.965 2.549 3.626 2.549 1.45 0 2.773-.792 3.41-2.038l2.293-4.459h3.813" />
-					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.225 22.012c0 .758-.637 1.37-1.427 1.37s-1.427-.612-1.427-1.37M17.938 25.49c0 .757-.637 1.37-1.427 1.37s-1.427-.613-1.427-1.37M15.557 29.605c0 .758-.637 1.37-1.427 1.37s-1.427-.613-1.427-1.37M19.559 18.537h6.825M19.559 33.815l7.72.09M21.945 23.933h4.48l3.837-6.783c.93-1.65 2.93-2.454 4.814-1.943 2.989.82 4.679 3.846 3.743 6.693l-3.638 11.017c-.503 1.515-1.965 2.549-3.626 2.549-1.45 0-2.773-.792-3.41-2.038l-2.293-4.459H22.04" />
-					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M31.854 22.012c0 .758.637 1.37 1.427 1.37s1.427-.612 1.427-1.37M28.139 25.49c0 .757.637 1.37 1.427 1.37s1.427-.613 1.427-1.37M30.52 29.605c0 .758.637 1.37 1.427 1.37s1.427-.613 1.427-1.37M26.992 22.468v-4.907c0-.927.205-1.847.597-2.695l1.907-4.127c.233-.41.356-.87.356-1.336V7.965c0-1.09-.918-1.965-2.047-1.965h-.573c-1.135 0-2.047.882-2.047 1.965v.354c0 .741-1.597 2.027-2.147 2.55-.544-.523-2.146-1.809-2.146-2.55v-.354c0-1.09-.918-1.965-2.047-1.965h-.573c-1.135 0-2.047.882-2.047 1.965v1.438c0 .466.122.926.356 1.336l1.907 4.127a6.43 6.43 0 0 1 .597 2.695v4.907M27.186 31.345v8.175h-8.293v-8.175" />
-				</svg>
-			</div>
-			Эндокринология
-		</div>
-		<div class="service__body">
-			<div class="service__title">Комфорт и&nbsp;забота <strong>24/7</strong></div>
-		</div>
-		<div class="service__footer">Для тех, кому требуется особое внимание</div>
-	</a>
-
-	<a href="javascript:void(0)" class="service service_violet" data-filters="emergency">
-		<div class="service__label">
-			<div class="service__icon">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 46">
-					<rect width="44" height="44" x="1" y="1" stroke="currentColor" stroke-width="2" rx="7" />
-					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M32.014 11H13.987A6.987 6.987 0 0 0 7 17.987v10.507a6.987 6.987 0 0 0 6.987 6.986h18.027A6.987 6.987 0 0 0 39 28.494V17.986A6.987 6.987 0 0 0 32.014 11Z" />
-					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 23.246h6.093l3.536-8.311 9.681 16.014 5.32-8.007H39" />
-				</svg>
-			</div>
-			Реанимация
-		</div>
-		<div class="service__body">
-			<div class="service__great">5</div>
-			<div class="service__title">Комплексных программ</div>
-		</div>
-		<div class="service__footer"></div>
+		<div class="service__footer">Для тех, у&nbsp;кого экстренный случай</div>
 	</a>
 
 </div>
