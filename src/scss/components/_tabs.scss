@@ -59,7 +59,7 @@
 	// .tab__col
 	&__col {
 		display: flex;
-		flex: 1 1 290px;
+		flex: 1 1 370px;
 		flex-direction: column;
 		gap: 30px;
 
@@ -72,9 +72,13 @@
 				// }
 			}
 
-			@include resp-from(lg) {
+			@include resp-from(desktop) {
 				flex-direction: column;
 			}
+		}
+
+		@include resp-from(desktop) {
+			flex: 1 1 290px;
 		}
 	}
 
@@ -83,9 +87,11 @@
 		font-size: rem(20);
 		font-weight: var(--font-weight-medium);
 		line-height: 1.2;
+		hyphens: none;
 
 		b,
 		strong {
+			display: block;
 			color: var(--color-primary);
 		}
 
@@ -202,10 +208,9 @@
 	display: flex;
 	align-items: center;
 	min-height: 24px;
-	padding: 0 10px;
+	padding: 3px 10px;
 	font-size: rem(12);
-	text-align: center;
 	background: var(--color-secondary);
 	border-radius: 12px;
-	white-space: nowrap;
+	// white-space: nowrap;
 }
