@@ -1,4 +1,3 @@
-/* stylelint-disable selector-class-pattern */
 @use '../abstracts' as *;
 @use '../base/typography-placeholders' as *;
 
@@ -40,7 +39,7 @@
 		}
 
 		@include when-inside('.hero-block_photo-wide') {
-			flex: 2 1 600px;
+			flex: 2 1 590px;
 		}
 	}
 
@@ -76,20 +75,28 @@
 			// 	padding: 26px 150px 26px 115px;
 			// }
 		}
+
+		@include when-inside('.hero-block_violet') {
+			padding-top: 20px;
+
+			@include resp-from(lg) {
+				padding-top: 50px;
+			}
+		}
 	}
 
 	// .hero-block__great
 	&__great {
-		margin-bottom: 20px;
+		margin-bottom: 9px;
+		font-size: rem(56);
 		font-weight: var(--font-weight-medium);
 		line-height: 0.9;
 		letter-spacing: -0.01em;
 
-		@include clamp(font-size, 50, 72);
+		// @include clamp(font-size, 50, 72);
 
 		@include resp-from(lg) {
 			margin-bottom: 32px;
-			font-size: rem(55);
 		}
 
 		@include resp-from(desktop) {
@@ -99,17 +106,14 @@
 
 	// .hero-block__great-sub
 	&__great-sub {
-		margin-bottom: 20px;
-		font-size: rem(33);
+		margin-bottom: 14px;
+		font-size: rem(26);
 		font-weight: var(--font-weight-medium);
 		line-height: 1.2;
 		letter-spacing: -0.01em;
 
-		@include clamp(font-size, 22, 33);
-
 		@include resp-from(lg) {
 			margin-bottom: 34px;
-			font-size: rem(25);
 		}
 
 		@include resp-from(desktop) {
@@ -124,7 +128,7 @@
 
 	// .hero-block__description
 	&__description {
-		margin-bottom: 30px;
+		margin-bottom: 16px;
 
 		ul {
 			padding-left: 27px;
@@ -148,10 +152,6 @@
 	&_violet {
 		--color-bg: var(--color-primary);
 		--color: var(--color-white);
-
-		.hero-block__text {
-			padding-top: 50px;
-		}
 
 		.btn {
 			--form-control-color-hover-text: var(--color-primary);
