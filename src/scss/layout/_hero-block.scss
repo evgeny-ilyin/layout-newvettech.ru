@@ -30,6 +30,8 @@
 
 	// .hero-block__photo
 	&__photo {
+		min-height: 230px;
+
 		picture,
 		img {
 			width: 100%;
@@ -40,6 +42,18 @@
 
 		@include when-inside('.hero-block_photo-wide') {
 			flex: 2 1 590px;
+		}
+
+		@include resp-from(md) {
+			min-height: 348px;
+		}
+
+		@include resp-from(lg) {
+			min-height: 381px;
+		}
+
+		@include resp-from(desktop) {
+			min-height: auto;
 		}
 	}
 
