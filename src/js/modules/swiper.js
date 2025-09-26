@@ -8,55 +8,61 @@ export function swipersInit() {
 			pagination = el.querySelector('.swiper-pagination'),
 			next = el.querySelector('.swiper-button-next'),
 			prev = el.querySelector('.swiper-button-prev'),
-			loop = el.dataset.loop ? el.dataset.loop === 'true' : false;
+			loop = el.dataset.loop ? el.dataset.loop === 'true' : false,
+			auto = el.dataset.autoplay ? el.dataset.autoplay > 0 : false,
+			delay = el.dataset.autoplay;
 
 		new Swiper(swiper, {
-			modules: [Navigation, Pagination],
+			modules: [Autoplay, Navigation, Pagination],
 			slidesPerView: 1,
 			slidesPerGroup: 1,
 			spaceBetween: 20,
 			autoHeight: false,
 			loop: loop,
-			pagination: {
-				enabled: true,
-				el: pagination,
-				type: 'bullets',
-				clickable: true,
+			autoplay: {
+				enabled: auto,
+				delay: delay,
 			},
 			navigation: {
 				enabled: false,
 				nextEl: next,
 				prevEl: prev,
 			},
+			pagination: {
+				enabled: true,
+				el: pagination,
+				type: 'bullets',
+				clickable: true,
+			},
 			breakpoints: {
 				577: {
 					slidesPerView: 2,
 					spaceBetween: 14,
-					pagination: {
-						enabled: true,
-					},
 					navigation: {
 						enabled: false,
+					},
+					pagination: {
+						enabled: true,
 					},
 				},
 				1024: {
 					slidesPerView: 3,
-					pagination: {
-						enabled: true,
-					},
 					navigation: {
 						enabled: false,
+					},
+					pagination: {
+						enabled: true,
 					},
 				},
 				1280: {
 					slidesPerView: 4,
 					slidesPerGroup: 1,
 					spaceBetween: 20,
-					pagination: {
-						enabled: false,
-					},
 					navigation: {
 						enabled: true,
+					},
+					pagination: {
+						enabled: false,
 					},
 				},
 			},
@@ -69,7 +75,9 @@ export function swipersInit() {
 			pagination = el.querySelector('.swiper-pagination'),
 			next = el.querySelector('.swiper-button-next'),
 			prev = el.querySelector('.swiper-button-prev'),
-			loop = el.dataset.loop ? el.dataset.loop === 'true' : false;
+			loop = el.dataset.loop ? el.dataset.loop === 'true' : false,
+			auto = el.dataset.autoplay ? el.dataset.autoplay > 0 : false,
+			delay = el.dataset.autoplay;
 
 		new Swiper(swiper, {
 			modules: [Autoplay, Navigation, Pagination],
@@ -79,7 +87,8 @@ export function swipersInit() {
 			autoHeight: true,
 			loop: loop,
 			autoplay: {
-				delay: 3000,
+				enabled: auto,
+				delay: delay,
 			},
 			navigation: {
 				enabled: false,
