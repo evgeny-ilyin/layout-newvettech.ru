@@ -22,7 +22,10 @@
 
 		b,
 		strong {
+			display: inline-block;
+			margin-bottom: 3px;
 			font-weight: var(--name-font-weight, var(--font-weight-normal));
+			line-height: 1.2;
 			color: var(--color-primary);
 		}
 	}
