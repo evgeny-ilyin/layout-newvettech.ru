@@ -72,25 +72,29 @@ export function swipersInit() {
 			loop = el.dataset.loop ? el.dataset.loop === 'true' : false;
 
 		new Swiper(swiper, {
-			modules: [Navigation, Pagination],
+			modules: [Autoplay, Navigation, Pagination],
 			slidesPerView: 1,
 			slidesPerGroup: 1,
 			spaceBetween: 20,
 			autoHeight: true,
 			loop: loop,
-			pagination: {
-				enabled: true,
-				el: pagination,
-				type: 'bullets',
-				clickable: true,
+			autoplay: {
+				delay: 3000,
 			},
 			navigation: {
 				enabled: false,
 				nextEl: next,
 				prevEl: prev,
 			},
+			pagination: {
+				enabled: true,
+				el: pagination,
+				type: 'bullets',
+				clickable: true,
+			},
 			breakpoints: {
 				1280: {
+					autoHeight: false,
 					navigation: {
 						enabled: true,
 					},
@@ -100,6 +104,7 @@ export function swipersInit() {
 	});
 
 	//TODO удалить ненужные
+	/*
 	const swiperTop = document.querySelectorAll('.swiper-top');
 	swiperTop.forEach((el) => {
 		const swiper = el.querySelector('.swiper'),
@@ -180,5 +185,5 @@ export function swipersInit() {
 				prevEl: prev,
 			},
 		});
-	});
+	});*/
 }

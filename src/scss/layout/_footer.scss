@@ -104,6 +104,8 @@
 }
 
 .footer-metapets {
+	margin-bottom: 20px;
+
 	// .footer-metapets__link
 	&__link {
 		--color-square: var(--color-secondary);
@@ -119,6 +121,15 @@
 			--color-figure: #af9ffb;
 			--color-text: var(--color-white);
 		}
+	}
+}
+
+.footer-skolkovo {
+	font-size: rem(16);
+	text-align: center;
+
+	@include resp-from(md) {
+		text-align: left;
 	}
 }
 
