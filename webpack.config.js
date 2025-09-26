@@ -188,7 +188,7 @@ const config = {
 				test: /\.(woff2?|eot|ttf|otf)$/i,
 				type: 'asset/resource',
 				generator: {
-					filename: 'fonts/[name][ext]',
+					filename: 'fonts-git/[name][ext]',
 				},
 			},
 			// {
