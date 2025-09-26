@@ -1,2 +1,7 @@
 вычистить и добавить описание
 \src\js\modules\tabs.js
+
+удалить ненужные свайперы
+
+замена на fluid
+\src\scss\base\_typography-placeholders.scss
