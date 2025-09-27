@@ -1,0 +1,94 @@
+@use '../abstracts' as *;
+
+.pros {
+	// --gap: 64px;
+	// --height: 50px;
+	--gap: 40px;
+	--height: 40px;
+	margin-bottom: 29px;
+	padding-top: 9px;
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: var(--gap);
+		max-width: 360px;
+		margin: 0 auto;
+		padding: 0;
+
+		li {
+			position: relative;
+			height: 50px;
+			min-width: 145px;
+			margin: 0;
+			padding: 0 25px;
+			font-size: rem(18);
+			font-weight: var(--font-weight-medium);
+			line-height: 1;
+			letter-spacing: 0.06em;
+			text-align: center;
+			text-transform: uppercase;
+			color: var(--color-white);
+			background: var(--color-primary);
+			border-radius: 50px;
+
+			&::after {
+				content: '+';
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: absolute;
+				bottom: calc((var(--gap) - 2px) * -1);
+				width: var(--gap);
+				height: var(--height);
+				font-size: rem(41);
+				font-weight: var(--font-weight-normal);
+				line-height: 0.4;
+				color: var(--color-primary);
+
+				@include resp-from(md) {
+					right: calc(var(--gap) * -1);
+					bottom: 0;
+					font-size: rem(47);
+				}
+
+				@include resp-from(desktop) {
+					font-size: rem(60);
+					font-weight: var(--font-weight-medium);
+				}
+			}
+
+			&:last-child {
+				&::after {
+					display: none;
+				}
+			}
+
+			@include flex-center;
+
+			@include resp-from(desktop) {
+				height: 43px;
+				font-size: rem(22);
+			}
+		}
+
+		@include resp-from(md) {
+			flex-direction: row;
+			max-width: none;
+		}
+	}
+
+	@include resp-from(md) {
+		--gap: 45px;
+		--height: 50px;
+		margin-bottom: 22px;
+		padding-top: 6px;
+	}
+
+	@include resp-from(desktop) {
+		--gap: 62px;
+		--height: 43px;
+		margin-bottom: 40px;
+	}
+}

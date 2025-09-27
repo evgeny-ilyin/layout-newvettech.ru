@@ -6,7 +6,6 @@
 	// display: flex;
 	// flex-direction: column;
 	// align-items: center;
-	max-width: var(--max-width);
 	margin-right: auto;
 	margin-bottom: var(--header-margin-bottom);
 	margin-left: auto;
@@ -59,7 +58,10 @@
 		--title-margin-bottom: 20px;
 		display: flex;
 		justify-content: center;
+		max-width: var(--max-width);
+		margin-right: auto;
 		margin-bottom: var(--title-margin-bottom);
+		margin-left: auto;
 
 		@include resp-from(md) {
 			--title-margin-bottom: 20px;
@@ -72,6 +74,9 @@
 
 	// .section-header__subtitle
 	&__subtitle {
+		max-width: var(--max-width);
+		margin-right: auto;
+		margin-left: auto;
 		font-size: rem(20);
 
 		b,
