@@ -22,6 +22,7 @@ export function swipersInit() {
 			autoplay: {
 				enabled: auto,
 				delay: delay,
+				pauseOnMouseEnter: true,
 			},
 			navigation: {
 				enabled: false,
@@ -93,6 +94,7 @@ export function swipersInit() {
 			autoplay: {
 				enabled: auto,
 				delay: delay,
+				pauseOnMouseEnter: true,
 			},
 			navigation: {
 				enabled: false,
