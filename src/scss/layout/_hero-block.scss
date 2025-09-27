@@ -40,10 +40,6 @@
 			object-position: left;
 		}
 
-		@include when-inside('.hero-block_photo-wide') {
-			flex: 2 1 590px;
-		}
-
 		@include resp-from(md) {
 			min-height: 348px;
 		}
@@ -54,6 +50,10 @@
 
 		@include resp-from(desktop) {
 			min-height: auto;
+
+			@include when-inside('.hero-block_photo-wide') {
+				flex: 2 1 590px;
+			}
 		}
 	}
 
