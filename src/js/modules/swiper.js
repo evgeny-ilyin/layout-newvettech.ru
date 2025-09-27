@@ -4,7 +4,7 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 export function swipersInit() {
 	const swiperSmallCards = document.querySelectorAll('.js-swiper-small-cards');
 	swiperSmallCards.forEach((el) => {
-		const swiper = el.querySelector('.swiper'),
+		const swiperEl = el.querySelector('.swiper'),
 			pagination = el.querySelector('.swiper-pagination'),
 			next = el.querySelector('.swiper-button-next'),
 			prev = el.querySelector('.swiper-button-prev'),
@@ -12,7 +12,7 @@ export function swipersInit() {
 			auto = el.dataset.autoplay ? el.dataset.autoplay > 0 : false,
 			delay = el.dataset.autoplay;
 
-		new Swiper(swiper, {
+		const swiper = new Swiper(swiperEl, {
 			modules: [Autoplay, Navigation, Pagination],
 			slidesPerView: 1,
 			slidesPerGroup: 1,
@@ -67,11 +67,13 @@ export function swipersInit() {
 				},
 			},
 		});
+
+		attachSwiperObserver(swiper, swiperEl);
 	});
 
 	const swiperSingle = document.querySelectorAll('.js-swiper-single');
 	swiperSingle.forEach((el) => {
-		const swiper = el.querySelector('.swiper'),
+		const swiperEl = el.querySelector('.swiper'),
 			pagination = el.querySelector('.swiper-pagination'),
 			next = el.querySelector('.swiper-button-next'),
 			prev = el.querySelector('.swiper-button-prev'),
@@ -79,12 +81,12 @@ export function swipersInit() {
 			auto = el.dataset.autoplay ? el.dataset.autoplay > 0 : false,
 			delay = el.dataset.autoplay;
 
-		new Swiper(swiper, {
+		const swiper = new Swiper(swiperEl, {
 			modules: [Autoplay, Navigation, Pagination],
 			slidesPerView: 1,
 			slidesPerGroup: 1,
 			spaceBetween: 20,
-			autoHeight: true,
+			autoHeight: false,
 			loop: loop,
 			autoplay: {
 				enabled: auto,
@@ -103,96 +105,36 @@ export function swipersInit() {
 			},
 			breakpoints: {
 				1280: {
-					autoHeight: false,
+					autoHeight: true,
 					navigation: {
 						enabled: true,
 					},
 				},
 			},
 		});
+
+		attachSwiperObserver(swiper, swiperEl);
 	});
 
-	//TODO удалить ненужные
-	/*
-	const swiperTop = document.querySelectorAll('.swiper-top');
-	swiperTop.forEach((el) => {
-		const swiper = el.querySelector('.swiper'),
-			pagination = el.querySelector('.swiper-pagination');
-
-		new Swiper(swiper, {
-			modules: [Pagination],
-			slidesPerView: 1,
-			slidesPerGroup: 1,
-			spaceBetween: 20,
-			loop: true,
-			pagination: {
-				enabled: true,
-				el: pagination,
-				type: 'bullets',
-				clickable: true,
+	/**
+	 * Хелпер следит за видимостью и включает/выключает autoplay.
+	 * Чтобы при активном autoHeight не скакали элементы под свайпером, если он уже вышел из зоны видимости.
+	 */
+	function attachSwiperObserver(swiper, swiperEl, threshold = 0.1) {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						swiper.autoplay.start();
+					} else {
+						swiper.autoplay.stop();
+					}
+				});
 			},
-		});
-	});
+			{ threshold }
+		);
 
-	const swiperAuto = document.querySelectorAll('.js-swiper-auto');
-	swiperAuto.forEach((el) => {
-		const swiper = el.querySelector('.swiper'),
-			pagination = el.querySelector('.swiper-pagination');
-
-		new Swiper(swiper, {
-			modules: [Pagination],
-			slidesPerView: 'auto',
-			slidesPerGroup: 1,
-			spaceBetween: 20,
-			loop: false,
-			// centeredSlides: true,
-			// centeredSlidesBounds: true,
-			pagination: {
-				enabled: false,
-				el: pagination,
-				type: 'bullets',
-				clickable: true,
-			},
-			breakpoints: {
-				768: {
-					pagination: {
-						enabled: false,
-					},
-				},
-				1024: {
-					centeredSlides: false,
-					pagination: {
-						enabled: false,
-					},
-				},
-				1280: {
-					spaceBetween: 35,
-					slidesPerGroup: 3,
-					centeredSlides: false,
-					pagination: {
-						enabled: true,
-					},
-				},
-			},
-		});
-	});
-
-	const swiperQuotes = document.querySelectorAll('.swiper-quotes');
-	swiperQuotes.forEach((el) => {
-		const swiper = el.querySelector('.swiper'),
-			next = el.querySelector('.swiper-button-next'),
-			prev = el.querySelector('.swiper-button-prev');
-
-		new Swiper(swiper, {
-			modules: [Navigation],
-			slidesPerView: 1,
-			slidesPerGroup: 1,
-			spaceBetween: 20,
-			loop: true,
-			navigation: {
-				nextEl: next,
-				prevEl: prev,
-			},
-		});
-	});*/
+		observer.observe(swiperEl);
+		return observer; // если нужно управлять, например, отключить позднее через observer.disconnect();
+	}
 }
