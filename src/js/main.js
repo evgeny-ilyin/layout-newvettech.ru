@@ -1,4 +1,5 @@
 import * as fn from './modules/functions.js';
+import { accordion, accordionCircle } from './modules/accordion.js';
 import { tabsInit } from './modules/tabs.js';
 import { swipersInit } from './modules/swiper.js';
 
@@ -8,10 +9,10 @@ addEventListener('DOMContentLoaded', () => {
 	fn.bodyBackground();
 	fn.isTouchDevice();
 	fn.hamburgerMenu('noscroll');
-	fn.accordion();
-	fn.accordionCircle();
 	fn.initFilterSystem();
 
+	accordion();
+	accordionCircle();
 	tabsInit();
 	swipersInit();
 
