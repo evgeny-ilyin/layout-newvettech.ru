@@ -68,7 +68,9 @@ export function swipersInit() {
 			},
 		});
 
-		attachSwiperObserver(swiper, swiperEl);
+		if (swiper.params.autoplay && swiper.params.autoplay.enabled) {
+			attachSwiperObserver(swiper, swiperEl);
+		}
 	});
 
 	const swiperSingle = document.querySelectorAll('.js-swiper-single');
@@ -113,7 +115,9 @@ export function swipersInit() {
 			},
 		});
 
-		attachSwiperObserver(swiper, swiperEl);
+		if (swiper.params.autoplay && swiper.params.autoplay.enabled) {
+			attachSwiperObserver(swiper, swiperEl);
+		}
 	});
 
 	/**
