@@ -19,6 +19,7 @@
 		&.is-opened {
 			--accordion-bg: var(--color-primary);
 			color: var(--color-white);
+			cursor: pointer;
 		}
 	}
 
