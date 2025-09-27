@@ -10,6 +10,6 @@
 	"scope": "/",
 	"theme_color": "#8965fd",
 	"background_color": "#ffffff",
-	"display": "standalone",
+	"display": "browser",
 	"orientation": "portrait-primary"
 }
