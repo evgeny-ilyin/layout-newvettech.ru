@@ -9,7 +9,7 @@
 	// .accordion__item
 	&__item {
 		--accordion-bg: var(--color-white);
-		--trigger-border-radius: 35px;
+		--trigger-border-radius: 23px;
 		color: var(--color-primary);
 		background: var(--accordion-bg);
 		border: 2px solid var(--color-primary);
@@ -156,7 +156,6 @@
 
 		/* stylelint-disable-next-line selector-class-pattern */
 		.accordion__item {
-			--trigger-border-radius: 25px;
 			--width: 450px;
 			// Decimal value, 0-1 based on the child's index.
 			--d: calc(var(--i) / var(--total));
