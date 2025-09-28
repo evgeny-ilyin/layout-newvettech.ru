@@ -135,6 +135,10 @@
 		--btn-bgr: var(--form-control-color-hover);
 	}
 
+	@include print {
+		display: none;
+	}
+
 	@include resp-from(xm) {
 		padding-right: 20px;
 		padding-left: 20px;

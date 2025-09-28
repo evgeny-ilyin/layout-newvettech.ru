@@ -56,6 +56,10 @@
 		@include resp-from(lg) {
 			justify-content: flex-start;
 		}
+
+		@include print {
+			display: none;
+		}
 	}
 
 	// .f-section__body
@@ -123,6 +127,9 @@
 
 	// .f-section__bg
 	&__bg {
+		@include print {
+			display: none;
+		}
 	}
 
 	// .f-section_bg-center

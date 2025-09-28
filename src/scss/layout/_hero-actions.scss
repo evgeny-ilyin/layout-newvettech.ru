@@ -24,6 +24,10 @@
 		user-select: none;
 
 		@include flex-center(true);
+
+		@include print {
+			display: none;
+		}
 	}
 
 	@include resp-from(md) {

@@ -51,6 +51,10 @@
 		@include resp-from(desktop) {
 			margin-bottom: -40px;
 		}
+
+		@include print {
+			display: none;
+		}
 	}
 
 	// .section-header__title

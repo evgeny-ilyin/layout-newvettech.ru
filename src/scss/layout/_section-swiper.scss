@@ -17,4 +17,8 @@
 	@include resp-from(desktop) {
 		margin-bottom: 50px;
 	}
+
+	@include print {
+		display: none;
+	}
 }
