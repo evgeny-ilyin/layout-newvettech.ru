@@ -209,6 +209,7 @@ const config = {
 				{ from: 'src/img', to: 'img' },
 				{ from: 'src/favicon', to: 'favicon' },
 				{ from: 'src/og', to: 'og' },
+				{ from: 'src/download', to: 'download' },
 				{ from: 'src/favicon/favicon.ico', to: 'favicon.ico' },
 				{ from: 'src/humans.txt', to: 'humans.txt', noErrorOnMissing: true },
 				{ from: 'src/favicon/manifest.webmanifest', to: 'manifest.webmanifest' },
