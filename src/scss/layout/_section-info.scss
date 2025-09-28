@@ -24,6 +24,7 @@
 			--grid-gap: 18px;
 		}
 	}
+
 	// .section-info__item
 	&__item {
 		--radius: 11px;
@@ -43,6 +44,7 @@
 			--radius: 20px;
 		}
 	}
+
 	// .section-info__content
 	&__content {
 		--padding-y: 25px;
@@ -87,6 +89,7 @@
 			--padding-x: 35px;
 		}
 	}
+
 	// .section-info__header
 	&__header {
 		font-size: rem(28);
@@ -99,6 +102,7 @@
 			margin-top: 17px;
 		}
 	}
+
 	// .section-info__body
 	&__body {
 		ul {
@@ -143,11 +147,13 @@
 			flex-direction: column;
 		}
 	}
+
 	// .section-info__footer
 	&__footer {
 		align-self: center;
 		margin-top: auto;
 	}
+
 	// .section-info__bg
 	&__bg {
 		position: absolute;
