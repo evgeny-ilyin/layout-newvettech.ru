@@ -8,7 +8,8 @@ export function swipersInit() {
 			pagination = el.querySelector('.swiper-pagination'),
 			next = el.querySelector('.swiper-button-next'),
 			prev = el.querySelector('.swiper-button-prev'),
-			loop = el.dataset.loop ? el.dataset.loop === 'true' : false,
+			loop = getLoopOption(el),
+			// loop = el.dataset.loop ? el.dataset.loop === 'true' : false,
 			auto = el.dataset.autoplay ? el.dataset.autoplay > 0 : false,
 			delay = el.dataset.autoplay;
 
@@ -80,7 +81,8 @@ export function swipersInit() {
 			pagination = el.querySelector('.swiper-pagination'),
 			next = el.querySelector('.swiper-button-next'),
 			prev = el.querySelector('.swiper-button-prev'),
-			loop = el.dataset.loop ? el.dataset.loop === 'true' : false,
+			// loop = el.dataset.loop ? el.dataset.loop === 'true' : false,
+			loop = getLoopOption(el),
 			auto = el.dataset.autoplay ? el.dataset.autoplay > 0 : false,
 			delay = el.dataset.autoplay;
 
@@ -121,6 +123,21 @@ export function swipersInit() {
 			attachSwiperObserver(swiper, swiperEl);
 		}
 	});
+
+	/**
+	 * Хелпер проверяет количество слайдов, возвращает loop и добавляет класс контейнеру, если слайд один
+	 * Класс обнуляет нижний отступ, зарезервированный для элементов управления
+	 */
+	function getLoopOption(container, className = 'is-single') {
+		const slides = container.querySelectorAll('.swiper-slide');
+
+		if (slides.length === 1) {
+			container.classList.add(className);
+			return false; // loop выключаем
+		}
+
+		return slides.length > 1; // loop включаем только если слайдов больше одного
+	}
 
 	/**
 	 * Хелпер следит за видимостью и включает/выключает autoplay.
