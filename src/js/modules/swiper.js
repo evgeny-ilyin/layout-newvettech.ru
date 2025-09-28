@@ -89,7 +89,7 @@ export function swipersInit() {
 			slidesPerView: 1,
 			slidesPerGroup: 1,
 			spaceBetween: 20,
-			autoHeight: false,
+			autoHeight: true,
 			loop: loop,
 			autoplay: {
 				enabled: auto,
