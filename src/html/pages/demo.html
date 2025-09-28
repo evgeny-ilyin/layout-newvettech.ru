@@ -3,7 +3,8 @@
 
 		<body>
 
-			<%= _.template(require('../components/header.html').default)() %>
+		<% var active={menu: "menuAbout"}; %>
+			<%= _.template(require('../components/header.html').default)(active) %>
 
 				<main class="main container">
 					<div class="content">
