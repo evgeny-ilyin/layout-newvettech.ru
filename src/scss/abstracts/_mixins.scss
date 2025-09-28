@@ -103,6 +103,12 @@
 	}
 }
 
+@mixin print {
+	@media print {
+		@content;
+	}
+}
+
 //** MORE
 /// Simple arrows, angles and checkmark: https://codepen.io/andgatjens/pen/PmLqaN
 
