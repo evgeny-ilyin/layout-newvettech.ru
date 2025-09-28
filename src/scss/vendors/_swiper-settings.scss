@@ -47,6 +47,10 @@
 	@include resp-from(desktop) {
 		--padding-bottom: 76px;
 	}
+
+	@include when-inside('.is-single') {
+		--padding-bottom: 0;
+	}
 }
 
 .swiper-button-prev,
@@ -92,41 +96,5 @@
 
 	svg {
 		margin-right: -4px;
-	}
-}
-
-//! clean
-.js-swiper-simple {
-	margin-top: 20px;
-	margin-bottom: 20px;
-
-	.swiper {
-		overflow: visible;
-
-		@include resp-from(xl) {
-			overflow: hidden;
-		}
-	}
-
-	@include resp-from(xl) {
-		margin-top: 20px;
-		margin-bottom: 30px;
-	}
-}
-
-.js-swiper-auto {
-	margin-top: 20px;
-
-	.swiper {
-		overflow: visible;
-
-		@include resp-from(xl) {
-			overflow: hidden;
-		}
-	}
-
-	.swiper-slide {
-		// width: 160px;
-		width: auto;
 	}
 }
