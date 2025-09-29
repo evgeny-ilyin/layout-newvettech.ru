@@ -1,0 +1,40 @@
+@use '../abstracts' as *;
+
+.notfound {
+	flex-direction: column;
+	gap: 14px;
+	height: 80%;
+
+	// .notfound__title
+	&__title {
+		font-weight: var(--font-weight-thin);
+		line-height: 1;
+		color: var(--color-white);
+		user-select: none;
+
+		@include clamp(font-size, 90, 219);
+	}
+
+	// .notfound__body
+	&__body {
+		max-width: 490px;
+		line-height: 1.3;
+		text-align: center;
+		hyphens: none;
+
+		@include clamp(font-size, 24, 33);
+	}
+
+	// .notfound__footer
+	&__footer {
+		max-width: 490px;
+	}
+
+	// .notfound__decor
+	&__decor {
+		max-width: 170px;
+		margin: 40px 0 -2px 39px;
+	}
+
+	@include flex-center;
+}
