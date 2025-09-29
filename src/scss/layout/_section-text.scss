@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 .section-text {
-	margin-bottom: 20px;
+	margin-bottom: 7px;
 	padding: 30px 25px;
 	background: var(--color-white-gray);
 	border-radius: 15px;
@@ -24,6 +24,10 @@
 	h6,
 	.h6 {
 		margin-bottom: 10px;
+	}
+
+	@include resp-from(md) {
+		margin-bottom: 13px;
 	}
 
 	@include resp-from(desktop) {
