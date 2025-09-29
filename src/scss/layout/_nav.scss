@@ -66,17 +66,20 @@
 			margin-bottom: 0;
 		}
 	}
+
 	// .nav__item
 	&__item {
 		margin: 0;
 		padding: 0;
 		font-size: rem(30);
+		line-height: 1.2;
 
 		@include resp-from(desktop) {
 			height: 100%;
 			font-size: rem(14);
 		}
 	}
+
 	// .nav__link
 	&__link {
 		--border-bottom: -8px;

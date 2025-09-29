@@ -87,25 +87,33 @@ ul,
 ol {
 	display: block;
 	margin-top: 0;
-	margin-bottom: 15px;
-	// margin-left: 12px;
+	margin-bottom: 16px;
+	margin-left: 12px;
 	padding-left: 20px;
-	list-style-type: disc;
 
 	li {
-		margin-bottom: 5px;
+		margin-bottom: 10px;
 
 		&:last-child {
 			margin-bottom: 0;
 		}
 	}
+
+	@extend %paragraph;
 }
 
 ul {
+	list-style-type: disc;
+
 	li {
 		&::marker {
 			font-size: 22px;
+			line-height: 0.5;
 			color: var(--color-primary);
+
+			@include resp-from(desktop) {
+				font-size: 24px;
+			}
 		}
 	}
 }

@@ -5,6 +5,8 @@
 .addresses {
 	--name-font-weight: var(--font-weight-bold);
 	font-family: var(--font-family-base);
+	font-size: inherit;
+	line-height: inherit;
 
 	// .addresses__item
 	#{&}__item {

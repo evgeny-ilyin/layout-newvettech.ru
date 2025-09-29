@@ -144,8 +144,14 @@
 	&__description {
 		margin-bottom: 16px;
 
+		ol,
 		ul {
+			margin-left: 0;
 			padding-left: 27px;
+
+			li:not(:last-child) {
+				margin-bottom: 5px;
+			}
 		}
 
 		@extend %paragraph;

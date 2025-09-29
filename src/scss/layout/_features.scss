@@ -89,7 +89,7 @@
 				line-height: 1.3;
 
 				&:not(:last-child) {
-					margin-bottom: 8px;
+					margin-bottom: 15px;
 				}
 
 				@include clamp(font-size, 16, 18);
@@ -98,12 +98,6 @@
 
 		ul {
 			padding-left: 23px;
-
-			li {
-				&::marker {
-					font-size: 24px;
-				}
-			}
 		}
 	}
 
