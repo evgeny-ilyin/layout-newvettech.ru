@@ -110,35 +110,6 @@ export function stickyHeader() {
 	handleScroll();
 }
 
-export function bodyBackground() {
-	const background = document.querySelector('.body-background .body-background__content');
-
-	const circles = [
-		{ top: '5%', left: '-50%', opacity: 0.5, scale: 1.5, delay: 0.7 },
-		{ top: '22%', left: '-30%', opacity: 0.5, scale: 1.2, delay: 2.7 },
-		{ top: '40%', left: '85%', opacity: 0.3, scale: 1.5, delay: 0.9 },
-		{ top: '62%', left: '65%', opacity: 0.3, scale: 1, delay: 0 },
-		{ top: '71%', left: '-35%', opacity: 0.4, scale: 1.2, delay: 0.9 },
-		{ top: '80%', left: '-40%', opacity: 0.3, scale: 2, delay: 2 },
-	];
-
-	circles.forEach(({ top, left, opacity, scale, delay }) => {
-		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-		svg.classList.add('circle-item');
-		svg.style.top = top;
-		svg.style.left = left;
-		svg.style.opacity = opacity;
-		svg.style.setProperty('--scale', scale);
-		svg.style.animationDelay = `${delay}s`;
-
-		const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-		use.setAttribute('href', '#circle-blurry');
-
-		svg.appendChild(use);
-		background.appendChild(svg);
-	});
-}
-
 /* фильтрация элементов в контейнере по нажатию кнопки */
 export function initFilterSystem({
 	buttonContainerClass = 'js-filter-buttons',
