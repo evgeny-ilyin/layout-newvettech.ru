@@ -131,6 +131,7 @@
 	--hero-btn-color: var(--color-primary);
 	padding: 0 22px;
 	font-size: rem(28);
+	white-space: nowrap;
 
 	@include hover-media() {
 		--hero-btn-background: var(--color-primary);
@@ -145,6 +146,10 @@
 	@include resp-from(md) {
 		// --icon-size: 38px;
 		// padding-right: 14px;
+		font-size: rem(17);
+	}
+
+	@include resp-from(lg) {
 		font-size: rem(18);
 	}
 
