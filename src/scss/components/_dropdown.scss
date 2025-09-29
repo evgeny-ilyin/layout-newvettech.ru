@@ -9,7 +9,7 @@
 	align-items: center;
 	position: relative;
 	cursor: pointer;
-	user-select: none;
+	// user-select: none;
 
 	&::after {
 		content: '';
@@ -24,6 +24,7 @@
 
 	// .dropdown__label
 	&__label {
+		user-select: none;
 	}
 
 	// .dropdown__collapse

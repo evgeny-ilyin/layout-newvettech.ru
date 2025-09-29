@@ -48,7 +48,6 @@
 
 .nav {
 	font-family: var(--font-family-other);
-	user-select: none;
 
 	// ul.nav__list
 	ul#{&}__list {
@@ -58,6 +57,7 @@
 		gap: 41px;
 		margin-bottom: 16px;
 		padding: 0;
+		user-select: none;
 
 		@include resp-from(desktop) {
 			flex-direction: row;
