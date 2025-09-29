@@ -15,6 +15,7 @@
 			}
 		}
 	}
+
 	// .footer__body
 	&__body {
 		display: flex;
@@ -48,6 +49,7 @@
 			gap: 50px;
 		}
 	}
+
 	// .footer__left
 	&__left {
 		width: 243px;
@@ -57,6 +59,7 @@
 			min-width: 180px;
 		}
 	}
+
 	// .footer__right
 	&__right {
 		display: flex;
@@ -76,6 +79,7 @@
 			gap: 35px;
 		}
 	}
+
 	// .footer__form-label
 	&__form-label {
 		text-align: center;
@@ -84,6 +88,7 @@
 			text-align: left;
 		}
 	}
+
 	// .footer__bottom
 	&__bottom {
 	}
@@ -181,12 +186,14 @@
 	// .footer-contacts__contact
 	&__contact {
 	}
+
 	// .footer-contacts__label
 	&__label {
 		margin-bottom: 8px;
 
 		@include clamp(font-size, 14, 16);
 	}
+
 	// .footer-contacts__phone
 	&__phone {
 		font-size: rem(26);
@@ -200,11 +207,13 @@
 			font-size: rem(25);
 		}
 	}
+
 	// .footer-contacts__addresses
 	&__addresses {
 		display: flex;
 		gap: 9px;
 	}
+
 	// .footer-contacts__pointer
 	&__pointer {
 		display: block;
@@ -229,6 +238,7 @@
 			margin-left: -16px;
 		}
 	}
+
 	// .footer-contacts__list
 	&__list {
 		b,
