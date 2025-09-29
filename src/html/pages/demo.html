@@ -1,147 +1,141 @@
 <% var data={ title: "Демо" }; %>
-	<%= _.template(require('../components/head.html').default)(data) %>
+<%= _.template(require('../components/head.html').default)(data) %>
 
-		<body>
+<body>
+	<% var active={menu: "menuAbout"}; %>
+	<%= _.template(require('../components/header.html').default)(active) %>
 
-		<% var active={menu: "menuAbout"}; %>
-			<%= _.template(require('../components/header.html').default)(active) %>
+	<main class="main container">
+		<div class="content">
 
-				<main class="main container">
-					<div class="content">
+			<input type="checkbox" name="checkbox" checked disabled>
+			<input type="radio" name="radio-disabled" checked disabled>
+			<br>
 
+			<input type="checkbox" name="checkbox" checked>
+			<input type="radio" name="radio" checked>
+			<input type="radio" name="radio">
+			<br>
 
-						<input type="checkbox" name="checkbox" checked disabled>
-						<input type="radio" name="radio-disabled" checked disabled>
-						<br>
+			<div style="display: flex; flex-wrap: wrap; gap: 5px; align-items: center;">
+				<button type="submit" class="btn">button .btn</button>
+				<a href="#" class="btn">a href .btn</a>
+				<a href="#" class="btn btn_white">.btn_white</a>
+			</div>
+			<br>
 
-						<input type="checkbox" name="checkbox" checked>
-						<input type="radio" name="radio" checked>
-						<input type="radio" name="radio">
-						<br>
+			<div style="display: flex; flex-wrap: wrap; gap: 5px; align-items: center;">
+				<button type="submit" class="btn" disabled>button disabled</button>
+				<a href="#" class="btn btn_disabled">a href .btn_disabled</a>
+			</div>
+			<br>
 
+			<div style="display: flex; flex-wrap: wrap; gap: 5px; align-items: center;">
+				<button type="submit" class="btn btn_sm">Отправить</button>
+				<button type="submit" class="btn btn_md">Отправить</button>
+				<button type="submit" class="btn btn_lg">Отправить</button>
+			</div>
+			<br>
 
-						<div style="display: flex; flex-wrap: wrap; gap: 5px; align-items: center;">
-							<button type="submit" class="btn">button .btn</button>
-							<a href="#" class="btn">a href .btn</a>
-							<a href="#" class="btn btn_white">.btn_white</a>
-						</div>
-						<br>
+			<div style="width: 25vw;display: flex; flex-wrap: wrap; gap: 15px;">
+				<button type="submit" class="btn btn_sm btn_wide">Отправить</button>
+				<button type="submit" class="btn btn_md btn_wide">Отправить</button>
+				<button type="submit" class="btn btn_lg btn_wide">Отправить</button>
+			</div>
+			<br>
 
-						<div style="display: flex; flex-wrap: wrap; gap: 5px; align-items: center;">
-							<button type="submit" class="btn" disabled>button disabled</button>
-							<a href="#" class="btn btn_disabled">a href .btn_disabled</a>
-						</div>
-						<br>
+			<div style="width: 25vw;display: flex; flex-wrap: wrap; gap: 15px;">
+				<button type="submit" class="btn btn_sm btn_white btn_metapets">Отправить</button>
+				<button type="submit" class="btn btn_md btn_white btn_metapets">Отправить</button>
+				<button type="submit" class="btn btn_lg btn_white btn_metapets">Отправить</button>
+			</div>
+			<br>
 
-						<div style="display: flex; flex-wrap: wrap; gap: 5px; align-items: center;">
-							<button type="submit" class="btn btn_sm">Отправить</button>
-							<button type="submit" class="btn btn_md">Отправить</button>
-							<button type="submit" class="btn btn_lg">Отправить</button>
-						</div>
-						<br>
+			<div style="display: flex; flex-wrap: wrap; gap: 5px; align-items: center;">
+				<input type="text" placeholder="Ваше имя">
+				<input type="password" placeholder="Пароль">
+				<input type="email" placeholder="Ваш e-mail">
+				<input type="tel" placeholder="Ваш телефон">
+				<textarea name="message" rows="5" id=""></textarea>
+			</div>
+			<br>
 
-						<div style="width: 25vw;display: flex; flex-wrap: wrap; gap: 15px;">
-							<button type="submit" class="btn btn_sm btn_wide">Отправить</button>
-							<button type="submit" class="btn btn_md btn_wide">Отправить</button>
-							<button type="submit" class="btn btn_lg btn_wide">Отправить</button>
-						</div>
-						<br>
+			<div style="display: flex; gap: 30px;">
+				<svg aria-hidden="true" viewBox="0 0 318 70" class="logo-text-no-slogan">
+					<use href="#logo-text"></use>
+				</svg>
 
-						<div style="width: 25vw;display: flex; flex-wrap: wrap; gap: 15px;">
-							<button type="submit" class="btn btn_sm btn_white btn_metapets">Отправить</button>
-							<button type="submit" class="btn btn_md btn_white btn_metapets">Отправить</button>
-							<button type="submit" class="btn btn_lg btn_white btn_metapets">Отправить</button>
-						</div>
-						<br>
+				<svg aria-hidden="true" viewBox="0 0 318 70" class="">
+					<use href="#logo-text"></use>
+				</svg>
+			</div>
+			<br>
 
-						<div style="display: flex; flex-wrap: wrap; gap: 5px; align-items: center;">
-							<input type="text" placeholder="Ваше имя">
-							<input type="password" placeholder="Пароль">
-							<input type="email" placeholder="Ваш e-mail">
-							<input type="tel" placeholder="Ваш телефон">
-							<textarea name="message" rows="5" id=""></textarea>
-						</div>
-						<br>
+			<div style="display: flex; gap: 30px; width: 40px;">
+				<svg aria-hidden="true" viewBox="0 0 54 54" class="icon-fill">
+					<use href="#icon-all-day"></use>
+				</svg>
+			</div>
+			<br>
 
-						<div style="display: flex; gap: 30px;">
-							<svg aria-hidden="true" viewBox="0 0 318 70" class="logo-text-no-slogan">
-								<use href="#logo-text"></use>
-							</svg>
+			<div style="display: flex; gap: 5px;">
+				<a href="tel:+74992888036" class="link-svg-round" aria-label="Позвонить по номеру +7 499 288 80 36">
+					<svg aria-hidden="true" viewBox="0 0 34 34">
+						<use href="#icon-call"></use>
+					</svg>
+				</a>
+				<a href="mailto:info@example.com" class="link-svg-round" target="_blank" rel="noopener nofollow" aria-label="Написать письмо на info@example.com">
+					<svg aria-hidden="true" viewBox="0 0 34 34">
+						<use href="#icon-mail"></use>
+					</svg>
+				</a>
+				<a href="javascript:void(0)" class="link-svg-round" target="_blank" rel="noopener nofollow" aria-label="Мы в Телеграмме">
+					<svg aria-hidden="true" viewBox="0 0 34 34">
+						<use href="#icon-tg"></use>
+					</svg>
+				</a>
+				<a href="javascript:void(0)" class="link-svg-round" target="_blank" rel="noopener nofollow" aria-label="Мы во Вконтакте">
+					<svg aria-hidden="true" viewBox="0 0 34 34">
+						<use href="#icon-vk"></use>
+					</svg>
+				</a>
+			</div>
+			<br>
 
-							<svg aria-hidden="true" viewBox="0 0 318 70" class="">
-								<use href="#logo-text"></use>
-							</svg>
-						</div>
-						<br>
+			<h1>Заголовок h1, .h1</h1>
+			<p>
+				Lorem ipsum, <a href="javascript:void(0)">dolor sit amet</a> consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
+			</p>
+			<h2>Заголовок h2, .h2</h2>
+			<p>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
+			</p>
+			<h3>Заголовок h3, .h3</h3>
+			<p>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
+			</p>
+			<h4>Заголовок h4, .h4</h4>
+			<p>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
+			</p>
+			<h5>Заголовок h5, .h5</h5>
+			<p>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
+			</p>
+			<h6>Заголовок h6, .h6</h6>
+			<p>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
+			</p>
+			<p class="ellipsis">
+				<strong>.ellipsis</strong>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora assumenda magni doloribus eius eum deserunt fuga animi, quae quisquam dolorum repellendus nemo explicabo temporibus natus inventore architecto
+			</p>
+		</div>
+	</main>
 
-						<div style="display: flex; gap: 30px; width: 40px;">
-							<svg aria-hidden="true" viewBox="0 0 54 54" class="icon-fill">
-								<use href="#icon-all-day"></use>
-							</svg>
-						</div>
-						<br>
-
-						<div style="display: flex; gap: 5px;">
-							<a href="tel:+74992888036" class="link-svg-round" aria-label="Позвонить по номеру +7 499 288 80 36">
-								<svg aria-hidden="true" viewBox="0 0 34 34">
-									<use href="#icon-call"></use>
-								</svg>
-							</a>
-							<a href="mailto:info@example.com" class="link-svg-round" target="_blank" rel="noopener nofollow" aria-label="Написать письмо на info@example.com">
-								<svg aria-hidden="true" viewBox="0 0 34 34">
-									<use href="#icon-mail"></use>
-								</svg>
-							</a>
-							<a href="javascript:void(0)" class="link-svg-round" target="_blank" rel="noopener nofollow" aria-label="Мы в Телеграмме">
-								<svg aria-hidden="true" viewBox="0 0 34 34">
-									<use href="#icon-tg"></use>
-								</svg>
-							</a>
-							<a href="javascript:void(0)" class="link-svg-round" target="_blank" rel="noopener nofollow" aria-label="Мы во Вконтакте">
-								<svg aria-hidden="true" viewBox="0 0 34 34">
-									<use href="#icon-vk"></use>
-								</svg>
-							</a>
-						</div>
-						<br>
-
-
-
-						<h1>Заголовок h1, .h1</h1>
-						<p>
-							Lorem ipsum, <a href="javascript:void(0)">dolor sit amet</a> consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
-						</p>
-						<h2>Заголовок h2, .h2</h2>
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
-						</p>
-						<h3>Заголовок h3, .h3</h3>
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
-						</p>
-						<h4>Заголовок h4, .h4</h4>
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
-						</p>
-						<h5>Заголовок h5, .h5</h5>
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
-						</p>
-						<h6>Заголовок h6, .h6</h6>
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis eligendi nobis, autem a iste animi iure soluta dignissimos, possimus quasi accusantium saepe fugiat architecto repudiandae aspernatur, maxime ipsa deleniti veritatis?
-						</p>
-						<p class="ellipsis">
-							<strong>.ellipsis</strong>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora assumenda magni doloribus eius eum deserunt fuga animi, quae quisquam dolorum repellendus nemo explicabo temporibus natus inventore architecto
-						</p>
-					</div>
-				</main>
-
-				<%= _.template(require('../components/body-background.html').default)() %>
-					<%= _.template(require('../components/footer.html').default)() %>
-
-						<%= sprite %>
-
-		</body>
-		</html>
+	<%= _.template(require('../components/footer.html').default)() %>
+	
+	<%= _.template(require('../components/body-background.html').default)() %>
+	<%= sprite %>
+</body>
+</html>
