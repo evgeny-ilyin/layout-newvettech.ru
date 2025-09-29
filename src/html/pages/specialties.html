@@ -1,26 +1,24 @@
 <% var data={ title: "Направления" }; %>
-	<%= _.template(require('../components/head.html').default)(data) %>
+<%= _.template(require('../components/head.html').default)(data) %>
 
-		<body>
+<body>
+	<% var active={menu: "menuSpecialties" }; %>
+	<%= _.template(require('../components/header.html').default)(active) %>
 
-		<% var active={menu: "menuSpecialties"}; %>
-			<%= _.template(require('../components/header.html').default)(active) %>
+	<main class="main container">
+		<div class="content">
+			<%= _.template(require('../components/blocks/hero-actions.html').default)() %>
 
-				<main class="main container">
-					<div class="content">
-						<%= _.template(require('../components/blocks/hero-actions.html').default)() %>
+				<%= _.template(require('../components/swipers/swiper-mainpage-type-3.html').default)() %>
 
-						<%= _.template(require('../components/swipers/swiper-mainpage-type-3.html').default)() %>
+					<%= _.template(require('../components/blocks/block-specialties-list.html').default)() %>
 
-						<%= _.template(require('../components/blocks/block-specialties-list.html').default)() %>
+		</div>
+	</main>
 
-					</div>
-				</main>
+	<%= _.template(require('../components/footer.html').default)() %>
 
-				<%= _.template(require('../components/body-background.html').default)() %>
-					<%= _.template(require('../components/footer.html').default)() %>
-
-						<%= sprite %>
-
-		</body>
-		</html>
+	<%= _.template(require('../components/body-background.html').default)() %>
+	<%= sprite %>
+</body>
+</html>

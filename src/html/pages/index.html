@@ -1,49 +1,45 @@
 <% var data={ title: "Главная страница" }; %>
-	<%= _.template(require('../components/head.html').default)(data) %>
+<%= _.template(require('../components/head.html').default)(data) %>
 
-		<body>
-		<% var active={menu: "menuHome"}; %>
-			<%= _.template(require('../components/header.html').default)(active) %>
+<body>
+	<% var active={menu: "menuHome"}; %>
+	<%= _.template(require('../components/header.html').default)(active) %>
 
-				<main class="main container">
-					<div class="content">
-						<%= _.template(require('../components/blocks/hero-header.html').default)() %>
-						<%= _.template(require('../components/blocks/hero-actions.html').default)() %>
+	<main class="main container">
+		<div class="content">
+			<%= _.template(require('../components/blocks/hero-header.html').default)() %>
+			<%= _.template(require('../components/blocks/hero-actions.html').default)() %>
 
-						<%= _.template(require('../components/swipers/swiper-mainpage-type-1.html').default)() %>
+			<%= _.template(require('../components/swipers/swiper-mainpage-type-1.html').default)() %>
 
-						<%= _.template(require('../components/blocks/block-our-advantages.html').default)() %>
-						<%= _.template(require('../components/accordions/advantages.html').default)() %>
+			<%= _.template(require('../components/blocks/block-our-advantages.html').default)() %>
+			<%= _.template(require('../components/accordions/advantages.html').default)() %>
 
-						<%= _.template(require('../components/blocks/block-new-generation.html').default)() %>
-						<%= _.template(require('../components/blocks/block-new-generation-info.html').default)() %>
+			<%= _.template(require('../components/blocks/block-new-generation.html').default)() %>
+			<%= _.template(require('../components/blocks/block-new-generation-info.html').default)() %>
 
-						<%= _.template(require('../components/blocks/block-specialties-header.html').default)() %>
-						<%= _.template(require('../components/blocks/block-specialties-list.html').default)() %>
+			<%= _.template(require('../components/blocks/block-specialties-header.html').default)() %>
+			<%= _.template(require('../components/blocks/block-specialties-list.html').default)() %>
 
-						<%= _.template(require('../components/blocks/block-our-clinics.html').default)() %>
-						<%= _.template(require('../components/swipers/swiper-mainpage-type-2.html').default)() %>
+			<%= _.template(require('../components/blocks/block-our-clinics.html').default)() %>
+			<%= _.template(require('../components/swipers/swiper-mainpage-type-2.html').default)() %>
 
-						<%= _.template(require('../components/blocks/block-technologies.html').default)() %>
-						<%= _.template(require('../components/blocks/block-technologies-tabs.html').default)() %>
+			<%= _.template(require('../components/blocks/block-technologies.html').default)() %>
+			<%= _.template(require('../components/blocks/block-technologies-tabs.html').default)() %>
 
-						<%= _.template(require('../components/blocks/block-special-offers.html').default)() %>
-						<%= _.template(require('../components/swipers/swiper-special-offers.html').default)() %>
+			<%= _.template(require('../components/blocks/block-special-offers.html').default)() %>
+			<%= _.template(require('../components/swipers/swiper-special-offers.html').default)() %>
 
-						<%= _.template(require('../components/blocks/block-our-specialists.html').default)() %>
-						<%= _.template(require('../components/swipers/swiper-our-specialists.html').default)() %>
+			<%= _.template(require('../components/blocks/block-our-specialists.html').default)() %>
+			<%= _.template(require('../components/swipers/swiper-our-specialists.html').default)() %>
 
+			<%= _.template(require('../components/blocks/block-team.html').default)() %>
+		</div>
+	</main>
 
-
-						<%= _.template(require('../components/blocks/block-team.html').default)() %>
-
-					</div>
-				</main>
-
-				<%= _.template(require('../components/body-background.html').default)() %>
-					<%= _.template(require('../components/footer.html').default)() %>
-
-						<%= sprite %>
-
-		</body>
-		</html>
+	<%= _.template(require('../components/footer.html').default)() %>
+	
+	<%= _.template(require('../components/body-background.html').default)() %>
+	<%= sprite %>
+</body>
+</html>
