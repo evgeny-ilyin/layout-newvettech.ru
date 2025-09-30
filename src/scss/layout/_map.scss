@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+.block-map {
+	height: 510px;
+	margin-bottom: 48px;
+
+	[class*='main-engine-container'] {
+		filter: grayscale(1);
+		transition: all $transition-default;
+	}
+
+	@include on-hover {
+		[class*='main-engine-container'] {
+			filter: grayscale(0.3);
+		}
+	}
+}
+
+.map-marker {
+	width: 80px;
+	height: 115px;
+	color: var(--color-primary);
+	background: url('../img/icons/icon-pointer.svg');
+}

@@ -3,6 +3,7 @@
 .main {
 	display: flex;
 	flex: 1;
+	flex-direction: column;
 	padding: 35px 0;
 
 	path.logo-text-hide {
