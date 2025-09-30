@@ -9,6 +9,10 @@ const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const svgstore = require('svgstore');
 const { optimize } = require('svgo');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const webpack = require('webpack');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 class RemoveCopiedFilePlugin {
 	constructor(fileToRemove) {
@@ -249,6 +253,9 @@ const config = {
 			extensions: ['js', 'mjs', 'cjs', 'jsx', 'ts', 'tsx'],
 			emitWarning: true, // показывать предупреждения
 			failOnError: false, // не ломать сборку на ошибках
+		}),
+		new webpack.DefinePlugin({
+			'process.env.YANDEX_MAPS_API_KEY': JSON.stringify(process.env.YANDEX_MAPS_API_KEY),
 		}),
 		...htmlPlugins,
 	],
