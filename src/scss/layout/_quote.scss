@@ -1,0 +1,186 @@
+@use '../abstracts' as *;
+
+.quote {
+	--color-bg: var(--color-white-gray);
+	--color: var(--color-black);
+	margin-bottom: 30px;
+
+	// .quote__wrapper
+	&__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0;
+		overflow: hidden;
+		color: var(--color);
+		background: var(--color-bg);
+		border-radius: 15px;
+
+		& > div {
+			flex: 1 1 300px;
+		}
+
+		@include resp-from(desktop) {
+			min-height: 550px;
+			border-radius: 30px;
+		}
+	}
+
+	// .quote__photo
+	&__photo {
+		position: relative;
+		min-height: 255px;
+
+		picture,
+		img {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: left;
+		}
+
+		@include resp-from(md) {
+			min-height: 348px;
+		}
+
+		@include resp-from(lg) {
+			min-height: 381px;
+		}
+
+		@include resp-from(desktop) {
+			min-height: auto;
+		}
+	}
+
+	// .quote__content
+	&__content {
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: center;
+		// justify-content: space-between;
+		gap: 35px;
+		padding: 26px 30px;
+		hyphens: none;
+
+		& > * {
+			@include resp-from(lg) {
+				max-width: 370px;
+			}
+
+			@include resp-from(desktop) {
+				max-width: 470px;
+			}
+		}
+
+		@include resp-from(md) {
+			// padding: 26px 15px 26px 17px;
+			padding: 25px;
+		}
+
+		@include resp-from(lg) {
+			padding-right: 30px;
+			padding-left: 50px;
+		}
+
+		@include resp-from(desktop) {
+			padding: 55px 50px 70px 80px;
+			hyphens: none;
+		}
+	}
+
+	// .quote__author
+	&__author {
+	}
+
+	// .quote__name
+	&__name {
+		margin-bottom: 3px;
+		font-size: rem(20);
+		font-weight: var(--font-weight-medium);
+		line-height: 1.1;
+		letter-spacing: -0.01em;
+
+		@include resp-from(md) {
+			font-size: rem(18);
+		}
+
+		@include resp-from(desktop) {
+			font-size: rem(23);
+			line-height: 1.2;
+		}
+	}
+
+	// .quote__position
+	&__position {
+		font-size: rem(15);
+		line-height: 1.1;
+
+		@include resp-from(md) {
+			font-size: rem(14);
+			line-height: 1.3;
+		}
+
+		@include resp-from(desktop) {
+			font-size: rem(16);
+			line-height: 1.7;
+		}
+	}
+
+	blockquote {
+		--quote-indent: 35px;
+		--quote-width: 30px;
+		position: relative;
+		margin: 0;
+		text-indent: var(--quote-indent);
+
+		&::before {
+			content: '“';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: calc(var(--quote-indent) * -1);
+			width: var(--quote-width);
+			font-size: rem(77);
+			font-weight: var(--font-weight-medium);
+			line-height: 0.85;
+			color: var(--color-primary);
+
+			@include resp-from(desktop) {
+				font-size: rem(128);
+				line-height: 0.75;
+			}
+		}
+
+		@include resp-from(desktop) {
+			--quote-indent: 50px;
+			--quote-width: 55px;
+		}
+	}
+
+	blockquote,
+	blockquote p {
+		font-size: rem(20);
+		font-weight: var(--font-weight-medium);
+		line-height: 1.2;
+		letter-spacing: -0.01em;
+
+		strong,
+		b {
+			color: var(--color-primary);
+		}
+
+		@include resp-from(md) {
+			font-size: rem(18);
+		}
+
+		@include resp-from(desktop) {
+			font-size: rem(32);
+			line-height: 1.1;
+		}
+	}
+
+	@include resp-from(desktop) {
+		margin-bottom: 59px;
+	}
+}
