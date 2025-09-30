@@ -30,7 +30,7 @@
 
 	// .hero-block__photo
 	&__photo {
-		min-height: 230px;
+		min-height: 255px;
 
 		picture,
 		img {
@@ -64,7 +64,8 @@
 		padding: 26px 30px;
 
 		@include resp-from(md) {
-			padding: 26px 15px 26px 17px;
+			// padding: 26px 15px 26px 17px;
+			padding: 25px;
 		}
 
 		@include resp-from(lg) {
@@ -75,15 +76,18 @@
 		@include resp-from(desktop) {
 			padding: 55px 50px 50px 80px;
 			hyphens: none;
-		}
 
-		@include when-inside('.hero-block_photo-wide') {
-			padding: 26px 30px;
+			@include when-inside('.hero-block_photo-wide') {
+				padding: 26px 30px;
+			}
+
+			@include when-inside('.hero-block_text-wide') {
+				padding: 26px 30px;
+			}
 		}
 
 		@include when-inside('.hero-block_text-wide') {
 			flex: 2 1 600px;
-			padding: 26px 30px;
 
 			// @include resp-from(desktop) {
 			// 	padding: 26px 150px 26px 115px;
