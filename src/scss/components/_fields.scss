@@ -111,7 +111,17 @@ textarea {
 
 	&::placeholder {
 		font-weight: var(--font-weight-normal);
-		color: $placeholder-color !important;
+		color: var(--color-black);
+	}
+
+	@include on-disabled {
+		color: var(--form-control-disabled-bd);
+		background-color: var(--form-control-disabled-bg);
+		border-color: var(--form-control-disabled-bd);
+
+		&::placeholder {
+			color: var(--color-black-50);
+		}
 	}
 
 	// &:focus {

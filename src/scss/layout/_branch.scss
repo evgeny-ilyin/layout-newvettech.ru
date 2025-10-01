@@ -57,7 +57,9 @@
 		font-size: rem(18);
 		line-height: 1.1;
 
-		a {
+		a,
+		a[href^='tel:'] {
+			font-weight: var(--font-weight-normal);
 			text-decoration: none;
 		}
 

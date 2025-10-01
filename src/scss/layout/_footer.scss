@@ -197,9 +197,9 @@
 	// .footer-contacts__phone
 	&__phone {
 		font-size: rem(26);
-		font-weight: var(--font-weight-medium);
 
 		a {
+			font-weight: var(--font-weight-medium);
 			text-decoration: none;
 		}
 

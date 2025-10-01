@@ -18,8 +18,10 @@
 		text-transform: uppercase;
 		color: var(--hero-btn-color, var(--color-white));
 		background: var(--hero-btn-background, var(--color-primary));
+		border: 0;
 		border-radius: var(--hero-btn-height);
 		box-shadow: 0 10px 15px 0 rgb(164 136 255 / 15%);
+		cursor: pointer;
 		transition: all $transition-default;
 		user-select: none;
 

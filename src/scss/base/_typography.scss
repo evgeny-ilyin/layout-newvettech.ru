@@ -74,6 +74,11 @@ a:not([class]) {
 	@extend %link-default;
 }
 
+a[href^='tel:']:not([class]) {
+	font-weight: var(--font-weight-medium);
+	text-decoration: none;
+}
+
 p {
 	@extend %paragraph;
 }
