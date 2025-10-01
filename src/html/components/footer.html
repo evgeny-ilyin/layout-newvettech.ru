@@ -35,13 +35,13 @@
 				<div class="footer__right">
 					<div class="footer__form-label h4">Остались вопросы? Заполните форму обратной связи, и&nbsp;мы&nbsp;вам перезвоним:</div>
 					<form action="" class="footer-form footer-grid">
-						<input class="w-full" name="name" type="text" placeholder="Ваше имя" aria-label="Ваше имя" autocomplete="name">
-						<input class="w-full" name="tel" type="tel" placeholder="Ваш телефон" aria-label="Ваш телефон" autocomplete="tel">
+						<input class="w-full" name="name" type="text" placeholder="Ваше имя" aria-label="Ваше имя" autocomplete="name" disabled>
+						<input class="w-full" name="tel" type="tel" placeholder="Ваш телефон" aria-label="Ваш телефон" autocomplete="tel" disabled>
 						<label class="footer-form__label">
-							<input type="checkbox" name="checkbox">
+							<input type="checkbox" name="checkbox" disabled>
 							<span>Соглашаюсь с&nbsp;политикой <a href="javascript:void(0)" target="_blank">конфиденциальности и&nbsp;обработки данных</a></span>
 						</label>
-						<button type="submit" class="btn btn_md btn_wide">Заказать звонок</button>
+						<button type="submit" class="btn btn_md btn_wide" data-modal-show="modal-info" disabled>Заказать звонок</button>
 					</form>
 					<div class="footer-contacts footer-grid">
 						<div class="footer-contacts__contact">
@@ -97,12 +97,12 @@
 								<use href="#icon-mail"></use>
 							</svg>
 						</a>
-						<a href="javascript:void(0)" class="link-svg-round" target="_blank" rel="noopener nofollow" aria-label="Мы в Телеграмме">
+						<a href="https://t.me/newvettech" class="link-svg-round" target="_blank" rel="noopener nofollow" aria-label="Мы в Телеграмме">
 							<svg aria-hidden="true" viewBox="0 0 34 34">
 								<use href="#icon-tg"></use>
 							</svg>
 						</a>
-						<a href="javascript:void(0)" class="link-svg-round" target="_blank" rel="noopener nofollow" aria-label="Мы во Вконтакте">
+						<a href="https://vk.com/newvettech" class="link-svg-round" target="_blank" rel="noopener nofollow" aria-label="Мы во Вконтакте">
 							<svg aria-hidden="true" viewBox="0 0 34 34">
 								<use href="#icon-vk"></use>
 							</svg>
@@ -130,3 +130,4 @@
 		</div>
 	</div>
 </footer>
+<div class="overlay" data-modal-overlay></div>
