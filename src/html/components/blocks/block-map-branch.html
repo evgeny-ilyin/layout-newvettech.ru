@@ -1,14 +1,40 @@
 </div>
 
-<div class="block-map"></div>
+<div class="section-map">
+	<div class="section-map__wrapper">
+		<div class="section-map__overlay">
+			<div class="content">
+				<div class="branch-info">
+					<div class="branch-info__wrapper">
+						<div class="branch-info__name">Филиал<br> &laquo;Номер один&raquo;</div>
+						<div class="branch-info__address">
+							<address>
+								Москва, ул. Большая Серпуховская, 62к2<br>
+								круглосуточно
+							</address>
+						</div>
+						<div class="branch-info__contacts">
+							<a href="tel:+74992888036" aria-label="Позвонить по номеру +7 499 288 80 36">+7&nbsp;(499)&nbsp;288-80-36</a>
+						</div>
+						<div class="branch-info__button">
+							<a href="javascript:void(0)" class="btn btn_md btn_white btn_wide">Записаться на&nbsp;приём</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section-map__map">
+			<div class="map-container"></div>
+		</div>
+	</div>
+</div>
 
 <script>
 	var data = {
 		"features": [
 			{
-				"type": "Feature", "id": 0, "geometry": { "type": "Point", "coordinates": [55.718461, 37.624355] }, "properties": {
-					"balloonContent": `<svg><use xlink:href="#logo"></use></svg>`
-				}
+				"type": "Feature", "id": 0, "geometry": { "type": "Point", "coordinates": [55.718461, 37.624355] }
 			},
 		]
 	};

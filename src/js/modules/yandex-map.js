@@ -1,3 +1,11 @@
+// "features": [
+// 	{
+// 		"type": "Feature", "id": 0, "geometry": { "type": "Point", "coordinates": [55.718461, 37.624355] }, "properties": {
+// 			"balloonContent": `<svg><use xlink:href="#logo"></use></svg>`
+// 		}
+// 	},
+// ]
+
 function loadYandexMapApi() {
 	return new Promise((resolve, reject) => {
 		if (window.ymaps3) {
@@ -15,7 +23,9 @@ function loadYandexMapApi() {
 }
 
 export async function initMap(data) {
-	const mapContainer = document.querySelector('.block-map');
+	const mapContainerClass = 'map-container';
+	const mapMarkerClass = 'map-marker';
+	const mapContainer = document.querySelector(`.${mapContainerClass}`);
 	if (!mapContainer) {
 		return;
 	}
@@ -34,6 +44,8 @@ export async function initMap(data) {
 			center: normalizeCoords(data.features[0].geometry.coordinates),
 			zoom: 15,
 		},
+		zoomRange: { min: 5, max: 20 },
+		// theme: 'light',
 	});
 
 	// Слои
@@ -49,7 +61,7 @@ export async function initMap(data) {
 	balloon.style.borderRadius = '8px';
 	balloon.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
 	balloon.style.display = 'none';
-	balloon.style.zIndex = '1000';
+	balloon.style.zIndex = '5';
 	mapContainer.appendChild(balloon);
 
 	// Список координат (для автоцентрирования)
@@ -61,20 +73,22 @@ export async function initMap(data) {
 		coords.push(coord);
 
 		const markerElement = document.createElement('div');
-		markerElement.className = 'map-marker';
+		markerElement.className = mapMarkerClass;
 		markerElement.style.transform = 'translate(-50%, -100%)';
 		markerElement.style.cursor = 'pointer';
 
 		const marker = new YMapMarker({ coordinates: coord }, markerElement);
 
 		// Показать баллун
-		markerElement.addEventListener('click', (e) => {
-			e.stopPropagation();
-			balloon.innerHTML = feature.properties.balloonContent;
-			balloon.style.left = `${e.clientX}px`;
-			balloon.style.top = `${e.clientY - 40}px`;
-			balloon.style.display = 'block';
-		});
+		if (feature.properties?.balloonContent?.trim()) {
+			markerElement.addEventListener('click', (e) => {
+				e.stopPropagation();
+				balloon.innerHTML = feature.properties.balloonContent;
+				balloon.style.left = `${e.clientX}px`;
+				balloon.style.top = `${e.clientY - 40}px`;
+				balloon.style.display = 'block';
+			});
+		}
 
 		map.addChild(marker);
 	});

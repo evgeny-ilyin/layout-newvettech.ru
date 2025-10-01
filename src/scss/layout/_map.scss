@@ -1,8 +1,40 @@
 @use '../abstracts' as *;
 
-.block-map {
-	height: 510px;
+.section-map {
 	margin-bottom: 48px;
+	// overflow: hidden;
+
+	// .section-map__wrapper
+	&__wrapper {
+		display: flex;
+	}
+
+	// .section-map__map
+	&__map {
+		margin-left: -100%;
+	}
+
+	// .section-map__overlay
+	&__overlay {
+		display: flex;
+		align-items: flex-start;
+		z-index: 1;
+		pointer-events: none;
+
+		@include resp-from(md) {
+			align-items: center;
+		}
+	}
+
+	&__overlay,
+	&__map {
+		width: 100%;
+	}
+}
+
+.map-container {
+	height: 100%;
+	min-height: 800px;
 
 	[class*='main-engine-container'] {
 		filter: grayscale(1);
@@ -14,11 +46,29 @@
 			filter: grayscale(0.3);
 		}
 	}
+
+	@include resp-from(md) {
+		min-height: 350px;
+	}
+
+	@include resp-from(lg) {
+		min-height: 550px;
+	}
 }
 
 .map-marker {
-	width: 80px;
-	height: 115px;
+	width: 45px;
+	height: 64px;
 	color: var(--color-primary);
 	background: url('../img/icons/icon-pointer.svg');
+
+	@include resp-from(md) {
+		width: 45px;
+		height: 64px;
+	}
+
+	@include resp-from(desktop) {
+		width: 80px;
+		height: 115px;
+	}
 }
