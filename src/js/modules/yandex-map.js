@@ -22,7 +22,7 @@ function loadYandexMapApi() {
 	});
 }
 
-export async function initMap(data) {
+export async function mapInit(data) {
 	const mapContainerClass = 'map-container';
 	const mapMarkerClass = 'map-marker';
 	const mapContainer = document.querySelector(`.${mapContainerClass}`);
