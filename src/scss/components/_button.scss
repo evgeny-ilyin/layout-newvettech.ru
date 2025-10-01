@@ -135,6 +135,63 @@
 		--btn-bgr: var(--form-control-color-hover);
 	}
 
+	// .btn_close
+	&_close {
+		--color: var(--color-black);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 15px;
+		right: 17px;
+		z-index: 10;
+		width: 24px;
+		height: 24px;
+		min-height: auto;
+		padding: 0;
+		background-color: transparent;
+		border: 0;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			width: 2px;
+			height: 26px;
+			background-color: var(--color);
+			transition: background-color $transition-default;
+		}
+
+		&::before {
+			transform: rotate(45deg);
+		}
+
+		&::after {
+			transform: rotate(-45deg);
+		}
+
+		@include on-hover {
+			&::before,
+			&::after {
+				--color: var(--color-primary);
+			}
+		}
+	}
+
+	// .btn_close-modal
+	&_close-modal {
+		position: absolute;
+		top: var(--modal-padding-y);
+		right: calc(var(--modal-padding-x) - 5px);
+
+		@include resp-to(md) {
+			&::before,
+			&::after {
+				height: 25px;
+			}
+		}
+	}
+
 	@include print {
 		display: none;
 	}

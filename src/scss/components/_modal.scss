@@ -1,0 +1,121 @@
+@use '../abstracts' as *;
+
+.modal {
+	--modal-padding-y: 24px;
+	--modal-padding-x: 32px;
+	position: fixed;
+	z-index: -1;
+	width: 50vw;
+	min-width: $min-width;
+	padding: var(--modal-padding-y) var(--modal-padding-x);
+	background: var(--color-white-gray);
+	border-radius: 15px;
+	box-shadow: 0 4px 132px 0 rgb(54 45 21 / 20%);
+	opacity: 0;
+	inset: 0;
+
+	&.is-active {
+		z-index: 10;
+		opacity: 1;
+	}
+
+	// .modal__head
+	&__head {
+		display: flex;
+		align-items: center;
+		margin: 0 40px 32px 0;
+		font-size: rem(20);
+		font-weight: var(--font-weight-bold);
+		line-height: 1;
+		letter-spacing: -0.52px;
+
+		// svg {
+		// 	flex: 0 0 24px;
+		// 	width: 24px;
+		// 	height: 24px;
+		// 	margin-right: 8px;
+		// }
+
+		@include resp-from(md) {
+			font-size: rem(26);
+		}
+	}
+
+	// .modal__close
+	&__close {
+		position: relative;
+
+		.btn {
+			position: relative;
+			top: auto;
+			right: auto;
+		}
+	}
+
+	// .modal__body
+	&__body {
+	}
+
+	// .modal__form
+	&__form {
+		margin-bottom: 14px;
+
+		label > input {
+			margin-top: 7px;
+		}
+
+		textarea {
+			resize: none;
+		}
+	}
+
+	// .modal_slim
+	&_slim {
+		--max-width: 500px;
+		--modal-padding-y: 32px;
+		--modal-padding-x: 32px;
+		width: 30vw;
+		max-width: var(--max-width);
+	}
+
+	@include resp-to(md) {
+		width: 100% !important;
+		max-width: none;
+	}
+
+	@include resp-from(md) {
+		inset: 143px auto auto 50%;
+		transform: translateX(-50%);
+		max-width: 100%;
+
+		&_slim {
+			max-width: var(--max-width);
+		}
+	}
+}
+
+// black overlay
+.overlay {
+	&::before {
+		content: '';
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgb(51 51 51 / 50%);
+		transition:
+			opacity $transition-default,
+			z-index $transition-default;
+		opacity: 0;
+	}
+
+	&.is-active {
+		&::before {
+			z-index: 10;
+			opacity: 1;
+		}
+	}
+}

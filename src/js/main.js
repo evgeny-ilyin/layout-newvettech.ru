@@ -1,9 +1,11 @@
 import * as fn from './modules/functions.js';
+import { bodyBackground } from './modules/bodyBackground.js';
 import { accordion, accordionCircle } from './modules/accordion.js';
 import { tabsInit } from './modules/tabs.js';
 import { swipersInit } from './modules/swiper.js';
-import { bodyBackground } from './modules/bodyBackground.js';
-import { initMap } from './modules/yandex-map.js';
+import { modalsInit } from './modules/modal.js';
+
+import { mapInit } from './modules/yandex-map.js';
 
 // import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
 
@@ -17,9 +19,10 @@ addEventListener('DOMContentLoaded', () => {
 	accordionCircle();
 	tabsInit();
 	swipersInit();
+	modalsInit();
 
 	if (window.data) {
-		initMap(window.data);
+		mapInit(window.data);
 	}
 
 	// fn.isWebp();
@@ -28,6 +31,5 @@ addEventListener('DOMContentLoaded', () => {
 	// useDynamicAdapt();
 });
 
-// import './modules/yandex-map.js';
 // import "./modules/cookies.js";
 // import "./modules/fancyapps.js";
