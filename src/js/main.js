@@ -12,6 +12,7 @@ import { mapInit } from './modules/yandex-map.js';
 addEventListener('DOMContentLoaded', () => {
 	fn.isTouchDevice();
 	fn.hamburgerMenu('noscroll');
+	fn.stickyHeader();
 	fn.initFilterSystem();
 
 	bodyBackground();
@@ -26,7 +27,6 @@ addEventListener('DOMContentLoaded', () => {
 	}
 
 	// fn.isWebp();
-	// fn.stickyHeader();
 	// fn.closeMenuHandler();
 	// useDynamicAdapt();
 });

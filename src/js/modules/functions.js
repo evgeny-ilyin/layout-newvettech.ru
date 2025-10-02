@@ -98,16 +98,31 @@ export function hamburgerMenu(isLock = false) {
 
 export function stickyHeader() {
 	const header = document.querySelector('header');
+	const isOntopClass = 'is-ontop';
+	const isStickyClass = 'is-sticky';
 
-	const handleScroll = () => {
-		if (window.scrollY > 0) {
-			header.classList.add('header_fixed');
+	if (!header) {
+		return;
+	}
+
+	let lastScrollTop = window.scrollY;
+
+	const updateHeaderClasses = () => {
+		const scrollY = window.scrollY;
+		header.classList.add(isStickyClass);
+
+		if (scrollY === 0) {
+			header.classList.add(isOntopClass);
 		} else {
-			header.classList.remove('header_fixed');
+			header.classList.remove(isOntopClass);
 		}
+
+		lastScrollTop = scrollY;
 	};
-	window.addEventListener('scroll', handleScroll);
-	handleScroll();
+
+	updateHeaderClasses();
+
+	window.addEventListener('scroll', updateHeaderClasses);
 }
 
 /* фильтрация элементов в контейнере по нажатию кнопки */

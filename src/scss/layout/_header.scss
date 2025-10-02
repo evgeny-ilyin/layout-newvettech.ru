@@ -1,6 +1,12 @@
 @use '../abstracts' as *;
 
 .header {
+	--logo-wrapper-w: 66px;
+	--logo-wrapper-h: 66px;
+	z-index: 10;
+	background: transparent;
+	transition: background $transition-default;
+
 	// .header__wrapper
 	&__wrapper {
 		display: flex;
@@ -10,11 +16,19 @@
 		gap: 0 5px;
 		position: relative;
 		padding: 20px 0;
+		transition: all $transition-default;
+
+		@include when-inside('.header.is-sticky:not(.is-ontop)') {
+			padding: 0;
+		}
 	}
 
 	// .header__logo
 	&__logo {
 		z-index: 4;
+		width: var(--logo-wrapper-w);
+		height: var(--logo-wrapper-h);
+		transition: all $transition-default;
 
 		@include resp-from(desktop) {
 			z-index: 1;
@@ -37,16 +51,37 @@
 		align-items: center;
 		position: relative;
 	}
+
+	&.is-sticky {
+		position: sticky;
+		top: 0;
+		background: var(--color-white);
+		box-shadow: 0 10px 15px 0 rgb(164 136 255 / 7%);
+
+		@include resp-from(desktop) {
+			--logo-wrapper-h: 66px;
+		}
+	}
+
+	&.is-ontop {
+		background: transparent;
+		box-shadow: none;
+
+		@include resp-from(desktop) {
+			--logo-wrapper-h: 88px;
+		}
+	}
+
+	@include resp-from(desktop) {
+		--logo-wrapper-w: 88px;
+		--logo-wrapper-h: 88px;
+	}
 }
 
 .logo-link {
 	display: flex;
-	width: 66px;
-	height: 66px;
+	width: fit-content;
+	height: 100%;
 	border-radius: 8px;
-
-	@include resp-from(desktop) {
-		width: 88px;
-		height: 88px;
-	}
+	transition: all $transition-default;
 }
