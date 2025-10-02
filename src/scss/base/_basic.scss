@@ -7,7 +7,7 @@ html {
 	scroll-behavior: smooth;
 
 	&.is-lock {
-		height: 100vh;
+		// height: 100vh;
 		overflow: hidden;
 		scrollbar-gutter: stable;
 	}
