@@ -26,36 +26,44 @@
 }
 
 %h3-heading {
+	font-size: rem(18);
 	font-weight: var(--font-weight-medium);
 	line-height: 1.2;
 	letter-spacing: -0.01em;
 
-	//! замена на fluid
-	@include clamp(font-size, 18, 32);
+	@include resp-from(md) {
+		@include fluid(font-size, 18px, 38px, map-get($breakpoints, 'md'), map-get($breakpoints, 'desktop'));
+	}
 }
 
 %h4-heading {
+	font-size: rem(16);
 	font-weight: var(--font-weight-normal);
 	line-height: 1.2;
 
-	//! замена на fluid
-	@include clamp(font-size, 16, 30);
+	@include resp-from(md) {
+		@include fluid(font-size, 16px, 30px, map-get($breakpoints, 'md'), map-get($breakpoints, 'desktop'));
+	}
 }
 
 %h5-heading {
+	font-size: rem(15);
 	font-weight: var(--font-weight-medium);
 	line-height: 1.2;
 
-	//! замена на fluid
-	@include clamp(font-size, 15, 24);
+	@include resp-from(md) {
+		@include fluid(font-size, 15px, 24px, map-get($breakpoints, 'md'), map-get($breakpoints, 'desktop'));
+	}
 }
 
 %h6-heading {
+	font-size: rem(14);
 	font-weight: var(--font-weight-medium);
 	line-height: 1.2;
 
-	//! замена на fluid
-	@include clamp(font-size, 14, 20);
+	@include resp-from(md) {
+		@include fluid(font-size, 14px, 20px, map-get($breakpoints, 'md'), map-get($breakpoints, 'desktop'));
+	}
 }
 
 %paragraph {
