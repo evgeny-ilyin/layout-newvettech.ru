@@ -130,7 +130,24 @@
 		</div>
 	</div>
 
-	<script type="application/ld+json">
+	<script src="https://meta-pets.ru/widget/chat-widget.umd.js"></script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			window.initChatWidget({
+				triggerSelector: '.js-metapets',
+				zIndex: 100,
+				position: 'bottom-right',
+				baseUrl: 'https://mp.meta-pets.ru/vetapp',
+				widgetData: {
+					site: 'demo-site',
+					version: '1.0.0'
+				}
+			});
+		});
+	</script>
+
+<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
 		"@type": "Organization",

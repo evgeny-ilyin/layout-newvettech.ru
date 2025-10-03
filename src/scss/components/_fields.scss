@@ -96,7 +96,6 @@ input {
 }
 
 textarea {
-	min-height: 80px;
 	padding: 9px 17px 6px;
 	resize: vertical;
 }
@@ -128,6 +127,10 @@ textarea {
 	// 	outline: none;
 	// 	border-color: var(--form-control-color-secondary) !important;
 	// }
+}
+
+textarea:not([class]) {
+	min-height: 80px;
 }
 
 fieldset {
