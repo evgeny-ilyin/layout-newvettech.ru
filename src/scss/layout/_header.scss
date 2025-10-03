@@ -4,7 +4,7 @@
 	--logo-wrapper-w: 66px;
 	--logo-wrapper-h: 66px;
 	z-index: 10;
-	background: transparent;
+	background: var(--color-gray);
 	transition: background $transition-default;
 
 	// .header__wrapper
@@ -64,7 +64,7 @@
 	}
 
 	&.is-ontop {
-		background: transparent;
+		background: var(--color-gray);
 		box-shadow: none;
 
 		@include resp-from(desktop) {
