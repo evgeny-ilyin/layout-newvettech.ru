@@ -82,42 +82,54 @@
 		pointer-events: none;
 	}
 
+	// .btn_icon
+	&_icon {
+		position: relative;
+
+		&::before {
+			content: '';
+			display: block;
+			width: var(--size, 44px);
+			height: var(--size, 44px);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+		}
+	}
+
 	// .btn_3d-tour
 	&_3d-tour {
 		--size: 52px;
 		--gap: 11px;
-		position: relative;
 
 		@include resp-from(sm) {
 			margin-left: calc(var(--size) + var(--gap));
 
 			&::before {
-				content: '';
-				display: block;
 				position: absolute;
 				top: 50%;
 				left: calc((var(--size) + var(--gap)) * -1);
 				transform: translateY(-50%);
-				width: var(--size);
-				height: var(--size);
-				background: url('../img/icons/icon-3d.svg') no-repeat center / contain;
+				background-image: url('../img/icons/icon-3d.svg');
 			}
 		}
 	}
 
 	// .btn_metapets
 	&_metapets {
+		--size: 44px;
 		--form-control-color-hover-text: var(--color-primary);
 		--form-control-color-hover: var(--color-secondary);
-		gap: 10px;
-		position: relative;
+		gap: 7px;
+		white-space: nowrap;
 
 		&::before {
-			content: '';
-			display: block;
-			width: 44px;
 			height: calc(100% + 10px);
-			background: $svg-metapets-helper no-repeat center / contain;
+			background-image: $svg-metapets-helper;
+		}
+
+		@include resp-from(md) {
+			gap: 10px;
 		}
 	}
 
