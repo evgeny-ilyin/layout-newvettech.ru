@@ -8,8 +8,6 @@
 	&_grid {
 		--grid-gap: 29px;
 		display: grid;
-		// grid-template-columns: repeat(auto-fit, minmax(calc((1024px - $min-padding * 2 - var(--grid-gap)) / 2), 1fr));
-		// grid-template-columns: repeat(auto-fit, minmax(calc((1024px - $min-padding * 2 - var(--grid-gap)) / 2), 1fr));
 		gap: var(--grid-gap);
 
 		@include resp-from(md) {
