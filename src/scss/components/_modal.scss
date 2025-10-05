@@ -5,7 +5,8 @@
 	--modal-padding-x: 32px;
 	position: fixed;
 	z-index: -1;
-	width: 50vw;
+	// width: 50vw;
+	width: auto;
 	min-width: $min-width;
 	padding: var(--modal-padding-y) var(--modal-padding-x);
 	background: var(--color-white-gray);
