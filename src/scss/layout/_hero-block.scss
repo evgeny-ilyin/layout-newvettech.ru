@@ -176,6 +176,8 @@
 	&_violet {
 		--color-bg: var(--color-primary);
 		--color: var(--color-white);
+		--color-link: var(--color-white);
+		--color-link-hover: var(--color-white);
 
 		.btn {
 			--form-control-color-hover-text: var(--color-primary);
