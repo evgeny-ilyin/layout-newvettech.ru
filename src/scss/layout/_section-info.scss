@@ -32,6 +32,7 @@
 		overflow: hidden;
 		background: var(--color-white);
 		border-radius: var(--radius);
+		cursor: pointer;
 
 		@include resp-from(md) {
 			--radius: 15px;
