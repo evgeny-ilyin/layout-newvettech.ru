@@ -121,6 +121,8 @@
 
 	// .f-section__bg
 	&__bg {
+		user-select: none;
+
 		@include print {
 			display: none;
 		}

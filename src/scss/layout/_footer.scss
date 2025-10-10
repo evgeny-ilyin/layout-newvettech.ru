@@ -3,6 +3,8 @@
 .footer {
 	// .footer__animals
 	&__animals {
+		user-select: none;
+
 		picture {
 			width: 100%;
 			max-width: 310px;

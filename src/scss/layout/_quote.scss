@@ -29,6 +29,7 @@
 	&__photo {
 		position: relative;
 		min-height: 255px;
+		user-select: none;
 
 		picture,
 		img {
