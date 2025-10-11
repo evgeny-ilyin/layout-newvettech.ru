@@ -145,7 +145,7 @@
 		text-indent: var(--quote-indent);
 
 		&::before {
-			content: '“';
+			content: '\201C';
 			display: block;
 			position: absolute;
 			top: 0;
