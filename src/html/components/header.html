@@ -5,7 +5,10 @@
   // для каждого пункта меню задаём "is-active", если совпадает
   var menuAbout = activeMenu === 'menuAbout' ? 'is-active' : '';
   var menuSpecialties = activeMenu === 'menuSpecialties' ? 'is-active' : '';
-  var menuContacts = activeMenu === 'menuContacts' ? 'is-active' : '';
+  var menuServices = activeMenu === 'menuServices' ? 'is-active' : '';
+  var menuDoctors = activeMenu === 'menuDoctors' ? 'is-active' : '';
+  var menuPublications = activeMenu === 'menuPublications' ? 'is-active' : '';
+  var menuMetapets = activeMenu === 'menuMetapets' ? 'is-active' : '';
 %>
 
 	<header class="header">
@@ -32,12 +35,12 @@
 						</label>
 						<div class="menu-container">
 							<ul class="nav__list">
-								<li class="nav__item"><a href="./index.html#equipment" class="nav__link <%=menuAbout%>">О НьюВетТех</a></li>
-								<li class="nav__item"><a href="./index.html#specialties" class="nav__link <%=menuSpecialties%>">Направления</a></li>
-								<li class="nav__item"><a href="./download/NewVetTech-services.pdf" class="nav__link">Услуги</a></li>
-								<li class="nav__item hidden"><a href="javascript:void(0)" class="nav__link">Врачи</a></li>
-								<li class="nav__item hidden"><a href="javascript:void(0)" class="nav__link">Публикации</a></li>
-								<li class="nav__item"><a href="javascript:void(0)" class="nav__link js-metapets">МетаПетс</a></li>
+								<li class="nav__item"><a href="./about.html" class="nav__link <%=menuAbout%>">О НьюВетТех</a></li>
+								<li class="nav__item"><a href="./specialties.html" class="nav__link <%=menuSpecialties%>">Направления</a></li>
+								<li class="nav__item"><a href="./services.html" class="nav__link <%=menuServices%>">Услуги</a></li>
+								<li class="nav__item"><a href="./doctors.html" class="nav__link <%=menuDoctors%>">Врачи</a></li>
+								<li class="nav__item"><a href="./publications.html" class="nav__link <%=menuPublications%>">Публикации</a></li>
+								<li class="nav__item"><a href="./metapets.html" class="nav__link <%=menuMetapets%>">МетаПетс</a></li>
 							</ul>
 							<div class="dropdown dropdown_geo">
 								<div class="dropdown__label">
