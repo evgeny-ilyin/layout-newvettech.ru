@@ -1,6 +1,6 @@
 @use '../abstracts' as *;
 
-.card-helper {
+.helper-card {
 	--card-bg: var(--color-secondary);
 	display: flex;
 	flex-direction: column;
@@ -13,7 +13,7 @@
 	box-shadow: 0 10px 15px 0 rgb(164 136 255 / 7%);
 	hyphens: none;
 
-	// .card-helper__icon
+	// .helper-card__icon
 	&__icon {
 		height: auto;
 		max-height: 130px;
@@ -27,7 +27,7 @@
 		}
 	}
 
-	// .card-helper__title
+	// .helper-card__title
 	&__title {
 		margin-bottom: 13px;
 		font-size: rem(24);
@@ -43,7 +43,7 @@
 		}
 	}
 
-	// .card-helper__description
+	// .helper-card__description
 	&__description {
 		margin-bottom: 21px;
 		font-size: rem(18);
@@ -60,7 +60,7 @@
 		}
 	}
 
-	// .card-helper__footer
+	// .helper-card__footer
 	&__footer {
 		margin-top: auto;
 	}
