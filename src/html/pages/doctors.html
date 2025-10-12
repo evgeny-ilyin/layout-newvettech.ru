@@ -1,0 +1,29 @@
+<% var data={ title: "Врачи" }; %>
+<%= _.template(require('../components/head.html').default)(data) %>
+
+<body>
+	<% var active={menu: "menuDoctors" }; %>
+	<%= _.template(require('../components/header.html').default)(active) %>
+
+	<main class="main container">
+		<div class="content">
+			<%= _.template(require('../components/blocks/hero-actions.html').default)() %>
+
+			<%= _.template(require('../components/blocks/headers/doctors-header.html').default)() %>
+
+			<%= _.template(require('../components/swipers/swiper-doctors-type-1.html').default)() %>
+
+			<%= _.template(require('../components/blocks/block-doctors-list.html').default)() %>
+
+			<%= _.template(require('../components/swipers/swiper-mainpage-type-3.html').default)() %>
+		</div>
+	</main>
+
+	<%= _.template(require('../components/footer.html').default)() %>
+
+	<%= _.template(require('../components/modals/modal-info.html').default)() %>
+
+	<%= _.template(require('../components/body-background.html').default)() %>
+	<%= sprite %>
+</body>
+</html>
