@@ -125,6 +125,34 @@ export function stickyHeader() {
 	window.addEventListener('scroll', updateHeaderClasses);
 }
 
+// export function stickyHeaderV2() {
+// 	const header = document.querySelector('.header');
+// 	const trigger = 200; // триггер в px
+
+// 	if (!header) {
+// 		return;
+// 	}
+
+// 	const update = () => {
+// 		const scrollY = window.scrollY;
+
+// 		if (scrollY > trigger) {
+// 			// фиксируем и плавно показываем хедер
+// 			if (!header.classList.contains('is-sticky')) {
+// 				header.classList.add('is-sticky');
+// 			}
+// 		} else if (scrollY === 0) {
+// 			// возвращаем хедер в статичное состояние
+// 			if (header.classList.contains('is-sticky')) {
+// 				header.classList.remove('is-sticky');
+// 			}
+// 		}
+// 	};
+
+// 	update();
+// 	window.addEventListener('scroll', update, { passive: true });
+// }
+
 /* фильтрация элементов в контейнере по нажатию кнопки */
 export function initFilterSystem({
 	buttonContainerClass = 'js-filter-buttons',

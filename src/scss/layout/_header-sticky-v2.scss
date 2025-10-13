@@ -1,0 +1,102 @@
+@use '../abstracts' as *;
+
+/* wrapper сохраняет место под хедер */
+.header-wrapper {
+	--logo-size: 66px;
+	--padding-y: 20px;
+
+	position: relative;
+	z-index: 10;
+	height: calc(var(--padding-y) * 2 + var(--logo-size));
+
+	@include resp-from(desktop) {
+		--logo-size: 88px;
+	}
+}
+
+.header {
+	position: relative;
+	transform: translateY(0);
+	width: 100%;
+	background: transparent;
+	transition:
+		transform 0.3s ease,
+		background 0.3s ease,
+		box-shadow 0.3s ease;
+
+	// .header__wrapper
+	&__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0 5px;
+		position: relative;
+		padding: var(--padding-y) 0;
+		transition: all $transition-default;
+
+		@include when-inside('.header.is-sticky:not(.is-ontop)') {
+			--padding-y: 0;
+		}
+	}
+
+	// .header__logo
+	&__logo {
+		z-index: 4;
+		width: var(--logo-size);
+		height: var(--logo-size);
+		transition: height $transition-fast;
+
+		@include resp-from(desktop) {
+			z-index: 1;
+		}
+	}
+
+	// .header__contact-us
+	&__contact-us {
+		z-index: 4;
+
+		@include resp-from(desktop) {
+			order: 1;
+			z-index: 1;
+		}
+	}
+
+	// .header__nav
+	&__nav {
+		display: flex;
+		align-items: center;
+		position: relative;
+	}
+
+	&.is-sticky {
+		--logo-size: 66px;
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		transform: translateY(-100%);
+		background: var(--color-white);
+		box-shadow: 0 10px 15px rgb(164 136 255 / 7%);
+		animation: slide-down 0.3s forwards;
+	}
+}
+
+/* анимация плавного выезда */
+@keyframes slide-down {
+	from {
+		transform: translateY(-100%);
+	}
+
+	to {
+		transform: translateY(0);
+	}
+}
+
+.logo-link {
+	display: flex;
+	width: fit-content;
+	height: 100%;
+	border-radius: 8px;
+	transition: all $transition-default;
+}
