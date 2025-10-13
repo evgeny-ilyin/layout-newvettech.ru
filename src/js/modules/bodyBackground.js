@@ -107,7 +107,7 @@ export function bodyBackground() {
 		}) => {
 			const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 			svg.classList.add('circle-item');
-			svg.style.top = top;
+			svg.style.top = topPercentToPixels(top);
 			svg.style.left = left;
 			svg.style.right = right;
 			svg.style.margin = margin;
@@ -123,6 +123,30 @@ export function bodyBackground() {
 			background.appendChild(svg);
 		}
 	);
+
+	/**
+	 * Расчёт пиксельной позиции элемента от верха страницы относительно всего контента из заданного процентного значения.
+	 * Нужно для сохранения абсолютных позиций фоновых кругов при изменении высоты блоков контента на странице (фильтры, табы).
+	 * Без этого элемент рядом с блоком, колторый измеряет высоту резко прыгает, т.к. его позиция top задана в процентах высоты контента.
+	 */
+	function topPercentToPixels(percentString) {
+		const percent = parseFloat(percentString);
+		if (isNaN(percent)) {
+			throw new Error('Неверный формат процента');
+		}
+
+		// высота контента
+		const contentHeight = Math.max(
+			document.body.scrollHeight,
+			document.documentElement.scrollHeight,
+			document.body.offsetHeight,
+			document.documentElement.offsetHeight,
+			document.body.clientHeight,
+			document.documentElement.clientHeight
+		);
+
+		return (percent / 100) * contentHeight;
+	}
 }
 
 window.bodyBackground = bodyBackground;
