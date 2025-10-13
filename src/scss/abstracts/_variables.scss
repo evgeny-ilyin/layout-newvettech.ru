@@ -32,6 +32,7 @@ $mobile-menu-closed: var(--mobile-menu-closed);
 $mobile-menu-active: var(--mobile-menu-active);
 // Переходы
 $transition-default: var(--transition-duration) ease-in-out;
+$transition-fast: 0.1s ease;
 
 //** Переменные для scss/components
 
