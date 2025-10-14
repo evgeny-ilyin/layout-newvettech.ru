@@ -1,8 +1,8 @@
 @use '../abstracts' as *;
 
 .header {
-	--logo-wrapper-w: 66px;
-	--logo-wrapper-h: 66px;
+	--logo-wrapper-w: 55px;
+	--logo-wrapper-h: 55px;
 	z-index: 10;
 	background: var(--color-gray);
 	transition: background $transition-fast;
@@ -19,7 +19,7 @@
 		transition: all $transition-default;
 
 		@include when-inside('.header.is-sticky:not(.is-ontop)') {
-			padding: 0;
+			padding: 11px 0;
 		}
 	}
 
@@ -55,7 +55,6 @@
 	&.is-sticky {
 		position: sticky;
 		top: 0;
-		background: var(--color-white);
 		box-shadow: 0 10px 15px 0 rgb(164 136 255 / 7%);
 
 		@include resp-from(desktop) {
@@ -72,6 +71,11 @@
 		}
 	}
 
+	@include resp-from(xs) {
+		--logo-wrapper-w: 66px;
+		--logo-wrapper-h: 66px;
+	}
+
 	@include resp-from(desktop) {
 		--logo-wrapper-w: 88px;
 		--logo-wrapper-h: 88px;
@@ -80,7 +84,7 @@
 
 .logo-link {
 	display: flex;
-	width: fit-content;
+	width: 100%;
 	height: 100%;
 	border-radius: 8px;
 	transition: all $transition-default;
