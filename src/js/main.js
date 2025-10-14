@@ -15,15 +15,16 @@ addEventListener('DOMContentLoaded', () => {
 	fn.stickyHeader();
 	fn.initFilterSystem();
 
-	bodyBackground();
 	accordion();
 	accordionCircle();
 	tabsInit();
 	swipersInit();
 	modalsInit();
 
-	if (window.data) {
-		mapInit(window.data);
+	bodyBackground();
+
+	if (window.mapData) {
+		mapInit(window.mapData);
 	}
 
 	// fn.isWebp();
