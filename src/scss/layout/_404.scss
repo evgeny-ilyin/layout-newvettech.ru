@@ -3,7 +3,8 @@
 .notfound {
 	flex-direction: column;
 	gap: 14px;
-	height: 80%;
+	position: relative;
+	// height: 100%;
 
 	// .notfound__title
 	&__title {
@@ -45,6 +46,25 @@
 	&__decor {
 		max-width: 170px;
 		margin: 40px 0 -2px 39px;
+	}
+
+	// .notfound__bg
+	&__bg {
+		position: absolute;
+		top: -18%;
+		z-index: -1;
+
+		@include resp-from(md) {
+			top: -33%;
+		}
+
+		@include resp-from(lg) {
+			top: -45%;
+		}
+
+		@include resp-from(desktop) {
+			top: -43%;
+		}
 	}
 
 	@include flex-center;
