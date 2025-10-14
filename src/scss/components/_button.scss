@@ -41,6 +41,17 @@
 		@include clamp(font-size, 16, 18);
 	}
 
+	// .btn_header
+	&_header {
+		@include resp-range(xs, desktop) {
+			--btn-height: 44px;
+		}
+
+		@include resp-range(sm, desktop) {
+			font-size: rem(18);
+		}
+	}
+
 	// .btn_lg
 	&_lg {
 		--btn-height: 50px;
