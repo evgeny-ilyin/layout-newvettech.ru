@@ -1,0 +1,52 @@
+@use '../abstracts' as *;
+
+.pet {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+
+	// .pet__about
+	&__about {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 8px;
+
+		@include resp-from(desktop) {
+			margin-top: auto;
+		}
+	}
+
+	// .pet__photo
+	&__photo {
+		max-width: 270px;
+
+		picture,
+		img {
+			border-radius: 50%;
+		}
+
+		@include resp-from(desktop) {
+			max-width: 335px;
+		}
+	}
+
+	// .pet__name
+	&__name {
+		font-size: rem(23);
+		font-weight: var(--font-weight-medium);
+		line-height: 1.2;
+		letter-spacing: -0.01em;
+	}
+
+	// .pet__note
+	&__note {
+		font-family: var(--font-family-other);
+	}
+
+	// @include resp-range(md, lg) {
+	// 	flex-direction: row;
+	// }
+}
