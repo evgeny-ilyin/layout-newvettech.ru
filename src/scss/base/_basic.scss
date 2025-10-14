@@ -2,7 +2,7 @@
 
 html {
 	min-width: $min-width;
-	// overflow-x: hidden; // не будет работать position sticky
+	overflow-x: hidden; // не будет работать position sticky для сайдбара
 	cursor: default;
 	scroll-behavior: smooth;
 
