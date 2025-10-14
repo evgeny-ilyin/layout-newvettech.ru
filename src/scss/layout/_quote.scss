@@ -3,7 +3,7 @@
 .quote {
 	--color-bg: var(--color-white-gray);
 	--color: var(--color-black);
-	margin-bottom: 30px;
+	height: 100%;
 
 	// .quote__wrapper
 	&__wrapper {
@@ -57,36 +57,45 @@
 	// .quote__content
 	&__content {
 		display: flex;
-		flex-direction: column-reverse;
-		justify-content: center;
-		// justify-content: space-between;
-		gap: 35px;
-		padding: 26px 30px;
-		hyphens: none;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 25px;
+		height: 100%;
 
 		& > * {
-			@include resp-from(lg) {
-				max-width: 370px;
-			}
+			// @include resp-from(lg) {
+			// 	max-width: 370px;
+			// }
 
 			@include resp-from(desktop) {
 				max-width: 470px;
 			}
 		}
 
-		@include resp-from(md) {
-			// padding: 26px 15px 26px 17px;
-			padding: 25px;
-		}
+		// @include resp-from(md) {
+		// padding: 26px 15px 26px 17px;
+		// padding: 25px;
+		// }
 
-		@include resp-from(lg) {
-			padding-right: 30px;
-			padding-left: 50px;
+		// @include resp-from(lg) {
+		// padding-right: 30px;
+		// padding-left: 50px;
+		// }
+
+		// @include resp-from(desktop) {
+		// padding: 55px 50px 70px 80px;
+		// hyphens: none;
+		// }
+
+		// .quote__content_center
+		&_center {
+			flex-direction: column-reverse;
+			justify-content: center;
 		}
+		// hyphens: none;
 
 		@include resp-from(desktop) {
-			padding: 55px 50px 70px 80px;
-			hyphens: none;
+			gap: 35px;
 		}
 	}
 
@@ -120,6 +129,7 @@
 
 	// .quote__position
 	&__position {
+		font-family: var(--font-family-other);
 		font-size: rem(15);
 		line-height: 1.1;
 
@@ -132,9 +142,9 @@
 			font-size: rem(16);
 		}
 
-		@include resp-from(desktop) {
-			line-height: 1.7;
-		}
+		// @include resp-from(desktop) {
+		// 	line-height: 1.7;
+		// }
 	}
 
 	blockquote {
@@ -196,9 +206,5 @@
 			font-size: rem(32);
 			line-height: 1.1;
 		}
-	}
-
-	@include resp-from(desktop) {
-		margin-bottom: 59px;
 	}
 }
