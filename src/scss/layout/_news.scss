@@ -32,7 +32,8 @@
 	overflow: hidden;
 	background: var(--color-white-gray-2);
 	border-radius: 15px;
-	box-shadow: 0 10px 15px 0 rgb(164 136 255 / 7%);
+	box-shadow: 0 8px 15px 0 rgb(164 136 255 / 7%);
+	transition: box-shadow $transition-default;
 
 	// .news-card__link
 	&__link {
@@ -40,6 +41,10 @@
 		flex-direction: column;
 		height: 100%;
 		text-decoration: none;
+
+		@include on-hover {
+			color: var(--color-link);
+		}
 
 		@extend %link-default;
 	}
@@ -86,5 +91,9 @@
 
 	@include resp-from(desktop) {
 		border-radius: 20px;
+	}
+
+	@include hover-media() {
+		box-shadow: 0 4px 7px 0 rgb(159 149 221 / 35%);
 	}
 }
