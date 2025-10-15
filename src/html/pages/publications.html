@@ -1,0 +1,27 @@
+<% var data={ title: "Публикации" }; %>
+<%= _.template(require('../components/head.html').default)(data) %>
+
+<body>
+	<% var active={menu: "menuPublications" }; %>
+	<%= _.template(require('../components/header.html').default)(active) %>
+
+	<main class="main container">
+		<div class="content">
+			<%= _.template(require('../components/blocks/hero-actions.html').default)() %>
+
+			<%= _.template(require('../components/blocks/headers/publications-header.html').default)() %>
+
+			<%= _.template(require('../components/swipers/swiper-hero-type-4.html').default)() %>
+
+			<%= _.template(require('../components/blocks/block-news-list.html').default)() %>
+		</div>
+	</main>
+
+	<%= _.template(require('../components/footer.html').default)() %>
+
+	<%= _.template(require('../components/modals/modal-info.html').default)() %>
+
+	<%= _.template(require('../components/body-background.html').default)() %>
+	<%= sprite %>
+</body>
+</html>

@@ -41,6 +41,16 @@
 		@include clamp(font-size, 16, 18);
 	}
 
+	// .btn_lg
+	&_lg {
+		--btn-height: 50px;
+		font-size: rem(18);
+
+		@include resp-from(desktop) {
+			font-size: rem(20);
+		}
+	}
+
 	// .btn_header
 	&_header {
 		@include resp-range(xs, desktop) {
@@ -52,13 +62,16 @@
 		}
 	}
 
-	// .btn_lg
-	&_lg {
-		--btn-height: 50px;
-		font-size: rem(18);
+	// .btn_news
+	&_news {
+		@include resp-to(xm) {
+			padding-right: 5px;
+			padding-left: 5px;
+			// font-size: rem(16);
+		}
 
-		@include resp-from(desktop) {
-			font-size: rem(20);
+		@include resp-to(md) {
+			--btn-height: 40px;
 		}
 	}
 
