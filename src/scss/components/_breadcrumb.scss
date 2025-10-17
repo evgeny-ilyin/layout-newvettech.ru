@@ -2,12 +2,17 @@
 @use '../base/typography-placeholders' as *;
 
 .breadcrumb {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
+	display: block;
 	margin-bottom: 35px;
 	font-size: rem(18);
 	color: var(--color-black-50);
+
+	// .breadcrumb__list
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
 
 	&__item {
 		display: flex;
