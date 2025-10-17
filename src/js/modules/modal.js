@@ -18,15 +18,16 @@ export function modalsInit({
 			return false;
 		}
 
+		modal.style.setProperty('--modal-height', `${modal.scrollHeight}px`);
 		modal.classList.add(isActiveClass);
 		overlay?.classList.add(isActiveClass);
 		html.classList.add(isLockClass);
-
 		return true;
 	};
 
 	// Закрыть модалку
 	const closeModal = (modal) => {
+		modal.style.removeProperty('--modal-height');
 		modal.classList.remove(isActiveClass);
 		overlay?.classList.remove(isActiveClass);
 		html.classList.remove(isLockClass);
