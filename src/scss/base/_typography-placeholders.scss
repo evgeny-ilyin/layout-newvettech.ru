@@ -28,11 +28,11 @@
 %h3-heading {
 	font-size: rem(18);
 	font-weight: var(--font-weight-medium);
-	line-height: 1.2;
+	line-height: 1.1;
 	letter-spacing: -0.01em;
 
 	@include resp-from(md) {
-		@include fluid(font-size, 18px, 38px, map-get($breakpoints, 'md'), map-get($breakpoints, 'desktop'));
+		@include fluid(font-size, 18px, 32px, map-get($breakpoints, 'md'), map-get($breakpoints, 'desktop'));
 	}
 }
 
