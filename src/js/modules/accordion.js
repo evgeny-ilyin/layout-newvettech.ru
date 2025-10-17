@@ -13,10 +13,11 @@
  *
  * @param {Object} [options={}] - Объект с настройками функции.
  * @param {string} [options.accordionClass='.js-accordion'] - Селектор контейнера аккордеона.
- * @param {string} [options.accordionItemClass='.accordion__item'] - Селектор элемента аккордеона.
+ * @param {string} [options.accordionItemClass='.js-accordion-item'] - Селектор элемента аккордеона.
  * @param {string} [options.isOpenedClass='is-opened'] - CSS-класс открытого элемента.
  * @param {string} [options.triggerClass='.js-accordion-trigger'] - Селектор кнопки-триггера.
  * @param {string} [options.singleModeClass='.js-accordion-single'] - CSS-класс для режима "только один открыт".
+ * @param {string} [options.fullAreaModeClass='.js-accordion-full-area'] - CSS-класс для режима "закрыть по клику внутри открытого элемента".
  *
  * @example
  * Инициализация аккордеона
@@ -26,7 +27,7 @@
  * @example
  * <!-- Пример HTML -->
  * <div class="accordion js-accordion js-accordion-single">
- *   <div class="accordion__item">
+ *   <div class="js-accordion-item">
  *     <div class="accordion__header">
  *       <button type="button" id="accordion-trigger-1" class="js-accordion-trigger" aria-expanded="false" aria-controls="accordion-panel-1">
  *         Заголовок 1
@@ -45,10 +46,11 @@
 
 export function accordion({
 	accordionClass = 'js-accordion',
-	accordionItemClass = 'accordion__item',
+	accordionItemClass = 'js-accordion-item',
 	isOpenedClass = 'is-opened',
 	triggerClass = 'js-accordion-trigger',
 	singleModeClass = 'js-accordion-single',
+	fullAreaModeClass = 'js-accordion-full-area',
 } = {}) {
 	const accordions = document.querySelectorAll(`.${accordionClass}`);
 
@@ -87,6 +89,7 @@ export function accordion({
 	accordions.forEach((accordion) => {
 		const triggers = accordion.querySelectorAll(`.${triggerClass}`);
 		const singleMode = accordion.classList.contains(`${singleModeClass}`);
+		const fullAreaMode = accordion.classList.contains(`${fullAreaModeClass}`);
 
 		triggers.forEach((trigger) => {
 			const accordionItem = trigger.closest(`.${accordionItemClass}`);
@@ -98,14 +101,16 @@ export function accordion({
 			});
 
 			// Закрытие по клику в области открытого элемента (кроме триггера)
-			accordionItem.addEventListener('click', (e) => {
-				if (
-					accordionItem.classList.contains(isOpenedClass) &&
-					!e.target.classList.contains(triggerClass)
-				) {
-					toggleAccordion(accordionItem, trigger, accordion, singleMode);
-				}
-			});
+			if (fullAreaMode) {
+				accordionItem.addEventListener('click', (e) => {
+					if (
+						accordionItem.classList.contains(isOpenedClass) &&
+						!e.target.classList.contains(triggerClass)
+					) {
+						toggleAccordion(accordionItem, trigger, accordion, singleMode);
+					}
+				});
+			}
 		});
 	});
 
@@ -127,7 +132,7 @@ export function accordion({
 /* Расчёт и добавление инлайн css переменных в элементы аккордеона для их корректного размещения по окружности */
 export function accordionCircle() {
 	const accordionCircleClass = 'accordion-circle';
-	const accordionItemClass = 'accordion__item';
+	const accordionItemClass = 'js-accordion-item';
 	const accordions = document.querySelectorAll(`.${accordionCircleClass}`);
 
 	accordions.forEach((accordion) => {
