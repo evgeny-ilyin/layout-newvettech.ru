@@ -11,7 +11,7 @@
  * - Высота контента управляется через `max-height`, что позволяет использовать CSS-переходы для плавной анимации.
  * - При `window.load` и `window.resize` пересчитывается высота всех открытых элементов, чтобы соответствовать их фактическому содержимому.
  *
- * @param {Object} [options] - Настройки функции.
+ * @param {Object} [options={}] - Объект с настройками функции.
  * @param {string} [options.accordionClass='.js-accordion'] - Селектор контейнера аккордеона.
  * @param {string} [options.accordionItemClass='.accordion__item'] - Селектор элемента аккордеона.
  * @param {string} [options.isOpenedClass='is-opened'] - CSS-класс открытого элемента.

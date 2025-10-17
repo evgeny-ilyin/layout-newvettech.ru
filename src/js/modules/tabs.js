@@ -9,7 +9,7 @@
  * - Поддерживает несколько блоков с вкладками на одной странице.
  * - Использует делегирование событий (через document), так что работает и для динамически добавленных табов.
  *
- * @param {Object} options - Настройки функции.
+ * @param {Object} [options={}] - Объект с настройками функции.
  * @param {string} [options.isActiveClass='is-active'] - CSS-класс активного таба/контента.
  * @param {string} [options.tabsSelector='.tabs'] - Селектор контейнера вкладок.
  * @param {string} [options.navContainer='.js-tab-buttons'] - Селектор контейнера кнопок табов.
