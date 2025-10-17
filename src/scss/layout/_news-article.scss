@@ -1,0 +1,132 @@
+@use '../abstracts' as *;
+
+.news-article {
+	--inner-indent: 0px;
+	--outer-indent: 0px;
+	padding: 0 var(--inner-indent) 0 var(--outer-indent);
+
+	// .news-article__header
+	&__header {
+	}
+
+	// .news-article__body
+	&__body {
+		// padding: 0 var(--inner-indent) 0 var(--outer-indent);
+
+		h1,
+		.h1,
+		h2,
+		.h2,
+		h3,
+		.h3,
+		h4,
+		.h4,
+		h5,
+		.h5,
+		h6,
+		.h6 {
+			margin: 25px 0 16px calc(var(--inner-indent) * -1);
+		}
+	}
+
+	// .news-article__footer
+	&__footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		margin: 50px 0 32px calc(var(--inner-indent) * -1);
+		padding-bottom: 26px;
+		font-size: rem(12);
+		border-bottom: 2px solid var(--color-primary);
+		// padding: 0 var(--inner-indent) 60px var(--outer-indent);
+
+		@include resp-from(md) {
+			margin-bottom: 42px;
+			padding-bottom: 40px;
+		}
+
+		@include resp-from(desktop) {
+			margin-top: 70px;
+			margin-bottom: 50px;
+			padding-bottom: 60px;
+			font-size: rem(16);
+		}
+	}
+
+	// .news-article__author
+	&__author {
+	}
+
+	// .news-article__meta
+	&__meta {
+	}
+
+	// .news-article__date
+	&__date {
+	}
+
+	.quote {
+		margin: 33px 0 30px calc(var(--inner-indent) * -1);
+
+		@include resp-from(lg) {
+			max-width: 770px;
+		}
+
+		@include resp-from(desktop) {
+			max-width: 100%;
+			margin-top: 53px;
+			margin-bottom: 50px;
+		}
+	}
+
+	@include resp-from(md) {
+		--inner-indent: 60px;
+		--outer-indent: 60px;
+	}
+
+	@include resp-from(desktop) {
+		--inner-indent: 110px;
+		--outer-indent: 200px;
+	}
+}
+
+.article-img {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 20px;
+	margin: 24px 0 30px calc(var(--inner-indent) * -1);
+
+	// .article-img__img
+	&__img {
+		max-width: calc(100% - var(--inner-indent) * 2);
+
+		// .article-img__img_no-title
+		&_no-title {
+			max-width: 100%;
+		}
+	}
+
+	// .article-img__title
+	&__title {
+		font-size: rem(15);
+		line-height: 1.2;
+
+		&:empty {
+			display: none;
+		}
+
+		@include resp-from(md) {
+			font-size: rem(12);
+		}
+
+		@include resp-from(desktop) {
+			font-size: rem(16);
+		}
+	}
+
+	@include resp-from(md) {
+		flex-direction: row-reverse;
+		margin-top: 50px;
+	}
+}

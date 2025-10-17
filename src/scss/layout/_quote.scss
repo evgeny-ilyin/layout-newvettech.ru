@@ -5,6 +5,11 @@
 	--color: var(--color-black);
 	height: 100%;
 
+	// .quote_article
+	// &_article {
+	// 	margin: 25px 0 16px calc(var(--inner-indent) * -1);
+	// }
+
 	// .quote__wrapper
 	&__wrapper {
 		display: flex;
@@ -56,6 +61,7 @@
 
 	// .quote__content
 	&__content {
+		--max-width: 470px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -63,36 +69,21 @@
 		height: 100%;
 
 		& > * {
-			// @include resp-from(lg) {
-			// 	max-width: 370px;
-			// }
-
 			@include resp-from(desktop) {
-				max-width: 470px;
+				max-width: var(--max-width);
 			}
 		}
-
-		// @include resp-from(md) {
-		// padding: 26px 15px 26px 17px;
-		// padding: 25px;
-		// }
-
-		// @include resp-from(lg) {
-		// padding-right: 30px;
-		// padding-left: 50px;
-		// }
-
-		// @include resp-from(desktop) {
-		// padding: 55px 50px 70px 80px;
-		// hyphens: none;
-		// }
 
 		// .quote__content_center
 		&_center {
 			flex-direction: column-reverse;
 			justify-content: center;
 		}
-		// hyphens: none;
+
+		// .quote__content_wide
+		&_wide {
+			--max-width: none;
+		}
 
 		@include resp-from(desktop) {
 			gap: 35px;
@@ -141,10 +132,6 @@
 		@include resp-from(lg) {
 			font-size: rem(16);
 		}
-
-		// @include resp-from(desktop) {
-		// 	line-height: 1.7;
-		// }
 	}
 
 	blockquote {
@@ -195,7 +182,7 @@
 		}
 
 		@include resp-from(md) {
-			font-size: rem(18);
+			font-size: rem(20);
 		}
 
 		@include resp-from(lg) {
