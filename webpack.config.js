@@ -192,7 +192,7 @@ const config = {
 				test: /\.(woff2?|eot|ttf|otf)$/i,
 				type: 'asset/resource',
 				generator: {
-					filename: 'fonts-git/[name][ext]',
+					filename: 'fonts/[name][ext]',
 				},
 			},
 			// {
@@ -215,6 +215,7 @@ const config = {
 				{ from: 'src/og', to: 'og' },
 				{ from: 'src/download', to: 'download' },
 				{ from: 'src/favicon/favicon.ico', to: 'favicon.ico' },
+				{ from: 'src/favicon/apple-touch-icon.png', to: 'apple-touch-icon.png' },
 				{ from: 'src/humans.txt', to: 'humans.txt', noErrorOnMissing: true },
 				{ from: 'src/favicon/manifest.webmanifest', to: 'manifest.webmanifest' },
 				{ from: 'src/favicon/tableau.json', to: 'tableau.json' },
