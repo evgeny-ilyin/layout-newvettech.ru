@@ -1,0 +1,31 @@
+<% var data={ title: "Направление" }; %>
+<%= _.template(require('../components/head.html').default)(data) %>
+
+<body>
+	<% var active={menu: "menuSpecialties" }; %>
+	<%= _.template(require('../components/header.html').default)(active) %>
+
+	<main class="main container">
+		<div class="content">
+			<%= _.template(require('../components/blocks/hero-actions.html').default)() %>
+
+			<%= _.template(require('../components/blocks/headers/specialty-header.html').default)() %>
+
+			<%= _.template(require('../components/swipers/swiper-hero-type-1.html').default)() %>
+
+			<%= _.template(require('../components/blocks/block-icons-advantages-short.html').default)() %>
+			<%= _.template(require('../components/blocks/block-icons-advantages-full.html').default)() %>
+
+			<%= _.template(require('../components/swipers/swiper-hero-type-5.html').default)() %>
+
+		</div>
+	</main>
+
+	<%= _.template(require('../components/footer.html').default)() %>
+
+	<%= _.template(require('../components/modals/modal-info.html').default)() %>
+
+	<%= _.template(require('../components/body-background.html').default)() %>
+	<%= sprite %>
+</body>
+</html>
