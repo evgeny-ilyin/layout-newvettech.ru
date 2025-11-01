@@ -102,6 +102,7 @@
 	&__price {
 		font-size: rem(18);
 		line-height: 1.1;
+		white-space: nowrap;
 
 		@include resp-from(md) {
 			font-size: rem(17);

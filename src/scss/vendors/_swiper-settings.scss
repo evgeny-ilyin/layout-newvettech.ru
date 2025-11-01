@@ -2,7 +2,8 @@
 
 .swiper {
 	--swiper-theme-color: var(--color-primary);
-	--swiper-pagination-bottom: 9px;
+	--swiper-pagination-bottom: 0;
+	// --swiper-pagination-bottom: 9px;
 	--swiper-pagination-bullet-inactive-color: var(--color-secondary);
 	--swiper-pagination-bullet-inactive-opacity: 1;
 	// --swiper-pagination-bullet-border-radius: 0;
@@ -11,11 +12,15 @@
 	--swiper-pagination-bullet-horizontal-gap: 9px;
 	--swiper-navigation-size: 36px;
 	--swiper-navigation-color: var(--color-white);
-	--padding-bottom: 46px;
+	--padding-bottom: 31px;
 	padding-bottom: var(--padding-bottom);
 
 	* {
 		outline: none;
+	}
+
+	.swiper-wrapper {
+		padding-bottom: 15px;
 	}
 
 	.swiper-slide {
@@ -45,7 +50,7 @@
 	}
 
 	@include resp-from(desktop) {
-		--padding-bottom: 76px;
+		--padding-bottom: 61px;
 	}
 
 	@include when-inside('.is-single') {

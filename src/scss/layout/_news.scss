@@ -105,6 +105,10 @@
 		font-family: var(--font-family-other);
 		font-size: rem(16);
 
+		p {
+			font-size: rem(16);
+		}
+
 		@include line-clamp(5);
 	}
 
