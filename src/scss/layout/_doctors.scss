@@ -49,7 +49,7 @@
 
 	// .doctor-card__photo
 	&__photo {
-		--photo-height: 285px;
+		--photo-height: 350px;
 		height: var(--photo-height);
 		overflow: hidden;
 
@@ -60,7 +60,23 @@
 			object-fit: cover;
 		}
 
+		@include resp-from(sm) {
+			--photo-height: 400px;
+		}
+
+		@include resp-from(xm) {
+			--photo-height: 350px;
+		}
+
+		@include resp-from(md) {
+			--photo-height: 380px;
+		}
+
 		@include resp-from(lg) {
+			--photo-height: 350px;
+		}
+
+		@include resp-from(desktop) {
 			--photo-height: 320px;
 		}
 	}
@@ -87,6 +103,11 @@
 	// .doctor-card__button
 	&__button {
 		padding: 0 18px 19px;
+	}
+
+	// .doctor-card_no-hover
+	&_no-hover {
+		box-shadow: 0 8px 15px 0 rgb(164 136 255 / 7%) !important;
 	}
 
 	@include resp-from(desktop) {
