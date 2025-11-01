@@ -3,17 +3,6 @@
 .section-swiper {
 	margin-bottom: 30px;
 
-	// .section-swiper__showall
-	&__showall {
-		margin-top: 8px;
-
-		@include flex-center;
-
-		@include resp-from(desktop) {
-			margin-top: 30px;
-		}
-	}
-
 	@include resp-from(desktop) {
 		margin-bottom: 50px;
 	}
