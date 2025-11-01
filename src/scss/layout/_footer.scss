@@ -113,15 +113,19 @@
 .footer-metapets {
 	margin-bottom: 20px;
 
-	// .footer-metapets__link
-	&__link {
+	// .footer-metapets__button
+	&__button {
 		--color-square: var(--color-secondary);
 		--color-figure: var(--color-primary);
 		--color-text: var(--color-black);
 		display: flex;
 		align-items: flex-start;
+		width: 100%;
 		max-width: 246px;
+		background: transparent;
+		border: 0;
 		border-radius: 4px;
+		cursor: pointer;
 
 		@include hover-media() {
 			--color-square: var(--color-primary);
@@ -134,6 +138,16 @@
 .footer-skolkovo {
 	font-size: rem(16);
 	text-align: center;
+
+	// .footer-skolkovo__logo
+	&__logo {
+		width: 150px;
+		margin: 0 auto;
+
+		@include resp-from(md) {
+			margin: 0;
+		}
+	}
 
 	@include resp-from(md) {
 		text-align: left;
