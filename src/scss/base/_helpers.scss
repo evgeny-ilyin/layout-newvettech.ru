@@ -91,3 +91,14 @@
 	width: 100%;
 	box-sizing: border-box;
 }
+
+// блок с контентом по центру
+.flex-center {
+	margin-top: 8px;
+
+	@include flex-center;
+
+	@include resp-from(desktop) {
+		margin-top: 30px;
+	}
+}
