@@ -24,8 +24,10 @@ addEventListener('DOMContentLoaded', () => {
 
 	bodyBackground();
 
-	if (window.mapData) {
-		mapInit(window.mapData);
+	if (window.mapDataList) {
+		mapDataList.forEach((mapData) => {
+			mapInit(mapData);
+		});
 	}
 
 	// fn.isWebp();

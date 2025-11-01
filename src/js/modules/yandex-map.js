@@ -6,26 +6,52 @@
 // 	},
 // ]
 
+let ymaps3LoadPromise = null;
+
 function loadYandexMapApi() {
-	return new Promise((resolve, reject) => {
-		if (window.ymaps3) {
-			resolve(window.ymaps3);
-			return;
-		}
+	if (window.ymaps3) {
+		return Promise.resolve(window.ymaps3);
+	}
+
+	if (ymaps3LoadPromise) {
+		return ymaps3LoadPromise;
+	}
+
+	ymaps3LoadPromise = new Promise((resolve, reject) => {
 		const apiKey = process.env.YANDEX_MAPS_API_KEY;
 		const script = document.createElement('script');
 		script.src = `https://api-maps.yandex.ru/v3/?apikey=${apiKey}&lang=ru_RU`;
 		script.async = true;
+
 		script.onload = () => resolve(window.ymaps3);
 		script.onerror = () => reject(new Error('Ошибка загрузки Yandex Maps API v3'));
+
 		document.head.appendChild(script);
 	});
+
+	return ymaps3LoadPromise;
+
+	// v1 для случая только с одной картой
+	// return new Promise((resolve, reject) => {
+	// 	if (window.ymaps3) {
+	// 		resolve(window.ymaps3);
+	// 		return;
+	// 	}
+	// 	const apiKey = process.env.YANDEX_MAPS_API_KEY;
+	// 	const script = document.createElement('script');
+	// 	script.src = `https://api-maps.yandex.ru/v3/?apikey=${apiKey}&lang=ru_RU`;
+	// 	script.async = true;
+	// 	script.onload = () => resolve(window.ymaps3);
+	// 	script.onerror = () => reject(new Error('Ошибка загрузки Yandex Maps API v3'));
+	// 	document.head.appendChild(script);
+	// });
 }
 
 export async function mapInit(data) {
-	const mapContainerClass = 'map-container';
+	// const mapContainerClass = 'map-container';
 	const mapMarkerClass = 'map-marker';
-	const mapContainer = document.querySelector(`.${mapContainerClass}`);
+	// const mapContainer = document.querySelector(`.${mapContainerClass}`);
+	const mapContainer = document.querySelector(data.container);
 	if (!mapContainer) {
 		return;
 	}
