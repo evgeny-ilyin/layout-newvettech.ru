@@ -91,4 +91,13 @@
 		max-width: 420px;
 		padding: 45px 37px 45px 63px;
 	}
+
+	// .branch-info_reset
+	/* stylelint-disable-next-line order/order */
+	&_reset {
+		margin: 0;
+		padding: 0;
+		background: transparent;
+		border-radius: 0;
+	}
 }
