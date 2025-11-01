@@ -24,14 +24,16 @@
 		flex: 1 1 300px;
 	}
 
-	// .hero-block_photo-wide
-	&_photo-wide {
+	// .hero-block_shadow
+	&_shadow {
+		box-shadow: 0 10px 15px 0 rgb(164 136 255 / 7%);
 	}
 
 	// .hero-block__photo
 	&__photo {
 		position: relative;
 		min-height: 255px;
+		background: var(--color-bg);
 
 		picture,
 		img {
@@ -42,12 +44,37 @@
 			object-position: left;
 		}
 
+		// .hero-block__photo_svg
+		&_svg {
+			display: flex;
+			align-items: flex-end;
+			padding: 15px;
+
+			picture,
+			img {
+				position: relative;
+				height: auto;
+			}
+
+			@include resp-from(md) {
+				padding: 30px;
+			}
+		}
+
+		@include resp-from(sm) {
+			min-height: 370px;
+		}
+
+		@include resp-from(xm) {
+			min-height: 440px;
+		}
+
 		@include resp-from(md) {
-			min-height: 348px;
+			min-height: 350px;
 		}
 
 		@include resp-from(lg) {
-			min-height: 381px;
+			min-height: 430px;
 		}
 
 		@include resp-from(desktop) {
@@ -57,6 +84,24 @@
 				flex: 2 1 590px;
 			}
 		}
+
+		@include when-inside('.hero-block_photo-violet') {
+			--color-bg: var(--color-primary);
+		}
+	}
+
+	// .hero-block__intro
+	&__intro {
+		picture,
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+
+			@include resp-from(desktop) {
+				object-fit: cover;
+			}
+		}
 	}
 
 	// .hero-block__text
@@ -64,6 +109,8 @@
 		display: flex;
 		flex-direction: column;
 		padding: 26px 30px;
+		color: var(--color);
+		background: var(--color-bg);
 
 		@include resp-from(md) {
 			// padding: 26px 15px 26px 17px;
@@ -96,8 +143,17 @@
 			// }
 		}
 
-		@include when-inside('.hero-block_violet') {
+		@include when-inside('.hero-block_text-violet') {
+			--color-bg: var(--color-primary);
+			--color: var(--color-white);
+			--color-link: var(--color-white);
+			--color-link-hover: var(--color-white);
 			padding-top: 20px;
+
+			.btn {
+				--form-control-color-hover-text: var(--color-primary);
+				--form-control-color-hover: var(--color-secondary);
+			}
 
 			@include resp-from(lg) {
 				padding-top: 50px;
@@ -112,6 +168,18 @@
 		font-weight: var(--font-weight-medium);
 		line-height: 0.9;
 		letter-spacing: -0.01em;
+
+		b,
+		strong {
+			color: var(--color-primary);
+		}
+
+		@include when-inside('.hero-block_text-violet') {
+			b,
+			strong {
+				color: var(--color-white);
+			}
+		}
 
 		// @include clamp(font-size, 50, 72);
 
@@ -132,6 +200,18 @@
 		line-height: 1.2;
 		letter-spacing: -0.01em;
 
+		b,
+		strong {
+			color: var(--color-primary);
+		}
+
+		@include when-inside('.hero-block_text-violet') {
+			b,
+			strong {
+				color: var(--color-white);
+			}
+		}
+
 		@include resp-from(lg) {
 			margin-bottom: 34px;
 		}
@@ -144,11 +224,30 @@
 	// .hero-block__title
 	&__title {
 		margin-bottom: 25px;
+
+		b,
+		strong {
+			color: var(--color-primary);
+		}
+
+		@include when-inside('.hero-block_text-violet') {
+			b,
+			strong {
+				color: var(--color-black);
+			}
+		}
 	}
 
 	// .hero-block__description
 	&__description {
 		margin-bottom: 16px;
+		line-height: 1.3;
+
+		b,
+		strong {
+			font-weight: var(--font-weight-normal);
+			color: var(--color-primary);
+		}
 
 		ol,
 		ul {
@@ -158,10 +257,6 @@
 			li:not(:last-child) {
 				margin-bottom: 5px;
 			}
-		}
-
-		p {
-			line-height: 1.3;
 		}
 
 		&:last-of-type {
@@ -197,6 +292,11 @@
 		}
 	}
 
+	// .hero-block_reverse
+	&_reverse {
+		flex-direction: row-reverse;
+	}
+
 	// .hero-block__col
 	&__col {
 		display: flex;
@@ -204,17 +304,17 @@
 	}
 
 	// .hero-block_violet
-	&_violet {
-		--color-bg: var(--color-primary);
-		--color: var(--color-white);
-		--color-link: var(--color-white);
-		--color-link-hover: var(--color-white);
+	// &_violet {
+	// --color-bg: var(--color-primary);
+	// --color: var(--color-white);
+	// --color-link: var(--color-white);
+	// --color-link-hover: var(--color-white);
 
-		.btn {
-			--form-control-color-hover-text: var(--color-primary);
-			--form-control-color-hover: var(--color-secondary);
-		}
-	}
+	// .btn {
+	// 	--form-control-color-hover-text: var(--color-primary);
+	// 	--form-control-color-hover: var(--color-secondary);
+	// }
+	// }
 
 	@include resp-from(desktop) {
 		min-height: 550px;
