@@ -66,9 +66,9 @@
 		letter-spacing: -0.01em;
 		text-transform: uppercase;
 
-		@include resp-from(md) {
-			hyphens: auto;
-		}
+		// @include resp-from(md) {
+		// 	hyphens: auto;
+		// }
 
 		@include resp-from(lg) {
 			font-size: rem(32);
