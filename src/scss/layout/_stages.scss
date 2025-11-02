@@ -1,0 +1,63 @@
+@use '../abstracts' as *;
+
+.stages {
+	margin-bottom: 43px;
+
+	// .stages__container
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 20px;
+	}
+
+	@include resp-from(lg) {
+		margin-bottom: 60px;
+	}
+
+	@include resp-from(desktop) {
+		margin-bottom: 73px;
+	}
+}
+
+.stage-card {
+	display: flex;
+	gap: 20px;
+	padding: 30px 35px 30px 25px;
+	background: var(--color-white);
+	border-radius: 20px;
+	box-shadow: 0 10px 15px 0 rgb(164 136 255 / 7%);
+
+	// .stage-card__number
+	&__number {
+		flex-basis: 50px;
+		margin-top: -2px;
+		font-size: rem(58);
+		font-weight: var(--font-weight-medium);
+		line-height: 1;
+		color: var(--color-primary);
+	}
+
+	// .stage-card__data
+	&__data {
+	}
+
+	// .stage-card__title
+	&__title {
+		margin-bottom: 20px;
+	}
+
+	// .stage-card__text
+	&__text {
+		font-size: rem(16);
+		line-height: 1.2;
+
+		@include resp-from(md) {
+			font-size: rem(18);
+		}
+	}
+
+	@include resp-from(lg) {
+		gap: 35px;
+		min-height: 300px;
+	}
+}
