@@ -80,12 +80,18 @@
 	&__row {
 		display: flex;
 		justify-content: space-between;
+		gap: 15px;
+
+		@include resp-from(desktop) {
+			gap: 30px;
+		}
 	}
 
 	// .service-group-item__name
 	&__name {
 		font-size: rem(16);
 		line-height: 1.25;
+		hyphens: auto;
 
 		@include resp-from(md) {
 			font-size: rem(17);
