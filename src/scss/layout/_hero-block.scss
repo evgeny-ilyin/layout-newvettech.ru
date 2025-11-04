@@ -263,6 +263,14 @@
 			margin-bottom: 0;
 		}
 
+		@include when-inside('.hero-block_text-violet') {
+			b,
+			strong {
+				font-weight: var(--font-weight-bold);
+				color: var(--color-white);
+			}
+		}
+
 		@extend %paragraph;
 	}
 
