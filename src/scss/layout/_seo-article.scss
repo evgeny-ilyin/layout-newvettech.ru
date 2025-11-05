@@ -1,0 +1,40 @@
+@use '../abstracts' as *;
+
+.info-article {
+	max-width: 835px;
+	margin-right: auto;
+	margin-bottom: 43px;
+	margin-left: auto;
+
+	// .info-article__body
+	&__body {
+		h1,
+		.h1,
+		h2,
+		.h2,
+		h3,
+		.h3,
+		h4,
+		.h4,
+		h5,
+		.h5,
+		h6,
+		.h6 {
+			margin: 25px 0 16px;
+		}
+	}
+
+	// .info-article__footer
+	&__footer {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	@include resp-from(lg) {
+		margin-bottom: 60px;
+	}
+
+	@include resp-from(desktop) {
+		margin-bottom: 73px;
+	}
+}

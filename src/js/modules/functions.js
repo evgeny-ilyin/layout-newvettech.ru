@@ -238,3 +238,75 @@ export function initFilterSystem({
 		filterSelection('all');
 	});
 }
+
+/**
+ * Управляет раскрываемыми текстовыми блоками на странице
+ *
+ * Особенности:
+ * - Ограничивает высоту текста и добавляет кнопку "Подробнее"
+ * - Раскрывает и сворачивает текст по клику
+ * - Автоматически скрывает кнопку, если контент короче лимита
+ * - Обновляет aria-атрибуты для поддержки скрин-ридеров
+ * - Возможность настройки селекторов, классов и текстов кнопки
+ *
+ * Использование:
+ * 1. Обёртка блока должна иметь класс ".expandible-text-block"
+ * 2. Контент внутри — селектор ".text-block"
+ * 3. Кнопка переключения — селектор ".text-toggler"
+ * 4. Высота свёрнутого состояния управляется параметром collapsedHeight
+ *
+ * Пример кнопки:
+ * <button type="button" class="text-toggler" aria-label="Развернуть текст">Подробнее</button>
+ */
+export function initExpandableBlocks({
+	blockWrapperSelector = '.expandible-text-block',
+	blockSelector = '.text-block',
+	buttonSelector = '.text-toggler',
+	collapsedHeight = 650,
+	expandedClass = 'is-expanded',
+	hiddenButtonClass = 'is-hidden',
+	textExpand = 'Подробнее',
+	textCollapse = 'Скрыть',
+	ariaExpand = 'Развернуть текст',
+	ariaCollapse = 'Свернуть текст',
+} = {}) {
+	const wrappers = document.querySelectorAll(blockWrapperSelector);
+
+	wrappers.forEach((wrapper) => {
+		const block = wrapper.querySelector(blockSelector);
+		const button = wrapper.querySelector(buttonSelector);
+
+		if (!block || !button) {
+			return;
+		}
+
+		// Проверка высоты текста
+		if (block.scrollHeight <= collapsedHeight) {
+			button.classList.add(hiddenButtonClass);
+			return;
+		}
+
+		// Начальное состояние
+		block.style.maxHeight = `${collapsedHeight}px`;
+		button.textContent = textExpand;
+		button.setAttribute('aria-expanded', 'false');
+		button.setAttribute('aria-label', ariaExpand);
+
+		// Обработчик клика
+		button.addEventListener('click', () => {
+			const isExpanded = block.classList.toggle(expandedClass);
+
+			if (isExpanded) {
+				block.style.maxHeight = `${block.scrollHeight}px`;
+				button.textContent = textCollapse;
+				button.setAttribute('aria-expanded', 'true');
+				button.setAttribute('aria-label', ariaCollapse);
+			} else {
+				block.style.maxHeight = `${collapsedHeight}px`;
+				button.textContent = textExpand;
+				button.setAttribute('aria-expanded', 'false');
+				button.setAttribute('aria-label', ariaExpand);
+			}
+		});
+	});
+}

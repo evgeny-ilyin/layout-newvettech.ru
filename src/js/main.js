@@ -14,6 +14,7 @@ addEventListener('DOMContentLoaded', () => {
 	fn.hamburgerMenu('noscroll');
 	fn.stickyHeader();
 	fn.initFilterSystem();
+	fn.initExpandableBlocks();
 
 	accordion();
 	accordionCircle();
