@@ -1,0 +1,179 @@
+<div class="section-header">
+	<div class="section-header__title">
+		<div class="h1">Карта сайта</div>
+	</div>
+</div>
+
+<div class="section-text">
+	<div class="sitemap-container" data-minimize="10">
+		<ul class="sitemap-level-0">
+			<li>
+				<a href="/o-nyuvettekh/">О НьюВетТех</a>
+			</li>
+			<li>
+				<a href="/napravleniya/">Направления</a>
+				<ul class="sitemap-level-1">
+					<li>
+						<a href="/napravleniya/terapiya/">Терапия</a>
+					</li>
+					<li>
+						<a href="/napravleniya/diagnostika/">Диагностика</a>
+					</li>
+					<li>
+						<a href="/napravleniya/khirurgiya/">Хирургия</a>
+					</li>
+					<li>
+						<a href="/napravleniya/gastroenterologiya/">Гастроэнтерология</a>
+					</li>
+					<li>
+						<a href="/napravleniya/onkologiya/">Онкология</a>
+					</li>
+					<li>
+						<a href="/napravleniya/nevrologiya/">Неврология</a>
+					</li>
+					<li>
+						<a href="/napravleniya/dermatologiya/">Дерматология</a>
+					</li>
+					<li>
+						<a href="/napravleniya/laboratoriya/">Лаборатория</a>
+					</li>
+					<li>
+						<a href="/napravleniya/kardiologiya/">Кардиология</a>
+					</li>
+					<li>
+						<a href="/napravleniya/stomatologiya/">Стоматология</a>
+					</li>
+					<li>
+						<a href="/napravleniya/endokrinologiya/">Эндокринология</a>
+					</li>
+					<li>
+						<a href="/napravleniya/oftalmologiya/">Офтальмология</a>
+					</li>
+					<li>
+						<a href="/napravleniya/reanimatsiya/">Реанимация</a>
+					</li>
+					<li>
+						<a href="/napravleniya/statsionar/">Стационар</a>
+					</li>
+					<li>
+						<a href="/napravleniya/nefrologiya/">Нефрология</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="/uslugi/">Услуги</a>
+			</li>
+			<li>
+				<a href="/vrachi/">Врачи</a>
+				<ul class="sitemap-level-1">
+					<li>
+						<a href="/vrachi/lapshin-maksim-nikolaevich/">Лапшин Максим Николаевич</a>
+					</li>
+					<li>
+						<a href="/vrachi/melikova-yuliya-nikolaevna/">Меликова Юлия Николаевна</a>
+					</li>
+					<li>
+						<a href="/vrachi/morozova-tatyana-viktorovna/">Морозова Татьяна Викторовна</a>
+					</li>
+					<li>
+						<a href="/vrachi/mikhaylov-ilya-vladimirovich/">Михайлов Илья Владимирович</a>
+					</li>
+					<li>
+						<a href="/vrachi/nemesh-viktoriya-nikolaevna/">Немеш Виктория Николаевна</a>
+					</li>
+					<li>
+						<a href="/vrachi/koreshkov-artyem-ruslanovich/">Корешков Артём Русланович</a>
+					</li>
+					<li>
+						<a href="/vrachi/bobunova-olga-dmitrievna/">Бобунова Ольга Дмитриевна</a>
+					</li>
+					<li>
+						<a href="/vrachi/kibets-olga-mikhaylovna/">Кибец Ольга Михайловна</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="/publikatsii/">Публикации</a>
+				<ul class="sitemap-level-1">
+					<li>
+						<a href="/publikatsii/novosti/">Новости</a>
+					</li>
+					<li>
+						<a href="/publikatsii/aktsii/">Акции</a>
+					</li>
+					<li>
+						<a href="/publikatsii/poleznoe/">Полезное</a>
+						<ul class="sitemap-level-2">
+							<li>
+								<a href="/publikatsii/poleznoe/vaktsinatsiya-bez-stressa-fakty-vmesto-strakhov/">Вакцинация без стресса: факты вместо страхов</a>
+							</li>
+							<li>
+								<a href="/publikatsii/poleznoe/sterilizatsiya-koshek-bolno-strashno-dorogo/">Стерилизация кошек: больно, страшно, дорого?</a>
+							</li>
+							<li>
+								<a href="/publikatsii/poleznoe/simptomy-golovnoy-boli-u-sobak/">Симптомы головной боли у собак</a>
+							</li>
+							<li>
+								<a href="/publikatsii/poleznoe/gryaznye-noski-i-tukhloe-myaso-pochemu-koshkam-nravyatsya-merzkie-zapakhi/">Грязные носки и тухлое мясо: почему кошкам нравятся мерзкие запахи</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="/metapets/">МетаПетс</a>
+			</li>
+			<li>
+				<span>Клиники</span>
+				<ul class="sitemap-level-1">
+					<li>
+						<a href="/kliniki/klinika-na-bolshoy-serpukhovskoy/">Клиника на&nbsp;Большой Серпуховской</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const sitemapContainer = document.querySelector('.sitemap-container');
+		if (!sitemapContainer) return;
+
+		const minimizeCount = Number(sitemapContainer.dataset.minimize ?? 10);
+
+		sitemapContainer.querySelectorAll('ul').forEach(function (ul, index) {
+			const items = ul.querySelectorAll(':scope > li');
+			const count = items.length;
+
+			if (count > minimizeCount) {
+				const sectionId = 'sitemap-section-' + index;
+				ul.id = sectionId;
+				ul.classList.add('is-minimized');
+				ul.setAttribute('aria-hidden', 'true');
+
+				// Создаём кнопку
+				const btn = document.createElement('button');
+				btn.type = 'button';
+				btn.className = 'sitemap-toggler text-toggler';
+				btn.textContent = 'Развернуть список (' + count + ')';
+				btn.setAttribute('aria-expanded', 'false');
+				btn.setAttribute('aria-controls', sectionId);
+
+				ul.parentNode.insertBefore(btn, ul.nextSibling);
+
+				btn.addEventListener('click', function () {
+					const isMinimized = ul.classList.toggle('is-minimized');
+					const expanded = !isMinimized;
+
+					btn.setAttribute('aria-expanded', expanded.toString());
+					ul.setAttribute('aria-hidden', (!expanded).toString());
+
+					btn.textContent = expanded
+						? 'Свернуть'
+						: 'Развернуть список (' + count + ')';
+				});
+			}
+		});
+	});
+</script>

@@ -15,32 +15,3 @@
 		mask-image: none;
 	}
 }
-
-.text-toggler {
-	--color: currentcolor;
-	display: inline-flex;
-	margin-top: 20px;
-	font-size: rem(14);
-	color: var(--color);
-	background: none;
-	border: none;
-	border-bottom: 1px var(--color) dotted;
-	cursor: pointer;
-	transition: all $transition-default;
-	user-select: none;
-
-	&::after {
-		content: '\203A';
-		display: block;
-		width: 10px;
-		height: 10px;
-	}
-
-	&.is-hidden {
-		display: none;
-	}
-
-	@include hover-media() {
-		--color: var(--color-primary);
-	}
-}
