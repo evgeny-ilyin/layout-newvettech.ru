@@ -1,6 +1,9 @@
 @use '../abstracts' as *;
 
 .info-article {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 	max-width: 835px;
 	margin-right: auto;
 	margin-bottom: 43px;
