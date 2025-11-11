@@ -2,171 +2,157 @@ import { maskInput } from '/node_modules/vanilla-text-mask/dist/vanillaTextMask.
 
 export function submitPrevent() {
 	document.addEventListener('keydown', (e) => {
-		if (e.target.tagName == 'INPUT' && e.key == 'Enter') {
-			if (
-				e.target.dataset.submit == 'false' ||
-				e.target.closest('form').dataset.submit == 'false'
-			) {
-				e.preventDefault();
-			}
+		if (e.key !== 'Enter' || e.target.tagName !== 'INPUT') {
+			return;
+		}
+
+		const form = e.target.closest('form');
+		if (!form) {
+			return;
+		}
+
+		const enterSubmitTarget = e.target.dataset.enterSubmit;
+		const enterSubmitForm = form.dataset.enterSubmit;
+
+		if (enterSubmitTarget === 'false' || enterSubmitForm === 'false') {
+			e.preventDefault();
 		}
 	});
 }
 
-// disable submit by enter
-// export function submitPrevent() {
-// 	document.addEventListener("keydown", (e) => {
-// 		if (e.target.tagName == "INPUT" && e.key == "Enter") {
-// 			e.preventDefault();
-// 		}
-// 	});
-// }
-
 export function maskHandler() {
-	const errorClass = 'is-error',
-		charPhone = '_';
+	const errorClass = 'is-error';
+	const CHAR_PHONE = '_';
+	const PHONE_LENGTH = 11;
+	const PHONE_PATTERN = [
+		'+',
+		'7',
+		' ',
+		'(',
+		/9/,
+		/\d/,
+		/\d/,
+		')',
+		' ',
+		/\d/,
+		/\d/,
+		/\d/,
+		'-',
+		/\d/,
+		/\d/,
+		/\d/,
+		/\d/,
+	];
 
-	const setMask = (el, pattern, char) => {
-		maskInput({
-			inputElement: el,
-			mask: pattern,
-			showMask: true,
-			keepCharPositions: true,
-			placeholderChar: char,
-		});
-	};
+	// Универсальный обработчик событий
+	document.addEventListener('focusin', handleEvent);
+	document.addEventListener('click', handleEvent);
+	document.addEventListener('focusout', handleEvent);
+	document.addEventListener('keyup', handleEvent);
 
-	['focusin', 'click'].forEach((evt) =>
-		document.addEventListener(evt, (e) => {
-			if (e.target.dataset.patternType == 'phone') {
-				let target = e.target,
-					index = 0;
-				for (let i = 0; i < target.value.length; i++) {
-					if (target.value[i] == charPhone) {
-						break;
-					}
-					index = i + 1;
-				}
-				target.setSelectionRange(index, index);
-			}
-		})
-	);
-
-	document.addEventListener('focusin', (e) => {
-		if (e.target.dataset.patternType == 'phone') {
-			const el = e.target,
-				pattern = [
-					'+',
-					'7',
-					' ',
-					'(',
-					/[9]/,
-					/\d/,
-					/\d/,
-					')',
-					' ',
-					/\d/,
-					/\d/,
-					/\d/,
-					'-',
-					/\d/,
-					/\d/,
-					/\d/,
-					/\d/,
-				];
-			setMask(el, pattern, charPhone);
+	function handleEvent(e) {
+		const target = e.target;
+		if (!target.dataset.patternType || target.dataset.patternType !== 'phone') {
+			return;
 		}
-	});
 
-	document.addEventListener('focusout', (e) => {
-		if (e.target.dataset.patternType == 'phone') {
-			const target = e.target,
-				length = target.value.replace(/\D/g, '').length;
+		switch (e.type) {
+			case 'focusin':
+				// Устанавливаем маску
+				maskInput({
+					inputElement: target,
+					mask: PHONE_PATTERN,
+					showMask: true,
+					keepCharPositions: true,
+					placeholderChar: CHAR_PHONE,
+				});
+				// Устанавливаем курсор на первый пустой символ
+				setCursor(target);
+				break;
 
+			case 'click':
+				setCursor(target);
+				break;
+
+			case 'focusout':
+				handleFocusOut(target);
+				break;
+
+			case 'keyup':
+				handleKeyUp(target);
+				break;
+		}
+	}
+
+	// Устанавливаем курсор на первый пустой символ маски
+	function setCursor(target) {
+		let index = 0;
+		for (let i = 0; i < target.value.length; i++) {
+			if (target.value[i] === CHAR_PHONE) {
+				break;
+			}
+			index = i + 1;
+		}
+		target.setSelectionRange(index, index);
+	}
+
+	// Проверка при потере фокуса
+	function handleFocusOut(target) {
+		const digits = target.value.replace(/\D/g, '');
+		target.classList.remove(errorClass);
+
+		if (digits.length === 1) {
+			target.value = '';
+			return;
+		}
+
+		if (digits.length < PHONE_LENGTH) {
+			target.classList.add(errorClass);
+		}
+	}
+
+	// Проверка при вводе
+	function handleKeyUp(target) {
+		const digits = target.value.replace(/\D/g, '');
+		if (digits.length >= PHONE_LENGTH) {
 			target.classList.remove(errorClass);
-
-			if (length == 1) {
-				target.value = '';
-				return;
-			}
-
-			if (length < 11) {
-				target.classList.add(errorClass);
-			}
 		}
-	});
-
-	document.addEventListener('keyup', (e) => {
-		if (e.target.dataset.patternType == 'phone') {
-			const target = e.target,
-				length = target.value.replace(/\D/g, '').length;
-
-			if (length == 11) {
-				target.classList.remove(errorClass);
-			}
-		}
-	});
+	}
 }
 
 /* https://medium.com/@damirpristav/form-validation-with-vanilla-js-using-data-attributes-on-form-elements-78ccf2c1cf34 */
-
-let globalForm = {};
-globalForm = {
-	validation: function () {
+const formValidation = {
+	init() {
 		const forms = document.querySelectorAll('form:not(.js-novalidate)');
-
-		if (forms.length > 0) {
-			for (const form of forms) {
-				const inputs = form.querySelectorAll('[data-required]');
-				form.setAttribute('novalidate', '');
-				form.addEventListener('submit', submitForm.bind(form, inputs));
-
-				inputs.forEach((input) => {
-					if (input.type === 'email' || input.type === 'tel') {
-						input.addEventListener('focusout', inputFocus);
-					} else {
-						input.addEventListener('input', inputChange);
-					}
-				});
-			}
+		if (!forms.length) {
+			return;
 		}
+
+		forms.forEach((form) => {
+			const inputs = form.querySelectorAll('[data-required]');
+			form.setAttribute('novalidate', '');
+			form.addEventListener('submit', (e) => handleFormSubmit(form, inputs, e));
+
+			inputs.forEach((input) => {
+				if (input.type === 'email' || input.type === 'tel') {
+					input.addEventListener('blur', handleInputBlur);
+				} else {
+					input.addEventListener('input', handleInputChange);
+				}
+			});
+		});
 	},
 };
-export { globalForm };
-
-// export function validation() {
-// 	const forms = document.querySelectorAll("form");
-
-// 	if (forms.length > 0) {
-// 		for (let form of forms) {
-// 			const inputs = form.querySelectorAll("[data-required]");
-// 			form.addEventListener("submit", submitForm.bind(form, inputs));
-
-// 			inputs.forEach((input) => {
-// 				input.addEventListener("input", inputChange);
-// 			});
-// 		}
-// 	}
-// }
-
-function inputChange() {
-	const input = this;
-	validateInput(input);
-}
-
-function inputFocus() {
-	const input = this;
-	validateInputFocus(input);
-}
+export { formValidation };
 
 function validateInput(input) {
 	// Get the value and error element
-	const value = input.value,
-		// errorEl = input.closest("[data-formgroup]").querySelector("[data-formerror]"),
-		errorClass = 'is-error',
-		defaultRequiredMessage = 'Поле обязательно для заполнения',
-		defaultEmailMessage = 'Некорректный формат email',
-		defaultTelMessage = 'Некорректный формат телефона';
+	const value = input.value;
+	// const errorEl = input.closest("[data-formgroup]").querySelector("[data-formerror]");
+	const errorClass = 'is-error';
+	const defaultRequiredMessage = 'Поле обязательно для заполнения';
+	const defaultEmailMessage = 'Некорректный формат email';
+	const defaultTelMessage = 'Некорректный формат телефона';
 
 	// Declare error variable and assign null by default
 	let error = null;
@@ -275,13 +261,13 @@ function validateInput(input) {
 	return error;
 }
 
-function validateInputFocus(input) {
+function validateInputBlur(input) {
 	// для более красивого поведения полей email и tel: ошибки нет при снятии фокуса с пустого поля, а также в процессе ввода
 	// проверка корректности поля пройдёт при попытке отправки формы (будет вызван обычный validateInput)
-	const value = input.value,
-		errorClass = 'is-error',
-		defaultEmailMessage = 'Некорректный формат email',
-		defaultTelMessage = 'Некорректный формат телефона';
+	const value = input.value;
+	const errorClass = 'is-error';
+	const defaultEmailMessage = 'Некорректный формат email';
+	const defaultTelMessage = 'Некорректный формат телефона';
 
 	let error = null;
 
@@ -304,14 +290,32 @@ function validateInputFocus(input) {
 	return error;
 }
 
-function submitForm(inputs, e) {
+function validateEmail(email) {
+	const re =
+		/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	return re.test(String(email).toLowerCase());
+}
+
+function handleInputChange(e) {
+	validateInput(e.target);
+}
+
+function handleInputBlur(e) {
+	validateInputBlur(e.target);
+}
+
+function handleFormSubmit(form, inputs, e) {
 	e.preventDefault();
 
-	const errors = [],
-		errorsClass = 'has-errors',
-		form = e.target,
-		submitButton = form.querySelector("button[type='submit']"),
-		ignoreSubmitFor = ['js-modal-submit', 'js-login'];
+	const errors = [];
+	const errorsClass = 'has-errors';
+	const loaderClass = 'btn-loader';
+	const submitButton = form.querySelector('[type="submit"]');
+
+	// Проверка на уже отправляющуюся кнопку
+	if (submitButton?.classList.contains(loaderClass)) {
+		return;
+	}
 
 	inputs.forEach((input) => {
 		const error = validateInput(input);
@@ -321,145 +325,17 @@ function submitForm(inputs, e) {
 	});
 
 	if (errors.length === 0) {
-		// https://developer.mozilla.org/en-US/docs/Web/API/SubmitEvent/submitter#browser_compatibility
-		// console.log(e.submitter.dataset);
-
-		// if json params set on submit button, add them to form as hidden inputs
-		let param,
-			paramExists,
-			params = submitButton.dataset.params;
-
-		if (params) {
-			const parsed = JSON.parse(params);
-			Object.keys(parsed).forEach((key) => {
-				paramExists = form.querySelector(`input[type="hidden"][name="${key}"]`);
-				paramExists ? paramExists.remove() : '';
-				param = document.createElement('input');
-				param.type = 'hidden';
-				param.name = key;
-				param.value = parsed[key];
-				form.prepend(param);
-				return;
-			});
-		}
-
 		form.classList.remove(errorsClass);
 
-		if (form.dataset.fetch !== 'true') {
-			form.submit();
-			btnLoader(submitButton); // will not disabled after classic submit call
-		} else {
-			const contains = (el) => form.classList.contains(el);
-			if (ignoreSubmitFor.some(contains)) {
-				return;
-			}
-
-			const url = form.dataset.url,
-				data = new FormData(form);
-
-			(async () => {
-				try {
-					btnLoader(submitButton);
-
-					const response = await fetch(url, {
-						method: 'POST',
-						body: data,
-					});
-					if (!response.ok) {
-						return;
-					}
-					const result = await response.json();
-
-					if (result) {
-						showSubmitStatus(result, submitButton);
-					}
-
-					btnLoader(submitButton, 'stop');
-				} catch (e) {
-					console.error(e);
-					return;
-				}
-			})();
+		if (submitButton) {
+			// Убираем возможность повторного сабмита
+			submitButton.type = 'button';
+			submitButton.classList.add(loaderClass);
 		}
+
+		HTMLFormElement.prototype.submit.call(form);
 	} else {
 		e.stopPropagation();
 		form.classList.add(errorsClass);
 	}
-}
-
-function showSubmitStatus(response, btn) {
-	const status = document.createElement('div'),
-		submitStatusClass = 'submit-status',
-		submitReplacedClass = 'submit-status_replaced',
-		submitConditionClass =
-			response.status === true ? 'submit-status_success' : 'submit-status_error';
-
-	if (!response.message) {
-		return;
-	}
-	status.innerHTML = response.message;
-	status.classList.add(submitStatusClass, submitConditionClass);
-
-	const statusExists = document.querySelector(`.${submitStatusClass}`);
-	statusExists ? statusExists.remove() : '';
-
-	if (response.hideField === true) {
-		const modal = document.querySelector('.modal'),
-			modalHeaderClass = 'modal__head',
-			modalBodyClass = 'modal__body';
-
-		if (modal) {
-			modal.querySelectorAll(`.${modalHeaderClass}, .${modalBodyClass}`).forEach((e) => e.remove());
-			status.classList.add(submitReplacedClass);
-			modal.append(status);
-		} else {
-			btn.parentElement.prepend(status);
-			response.status === true ? (btn.disabled = true) : '';
-		}
-	} else {
-		btn.parentElement.prepend(status);
-		response.status === true ? (btn.disabled = true) : '';
-	}
-}
-
-/* 
-v2
-function showSubmitStatus(response, btn) {
-	const status = document.createElement("div"),
-		submitStatusClass = "submit-status",
-		submitReplacedClass = "submit-status_replaced",
-		submitConditionClass = response.status === true ? "submit-status_success" : "submit-status_error";
-
-	if (!response.message) return;
-	status.innerHTML = response.message;
-	status.classList.add(submitStatusClass, submitConditionClass);
-
-	let statusExists = document.querySelector(`.${submitStatusClass}`);
-	statusExists ? statusExists.remove() : "";
-
-	if (response.hideField === true) {
-		const modal = document.querySelector(".modal"),
-			modalHeaderClass = "modal__head",
-			modalBodyClass = "modal__body",
-			form = btn.closest("form");
-
-		if (modal) {
-			modal.querySelectorAll(`.${modalHeaderClass}, .${modalBodyClass}`).forEach((e) => e.remove());
-			status.classList.add(submitReplacedClass);
-			modal.append(status);
-		} else {
-			form.parentElement.append(status);
-			form.remove();
-		}
-	} else {
-		btn.parentElement.prepend(status);
-		response.status === true ? (btn.disabled = true) : "";
-	}
-} */
-
-// Validate email
-function validateEmail(email) {
-	const re =
-		/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	return re.test(String(email).toLowerCase());
 }

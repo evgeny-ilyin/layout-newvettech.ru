@@ -40,14 +40,14 @@
 				</div>
 				<div class="footer__right">
 					<div class="footer__form-label h4">Остались вопросы? Заполните форму обратной связи, и&nbsp;мы&nbsp;вам перезвоним:</div>
-					<form action="" class="footer-form footer-grid">
-						<input class="w-full" name="name" type="text" placeholder="Ваше имя" aria-label="Ваше имя" autocomplete="name" disabled>
-						<input class="w-full" name="tel" type="tel" placeholder="Ваш телефон" aria-label="Ваш телефон" autocomplete="tel" disabled>
+					<form action="" class="footer-form footer-grid" data-enter-submit="false" method="post">
+						<input class="w-full" name="callback_name" type="text" placeholder="Ваше имя" aria-label="Ваше имя" autocomplete="name" data-required>
+						<input class="w-full" name="callback_tel" type="tel" placeholder="Ваш телефон" aria-label="Ваш телефон" autocomplete="tel" data-pattern-type="phone" data-required>
 						<label class="footer-form__label">
-							<input type="checkbox" name="checkbox" disabled>
+							<input type="checkbox" name="agreement" data-required>
 							<span>Соглашаюсь с&nbsp;политикой <a href="./policy.html" target="_blank">конфиденциальности и&nbsp;обработки данных</a></span>
 						</label>
-						<button type="submit" class="btn btn_md btn_wide" data-modal-show="modal-info" disabled>Заказать звонок</button>
+						<button type="submit" class="btn btn_md btn_wide">Заказать звонок</button>
 					</form>
 					<div class="footer-contacts footer-grid">
 						<div class="footer-contacts__contact">

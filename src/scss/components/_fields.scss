@@ -5,6 +5,8 @@
 
 input[type='radio'],
 input[type='checkbox'] {
+	--color-bgr: var(--form-control-color-secondary);
+	--color-border: var(--form-control-color-secondary);
 	display: grid;
 	width: 20px;
 	height: 20px;
@@ -14,8 +16,8 @@ input[type='checkbox'] {
 	font: inherit;
 
 	/* For iOS < 15 */
-	background-color: var(--form-control-color-secondary);
-	border: 1px solid var(--form-control-color-secondary);
+	background-color: var(--color-bgr);
+	border: 1px solid var(--color-border);
 	cursor: pointer;
 	transition:
 		background-color $transition-default,
@@ -30,17 +32,17 @@ input[type='checkbox'] {
 	border-radius: var(--border-radius-small);
 
 	&::before {
+		--color-bgr: var(--form-control-color);
 		content: '';
 		transform: scale(0);
 		width: 18px;
 		height: 18px;
-		background-color: var(--form-control-color);
 		transform-origin: center;
 	}
 
 	&:checked {
-		background-color: var(--form-control-color);
-		border-color: var(--form-control-color);
+		--color-bgr: var(--form-control-color);
+		--color-border: var(--form-control-color);
 
 		&::before {
 			transform: scale(1);
@@ -49,19 +51,19 @@ input[type='checkbox'] {
 		}
 
 		@include on-disabled {
-			background-color: var(--form-control-disabled-bg);
-			border-color: var(--form-control-disabled-bd);
+			--color-bgr: var(--form-control-disabled-bg);
+			--color-border: var(--form-control-disabled-bd);
 		}
 	}
 
 	@include hover-media() {
-		background-color: var(--form-control-color);
-		border-color: var(--form-control-color);
+		--color-bgr: var(--form-control-color);
+		--color-border: var(--form-control-color);
 	}
 
 	@include on-disabled {
-		background-color: var(--form-control-disabled-bg);
-		border-color: var(--form-control-disabled-bd);
+		--color-bgr: var(--form-control-disabled-bg);
+		--color-border: var(--form-control-disabled-bd);
 	}
 }
 
@@ -116,10 +118,16 @@ textarea {
 input,
 select,
 textarea {
+	--color-bgr-text: var(--color-white);
+	--color-border: var(--form-control-color);
 	font-weight: var(--font-weight-normal);
-	background: var(--color-white);
-	border: 2px solid var(--form-control-color);
+	background: var(--color-bgr-text);
+	border: 2px solid var(--color-border);
 	border-radius: var(--border-radius);
+
+	&:-webkit-autofill {
+		box-shadow: inset 0 0 0 50px var(--color-bgr-text);
+	}
 
 	&::placeholder {
 		font-weight: var(--font-weight-normal);
@@ -127,9 +135,11 @@ textarea {
 	}
 
 	@include on-disabled {
-		color: var(--form-control-disabled-bd);
-		background-color: var(--form-control-disabled-bg);
-		border-color: var(--form-control-disabled-bd);
+		--color-bgr-text: var(--form-control-disabled-bg);
+		--color-border: var(--form-control-disabled-bd);
+		color: var(--color-border);
+		// background-color: var(--form-control-disabled-bg);
+		// border-color: var(--form-control-disabled-bd);
 
 		&::placeholder {
 			color: var(--color-black-50);
@@ -138,7 +148,7 @@ textarea {
 
 	// &:focus {
 	// 	outline: none;
-	// 	border-color: var(--form-control-color-secondary) !important;
+	// 	border-color: var(--color-border) !important;
 	// }
 }
 
@@ -149,4 +159,9 @@ textarea:not([class]) {
 fieldset {
 	padding: 0;
 	border: 0;
+}
+
+.is-error {
+	--color-bgr: var(--color-red) !important;
+	--color-border: var(--color-red) !important;
 }

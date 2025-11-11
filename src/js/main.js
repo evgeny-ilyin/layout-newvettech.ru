@@ -6,7 +6,8 @@ import { swipersInit } from './modules/swiper.js';
 import { modalsInit } from './modules/modal.js';
 import { wrapArticleImages } from './modules/wrapArticleImages.js';
 import { mapInit } from './modules/yandex-map.js';
-
+import * as form from './modules/formSubmit.js';
+import { formValidation } from './modules/formSubmit.js';
 // import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
 
 addEventListener('DOMContentLoaded', () => {
@@ -15,6 +16,10 @@ addEventListener('DOMContentLoaded', () => {
 	fn.stickyHeader();
 	fn.initFilterSystem();
 	fn.initExpandableBlocks();
+
+	form.submitPrevent();
+	form.maskHandler();
+	formValidation.init();
 
 	accordion();
 	accordionCircle();
