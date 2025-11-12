@@ -15,10 +15,11 @@
 }
 
 .link-svg-round {
+	--size: 40px;
 	--icon-stroke-color: #{$brand-color-primary};
 	display: block;
-	width: 40px;
-	height: 40px;
+	width: var(--size);
+	height: var(--size);
 	color: $brand-color-primary;
 
 	svg {
