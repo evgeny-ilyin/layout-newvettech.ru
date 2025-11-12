@@ -1,9 +1,30 @@
 @use '../abstracts' as *;
 
 .form {
-	margin-top: 40px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	// .form_grid
+	&_grid {
+		display: grid;
+	}
+
+	// .form_modal
+	&_modal {
+		align-items: flex-end;
+		gap: 12px;
+	}
+
+	// .form__label
+	&__label {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		font-size: rem(12);
+	}
 
 	// .form__fieldgroup
-	&__fieldgroup {
-	}
+	// &__fieldgroup {
+	// }
 }

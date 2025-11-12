@@ -122,6 +122,7 @@
 		align-items: flex-start;
 		width: 100%;
 		max-width: 246px;
+		padding: 0;
 		background: transparent;
 		border: 0;
 		border-radius: 4px;
@@ -181,20 +182,6 @@
 		@include resp-from(md) {
 			grid-template-columns: repeat(2, 1fr);
 		}
-	}
-}
-
-.footer-form {
-	align-items: center;
-	// grid-template-columns: repeat(auto-fill, minmax(205px, 305px));
-	// grid-template-columns: repeat(2, 50%);
-
-	// .footer-form__label
-	&__label {
-		display: flex;
-		align-items: center;
-		gap: 10px;
-		font-size: rem(12);
 	}
 }
 
