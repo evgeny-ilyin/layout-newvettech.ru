@@ -3,7 +3,8 @@
 @use '../base/typography-placeholders' as *;
 
 .news-nav {
-	display: flex;
+	display: none !important;
+	// display: flex;
 	flex-wrap: wrap;
 	gap: 5px;
 	margin-bottom: 32px;
