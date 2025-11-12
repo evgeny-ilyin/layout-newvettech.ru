@@ -78,6 +78,14 @@
 				width: 100%;
 			}
 		}
+
+		& > div {
+			margin-bottom: 30px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
 	}
 
 	// .modal__form
@@ -130,5 +138,68 @@
 			transition: opacity $transition-default;
 			opacity: 1;
 		}
+	}
+}
+
+.modal-contacts {
+	position: relative;
+	margin-bottom: 18px;
+
+	// .modal-contacts__label
+	&__label {
+		margin-bottom: 5px;
+		font-size: rem(14);
+		font-weight: var(--font-weight-medium);
+		line-height: 1.3;
+		text-transform: uppercase;
+	}
+
+	// .modal-contacts__phone
+	&__phone {
+		--color-link: var(--color-primary);
+		font-size: rem(22);
+		font-weight: var(--font-weight-medium);
+		line-height: 1.4;
+
+		// .modal-contacts__phone_emergency
+		&_emergency {
+			--color-link: var(--color-red);
+			--color-link-hover: var(--color-red);
+		}
+	}
+
+	// .modal-contacts__icon
+	&__icon {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+
+		svg {
+			--icon-background-color: var(--color-primary);
+			width: 65px;
+			height: 65px;
+		}
+	}
+}
+
+.modal-form {
+	// .modal-form__label
+	&__label {
+		margin-bottom: 18px;
+		font-size: rem(14);
+		line-height: 1.1;
+	}
+}
+
+.modal-addresses {
+}
+
+.modal-footer {
+	justify-content: flex-start;
+	margin-bottom: 0;
+
+	.link-svg-round {
+		--size: 34px;
 	}
 }

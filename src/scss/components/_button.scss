@@ -218,7 +218,7 @@
 	&_close-modal {
 		position: absolute;
 		top: var(--modal-padding-y);
-		right: calc(var(--modal-padding-x) - 5px);
+		right: calc(var(--modal-padding-x) - 25px);
 
 		@include resp-to(md) {
 			&::before,
