@@ -49,6 +49,12 @@
 		@extend %link-default;
 	}
 
+	// .addresses__contacts
+	&__contacts {
+		display: block;
+		margin-top: 5px;
+	}
+
 	// .addresses_nav
 	&_nav {
 		@include resp-to(desktop) {
