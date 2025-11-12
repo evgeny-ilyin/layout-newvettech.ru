@@ -145,7 +145,7 @@
 		height: calc(2 * var(--radius-big) - 2 * var(--crop-height));
 		margin: 0 auto;
 		background-image:
-			url('../img/accordion-circle-1.svg'), url('../img/accordion-circle-2.svg'), url('../img/accordion-circle-3.svg');
+			url('/img/accordion-circle-1.svg'), url('/img/accordion-circle-2.svg'), url('/img/accordion-circle-3.svg');
 		background-repeat: no-repeat, no-repeat, no-repeat;
 		background-position: center, center, center;
 		background-size: calc(2 * var(--radius-small)), calc(2 * var(--radius-mid)), calc(2 * var(--radius-big));

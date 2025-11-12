@@ -60,7 +60,7 @@
 	width: 45px;
 	height: 64px;
 	color: var(--color-primary);
-	background: url('../img/icons/icon-pointer.svg');
+	background: url('/img/icons/icon-pointer.svg');
 
 	@include resp-from(md) {
 		width: 45px;
