@@ -3,6 +3,16 @@
 .scrollblock {
 	overflow: hidden;
 
+	// фон
+	&::-webkit-scrollbar-track {
+		border-right: 2px solid var(--color-white);
+	}
+
+	// скролл
+	&::-webkit-scrollbar-thumb {
+		border-right: 6px solid var(--color-primary);
+	}
+
 	// https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior
 	/*
 	// overscroll-behavior: contain; 
@@ -10,6 +20,7 @@
 	// overscroll-behavior-y: contain; 
 	*/
 
+	/* не требуется разделение на горизонтальный и вертикальный
 	&.scroll-x {
 		overflow-x: auto;
 
@@ -33,6 +44,7 @@
 			border-right: 6px solid var(--color-red);
 		}
 	}
+	*/
 
 	// Chrome, Edge and Safari
 	&::-webkit-scrollbar {
@@ -53,7 +65,7 @@
 
 	&::-webkit-scrollbar-thumb:hover,
 	&::-webkit-scrollbar-thumb:active {
-		border-color: var(--color-red);
+		border-color: var(--color-primary);
 	}
 
 	// Firefox
