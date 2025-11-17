@@ -203,4 +203,8 @@
 	.link-svg-round {
 		--size: 34px;
 	}
+
+	& > div:last-child {
+		margin-bottom: 0;
+	}
 }
