@@ -28,3 +28,19 @@
 	// &__fieldgroup {
 	// }
 }
+
+.submit-status {
+	grid-column: 1 / -1;
+	font-weight: var(--font-weight-medium);
+	text-align: center;
+
+	// .submit-status_success
+	&_success {
+		color: var(--color-success);
+	}
+
+	// .submit-status_error
+	&_error {
+		color: var(--color-error);
+	}
+}

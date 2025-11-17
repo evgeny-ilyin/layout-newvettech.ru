@@ -281,3 +281,39 @@
 		--color: var(--color-primary);
 	}
 }
+
+// svg-loader на кнопке
+.is-loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	color: transparent !important;
+	pointer-events: none;
+	// height: 24px;
+	// border: 0 !important;
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		width: 24px;
+		height: 24px;
+		background: var(--svg-fetch-loader) no-repeat;
+		animation: fetch-loader-rotate 1s infinite linear;
+	}
+
+	&::after {
+		display: none;
+	}
+}
+
+@keyframes fetch-loader-rotate {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}

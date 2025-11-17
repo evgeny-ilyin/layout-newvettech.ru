@@ -4,6 +4,7 @@ $brand-colors-hex: (
 	primary: #8965fd,
 	secondary: #d6cefd,
 );
+$svg-fill-primary: str-slice(#{map-get($brand-colors-hex, primary)}, 2);
 $brand-color-primary: var(--color-primary);
 $brand-color-secondary: var(--color-secondary);
 $brand-color-accent: var(--color-accent, var(--color-primary)); // также используется для focus-visible
