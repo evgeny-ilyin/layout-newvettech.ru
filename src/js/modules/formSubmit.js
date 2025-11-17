@@ -304,12 +304,58 @@ function handleInputBlur(e) {
 	validateInputBlur(e.target);
 }
 
+function lockSubmitButton(button, loaderClass = 'is-loading') {
+	if (!button) {
+		return;
+	}
+
+	button.type = 'button';
+	button.classList.add(loaderClass);
+}
+
+function unlockSubmitButton(button, loaderClass = 'is-loading') {
+	if (!button) {
+		return;
+	}
+
+	button.type = 'submit';
+	button.classList.remove(loaderClass);
+}
+
+function showSubmitStatus(response, form, submitButton) {
+	const parent = submitButton?.parentElement || form;
+
+	const status = document.createElement('div');
+	const submitStatusClass = 'submit-status';
+	const submitConditionClass = response.success ? 'submit-status_success' : 'submit-status_error';
+
+	if (!response.message) {
+		return;
+	}
+
+	// Наполняем блок
+	status.innerHTML = response.message;
+	status.classList.add(submitStatusClass, submitConditionClass);
+
+	// Удаляем старый статус
+	const oldStatus = form.querySelector(`.${submitStatusClass}`);
+	if (oldStatus) {
+		oldStatus.remove();
+	}
+
+	parent.prepend(status);
+
+	// if (response.success && submitButton) {
+	// 	submitButton.disabled = true;
+	// }
+}
+
 function handleFormSubmit(form, inputs, e) {
 	e.preventDefault();
-
+	const USE_AJAX = true;
 	const errors = [];
 	const errorsClass = 'has-errors';
-	const loaderClass = 'btn-loader';
+	const loaderClass = 'is-loading';
 	const submitButton = form.querySelector('[type="submit"]');
 
 	// Проверка на уже отправляющуюся кнопку
@@ -327,15 +373,59 @@ function handleFormSubmit(form, inputs, e) {
 	if (errors.length === 0) {
 		form.classList.remove(errorsClass);
 
-		if (submitButton) {
-			// Убираем возможность повторного сабмита
-			submitButton.type = 'button';
-			submitButton.classList.add(loaderClass);
-		}
+		// Убираем возможность повторного сабмита
+		lockSubmitButton(submitButton, loaderClass);
 
-		HTMLFormElement.prototype.submit.call(form);
+		if (USE_AJAX) {
+			handleAjaxSubmit(form, submitButton);
+		} else {
+			HTMLFormElement.prototype.submit.call(form);
+		}
 	} else {
 		e.stopPropagation();
 		form.classList.add(errorsClass);
+	}
+}
+
+async function sendFormAjax(form) {
+	const action = form.getAttribute('action');
+	if (!action) {
+		return;
+	}
+
+	const formData = new FormData(form);
+	formData.append('sessid', BX.bitrix_sessid());
+
+	const response = await fetch(action, {
+		method: 'POST',
+		body: formData,
+	});
+
+	return response.json();
+}
+
+async function handleAjaxSubmit(form, submitButton) {
+	const loaderClass = 'is-loading';
+
+	try {
+		const result = await sendFormAjax(form);
+
+		showSubmitStatus(result, form, submitButton);
+
+		if (result?.success) {
+			form.reset();
+			unlockSubmitButton(submitButton, loaderClass);
+		} else {
+			setTimeout(() => unlockSubmitButton(submitButton, loaderClass), 2000);
+		}
+	} catch (e) {
+		showSubmitStatus(
+			{
+				success: false,
+				message: `Ошибка отправки формы: ${e}`,
+			},
+			form
+		);
+		setTimeout(() => unlockSubmitButton(submitButton, loaderClass), 2000);
 	}
 }
