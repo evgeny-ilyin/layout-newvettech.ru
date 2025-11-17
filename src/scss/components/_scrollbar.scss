@@ -2,6 +2,7 @@
 
 .scrollblock {
 	overflow: hidden;
+	overscroll-behavior: none;
 
 	// фон
 	&::-webkit-scrollbar-track {

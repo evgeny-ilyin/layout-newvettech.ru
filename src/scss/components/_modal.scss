@@ -36,6 +36,7 @@
 		height: 100%;
 		padding: var(--modal-padding-y) var(--modal-padding-x);
 		overflow: hidden auto;
+		overscroll-behavior: none;
 	}
 
 	// .modal__head
