@@ -104,6 +104,17 @@ input[type='radio'] {
 	}
 }
 
+input[type='search'] {
+	&::-webkit-search-cancel-button {
+		width: 15px;
+		height: 15px;
+		margin-left: 10px;
+		background-image: var(--svg-search-reset);
+		cursor: pointer;
+		-webkit-appearance: none;
+	}
+}
+
 input {
 	--input-text-height: 44px;
 	height: var(--input-text-height, 44px);

@@ -33,6 +33,13 @@
 			color: var(--is-opened-color);
 			background: var(--is-opened-bg);
 		}
+
+		&.is-hidden {
+			position: absolute;
+			max-height: 0 !important;
+			overflow: hidden;
+			opacity: 0;
+		}
 	}
 
 	// .accordion__header

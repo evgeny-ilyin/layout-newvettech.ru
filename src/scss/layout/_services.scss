@@ -2,6 +2,14 @@
 
 .service-group {
 	--color-icon: var(--color-primary);
+	transition: all $transition-default;
+
+	&.is-hidden {
+		position: absolute;
+		max-height: 0 !important;
+		overflow: hidden;
+		opacity: 0;
+	}
 
 	// .service-group__label
 	&__label {
@@ -71,6 +79,11 @@
 	gap: 20px;
 	padding: 17px 0 19px;
 	border-top: 2px solid var(--color-primary);
+	transition: all $transition-default;
+
+	&.is-hidden {
+		display: none;
+	}
 
 	&:last-child {
 		border-bottom: 2px solid var(--color-primary);
