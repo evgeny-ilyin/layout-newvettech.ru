@@ -1,0 +1,21 @@
+/* TEAM */
+	Role: Fullstack Developer
+	Name: Evgeniy V. Ilyin
+	Email: Evgeniy.V.Ilyin@gmail.com
+	Website: https://deviart.ru
+	Location: Himki, Moscow, Russia
+
+	Role: Web Designer
+	Name: —
+	Location: —
+
+/* SITE */
+	Language: Russian
+	Doctype: HTML5
+	Standards: CSS3, ES6
+	Frameworks: —
+	IDE: Visual Studio Code, Figma
+	Hosting: —
+	Created: 2025-11-01
+	Last update: 2025-11-01
+	Version: 1.0.0
