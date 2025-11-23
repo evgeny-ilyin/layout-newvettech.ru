@@ -8,6 +8,7 @@ import { wrapArticleImages } from './modules/wrapArticleImages.js';
 import { mapInit } from './modules/yandex-map.js';
 import * as form from './modules/formSubmit.js';
 import { formValidation } from './modules/formSubmit.js';
+import { serviceFilter } from './modules/serviceFilter.js';
 // import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
 
 addEventListener('DOMContentLoaded', () => {
@@ -27,6 +28,7 @@ addEventListener('DOMContentLoaded', () => {
 	swipersInit();
 	modalsInit();
 	wrapArticleImages();
+	serviceFilter();
 
 	bodyBackground();
 
