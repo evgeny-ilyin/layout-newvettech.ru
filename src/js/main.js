@@ -9,6 +9,7 @@ import { mapInit } from './modules/yandex-map.js';
 import * as form from './modules/formSubmit.js';
 import { formValidation } from './modules/formSubmit.js';
 import { serviceFilter } from './modules/serviceFilter.js';
+import { cookieConsentInit } from './modules/cookieConsent.js';
 // import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
 
 addEventListener('DOMContentLoaded', () => {
@@ -29,6 +30,7 @@ addEventListener('DOMContentLoaded', () => {
 	modalsInit();
 	wrapArticleImages();
 	serviceFilter();
+	cookieConsentInit();
 
 	bodyBackground();
 

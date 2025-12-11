@@ -1,36 +1,36 @@
 @use '../abstracts' as *;
 
-.cookie {
+.c-popup {
+	--cookie-position: 30px;
 	display: flex;
-	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
 	position: fixed;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 1;
-	padding: 8px;
-	background: var(--color-gray);
+	right: var(--cookie-position);
+	bottom: var(--cookie-position);
+	left: var(--cookie-position);
+	transform: translateY(100vh);
+	z-index: -1;
+	width: min(calc(100% - var(--cookie-position) * 2), 550px);
+	padding: 32px;
+	line-height: 1.3;
+	background: var(--color-white-gray);
+	border-radius: 15px;
+	box-shadow: 0 4px 132px 0 rgb(54 45 21 / 20%);
+	transition:
+		transform 0.4s ease,
+		opacity 0.4s ease;
+	opacity: 0;
+	// backdrop-filter: blur(25px);
 
-	// .cookie__description
-	&__description {
-		padding: 10px 16px;
+	&.is-visible {
+		transform: translateY(0);
+		z-index: 1000;
+		opacity: 1;
 	}
 
-	// .cookie__buttons
-	&__buttons {
-		display: flex;
-		flex-flow: row nowrap;
-		flex-grow: 1;
-		justify-content: space-between;
-		align-items: flex-end;
-		padding: 10px 16px;
-	}
-
-	// .cookie__accept
-	&__accept {
-	}
-
-	// .cookie__more
-	&__more {
+	@include resp-to(lg) {
+		hyphens: auto;
 	}
 }
