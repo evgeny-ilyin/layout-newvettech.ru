@@ -25,19 +25,19 @@
 		</div>
 
 		<div class="section-map__map">
-			<div class="map-container"></div>
+			<div class="map-container map-1"></div>
 		</div>
 	</div>
 </div>
 
 <script>
-	var mapData = {
-		"features": [
-			{
-				"type": "Feature", "id": 0, "geometry": { "type": "Point", "coordinates": [55.718461, 37.624355] }
-			},
-		]
-	};
+	var mapDataList = [
+		{
+			container: '.map-1',
+			features: [
+				{ type: "Feature", id: 0, geometry: { type: "Point", coordinates: [55.718461, 37.624355] } }]
+		},
+	];
 </script>
 
 <div class="content">
