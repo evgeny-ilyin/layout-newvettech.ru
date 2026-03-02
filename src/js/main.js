@@ -45,5 +45,4 @@ addEventListener('DOMContentLoaded', () => {
 	// useDynamicAdapt();
 });
 
-// import "./modules/cookies.js";
-// import "./modules/fancyapps.js";
+import './modules/fancyapps.js';
