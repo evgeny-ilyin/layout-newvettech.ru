@@ -2,11 +2,9 @@
 
 .section-route {
 	--color-bg: var(--color-white-gray);
-	--max-width: 960px;
 
 	display: flex;
 	flex-wrap: wrap;
-	width: min(var(--max-width), 100%);
 	margin-inline: auto;
 	margin-bottom: 30px;
 	overflow: hidden;
@@ -14,10 +12,17 @@
 	border-radius: 15px;
 	box-shadow: 0 10px 15px 0 rgb(164 136 255 / 7%);
 
+	& > div {
+		flex: 1 1 300px;
+	}
+
 	// .section-route__picture
 	&__picture {
-		img {
+		img,
+		picture {
 			width: 100%;
+			height: 100%;
+			object-fit: cover;
 		}
 	}
 
@@ -25,13 +30,27 @@
 	&__text {
 		padding: 26px 30px;
 
-		b,
-		strong {
+		h5,
+		h6 {
 			color: var(--color-primary);
 		}
 
 		@include resp-from(lg) {
 			padding: 55px 50px 50px;
+		}
+
+		@include when-inside('.section-route_text-wide') {
+			flex: 2 1 600px;
+		}
+	}
+
+	// .section-route_vertical
+	&_vertical {
+		--max-width: 960px;
+		width: min(var(--max-width), 100%);
+
+		& > div {
+			flex-basis: auto;
 		}
 	}
 
