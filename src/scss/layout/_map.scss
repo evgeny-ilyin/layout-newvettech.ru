@@ -59,8 +59,8 @@
 .map-marker {
 	width: 45px;
 	height: 64px;
-	color: var(--color-primary);
-	background: url('/img/icons/icon-pointer.svg');
+	// color: var(--color-primary);
+	background: url('/img/icons/icon-pointer.svg') 0 0 no-repeat;
 
 	@include resp-from(md) {
 		width: 45px;
