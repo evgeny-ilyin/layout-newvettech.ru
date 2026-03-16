@@ -46,10 +46,16 @@
 		flex: 1;
 		flex-direction: column;
 		justify-content: flex-end;
+		gap: 20px;
 
 		@include resp-from(lg) {
 			justify-content: flex-start;
 		}
+	}
+
+	// .doctor__video
+	&__video {
+		margin-bottom: auto;
 	}
 
 	// .doctor__cost
@@ -137,7 +143,7 @@
 
 	// .cost__sum
 	&__sum {
-		margin-bottom: 20px;
+		// margin-bottom: 20px;
 		font-size: rem(24);
 		line-height: 1.2;
 		color: var(--color-primary);

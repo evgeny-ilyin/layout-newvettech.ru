@@ -254,6 +254,36 @@
 	}
 }
 
+.btn-video {
+	display: flex;
+	align-items: center;
+	gap: 19px;
+	position: relative;
+	text-align: left;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	transition: all $transition-default;
+
+	&::before {
+		content: '';
+		display: block;
+		flex-shrink: 0;
+		width: 42px;
+		height: 42px;
+		background: url('/img/icons/icon-video.svg') 0 0 no-repeat;
+
+		@include resp-from(md) {
+			width: 66px;
+			height: 66px;
+		}
+	}
+
+	@include hover-media() {
+		color: $color-link-hover;
+	}
+}
+
 .text-toggler {
 	--color: currentcolor;
 	display: inline-flex;
