@@ -17,6 +17,10 @@
 		flex: 1;
 		flex-direction: column;
 		max-width: 320px;
+
+		& > div:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	// .branch-info__name
@@ -87,7 +91,7 @@
 	}
 
 	@include resp-from(desktop) {
-		min-height: 460px;
+		min-height: 380px;
 		max-width: 420px;
 		padding: 45px 37px 45px 63px;
 	}
