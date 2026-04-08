@@ -27,10 +27,20 @@
 	// .form__fieldgroup
 	// &__fieldgroup {
 	// }
+
+	&.is-hidden {
+		justify-content: center;
+		height: var(--form-height);
+
+		> :not(div) {
+			display: none;
+		}
+	}
 }
 
 .submit-status {
-	grid-column: 1 / -1;
+	width: 100%;
+	// grid-column: 1 / -1; form больше не grid
 	font-weight: var(--font-weight-medium);
 	text-align: center;
 

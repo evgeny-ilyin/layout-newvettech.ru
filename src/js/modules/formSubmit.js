@@ -406,18 +406,25 @@ async function sendFormAjax(form) {
 
 async function handleAjaxSubmit(form, submitButton) {
 	const loaderClass = 'is-loading';
+	const hiddenFormClass = 'is-hidden';
+	const hideFormOnSuccess = form.dataset.hideOnSuccess; // скрыть форму, если запрос успешен
 
 	try {
 		const result = await sendFormAjax(form);
 
-		showSubmitStatus(result, form, submitButton);
-
 		if (result?.success) {
+			if (hideFormOnSuccess === 'true') {
+				// скрыть форму, если запрос успешен
+				form.style.setProperty('--form-height', `${form.scrollHeight}px`);
+			}
 			form.reset();
+			form.classList.add(hiddenFormClass);
 			unlockSubmitButton(submitButton, loaderClass);
 		} else {
 			setTimeout(() => unlockSubmitButton(submitButton, loaderClass), 2000);
 		}
+
+		showSubmitStatus(result, form, submitButton);
 	} catch (e) {
 		showSubmitStatus(
 			{

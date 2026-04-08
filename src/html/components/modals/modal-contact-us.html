@@ -27,7 +27,7 @@
 
 			<div class="modal-form">
 				<div class="modal-form__label">Закажите звонок, и&nbsp;мы&nbsp;перезвоним вам в&nbsp;течение 15&nbsp;минут</div>
-				<form action="" class="form form_modal" data-enter-submit="false" method="post">
+				<form action="http://localhost:3030/src/ajax/send.php" class="form form_modal" data-enter-submit="false" data-hide-on-success="true" method="post">
 					<input class="w-full" name="callback_name" type="text" placeholder="Ваше имя" aria-label="Ваше имя" autocomplete="name" data-required>
 					<input class="w-full" name="callback_tel" type="tel" placeholder="Ваш телефон" aria-label="Ваш телефон" autocomplete="tel" data-pattern-type="phone" data-required>
 					<label class="form__label">
