@@ -1,0 +1,30 @@
+<form class="search-form js-novalidate" id="js-search-form" autocomplete="off">
+	<div class="search-form__wrapper">
+		<div class="search-form__request w-full">
+			<label for="js-search-input" class="sr-only">Поиск врача по фамилии или специальности</label>
+			<input type="text" class="w-full" name="q" id="js-search-input" value="" placeholder="Введите фамилию или специальность врача" data-suggest-url="http://localhost:3030/src/ajax/suggest-search.php" aria-expanded="false" aria-autocomplete="list" aria-controls="js-search-suggest">
+
+
+			<div class="suggest-box" id="js-search-suggest" role="listbox">
+				<div class="suggest-msg">Ничего не найдено</div>
+
+				<a href="konyukhov-igor-maksimovich/" class="suggest-item" data-index="0" role="option">
+					<div class="suggest-item__data-primary">Конюхов Игорь Максимович</div>
+					<div class="suggest-item__data-seconadry">Ассистент ветеринарного врача</div>
+					<div class="suggest-item__data-note">м. Сокол</div>
+				</a>
+				<a href="konyukhov-igor-maksimovich/" class="suggest-item" data-index="1" role="option">
+					<div class="suggest-item__data-primary">Конюхов Игорь Максимович</div>
+					<div class="suggest-item__data-seconadry">Ассистент ветеринарного врача</div>
+					<div class="suggest-item__data-note">м. Сокол</div>
+				</a>
+
+			</div>
+
+
+		</div>
+		<div class="search-form__submit">
+			<button type="submit" class="btn btn_md">Найти</button>
+		</div>
+	</div>
+</form>

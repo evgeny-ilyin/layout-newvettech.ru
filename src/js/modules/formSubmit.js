@@ -304,7 +304,7 @@ function handleInputBlur(e) {
 	validateInputBlur(e.target);
 }
 
-function lockSubmitButton(button, loaderClass = 'is-loading') {
+export function lockSubmitButton(button, loaderClass = 'is-loading') {
 	if (!button) {
 		return;
 	}
@@ -313,7 +313,7 @@ function lockSubmitButton(button, loaderClass = 'is-loading') {
 	button.classList.add(loaderClass);
 }
 
-function unlockSubmitButton(button, loaderClass = 'is-loading') {
+export function unlockSubmitButton(button, loaderClass = 'is-loading') {
 	if (!button) {
 		return;
 	}

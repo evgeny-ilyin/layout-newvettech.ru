@@ -1,0 +1,91 @@
+@use '../abstracts' as *;
+
+.search-form {
+	margin-bottom: 20px;
+
+	// .search-form__wrapper
+	&__wrapper {
+		display: flex;
+		gap: 10px;
+		position: relative;
+
+		@include resp-from(md) {
+			gap: 20px;
+		}
+	}
+
+	// .search-form__request
+	&__request {
+		@include resp-from(md) {
+			position: relative;
+		}
+	}
+
+	// .search-form__submit
+	&__submit {
+	}
+}
+
+.suggest-box {
+	--color-bgr-text: var(--color-white);
+	--color-border: var(--form-control-color);
+	display: none;
+	position: absolute;
+	right: 0;
+	left: 0;
+	z-index: 1;
+	margin-top: -1px;
+	overflow: hidden;
+	font-weight: var(--font-weight-normal);
+	background: var(--color-bgr-text);
+	border: 1px solid var(--color-border);
+	border-radius: var(--border-radius);
+}
+
+.suggest-msg {
+	display: block;
+	padding: 10px 17px;
+	font-size: rem(16);
+}
+
+.suggest-item {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	padding: 9px 17px;
+	text-decoration: none;
+	color: var(--color-link);
+	cursor: pointer;
+	transition: all $transition-default;
+
+	&.is-active {
+		background: var(--color-white-gray-2);
+	}
+
+	// .suggest-item__data-primary
+	&__data-primary {
+		font-size: rem(16);
+		font-weight: var(--font-weight-medium);
+		line-height: 1.2;
+
+		@include resp-from(md) {
+			@include fluid(font-size, 16px, 18px, map-get($breakpoints, 'md'), map-get($breakpoints, 'desktop'));
+		}
+	}
+
+	// .suggest-item__data-seconadry
+	&__data-seconadry {
+		font-family: var(--font-family-other);
+		font-size: rem(16);
+	}
+
+	// .suggest-item__data-note
+	&__data-note {
+		font-family: var(--font-family-other);
+		font-size: rem(14);
+	}
+
+	@include hover-media() {
+		background: var(--color-white-gray-2);
+	}
+}
