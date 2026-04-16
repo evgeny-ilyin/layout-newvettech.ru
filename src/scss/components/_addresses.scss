@@ -21,15 +21,6 @@
 		&:last-child {
 			padding-bottom: 0;
 		}
-
-		b,
-		strong {
-			display: inline-block;
-			margin-bottom: 3px;
-			font-weight: var(--name-font-weight, var(--font-weight-normal));
-			line-height: 1.2;
-			color: var(--color-primary);
-		}
 	}
 
 	// .addresses__wrapper
@@ -49,11 +40,41 @@
 
 	// .addresses__link
 	&__link {
+		display: block;
+		text-decoration: none;
+		color: var(--color-text);
+
+		@include hover-media() {
+			.addresses__more {
+				color: var(--color-primary);
+			}
+
+			@include when-inside('.addresses_footer') {
+				.addresses__name {
+					color: var(--color-text);
+				}
+			}
+		}
+	}
+
+	// .addresses__name
+	&__name {
+		display: inline-block;
+		margin-bottom: 3px;
+		font-weight: var(--name-font-weight, var(--font-weight-normal));
+		line-height: 1.2;
+		color: var(--color-primary);
+		transition: all $transition-default;
+	}
+
+	// .addresses__more
+	&__more {
 		font-size: rem(11);
 		text-underline-offset: 1px;
+		transition: all $transition-default;
 		white-space: nowrap;
 
-		@extend %link-default;
+		// @extend %link-default;
 	}
 
 	// .addresses__contacts
@@ -97,7 +118,7 @@
 				display: none;
 			}
 
-			.addresses__link {
+			.addresses__more {
 				--arrow-color: var(--color-primary);
 				--arrow-width: 14px;
 				--arrow-margin: 5px;
@@ -144,6 +165,9 @@
 
 		li.addresses__item {
 			padding: 5px 0;
+		}
+
+		.addresses__name {
 		}
 
 		@include resp-from(xm) {

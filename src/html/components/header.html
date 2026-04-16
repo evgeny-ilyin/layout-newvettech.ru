@@ -11,79 +11,90 @@
   var menuMetapets = activeMenu === 'menuMetapets' ? 'is-active' : '';
 %>
 
-	<header class="header">
-		<div class="content">
-			<div class="header__wrapper">
-				<div class="header__logo">
-					<a href="./" title="На главную страницу" rel="home" class="logo-link">
-						<svg aria-hidden="true" viewBox="0 0 88 88">
-							<use href="#logo"></use>
-						</svg>
-						<span class="sr-only">НьюВетТех</span>
-					</a>
-				</div>
+<header class="header">
+	<div class="content">
+		<div class="header__wrapper">
+			<div class="header__logo">
+				<a href="./" title="На главную страницу" rel="home" class="logo-link">
+					<svg aria-hidden="true" viewBox="0 0 88 88">
+						<use href="#logo"></use>
+					</svg>
+					<span class="sr-only">НьюВетТех</span>
+				</a>
+			</div>
 
-				<div class="header__contact-us">
-					<button type="button" class="btn btn_white btn_header" data-modal-show="modal-contact-us">Связаться с&nbsp;нами</button>
-				</div>
+			<div class="header__contact-us">
+				<button type="button" class="btn btn_white btn_header" data-modal-show="modal-contact-us">Связаться с&nbsp;нами</button>
+			</div>
 
-				<div class="header__nav">
-					<nav class="nav" role="navigation">
-						<input id="menu-toggle" class="menu-toggle" type="checkbox" />
-						<label class="hamburger-box" for="menu-toggle">
-							<div class="hamburger-inner"></div>
-						</label>
-						<div class="menu-container">
-							<ul class="nav__list">
-								<li class="nav__item"><a href="./about.html" class="nav__link <%=menuAbout%>">О НьюВетТех</a></li>
-								<li class="nav__item"><a href="./specialties.html" class="nav__link <%=menuSpecialties%>">Направления</a></li>
-								<li class="nav__item"><a href="./services.html" class="nav__link <%=menuServices%>">Услуги</a></li>
-								<li class="nav__item"><a href="./doctors.html" class="nav__link <%=menuDoctors%>">Врачи</a></li>
-								<li class="nav__item"><a href="./publications.html" class="nav__link <%=menuPublications%>">Публикации</a></li>
-								<li class="nav__item"><a href="./metapets.html" class="nav__link <%=menuMetapets%>">МетаПетс</a></li>
-							</ul>
-							<div class="dropdown dropdown_geo">
-								<div class="dropdown__label">
-									<svg aria-hidden="true" viewBox="0 0 16 23">
-										<use href="#icon-pointer"></use>
-									</svg>
-									<span>
-										Наши клиники в&nbsp;Москве
-									</span>
-								</div>
-								<div class="dropdown__collapse">
-									<div class="dropdown__wrapper">
-										<div class="dropdown__content">
-											<ul class="addresses addresses_nav">
+			<div class="header__nav">
+				<nav class="nav" role="navigation">
+					<input id="menu-toggle" class="menu-toggle" type="checkbox" />
+					<label class="hamburger-box" for="menu-toggle">
+						<div class="hamburger-inner"></div>
+					</label>
+					<div class="menu-container">
+						<ul class="nav__list">
+							<li class="nav__item"><a href="./about.html" class="nav__link <%=menuAbout%>">О НьюВетТех</a></li>
+							<li class="nav__item"><a href="./specialties.html" class="nav__link <%=menuSpecialties%>">Направления</a></li>
+							<li class="nav__item"><a href="./services.html" class="nav__link <%=menuServices%>">Услуги</a></li>
+							<li class="nav__item"><a href="./doctors.html" class="nav__link <%=menuDoctors%>">Врачи</a></li>
+							<li class="nav__item"><a href="./publications.html" class="nav__link <%=menuPublications%>">Публикации</a></li>
+							<li class="nav__item"><a href="./metapets.html" class="nav__link <%=menuMetapets%>">МетаПетс</a></li>
+						</ul>
+						<div class="dropdown dropdown_geo">
+							<div class="dropdown__label">
+								<svg aria-hidden="true" viewBox="0 0 16 23">
+									<use href="#icon-pointer"></use>
+								</svg>
+								<span>
+									Наши клиники в&nbsp;Москве
+								</span>
+							</div>
+							<div class="dropdown__collapse">
+								<div class="dropdown__wrapper">
+									<div class="dropdown__content">
+										<ul class="addresses addresses_nav">
 
-												<li class="addresses__item">
-													<span><strong>Клиника на Большой Серпуховской</strong></span>
+											<li class="addresses__item">
+												<a href="./branch.html" class="addresses__link">
+													<div class="addresses__name">Клиника на Большой Серпуховской</div>
 													<div class="addresses__wrapper">
 														<address>
 															Москва, ул. Большая Серпуховская, 62к2
 														</address>
-														<a href="./branch.html" class="addresses__link" aria-label="Подробнее об адресе: Москва, ул. Большая Серпуховская, 62к2"><span>подробнее</span></a>
+														<span class="addresses__more">подробнее</span>
 													</div>
-												</li>
+												</a>
+											</li>
 
-												<li class="addresses__item">
-													<span><strong>Клиника на Введенского</strong></span>
+											<!-- <li class="addresses__item">
+													<a href="./branch.html" class="addresses__link" aria-label="Подробнее о клинике: Клиника на Большой Серпуховской">Клиника на Большой Серпуховской</a>
 													<div class="addresses__wrapper">
 														<address>
-															Москва, ул. Введенского, 24Б
+															Москва, ул. Большая Серпуховская, 62к2
 														</address>
-														<!-- <a href="javascript:void(0)" class="addresses__link" aria-label="Подробнее об адресе: Москва, ул. Введенского, 24Б"><span>подробнее</span></a> -->
+														<a href="./branch.html" class="addresses__more" aria-label="Подробнее о клинике: Клиника на Большой Серпуховской"><span>подробнее</span></a>
 													</div>
-												</li>
+												</li> -->
 
-											</ul>
-										</div>
+											<li class="addresses__item">
+												<div class="addresses__name">Клиника на Введенского</div>
+												<div class="addresses__wrapper">
+													<address>
+														Москва, ул. Введенского, 24Б
+													</address>
+												</div>
+											</li>
+
+										</ul>
 									</div>
 								</div>
 							</div>
 						</div>
-					</nav>
-				</div>
+					</div>
+				</nav>
 			</div>
 		</div>
-	</header>
+	</div>
+</header>
