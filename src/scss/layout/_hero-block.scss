@@ -291,9 +291,9 @@
 		gap: 40px 20px;
 		padding: 50px 30px 30px;
 
-		& > div {
-			flex-basis: 290px;
-		}
+		// & > div {
+		// 	flex-basis: 290px;
+		// }
 
 		@include resp-from(lg) {
 			gap: 40px;
@@ -310,6 +310,21 @@
 	&__col {
 		display: flex;
 		flex-direction: column;
+
+		&:first-child {
+			flex: 1 1 100%;
+		}
+
+		&:last-child {
+			flex: 1;
+		}
+
+		@include resp-from(lg) {
+			&:first-child {
+				flex: 0 1 235px;
+				min-width: 235px;
+			}
+		}
 	}
 
 	// .hero-block_violet

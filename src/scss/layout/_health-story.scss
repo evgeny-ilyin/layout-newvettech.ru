@@ -1,0 +1,28 @@
+@use '../abstracts' as *;
+@use '../base/typography-placeholders' as *;
+
+.health-story {
+	// .health-story__header
+	&__header {
+		margin-bottom: 24px;
+
+		@extend %h3-heading;
+	}
+
+	// .health-story__body
+	&__body {
+		@include resp-from(md) {
+			column-count: 2;
+			column-gap: 35px;
+		}
+	}
+
+	// .health-story__image-link
+	&__image-link {
+		display: inline-block;
+
+		&:focus-visible {
+			outline: 0;
+		}
+	}
+}
