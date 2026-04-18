@@ -119,17 +119,17 @@
 			padding-top: 30px;
 			border-top: 1px solid var(--color-primary);
 
-			&::before {
-				content: '';
-				display: block;
-				position: absolute;
-				top: -1px;
-				right: 100%;
-				transform: rotate(var(--angle));
-				transform-origin: right;
-				width: 108px;
-				border-bottom: 1px solid var(--color-primary);
-			}
+			// &::before {
+			// 	content: '';
+			// 	display: block;
+			// 	position: absolute;
+			// 	top: -1px;
+			// 	right: 100%;
+			// 	transform: rotate(var(--angle));
+			// 	transform-origin: right;
+			// 	width: 108px;
+			// 	border-bottom: 1px solid var(--color-primary);
+			// }
 		}
 	}
 
@@ -189,17 +189,17 @@
 			padding-bottom: 17px;
 			border-bottom: 1px solid var(--color-primary);
 
-			&::after {
-				content: '';
-				display: block;
-				position: absolute;
-				bottom: -1px;
-				left: 100%;
-				transform: rotate(var(--angle));
-				transform-origin: left;
-				width: 110px;
-				border-bottom: 1px solid var(--color-primary);
-			}
+			// &::after {
+			// 	content: '';
+			// 	display: block;
+			// 	position: absolute;
+			// 	bottom: -1px;
+			// 	left: 100%;
+			// 	transform: rotate(var(--angle));
+			// 	transform-origin: left;
+			// 	width: 110px;
+			// 	border-bottom: 1px solid var(--color-primary);
+			// }
 		}
 	}
 }
