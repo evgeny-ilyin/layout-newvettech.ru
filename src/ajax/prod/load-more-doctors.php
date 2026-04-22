@@ -29,7 +29,7 @@ $APPLICATION->IncludeComponent(
 		"PROPERTY_CODE" => [
 			0 => "POSITION",
 			1 => "BOOKING",
-			2 => "",
+			2 => "BRANCH",
 		],
 		"PAGER_TEMPLATE" => "load-more",
 		"DISPLAY_BOTTOM_PAGER" => "Y",

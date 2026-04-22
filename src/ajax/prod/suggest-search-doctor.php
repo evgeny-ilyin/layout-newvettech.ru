@@ -58,18 +58,78 @@ $res = CIBlockElement::GetList(
 	[],
 	$arFilter,
 	false,
-	["nTopCount" => $maxResults],
+	false, // вместо nTopCount
+	// ["nTopCount" => $maxResults],
 	$arSelect
 );
 
+$items = [];
+$allBranchIds = [];
+
+// 1. Получаем врачей + собираем ID клиник
+while ($ob = $res->GetNextElement()) {
+	$fields = $ob->GetFields();
+	$props  = $ob->GetProperties();
+
+	$branchIds = $props['BRANCH']['VALUE'];
+
+	if (!empty($branchIds)) {
+		$branchIds = is_array($branchIds) ? $branchIds : [$branchIds];
+		$allBranchIds = array_merge($allBranchIds, $branchIds);
+	} else {
+		$branchIds = [];
+	}
+
+	$fields['BRANCH_IDS'] = $branchIds;
+
+	$items[] = $fields;
+}
+
+// Ограничение maxResults применяется после выборки
+if (!empty($maxResults)) {
+	$items = array_slice($items, 0, $maxResults);
+}
+
+// 2. Убираем дубли ID клиник
+$allBranchIds = array_unique($allBranchIds);
+
+// 3. Получаем клиники одним запросом
+$branchesMap = [];
+
+if (!empty($allBranchIds)) {
+	$branchRes = CIBlockElement::GetList(
+		["SORT" => "ASC"],
+		["ID" => $allBranchIds, "ACTIVE" => "Y"],
+		false,
+		false,
+		["ID", "PROPERTY_LOCATION"]
+	);
+
+	while ($branch = $branchRes->GetNext()) {
+		$branchesMap[$branch["ID"]] = $branch["PROPERTY_LOCATION_VALUE"];
+	}
+}
+
+// 4. Собираем финальный результат
 $result = [];
 
-while ($item = $res->GetNext()) {
+foreach ($items as $item) {
+
+	$locations = [];
+
+	foreach ($item['BRANCH_IDS'] as $branchId) {
+		if (isset($branchesMap[$branchId])) {
+			$locations[] = $branchesMap[$branchId];
+		}
+	}
+
 	$result[] = [
 		"ID" => $item["ID"],
 		"URL" => $item["DETAIL_PAGE_URL"],
 		"PRIMARY" => $item["NAME"],
-		"SECONDARY" => $item["PROPERTY_POSITION_VALUE"]
+		"SECONDARY" => $item["PROPERTY_POSITION_VALUE"],
+		"LOCATIONS" => $locations,
+		// "debug" => $item
 	];
 }
 
