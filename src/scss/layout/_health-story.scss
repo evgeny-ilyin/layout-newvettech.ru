@@ -21,7 +21,7 @@
 	&__image-link {
 		display: inline-block;
 
-		&:focus-visible {
+		@include on-focus-visible {
 			outline: 0;
 		}
 	}
