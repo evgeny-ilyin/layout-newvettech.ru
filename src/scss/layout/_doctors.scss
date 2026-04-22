@@ -26,12 +26,13 @@
 }
 
 .doctor-card {
+	--border-radius: 15px;
 	display: flex;
 	flex-direction: column;
 	height: 100%;
 	overflow: hidden;
 	background: var(--color-white-gray-2);
-	border-radius: 15px;
+	border-radius: var(--border-radius);
 	box-shadow: 0 8px 15px 0 rgb(164 136 255 / 7%);
 	transition: box-shadow $transition-default;
 
@@ -42,6 +43,11 @@
 
 		@include on-hover {
 			color: var(--color-link);
+		}
+
+		@include on-focus-visible {
+			outline-offset: -5px;
+			border-radius: var(--border-radius);
 		}
 
 		@extend %link-default;
@@ -111,7 +117,7 @@
 	}
 
 	@include resp-from(desktop) {
-		border-radius: 20px;
+		--border-radius: 20px;
 	}
 
 	@include hover-media() {

@@ -166,6 +166,70 @@
 		white-space: nowrap;
 	}
 
+	// .btn_load-more
+	&_load-more {
+		--btn-height: auto;
+		--btn-color: var(--color-primary) !important;
+		--btn-bgr: transparent !important;
+		--size: 83px;
+		--loader-size-override: 48px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		position: relative;
+		height: 119px;
+		padding: 0;
+		font-size: rem(16);
+		border: 0;
+
+		&::before {
+			--bg: var(--color-secondary);
+			content: '';
+			display: block;
+			width: var(--size);
+			height: var(--size);
+			background: var(--bg);
+			border-radius: 50%;
+			transition: background $transition-default;
+		}
+
+		&::after {
+			--color: var(--color-primary);
+			content: '+';
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top: -2px;
+			width: var(--size);
+			height: var(--size);
+			font-size: rem(100);
+			font-weight: 100;
+			line-height: 1;
+			color: var(--color);
+			transition: color $transition-default;
+		}
+
+		@include hover-media() {
+			&::before {
+				--bg: var(--color-primary);
+			}
+
+			&::after {
+				--color: var(--color-white);
+			}
+		}
+
+		@include on-disabled {
+			background: transparent;
+
+			&::before,
+			&::after {
+				opacity: 0.5;
+			}
+		}
+	}
+
 	&.is-active {
 		--btn-color: var(--form-control-color-hover-text);
 		--btn-bgr: var(--form-control-color-hover);
@@ -311,22 +375,23 @@
 
 // svg-loader на кнопке
 .is-loading {
+	--loader-size: var(--loader-size-override, 24px);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: relative;
 	color: transparent !important;
+	transition: color 0s;
 	pointer-events: none;
-	// height: 24px;
-	// border: 0 !important;
 
 	&::before {
 		content: '';
 		display: block;
 		position: absolute;
-		width: 24px;
-		height: 24px;
+		width: var(--loader-size);
+		height: var(--loader-size);
 		background: var(--svg-fetch-loader) no-repeat;
+		transition: background 0s;
 		animation: fetch-loader-rotate 1s infinite linear;
 	}
 
