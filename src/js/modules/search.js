@@ -261,7 +261,7 @@ export function searchInit({
       <a href="${item.URL}" class="suggest-item" data-index="${index}" role="option">
         <div class="suggest-item__data-primary">${item.PRIMARY}</div>
         ${item.SECONDARY ? `<div class="suggest-item__data-seconadry">${item.SECONDARY}</div>` : ''}
-        ${item.NOTE ? `<div class="suggest-item__data-note">${item.NOTE}</div>` : ''}
+        ${item.LOCATIONS ? `<div class="suggest-item__data-note location">${item.LOCATIONS.join(', ')}</div>` : ''}
       </a>
     `
 			)

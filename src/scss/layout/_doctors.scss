@@ -26,7 +26,7 @@
 }
 
 .doctor-card {
-	--border-radius: 15px;
+	--focus-border-radius: 12px;
 	display: flex;
 	flex-direction: column;
 	height: 100%;
@@ -47,7 +47,7 @@
 
 		@include on-focus-visible {
 			outline-offset: -5px;
-			border-radius: var(--border-radius);
+			border-radius: var(--focus-border-radius);
 		}
 
 		@extend %link-default;
@@ -91,19 +91,27 @@
 	&__text {
 		display: flex;
 		flex-direction: column;
-		padding: 23px 18px 0;
+		gap: 5px;
+		padding: 23px 18px 24px;
 	}
 
 	// .doctor-card__name
 	&__name {
-		margin-bottom: 5px;
+		// margin-bottom: 5px;
 	}
 
 	// .doctor-card__position
 	&__position {
-		margin-bottom: 24px;
 		font-family: var(--font-family-other);
 		font-size: rem(16);
+	}
+
+	// .doctor-card__location
+	&__location {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		padding-top: 2px;
 	}
 
 	// .doctor-card__button
@@ -116,11 +124,27 @@
 		box-shadow: 0 8px 15px 0 rgb(164 136 255 / 7%) !important;
 	}
 
-	@include resp-from(desktop) {
-		--border-radius: 20px;
-	}
-
 	@include hover-media() {
 		box-shadow: 0 4px 7px 0 rgb(159 149 221 / 35%);
+	}
+}
+
+.location {
+	--location-text-color: inherit;
+	--location-pointer-color: var(--color-primary);
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	font-family: var(--font-family-other);
+	font-size: rem(13);
+	color: var(--location-text-color);
+
+	&::before {
+		content: '';
+		display: block;
+		width: 6px;
+		height: 6px;
+		background: var(--location-pointer-color);
+		border-radius: 50%;
 	}
 }
