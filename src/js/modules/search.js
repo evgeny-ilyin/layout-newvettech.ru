@@ -55,7 +55,7 @@ export function searchInit({
 	suggestSelector = '#js-search-suggest',
 	suggestItemSelector = '.suggest-item',
 	suggestMsgSelector = '.suggest-msg',
-	contentBlockSelector = '.js-search-list',
+	contentBlockSelector = '.js-results',
 	loaderClass = 'is-loading',
 	activeClass = 'is-active',
 } = {}) {
