@@ -71,12 +71,12 @@ export function searchInit({
 	const resultsNode = el;
 
 	el = resultsNode?.nextElementSibling;
-	while (el && !el.querySelector(loadMoreSelector)) {
+	while (el && !el.matches(loadMoreSelector)) {
 		el = el.nextElementSibling;
 	}
 	const pagerNode = el;
 
-	if (!form || !input || !resultsNode || !pagerNode) {
+	if (!form || !input || !resultsNode) {
 		return;
 	}
 
