@@ -55,7 +55,8 @@ export function searchInit({
 	suggestSelector = '#js-search-suggest',
 	suggestItemSelector = '.suggest-item',
 	suggestMsgSelector = '.suggest-msg',
-	contentBlockSelector = '.js-results',
+	resultsSelector = '.js-results',
+	loadMoreSelector = '.js-load-more',
 	loaderClass = 'is-loading',
 	activeClass = 'is-active',
 } = {}) {
@@ -63,11 +64,25 @@ export function searchInit({
 	const input = document.querySelector(inputSelector);
 	const suggestBox = document.querySelector(suggestSelector);
 
-	if (!form || !input) {
+	let el = form?.nextElementSibling;
+	while (el && !el.matches(resultsSelector)) {
+		el = el.nextElementSibling;
+	}
+	const resultsNode = el;
+
+	el = resultsNode?.nextElementSibling;
+	while (el && !el.querySelector(loadMoreSelector)) {
+		el = el.nextElementSibling;
+	}
+	const pagerNode = el;
+
+	if (!form || !input || !resultsNode || !pagerNode) {
 		return;
 	}
 
 	const submitButton = form.querySelector('[type="submit"]');
+	const submitUrl = window.location.href;
+	// const submitUrl = 'http://localhost:3030/src/ajax/search-doctors.php'; // тестовый submit
 	const suggestUrl = input.dataset.suggestUrl;
 
 	const minLength = 4;
@@ -106,8 +121,9 @@ export function searchInit({
 
 		const applyWithDelay = (html) => {
 			setTimeout(() => {
-				replaceContent(html, contentBlockSelector);
+				replaceContent(html, resultsNode);
 				unlockSubmitButton(submitButton, loaderClass);
+				loadMoreHandler(pagerNode);
 				isLoading = false;
 			}, delay);
 		};
@@ -131,7 +147,7 @@ export function searchInit({
 		submitController = new AbortController();
 		isLoading = true;
 
-		const url = new URL(window.location.href);
+		const url = new URL(submitUrl);
 		url.searchParams.set('q', query);
 
 		const startTime = Date.now();
@@ -143,7 +159,7 @@ export function searchInit({
 		})
 			.then((res) => res.text())
 			.then((html) => {
-				result = getResult(html, contentBlockSelector);
+				result = getResult(html, resultsSelector);
 				cache['full_' + query] = result;
 
 				if (Object.keys(cache).length > maxCache) {
@@ -153,8 +169,9 @@ export function searchInit({
 				const elapsed = Date.now() - startTime;
 
 				const apply = () => {
-					replaceContent(result, contentBlockSelector);
+					replaceContent(result, resultsNode);
 					unlockSubmitButton(submitButton, loaderClass);
+					loadMoreHandler(pagerNode);
 					isLoading = false;
 				};
 
@@ -258,18 +275,22 @@ export function searchInit({
 		const html = items
 			.map(
 				(item, index) => `
-      <a href="${item.URL}" class="suggest-item" data-index="${index}" role="option">
-        <div class="suggest-item__data-primary">${item.PRIMARY}</div>
-        ${item.SECONDARY ? `<div class="suggest-item__data-seconadry">${item.SECONDARY}</div>` : ''}
-        ${item.LOCATIONS ? `<div class="suggest-item__data-note location">${item.LOCATIONS.join(', ')}</div>` : ''}
-      </a>
+			<a href="${item.URL}" class="suggest-item" data-index="${index}" role="option">
+				<div class="suggest-item__data-primary">${item.PRIMARY}</div>
+				${item.SECONDARY ? `<div class="suggest-item__data-seconadry">${item.SECONDARY}</div>` : ''}
+				${item.LOCATIONS ? `<div class="suggest-item__data-note location">${item.LOCATIONS.join(', ')}</div>` : ''}
+			</a>
     `
 			)
 			.join('');
 
 		suggestBox.innerHTML = html;
-		suggestBox.style.display = 'block';
-		input.setAttribute('aria-expanded', 'true');
+
+		// Не активируем suggestBox, если уже подгрузились результаты поиска по submit и поле поиска не в фокусе
+		if (document.activeElement === input) {
+			suggestBox.style.display = 'block';
+			input.setAttribute('aria-expanded', 'true');
+		}
 	}
 
 	function updateActiveItem() {
@@ -359,20 +380,26 @@ export function searchInit({
 	});
 }
 
-function getResult(html, contentBlockSelector) {
+function getResult(html, resultsSelector) {
 	const parser = new DOMParser();
 	const doc = parser.parseFromString(html, 'text/html');
-	const newBlock = doc.querySelector(contentBlockSelector);
+	const newBlock = doc.querySelector(resultsSelector);
 	if (!newBlock) {
 		return;
 	}
 	return newBlock.innerHTML;
 }
 
-function replaceContent(html, contentBlockSelector) {
-	const currentBlock = document.querySelector(contentBlockSelector);
-	if (!currentBlock) {
+function replaceContent(html, resultsNode) {
+	if (!resultsNode) {
 		return;
 	}
-	currentBlock.innerHTML = html;
+	resultsNode.innerHTML = html;
+}
+
+function loadMoreHandler(pagerNode) {
+	if (!pagerNode) {
+		return;
+	}
+	pagerNode.innerHTML = '';
 }
