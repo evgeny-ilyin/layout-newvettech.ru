@@ -57,6 +57,12 @@
 		}
 	}
 
+	// .addresses__soon
+	&__soon {
+		font-weight: var(--name-font-weight, var(--font-weight-normal));
+		color: var(--color-red);
+	}
+
 	// .addresses__name
 	&__name {
 		display: inline-block;
