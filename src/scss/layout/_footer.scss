@@ -136,22 +136,41 @@
 	}
 }
 
-.footer-skolkovo {
-	font-size: rem(16);
-	text-align: center;
+.footer-partner {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 20px;
+	font-size: rem(14);
 
-	// .footer-skolkovo__logo
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	// .footer-partner__logo
 	&__logo {
-		width: 150px;
-		margin: 0 auto;
+		flex-shrink: 0;
 
-		@include resp-from(md) {
-			margin: 0;
+		img,
+		picture {
+			display: block;
+			min-width: 44px;
+		}
+	}
+
+	// .footer-partner__text
+	&__text {
+		a {
+			text-decoration: none;
 		}
 	}
 
 	@include resp-from(md) {
-		text-align: left;
+		font-size: rem(12);
+	}
+
+	@include resp-from(lg) {
+		font-size: rem(15);
 	}
 }
 
