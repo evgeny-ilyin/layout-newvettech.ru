@@ -6,7 +6,7 @@
 	// .stages__container
 	&__container {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 		gap: 20px;
 	}
 
@@ -50,6 +50,13 @@
 	&__text {
 		font-size: rem(16);
 		line-height: 1.2;
+
+		p,
+		ul {
+			@include resp-from(desktop) {
+				font-size: rem(18);
+			}
+		}
 
 		@include resp-from(md) {
 			font-size: rem(18);

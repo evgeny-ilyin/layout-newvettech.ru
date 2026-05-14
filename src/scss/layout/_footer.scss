@@ -170,6 +170,10 @@
 	}
 
 	@include resp-from(lg) {
+		font-size: rem(14);
+	}
+
+	@include resp-from(desktop) {
 		font-size: rem(15);
 	}
 }
