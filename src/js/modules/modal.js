@@ -33,7 +33,12 @@ export function modalsInit({
 		html.classList.remove(isLockClass);
 	};
 
-	document.addEventListener('click', (e) => {
+	/**
+	 * click заменен на mouseup для корректной работы закрытия модалки с календарем
+	 * Событие mouseup менее подвержено блокировке всплытия, чем click.
+	 * Даже если внутри календаря вызывается stopPropagation(), mouseup все равно достигнет вашего обработчика.
+	 */
+	document.addEventListener('mouseup', (e) => {
 		const modalExist = document.querySelector(`[data-${modalAttr}].${isActiveClass}`);
 		const showTrigger = e.target.closest(`[data-${showAttr}]`);
 		const closeTrigger = e.target.closest(`[data-${closeAttr}], [data-${overlayAttr}]`);
@@ -50,7 +55,7 @@ export function modalsInit({
 
 		// Закрыть (с учётом кастомного селекта)
 		if (modalExist && (!modalExist.contains(e.target) || closeTrigger)) {
-			// if (e.target.closest(`.${customSelectClass}`)) {
+			// if (e.currentTarget.contains(e.target)) {
 			// 	return;
 			// }
 			closeModal(modalExist);
