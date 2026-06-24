@@ -1,10 +1,11 @@
 @use '../abstracts' as *;
 
 .btn {
+	--padding-x: 15px;
 	--btn-color: var(--form-control-color);
 	--btn-bgr: transparent;
 	height: var(--btn-height, 34px);
-	padding: 8px 15px 6px;
+	padding: 8px var(--padding-x, 15px) 6px;
 	box-sizing: border-box;
 	font-size: rem(15);
 	font-weight: var(--font-weight-medium);
@@ -91,6 +92,14 @@
 		@include resp-from(md) {
 			max-width: 50%;
 		}
+	}
+
+	// .btn_wide-compact
+	&_wide-compact {
+		--padding-x: 5px !important;
+		width: 100%;
+		min-width: fit-content;
+		font-size: rem(16);
 	}
 
 	// .btn_wrap
@@ -292,13 +301,28 @@
 		}
 	}
 
+	// .btn_reverse
+	&_reverse {
+		--btn-color: var(--form-control-color-hover-text);
+		--btn-bgr: var(--form-control-color);
+
+		@include hover-media() {
+			--btn-color: var(--form-control-color) !important;
+			--btn-bgr: transparent !important;
+		}
+
+		@include hover-media-active() {
+			--btn-color: var(--form-control-color) !important;
+			--btn-bgr: transparent !important;
+		}
+	}
+
 	@include print {
 		display: none;
 	}
 
 	@include resp-from(xm) {
-		padding-right: 20px;
-		padding-left: 20px;
+		--padding-x: 20px;
 	}
 
 	@include flex-center(true);
