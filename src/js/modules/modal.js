@@ -12,13 +12,17 @@ export function modalsInit({
 	const overlay = document.querySelector(`[data-${overlayAttr}]`);
 
 	// Открыть модалку
-	const openModal = (targetId) => {
+	const openModal = (targetId, modalParams = null) => {
 		const modal = document.querySelector(`[data-${modalAttr}][data-${modalIdAttr}="${targetId}"]`);
 		if (!modal) {
 			return false;
 		}
 
-		modal.style.setProperty('--modal-height', `${modal.scrollHeight}px`);
+		if (modalParams) {
+			modal.dataset.modalParams = modalParams;
+		}
+
+		modal.style.setProperty('--modal-height', `${Math.ceil(modal.scrollHeight) + 1}px`);
 		modal.classList.add(isActiveClass);
 		overlay?.classList.add(isActiveClass);
 		html.classList.add(isLockClass);
@@ -42,15 +46,18 @@ export function modalsInit({
 		const modalExist = document.querySelector(`[data-${modalAttr}].${isActiveClass}`);
 		const showTrigger = e.target.closest(`[data-${showAttr}]`);
 		const closeTrigger = e.target.closest(`[data-${closeAttr}], [data-${overlayAttr}]`);
+		let modalParams = null;
 
 		// Показать
 		if (showTrigger) {
 			e.preventDefault();
+			modalParams = e.target.dataset.modalParams;
+
 			const targetId = showTrigger.getAttribute(`data-${showAttr}`);
 			if (!targetId) {
 				return;
 			}
-			openModal(targetId);
+			openModal(targetId, modalParams);
 		}
 
 		// Закрыть (с учётом кастомного селекта)
