@@ -1,0 +1,247 @@
+<div class="modal" data-modal data-id="modal-appointment">
+	<div class="modal__wrapper scrollblock">
+		<button class="btn btn_close btn_close-modal" data-modal-close aria-label="Закрыть"></button>
+		<div class="modal__head">
+			Запись на&nbsp;приём в&nbsp;НьюВетТех
+		</div>
+		<div class="modal__body">
+			<div class="appointment js-appointment-container">
+				<div class="appointment__step js-appointment-step">
+					<div class="appointment__wrapper">
+						<div class="calendar-loader" id="calendar-loader"></div>
+						<div class="appointment__header">
+							<div class="appointment__clinics" role="radiogroup" aria-label="Выбор клиники">
+								<label class="pill-button">
+									<input type="radio" name="clinic" value="1" data-clinic data-name="Клиника на Серпуховской" checked><span>Клиника на Серпуховской</span>
+								</label>
+							</div>
+						</div>
+						<div class="appointment__body">
+							<div class="calendar">
+								<div class="calendar__col">
+									<div class="appointment-title">Выберите дату</div>
+									<div class="calendar__body">
+										<div class="calendar" id="calendar" data-url="https://newvettech.ru/local/ajax/api/get-doctor-schedule.php"></div>
+									</div>
+								</div>
+								<div class="calendar__col">
+									<div class="appointment-title">Выберите время</div>
+									<div class="calendar__body">
+										<div class="time-slots" id="time-slots"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="appointment__nav">
+						<div class="appointment__progress">
+							<span class="is-active"></span>
+							<span></span>
+							<span></span>
+						</div>
+						<div class="appointment__buttons">
+							<button type="button" data-action="save-slot" class="btn btn_lg btn_reverse appointment-btn">Продолжить</button>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="appointment__step js-appointment-step">
+					<div class="appointment__wrapper">
+						<div class="appointment__header">
+							<div class="appointment__selected">
+								Выбранные дата и время: <span class="js-date-time"></span>
+							</div>
+						</div>
+						<div class="appointment__body">
+							<div class="appointment-title">Заполните данные</div>
+							<form class="form form_grid js-appointment-form">
+								<div class="form__fieldgroup">
+									<label class="form__label">Имя *
+										<input name="name" type="text" data-field="name" aria-required="true" aria-label="Ваше имя" autocomplete="name" data-required>
+									</label>
+								</div>
+
+								<div class="form__fieldgroup">
+									<label class="form__label">Фамилия *
+										<input type="text" name="surname" data-field="surname" aria-required="true" aria-label="Ваша фамилия" autocomplete="family-name" data-required>
+									</label>
+								</div>
+
+								<div class="form__fieldgroup">
+									<label class="form__label">Телефон *
+										<input type="tel" name="phone" data-field="phone" aria-required="true" aria-label="Ваш телефон" autocomplete="tel" data-pattern-type="phone" data-required>
+									</label>
+								</div>
+
+								<div class="form__fieldgroup">
+									<label class="form__label">Электронная почта *
+										<input type="email" name="email" data-field="email" aria-required="true" aria-label="Ваша электронная почта" autocomplete="email" data-required>
+									</label>
+								</div>
+
+								<div class="form__fieldgroup">
+									<label class="form__label">Вид питомца *
+										<select name="species" data-field="species" aria-required="true" aria-label="Вид питомца" autocomplete="off" data-required>
+											<option value="">Не выбрано</option>
+											<option value="кошка">Кошка</option>
+											<option value="собака">Собака</option>
+											<option value="грызун">Грызун</option>
+											<option value="куньи">Куньи</option>
+											<option value="рептилия">Рептилия</option>
+											<option value="енот">Енот</option>
+											<option value="рысь">Рысь</option>
+											<option value="птица">Птица</option>
+											<option value="сельскохозяйственные">Сельскохозяйственные</option>
+										</select>
+									</label>
+								</div>
+
+								<div class="form__fieldgroup">
+									<label class="form__label">Кличка питомца
+										<input type="text" name="nickname" data-field="nickname" aria-label="Кличка питомца" autocomplete="off">
+									</label>
+								</div>
+
+								<div class="form__fieldgroup form__fieldgroup_full">
+									<label class="form__label">Комментарий *
+										<textarea name="note" rows="5" data-field="note" aria-label="Комментарий" data-required></textarea>
+									</label>
+								</div>
+
+								<div class="form__fieldgroup form__fieldgroup_full">
+									<label class="form__label form__label_agreement">
+										<input type="checkbox" name="agreement" aria-required="true" data-required>
+										<span>Соглашаюсь с&nbsp;политикой <a href="./policy.html" target="_blank">конфиденциальности и&nbsp;обработки данных</a></span>
+									</label>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="appointment__nav">
+						<div class="appointment__progress">
+							<span class="is-done"></span>
+							<span class="is-active"></span>
+							<span></span>
+						</div>
+						<div class="appointment__buttons">
+							<button type="button" data-action="back" class="btn btn_lg  btn_reverse appointment-btn">Назад</button>
+							<button type="button" data-action="save-form" class="btn btn_lg btn_reverse appointment-btn">Продолжить</button>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="appointment__step js-appointment-step">
+					<div class="appointment__wrapper">
+						<div class="appointment__header"></div>
+						<div class="appointment__body appointment_narrow">
+							<div class="appointment-title">Проверьте, пожалуйста, детали записи</div>
+							<div class="summary js-appointment-summary"></div>
+						</div>
+					</div>
+					<div class="appointment__nav">
+						<div class="appointment__progress">
+							<span class="is-done"></span>
+							<span class="is-done"></span>
+							<span class="is-active"></span>
+						</div>
+						<div class="appointment__buttons">
+							<button type="button" data-action="back" class="btn btn_lg btn_reverse appointment-btn">Назад</button>
+							<button type="button" data-action="submit-form" class="btn btn_lg btn_reverse appointment-btn" data-url="https://newvettech.ru/local/ajax/api/submit-lead.php">Отправить</button>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="appointment__step js-appointment-step">
+					<div class="appointment__wrapper">
+						<div class="appointment__header"></div>
+						<div class="appointment__body appointment_narrow">
+							<div class="appointment-title js-appointment-success">
+								Ваша запись оформлена, ожидайте звонка администратора.
+							</div>
+							<div class="appointment-details">
+								<div class="appointment-detail appointment-detail_b-border">
+									<div class="appointment-detail__icon">
+										<svg aria-hidden="true" viewBox="0 0 16 23">
+											<use href="#icon-pointer"></use>
+										</svg>
+									</div>
+									<div class="appointment-detail__body">
+										<div class="appointment-detail__main">НьюВетТех на&nbsp;Серпуховской</div>
+										<div class="appointment-detail__note">ул. Большая Серпуховская, 62к2</div>
+									</div>
+								</div>
+								<div class="appointment-detail">
+									<div class="appointment-detail__title appointment-title">
+										Детали записи
+									</div>
+								</div>
+								<div class="appointment-detail">
+									<div class="appointment-detail__icon">
+										<img src="" class="js-doc-photo" width="37" height="37" alt="" loading="lazy" decoding="async">
+									</div>
+									<div class="appointment-detail__body">
+										<div class="appointment-detail__main js-doc-name"></div>
+										<div class="appointment-detail__note js-doc-position"></div>
+									</div>
+								</div>
+								<div class="appointment-detail appointment-detail_b-border">
+									<div class="appointment-detail__icon">
+										<svg aria-hidden="true" viewBox="0 0 51 51">
+											<use href="#icon-calendar"></use>
+										</svg>
+									</div>
+									<div class="appointment-detail__body">
+										<div class="appointment-detail__note js-date"></div>
+										<div class="appointment-detail__main js-time"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="appointment__nav">
+						<div class="appointment__buttons appointment_narrow">
+							<button type="button" data-modal-close class="btn btn_lg btn_reverse btn_wide">Супер!</button>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="appointment__step js-appointment-step">
+					<div class="appointment__wrapper">
+						<div class="appointment__header"></div>
+						<div class="appointment__body appointment_narrow">
+							<div class="appointment-error">
+								<div class="appointment-error__title">Ошибка</div>
+								<div class="appointment-error__body appointment-title">
+									<div class="error js-appointment-error"></div>Пожалуйста, попробуйте ещё раз или позвоните нам.
+								</div>
+								<div class="appointment-error__bg">
+									<svg width="912" height="828" viewBox="0 0 912 828" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g filter="url(#filter0_f_384_7224)">
+											<path d="M684 373C684 498.369 581.921 600 456 600C330.079 600 228 498.369 228 373C228 247.631 330.079 146 456 146C581.921 146 684 247.631 684 373Z" fill="#A89FF5"></path>
+										</g>
+										<defs>
+											<filter id="filter0_f_384_7224" x="0.899994" y="-81.1" width="910.2" height="908.2" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+												<feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+												<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+												<feGaussianBlur stdDeviation="113.55" result="effect1_foregroundBlur_384_7224"></feGaussianBlur>
+											</filter>
+										</defs>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="appointment__nav">
+						<div class="appointment__buttons appointment_narrow">
+							<button type="button" data-action="reload" class="btn btn_lg btn_reverse btn_wide">Записаться снова</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
