@@ -12,6 +12,7 @@ import * as form from './modules/formSubmit.js';
 import { formValidation } from './modules/formSubmit.js';
 import { serviceFilter } from './modules/serviceFilter.js';
 import { cookieConsentInit } from './modules/cookieConsent.js';
+import { calendarInit } from './modules/calendar.js';
 // import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
 
 addEventListener('DOMContentLoaded', () => {
@@ -35,6 +36,7 @@ addEventListener('DOMContentLoaded', () => {
 	wrapArticleImages();
 	serviceFilter();
 	cookieConsentInit();
+	calendarInit();
 
 	bodyBackground();
 
