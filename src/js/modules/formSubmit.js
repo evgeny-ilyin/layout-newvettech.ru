@@ -145,7 +145,7 @@ const formValidation = {
 };
 export { formValidation };
 
-function validateInput(input) {
+export function validateInput(input) {
 	// Get the value and error element
 	const value = input.value;
 	// const errorEl = input.closest("[data-formgroup]").querySelector("[data-formerror]");
