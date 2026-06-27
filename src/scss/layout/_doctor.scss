@@ -63,6 +63,12 @@
 	&__cost {
 	}
 
+	// .doctor__note
+	&__note {
+		font-weight: var(--font-weight-medium);
+		color: var(--color-primary);
+	}
+
 	// .doctor__button
 	&__button {
 	}

@@ -106,6 +106,12 @@
 		font-size: rem(16);
 	}
 
+	// .doctor-card__note
+	&__note {
+		font-weight: var(--font-weight-medium);
+		color: var(--color-primary);
+	}
+
 	// .doctor-card__location
 	&__location {
 		display: flex;
