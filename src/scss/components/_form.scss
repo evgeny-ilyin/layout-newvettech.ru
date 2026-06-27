@@ -8,6 +8,12 @@
 	// .form_grid
 	&_grid {
 		display: grid;
+		grid-template-columns: 1fr;
+		gap: 16px;
+
+		@include resp-from(md) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
 	}
 
 	// .form_modal
@@ -19,14 +25,30 @@
 	// .form__label
 	&__label {
 		display: flex;
-		align-items: center;
+		flex-direction: column;
 		gap: 10px;
-		font-size: rem(12);
+
+		// .form__label_agreement
+		&_agreement {
+			flex-direction: row;
+			align-items: center;
+			font-size: rem(12);
+		}
 	}
 
 	// .form__fieldgroup
-	// &__fieldgroup {
-	// }
+	&__fieldgroup {
+		min-width: 0;
+
+		// .form__fieldgroup_full
+		&_full {
+			grid-column: auto;
+
+			@include resp-from(md) {
+				grid-column: 1 / -1;
+			}
+		}
+	}
 
 	&.is-hidden {
 		justify-content: center;

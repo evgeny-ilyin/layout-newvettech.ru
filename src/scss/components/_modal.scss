@@ -14,7 +14,7 @@
 	left: 50%;
 	transform: translate(-50%, -30%);
 	z-index: -1;
-	width: min(100%, var(--modal-width));
+	width: min(96%, var(--modal-width));
 	height: min(100%, var(--modal-height));
 	max-width: var(--modal-width);
 	max-height: 100vh;
@@ -26,12 +26,15 @@
 	opacity: 0;
 
 	&.is-active {
-		z-index: 10;
+		z-index: 100;
 		opacity: 1;
 	}
 
 	// .modal__wrapper
 	&__wrapper {
+		display: flex;
+		flex-direction: column;
+
 		width: 100%;
 		height: 100%;
 		padding: var(--modal-padding-y) var(--modal-padding-x);
@@ -74,6 +77,8 @@
 
 	// .modal__body
 	&__body {
+		flex-grow: 1;
+
 		iframe {
 			@include resp-to(md) {
 				width: 100%;
@@ -107,6 +112,16 @@
 		--modal-width: 500px;
 		--modal-padding-y: 32px;
 		--modal-padding-x: 32px;
+	}
+
+	// .modal_medium
+	&_medium {
+		--modal-width: 640px;
+	}
+
+	// .modal_wide
+	&_wide {
+		--modal-width: 800px;
 	}
 
 	@include resp-from(md) {
