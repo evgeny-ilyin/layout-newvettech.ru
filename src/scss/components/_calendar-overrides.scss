@@ -1,0 +1,98 @@
+/* stylelint-disable selector-class-pattern */
+@use 'vanilla-calendar-pro/styles/layout.css'; // Только скелет
+@use 'vanilla-calendar-pro/styles/themes/light.css'; // Светлая тема
+@use '../abstracts' as *;
+
+[data-vc='calendar'] {
+	padding: 0;
+}
+
+[data-vc-theme='light'].vc {
+	background: transparent;
+	user-select: none;
+}
+
+[data-vc='month'],
+[data-vc='year'] {
+	font-weight: var(--font-weight-medium);
+}
+
+[data-vc-dates='row'],
+[data-vc='dates'] {
+	gap: 5px;
+}
+
+.vc-week__day {
+	font-weight: var(--font-weight-normal);
+	text-transform: uppercase;
+	color: var(--color-primary) !important;
+}
+
+[data-vc-date-btn] {
+	font-size: rem(18);
+	font-weight: var(--font-weight-normal) !important;
+}
+
+[data-vc-theme='light'] .vc-months__month,
+[data-vc-theme='light'] .vc-years__year,
+[data-vc-theme='light'] .vc-date__btn {
+	color: var(--color-primary) !important;
+	background: transparent !important;
+	transition: all $transition-default;
+}
+
+[data-vc-theme='light'] .vc-months__month:hover,
+[data-vc-theme='light'] .vc-years__year:hover,
+[data-vc-theme='light'] .vc-date__btn:hover {
+	background-color: var(--color-secondary) !important;
+}
+
+[data-vc-theme='light'] .vc-months__month:disabled,
+[data-vc-theme='light'] .vc-years__year:disabled,
+.vc-date[data-vc-date-disabled] .vc-date__btn {
+	color: var(--color-silver) !important;
+}
+
+[data-vc-theme='light'] .vc-months__month[data-vc-months-month-selected],
+[data-vc-theme='light'] .vc-years__year[data-vc-years-year-selected],
+.vc-date[data-vc-date-selected] .vc-date__btn {
+	color: var(--color-white) !important;
+	background-color: var(--color-primary) !important;
+}
+
+[data-vc-theme='light'] .vc-date[data-vc-date-today] .vc-date__btn {
+	color: var(--color-primary);
+	background: transparent;
+
+	&::after {
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: 5px;
+		width: 20px;
+		border-bottom: 2px solid var(--color-primary);
+	}
+}
+
+[data-vc-date][data-vc-date-disabled] + [data-vc-date-hover] [data-vc-date-btn],
+[data-vc-date][data-vc-date-disabled] + [data-vc-date-selected] [data-vc-date-btn] {
+	border-radius: 9px;
+}
+
+[data-vc='calendar'] [tabindex='0']:focus-visible,
+[data-vc='calendar'] button:focus-visible,
+[data-vc='calendar']:focus-visible {
+	outline: 1px dashed var(--color-accent, var(--color-primary)) !important;
+	outline-offset: 2px;
+	transition: none !important;
+}
+
+.vc-month,
+.vc-year {
+	transition: all $transition-default;
+}
+
+.vc-month:hover,
+.vc-year:hover {
+	color: var(--color-primary) !important;
+}
