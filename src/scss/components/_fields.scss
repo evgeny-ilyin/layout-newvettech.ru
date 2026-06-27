@@ -115,7 +115,8 @@ input[type='search'] {
 	}
 }
 
-input {
+input,
+select {
 	--input-text-height: 44px;
 	height: var(--input-text-height, 44px);
 	padding: 9px 17px 6px;
@@ -167,6 +168,13 @@ textarea:not([class]) {
 	min-height: 80px;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
+select {
+	padding-right: 35px;
+	background: transparent var(--svg-dropdown) right 12px center / 18px no-repeat;
+	appearance: none;
+}
+
 fieldset {
 	padding: 0;
 	border: 0;
@@ -175,4 +183,60 @@ fieldset {
 .is-error {
 	--color-bgr: var(--color-red) !important;
 	--color-border: var(--color-red) !important;
+}
+
+.pill-button {
+	--btn-height: 32px;
+	--btn-color: var(--form-control-color);
+	--btn-bgr: transparent;
+	display: inline-flex;
+	position: relative;
+	height: var(--btn-height, 34px);
+	box-sizing: border-box;
+	font-size: rem(15);
+	line-height: 1;
+	text-align: center;
+	text-transform: uppercase;
+	cursor: pointer;
+	// white-space: nowrap;
+	user-select: none;
+
+	span {
+		display: block;
+		padding: 7px 15px 6px;
+		color: var(--btn-color);
+		background: var(--btn-bgr, transparent);
+		border: 2px solid var(--form-control-color);
+		border-radius: var(--btn-height);
+		transition:
+			color $transition-default,
+			background $transition-default;
+	}
+
+	input {
+		&:focus-visible + span {
+			outline: 1px dashed var(--color-accent, var(--color-primary));
+			outline-offset: 2px;
+			transition: none !important;
+		}
+
+		@include sr-only;
+	}
+
+	input:checked + span {
+		--btn-color: var(--form-control-color-hover-text);
+		--btn-bgr: var(--form-control-color);
+	}
+
+	@include hover-media() {
+		--btn-color: var(--form-control-color-hover-text);
+		--btn-bgr: var(--form-control-color);
+	}
+
+	// hover только для мыши
+	// @media (hover: hover) {
+	// 	&:hover span {
+	// 		background-color: rgb(123 97 255 / 8%);
+	// 	}
+	// }
 }
