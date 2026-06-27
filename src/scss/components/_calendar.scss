@@ -1,0 +1,84 @@
+@use '../abstracts' as *;
+
+.calendar-loader {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	background: var(--color-white-gray);
+
+	&:not([hidden]) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.calendar {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 20px;
+	min-height: 280px;
+
+	// .calendar__col
+	&__col {
+		display: flex;
+		flex-direction: column;
+	}
+
+	// .calendar__body
+	&__body {
+		--border-color: var(--color-primary);
+		flex-grow: 1;
+		position: relative;
+		padding: 10px;
+		border: 2px solid var(--border-color);
+		border-radius: 10px;
+
+		&.is-error {
+			--border-color: var(--color-red);
+		}
+	}
+
+	@include resp-from(lg) {
+		grid-template-columns: 6fr 5fr;
+	}
+}
+
+.time-slots {
+	&__grid {
+		display: grid;
+		// grid-template-columns: repeat(auto-fill, minmax(80px, auto));
+		grid-template-columns: repeat(auto-fill, minmax(55px, auto));
+		gap: 10px;
+	}
+}
+
+.time-slot {
+	padding: 6px;
+	font-size: rem(16);
+	color: var(--color-primary);
+	background: transparent;
+	border: none;
+	border-radius: 9px;
+	cursor: pointer;
+	transition: all 0.3s;
+	user-select: none;
+}
+
+.time-slot:hover {
+	background: var(--color-secondary);
+}
+
+.time-slot.is-active {
+	color: var(--color-white);
+	background: var(--color-primary);
+}
+
+.no-slots {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	inset: 0;
+	color: var(--color-black-50);
+}
