@@ -363,9 +363,9 @@ export function appointmentInit() {
 
 	// ==========================================
 	// Отрисовка слотов времени
-	// ==========================================
+	// ==================================‰========
 
-	function renderTimeSlots(date) {
+	/* 	function renderTimeSlotsV1(date) {
 		const slots = scheduleData[date] || [];
 
 		if (!slots.length) {
@@ -392,6 +392,90 @@ export function appointmentInit() {
 					.join('')}
 			</div>
 		`;
+
+		timeSlotsEl.querySelectorAll('.time-slot').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				timeSlotsEl
+					.querySelectorAll('.time-slot')
+					.forEach((item) => item.classList.remove(activeClass));
+
+				btn.classList.add(activeClass);
+
+				timeSlotsParent.classList.remove(errorClass);
+				selectedTime = btn.dataset.time;
+			});
+		});
+	} */
+
+	function renderTimeSlots(date) {
+		const slots = scheduleData[date] || [];
+
+		if (!slots.length) {
+			timeSlotsEl.innerHTML = `
+			<div class="no-slots">
+				Нет доступного времени
+			</div>
+		`;
+			return;
+		}
+
+		if (timeSlotsHeader) {
+			timeSlotsHeader.textContent = formatDate(date);
+		}
+
+		// ==========================================
+		// Группировка слотов по времени суток
+		// Утро: до 12:00
+		// День: до 18:00
+		// Вечер: от 18:00
+		// ==========================================
+		const groupedSlots = {
+			morning: [],
+			day: [],
+			evening: [],
+		};
+
+		slots.forEach((time) => {
+			const hour = Number(time.split(':')[0]);
+
+			if (hour < 12) {
+				groupedSlots.morning.push(time);
+			} else if (hour < 18) {
+				groupedSlots.day.push(time);
+			} else {
+				groupedSlots.evening.push(time);
+			}
+		});
+
+		const periods = [
+			{ key: 'morning', title: 'Утро' },
+			{ key: 'day', title: 'День' },
+			{ key: 'evening', title: 'Вечер' },
+		];
+
+		timeSlotsEl.innerHTML = periods
+			.map(({ key, title }) => {
+				const periodSlots = groupedSlots[key];
+
+				if (!periodSlots.length) {
+					return '';
+				}
+
+				return `
+				<div class="time-slots__group">
+					<div class="time-slots__title">${title}</div>
+					<div class="time-slots__grid">
+						${periodSlots
+							.map(
+								(time) =>
+									`<button type="button" class="time-slot ${selectedTime === time ? activeClass : ''}" data-time="${time}">${time}</button>`
+							)
+							.join('')}
+					</div>
+				</div>
+			`;
+			})
+			.join('');
 
 		timeSlotsEl.querySelectorAll('.time-slot').forEach((btn) => {
 			btn.addEventListener('click', () => {
