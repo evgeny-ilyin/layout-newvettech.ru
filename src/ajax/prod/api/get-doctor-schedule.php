@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $config = require $_SERVER['DOCUMENT_ROOT'] . '/local/ajax/api/config.php';
 
 $days = (int)$config['days'];
+$interval = (int)$config['interval'];
 $timeout = (int)$config['timeout'];
 $bearerToken = $config['token'];
 $apiUrl = $config['apiSlotsUrl'];
@@ -52,9 +53,9 @@ if (!isset($input['doctor_id'])) {
 $doctorId = (int)$input['doctor_id'];
 $currentDate = date('Y-m-d');
 
-function fetchSlots($url, $bearerToken, $doctorId, $date, $timeout)
+function fetchSlots($url, $bearerToken, $doctorId, $date, $interval, $timeout)
 {
-	$fullUrl = $url . "?doctor_ids={$doctorId}&date={$date}";
+	$fullUrl = $url . "?doctor_ids={$doctorId}&interval={$interval}&date={$date}";
 
 	$ch = curl_init();
 
@@ -97,7 +98,7 @@ function fetchSlots($url, $bearerToken, $doctorId, $date, $timeout)
 
 // API запрос через Bitrix HTTP Client
 /*
-function fetchSlots2($url, $bearerToken, $doctorId, $date, $timeout)
+function fetchSlots2($url, $bearerToken, $doctorId, $date, $interval, $timeout)
 {
 	$fullUrl = $url . "?doctor_ids=" . $doctorId . "&date=" . $date;
 
@@ -147,7 +148,7 @@ $currentDay = new DateTimeImmutable();
 
 for ($i = 0; $i < $days; $i++) {
 	$dateStr = $currentDay->modify("+{$i} day")->format('Y-m-d');
-	$apiResponse = fetchSlots($apiUrl, $bearerToken, $doctorId, $dateStr, $timeout);
+	$apiResponse = fetchSlots($apiUrl, $bearerToken, $doctorId, $dateStr, $interval, $timeout);
 
 	if (!is_array($apiResponse)) {
 		continue;

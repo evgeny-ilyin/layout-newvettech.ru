@@ -1,6 +1,7 @@
 <?php
 return [
 	'days' => 14,
+	'interval' => 60,
 	'timeout' => 3,
 	'token' => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidWlkIjoxLCJ1c2VyX2lkIjoxLCJwZXJtaXNzaW9ucyI6WyJ2ZHM6c2xvdHM6cmVhZCIsInZkczpsZWFkczp3cml0ZSJdLCJ0ZW5hbnRzIjpbMV0sInRlbmFudCI6MSwiaWF0IjoxODAzODU5MjAwLCJleHAiOjE4MDM4NTkyMDAsImp0aSI6IjQxZTI4ZjU3NjFiMjQyNDg5NzFiZDM0NTU1MjJjMGM3IiwidG9rZW5fdHlwZSI6ImFjY2VzcyJ9.scU4srSBGb-B0OtdQFaG63Hzs7NODp2wzwotqEzOL_0',
 	'apiSlotsUrl' => 'https://lk.meta-pets.ru/api/visits/visits/schedule/available-slots',
