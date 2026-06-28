@@ -1,7 +1,7 @@
 import { Calendar } from 'vanilla-calendar-pro';
 import { validateInput } from './formSubmit.js';
 
-export function calendarInit() {
+export function appointmentInit() {
 	const errorClass = 'is-error';
 	const activeClass = 'is-active';
 	const calendarEl = document.querySelector('#calendar');
@@ -557,7 +557,7 @@ export function calendarInit() {
 					visit: {
 						clinic_id: Number(payload.clinicId),
 						doctor_id: Number(payload.doctorId),
-						scheduled_start_at: `${payload.date}T${payload.time}:00Z`,
+						scheduled_start_at: `${payload.date}T${payload.time}:00+03:00`,
 					},
 				};
 
