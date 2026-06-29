@@ -191,7 +191,10 @@ export function appointmentInit() {
 				throw new Error('Нет доступных дат для записи');
 			}
 
-			scheduleData = data.dates;
+			// без фильтрации прошедшего времени
+			// scheduleData = data.dates;
+			// с фильтрацией
+			scheduleData = filterPastSlots(data.dates);
 			availableDates = Object.keys(scheduleData);
 
 			createCalendar();
@@ -363,7 +366,7 @@ export function appointmentInit() {
 
 	// ==========================================
 	// Отрисовка слотов времени
-	// ==================================‰========
+	// ==========================================
 
 	/* 	function renderTimeSlotsV1(date) {
 		const slots = scheduleData[date] || [];
@@ -489,6 +492,34 @@ export function appointmentInit() {
 				selectedTime = btn.dataset.time;
 			});
 		});
+	}
+
+	// ==========================================
+	// Фильтрация прошедшего времени для текущего дня
+	// ==========================================
+
+	function filterPastSlots(dates) {
+		const now = new Date();
+
+		// Текущее время в Москве
+		const moscowNow = new Date(
+			now.toLocaleString('en-US', {
+				timeZone: 'Europe/Moscow',
+			})
+		);
+
+		return Object.entries(dates).reduce((acc, [date, slots]) => {
+			const actualSlots = slots.filter((time) => {
+				const slotDate = new Date(`${date}T${time}:00+03:00`);
+				return slotDate > moscowNow;
+			});
+
+			if (actualSlots.length) {
+				acc[date] = actualSlots;
+			}
+
+			return acc;
+		}, {});
 	}
 
 	// ==========================================
