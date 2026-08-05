@@ -35,6 +35,18 @@
 			color: var(--color-primary);
 		}
 
+		h1:where(:not([class], :last-child)),
+		h2:where(:not([class], :last-child)) {
+			margin-bottom: 20px;
+		}
+
+		h3:where(:not([class], :last-child)),
+		h4:where(:not([class], :last-child)),
+		h5:where(:not([class], :last-child)),
+		h6:where(:not([class], :last-child)) {
+			margin-bottom: 16px;
+		}
+
 		@include resp-from(lg) {
 			padding: 55px 50px 50px;
 		}
