@@ -137,7 +137,7 @@
 
 .location {
 	--location-text-color: inherit;
-	--location-pointer-color: var(--color-primary);
+	--c: var(--color-primary);
 	display: flex;
 	align-items: center;
 	gap: 5px;
@@ -150,7 +150,7 @@
 		display: block;
 		width: 6px;
 		height: 6px;
-		background: var(--location-pointer-color);
+		background: var(--c);
 		border-radius: 50%;
 	}
 }
