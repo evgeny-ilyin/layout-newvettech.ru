@@ -185,6 +185,14 @@
 		}
 	}
 
+	// .modal-contacts__email
+	&__email {
+		--color-link: var(--color-primary);
+		font-size: rem(20);
+		// font-weight: var(--font-weight-medium);
+		line-height: 1.4;
+	}
+
 	// .modal-contacts__icon
 	&__icon {
 		position: absolute;

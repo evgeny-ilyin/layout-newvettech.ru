@@ -234,6 +234,21 @@
 		}
 	}
 
+	// .footer-contacts__email
+	&__email {
+		// --color-link: var(--color-primary);
+		font-size: rem(22);
+
+		// a {
+		// font-weight: var(--font-weight-medium);
+		// text-decoration: none;
+		// }
+
+		@include resp-from(md) {
+			font-size: rem(20);
+		}
+	}
+
 	// .footer-contacts__addresses
 	&__addresses {
 		display: flex;
