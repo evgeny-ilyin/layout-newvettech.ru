@@ -79,6 +79,11 @@
 		text-underline-offset: 1px;
 		transition: all $transition-default;
 		white-space: nowrap;
+		text-indent: -100vw;
+
+		@include resp-from(desktop) {
+			text-indent: 0;
+		}
 
 		// @extend %link-default;
 	}
