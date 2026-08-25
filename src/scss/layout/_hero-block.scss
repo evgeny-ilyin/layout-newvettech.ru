@@ -89,6 +89,15 @@
 		@include when-inside('.hero-block_photo-violet') {
 			--color-bg: var(--color-primary);
 		}
+
+		@include when-inside('.hero-block_photo-ultrawide') {
+			flex: 1 1 auto;
+
+			picture,
+			img {
+				position: relative;
+			}
+		}
 	}
 
 	// .hero-block__intro
