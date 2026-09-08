@@ -61,16 +61,45 @@ function inlineSprite() {
 	return sprites.toString();
 }
 
+/* v1 */
+// function generateHtmlPlugins(templateDir) {
+// 	const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
+// 	return templateFiles.map((filename) => {
+// 		const name = path.parse(filename).name;
+// 		return new HtmlWebpackPlugin({
+// 			filename,
+// 			template: path.resolve(__dirname, `${templateDir}/${filename}`),
+// 			cache: false,
+// 			minify: false,
+// 			chunks: ['main', name],
+// 			inject: 'body',
+// 			templateParameters: {
+// 				sprite: inlineSprite(),
+// 			},
+// 		});
+// 	});
+// }
+
+/* v2 */
+/**
+ * имя HTML определяет страницу, но некоторые страницы имеют отдельный JS с произвольным именем
+ * не заставляет имя entry совпадать с именем HTML-файла
+ */
 function generateHtmlPlugins(templateDir) {
 	const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
+	const pageChunks = {
+		'specialty-2': ['calculator'],
+	};
+
 	return templateFiles.map((filename) => {
 		const name = path.parse(filename).name;
+
 		return new HtmlWebpackPlugin({
 			filename,
 			template: path.resolve(__dirname, `${templateDir}/${filename}`),
 			cache: false,
 			minify: false,
-			chunks: ['main', name],
+			chunks: ['main', ...(pageChunks[name] || [])],
 			inject: 'body',
 			templateParameters: {
 				sprite: inlineSprite(),
@@ -85,6 +114,7 @@ const config = {
 	entry: {
 		main: ['./src/js/main.js', './src/scss/main.scss'],
 		// about: ['./src/js/about.js', './src/scss/about.scss'],
+		calculator: ['./src/js/calculator.js'],
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
