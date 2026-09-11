@@ -13,12 +13,24 @@
 		gap: 12px;
 		margin-bottom: 50px;
 
+		// .tabs__nav_parent
+		&_parent {
+			margin-bottom: 0;
+		}
+
 		@include flex-center;
 	}
 
 	// .tabs__content
 	&__content {
 		margin-top: 23px;
+	}
+
+	@include when-inside('.tab') {
+		margin: 0;
+		padding: 0;
+		border-radius: 0;
+		box-shadow: none;
 	}
 
 	@include resp-from(md) {
@@ -84,6 +96,7 @@
 
 	// .tab__header
 	&__header {
+		margin-top: auto;
 		font-size: rem(20);
 		font-weight: var(--font-weight-medium);
 		line-height: 1.2;
@@ -158,7 +171,7 @@
 		}
 
 		@include resp-from(lg) {
-			padding: min(23px, 2vw);
+			padding: min(22px, 2vw);
 		}
 
 		@include flex-center;
