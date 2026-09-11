@@ -12,7 +12,7 @@ $result = '				<div class="doctors-list js-results" data-more-url="/local/ajax/l
 								<div class="doctor-card__name h5">Разумова Анна Дмитриевна</div>
 								<div class="doctor-card__position">Ветеринарный врач-гастроэнтеролог</div>
 								<div class="doctor-card__location">
-									<div class="location">м. Серпуховская</div>
+									<div class="location" style="--c: #999999;">м. Серпуховская</div>
 								</div>
 							</div>
 						</a>
@@ -29,7 +29,7 @@ $result = '				<div class="doctors-list js-results" data-more-url="/local/ajax/l
 								<div class="doctor-card__name h5">Юркова Анна Сергеевна</div>
 								<div class="doctor-card__position">Ветеринарный врач–хирург</div>
 								<div class="doctor-card__location">
-									<div class="location">м. Серпуховская</div>
+									<div class="location" style="--c: #999999;">м. Серпуховская</div>
 								</div>
 							</div>
 						</a>
@@ -46,7 +46,7 @@ $result = '				<div class="doctors-list js-results" data-more-url="/local/ajax/l
 								<div class="doctor-card__name h5">Бунакова Елена Романовна</div>
 								<div class="doctor-card__position">Ветеринарный врач - хирург</div>
 								<div class="doctor-card__location">
-									<div class="location">м. Серпуховская</div>
+									<div class="location" style="--c: #999999;">м. Серпуховская</div>
 								</div>
 							</div>
 						</a>
@@ -63,7 +63,7 @@ $result = '				<div class="doctors-list js-results" data-more-url="/local/ajax/l
 								<div class="doctor-card__name h5">Бойко Анна Владимировна</div>
 								<div class="doctor-card__position">Ветеринарный врач-анестезиолог</div>
 								<div class="doctor-card__location">
-									<div class="location">м. Серпуховская</div>
+									<div class="location" style="--c: #999999;">м. Серпуховская</div>
 								</div>
 							</div>
 						</a>
@@ -80,7 +80,7 @@ $result = '				<div class="doctors-list js-results" data-more-url="/local/ajax/l
 								<div class="doctor-card__name h5">Савонкина Анна Романовна </div>
 								<div class="doctor-card__position">Ассистент ветеринарного врача </div>
 								<div class="doctor-card__location">
-									<div class="location">м. Серпуховская</div>
+									<div class="location" style="--c: #999999;">м. Серпуховская</div>
 								</div>
 							</div>
 						</a>
