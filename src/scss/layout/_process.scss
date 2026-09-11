@@ -1,0 +1,140 @@
+@use '../abstracts' as *;
+
+.process {
+	margin-bottom: 43px;
+	padding: 55px 25px 40px;
+	overflow: hidden;
+	background: var(--color-white);
+	border-radius: 20px;
+
+	// .process__list
+	&__list {
+		display: grid;
+		gap: 30px;
+
+		@include resp-from(md) {
+			grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+			gap: 30px 0;
+		}
+	}
+
+	// .process__item
+	&__item {
+		display: grid;
+		grid-template-columns: 56px 1fr;
+		column-gap: 20px;
+		position: relative;
+		text-align: left;
+
+		&:not(:last-child)::after {
+			content: '';
+			position: absolute;
+			top: 56px;
+			left: 27px;
+			z-index: 0;
+			width: 2px;
+			height: calc(100% - 25px);
+			background: var(--color-primary);
+
+			@include resp-from(md) {
+				top: 32px;
+				left: 50%;
+				width: calc(100% - 30px);
+				height: 2px;
+			}
+
+			@include resp-from(desktop) {
+				top: 37px;
+			}
+		}
+
+		@include resp-from(md) {
+			display: block;
+			position: relative;
+			min-width: 0;
+			text-align: center;
+		}
+	}
+
+	// .process__number
+	&__number {
+		--size: 56px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		z-index: 1;
+		width: var(--size);
+		height: var(--size);
+		margin: 0;
+		font-size: rem(26);
+		line-height: 1;
+		color: var(--color-white);
+		background: var(--color-primary);
+		border-radius: 50%;
+
+		@include resp-from(md) {
+			--size: 64px;
+			margin: 0 auto;
+			font-size: rem(32);
+		}
+
+		@include resp-from(desktop) {
+			--size: 76px;
+			font-size: rem(38);
+		}
+	}
+
+	// .process__content
+	&__content {
+		margin: 0;
+		padding: 4px 0 0;
+
+		@include resp-from(md) {
+			margin-top: 20px;
+			padding: 0 8px;
+		}
+
+		@include resp-from(desktop) {
+			margin-top: 28px;
+			padding: 0 12px;
+		}
+	}
+
+	// .process__title
+	&__title {
+		margin: 0;
+		font-size: rem(20);
+		font-weight: 500;
+		line-height: 1.2;
+
+		@include resp-from(desktop) {
+			font-size: rem(24);
+		}
+	}
+	// .process__description
+	&__description {
+		max-width: none;
+		margin: 6px 0 0;
+		font-size: rem(16);
+		line-height: 1.3;
+
+		@include resp-from(md) {
+			max-width: 220px;
+			margin: 8px auto 0;
+			font-size: rem(17);
+		}
+
+		@include resp-from(desktop) {
+			font-size: rem(20);
+		}
+	}
+
+	@include resp-from(lg) {
+		margin-bottom: 60px;
+	}
+
+	@include resp-from(desktop) {
+		margin-bottom: 73px;
+	}
+}
