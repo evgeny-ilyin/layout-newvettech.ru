@@ -5,8 +5,9 @@
 
 	// .stages__container
 	&__container {
+		--min: 400px;
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(min(var(--min), 100%), 1fr));
 		gap: 20px;
 	}
 
@@ -53,6 +54,10 @@
 
 		p,
 		ul {
+			&:last-child {
+				margin-bottom: 0;
+			}
+
 			@include resp-from(desktop) {
 				font-size: rem(18);
 			}
