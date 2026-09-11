@@ -1,0 +1,54 @@
+<% var data={ title: "Направление" }; %>
+<%= _.template(require('../components/head.html').default)(data) %>
+
+<body>
+	<% var active={menu: "menuSpecialties" }; %>
+	<%= _.template(require('../components/header.html').default)(active) %>
+
+	<main class="main container">
+		<div class="content">
+			<%= _.template(require('../components/blocks/hero-actions.html').default)() %>
+
+			<%= _.template(require('../components/blocks/headers/specialty-header-2.html').default)() %>
+
+			<%= _.template(require('../components/swipers/swiper-hero-type-6.html').default)() %>
+
+			<%= _.template(require('../components/blocks/headers/clinics-single-standard-header.html').default)() %>
+			<%= _.template(require('../components/blocks/block-clinics-single-standard.html').default)() %>
+
+			<%= _.template(require('../components/swipers/swiper-hero-narrow-type-1.html').default)() %>
+
+			<%= _.template(require('../components/blocks/headers/calculator-ct-header.html').default)() %>
+			<%= _.template(require('../components/blocks/block-calculator-ct.html').default)() %>
+
+			<%= _.template(require('../components/swipers/swiper-hero-narrow-type-2.html').default)() %>
+			
+			<%= _.template(require('../components/blocks/headers/procedures-header.html').default)() %>
+			<%= _.template(require('../components/blocks/block-procedures.html').default)() %>
+			
+			<%= _.template(require('../components/blocks/headers/tabs-double-header.html').default)() %>
+			<%= _.template(require('../components/blocks/block-tabs-double.html').default)() %>
+			
+			<%= _.template(require('../components/blocks/headers/process-header.html').default)() %>
+			<%= _.template(require('../components/blocks/block-process.html').default)() %>
+			
+			<%= _.template(require('../components/blocks/headers/specialty-cost-header.html').default)() %>
+			<%= _.template(require('../components/blocks/block-specialty-cost-service-group.html').default)() %>
+			
+			<%= _.template(require('../components/blocks/block-technologies-tabs-ct-only.html').default)() %>
+
+			<%= _.template(require('../components/blocks/block-helper.html').default)() %>
+
+
+		</div>
+	</main>
+
+	<%= _.template(require('../components/footer.html').default)() %>
+
+	<%= _.template(require('../components/modals/modal-info.html').default)() %>
+	<%= _.template(require('../components/modals/modal-contact-us.html').default)() %>
+
+	<%= _.template(require('../components/body-background.html').default)() %>
+	<%= sprite %>
+</body>
+</html>
