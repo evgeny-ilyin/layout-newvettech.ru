@@ -12,6 +12,7 @@
 .hero-block {
 	--color-bg: var(--color-white-gray);
 	--color: var(--color-black);
+	--min-height: 550px;
 
 	display: flex;
 	flex-wrap: wrap;
@@ -143,6 +144,10 @@
 			@include when-inside('.hero-block_text-wide') {
 				padding: 26px 30px;
 			}
+
+			@include when-inside('.hero-block_narrow') {
+				padding: 55px 50px 50px;
+			}
 		}
 
 		@include when-inside('.hero-block_text-wide') {
@@ -250,7 +255,7 @@
 
 	// .hero-block__description
 	&__description {
-		margin-bottom: 16px;
+		margin-bottom: 25px;
 		line-height: 1.3;
 
 		b,
@@ -273,6 +278,14 @@
 			margin-bottom: 0;
 		}
 
+		@include when-inside('.hero-block_narrow') {
+			b,
+			strong {
+				font-weight: var(--font-weight-medium);
+				color: var(--color-text);
+			}
+		}
+
 		@include when-inside('.hero-block_text-violet') {
 			b,
 			strong {
@@ -284,9 +297,23 @@
 		@extend %paragraph;
 	}
 
+	// .hero-block__links-wrapper
+	&__links-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		margin-top: auto;
+	}
+
 	// .hero-block__link
 	&__link {
-		margin-top: auto;
+		// margin-top: auto;
+		// margin-bottom: 16px;
+
+		// &:last-child {
+		// 	margin-top: 0;
+		// 	margin-bottom: 0;
+		// }
 
 		@include flex-center;
 
@@ -313,6 +340,11 @@
 	// .hero-block_reverse
 	&_reverse {
 		flex-direction: row-reverse;
+	}
+
+	// .hero-block_narrow
+	&_narrow {
+		--min-height: 350px;
 	}
 
 	// .hero-block__col
@@ -350,7 +382,7 @@
 	// }
 
 	@include resp-from(desktop) {
-		min-height: 550px;
+		min-height: var(--min-height, 550px);
 		border-radius: 30px;
 	}
 }
