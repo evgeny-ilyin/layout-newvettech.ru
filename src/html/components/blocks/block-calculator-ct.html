@@ -1,0 +1,131 @@
+<div class="calculator" id="calculator">
+
+	<div class="calculator__parameters">
+		<div class="h3">Параметры пациента</div>
+
+		<div class="calculator__fields">
+			<div class="calculator__field">
+				<label class="calculator__label" for="ct-animal">
+					Вид животного
+				</label>
+				<select class="calculator__select" id="ct-animal" data-calculator="animal">
+					<option data-price="8000">Собака</option>
+					<option data-price="8000">Кошка</option>
+					<option data-price="6000">Кролик</option>
+					<option data-price="6000">Грызун</option>
+					<option data-price="6000">Другое</option>
+				</select>
+			</div>
+
+			<div class="calculator__field">
+				<label class="calculator__label" for="ct-weight">
+					Вес пациента
+				</label>
+				<select class="calculator__select" id="ct-weight" data-calculator="weight">
+					<option data-anesthesia-price="7000" data-contrast-price="2500">До 10 кг</option>
+					<option data-anesthesia-price="8000" data-contrast-price="4000">11–20 кг</option>
+					<option data-anesthesia-price="9000" data-contrast-price="5000">21–30 кг</option>
+					<option data-anesthesia-price="10000" data-contrast-price="6000">31–40 кг</option>
+					<option data-anesthesia-price="11000" data-contrast-price="7000">Более 40 кг</option>
+				</select>
+			</div>
+
+			<div class="calculator__field">
+				<label class="calculator__label" for="ct-area">
+					Область исследования
+				</label>
+				<select class="calculator__select" id="ct-area" data-calculator="area">
+					<option>Голова</option>
+					<option>Грудная клетка</option>
+					<option>Брюшная полость</option>
+					<option>Позвоночник</option>
+					<option>Конечность</option>
+					<option>Другое</option>
+				</select>
+			</div>
+
+			<div class="calculator__field">
+				<label class="calculator__label" for="ct-contrast">
+					Контрастирование
+				</label>
+				<select class="calculator__select" id="ct-contrast" data-calculator="contrast">
+					<option value="appointed">Назначено</option>
+					<option value="not-appointed">Не назначено</option>
+					<option value="unknown">Не знаю</option>
+				</select>
+			</div>
+
+			<div class="calculator__field">
+				<label class="calculator__label" for="ct-extra">
+					Дополнительная процедура
+				</label>
+				<select class="calculator__select" id="ct-extra" data-calculator="extra">
+					<option data-price="0">Нет</option>
+					<option data-price="3000">ТИБ/ТИАБ под контролем КТ</option>
+					<option data-price="4500">Трукат/Трепан биопсия под контролем КТ</option>
+					<option data-price="6000">Выделительная урография (без учёта&nbsp;КТ и&nbsp;контраста)</option>
+					<option data-price="7000">Лимфангиография</option>
+					<option data-price="2500">БАЛ под контролем&nbsp;КТ (взятие), до&nbsp;10&nbsp;кг</option>
+					<option data-price="4000">БАЛ под контролем&nbsp;КТ (взятие), более 10&nbsp;кг</option>
+				</select>
+			</div>
+
+			<div class="calculator__field">
+				<label class="calculator__label" for="ct-branch">
+					Филиал
+				</label>
+				<select class="calculator__select" id="ct-branch" data-calculator="branch">
+					<option data-discount="15">Большая Серпуховская</option>
+					<option data-discount="15">Введенского</option>
+				</select>
+			</div>
+		</div>
+	</div>
+
+	<div class="calculator__result">
+		<div class="h3">Ваш расчёт</div>
+		<div class="calculator__prices">
+			<div class="calculator__price">
+				<span class="calculator__price-name">
+					КТ&nbsp;одного отдела
+				</span>
+				<span class="calculator__price-value" data-result="diagnostic"></span>
+			</div>
+			<div class="calculator__price">
+				<span class="calculator__price-name">
+					Анестезия
+				</span>
+				<span class="calculator__price-value" data-result="anesthesia"></span>
+			</div>
+			<div class="calculator__price">
+				<span class="calculator__price-name">
+					Контрастирование
+				</span>
+				<span class="calculator__price-value" data-result="contrast"></span>
+			</div>
+			<div class="calculator__price" data-result="extra-row" hidden>
+				<span class="calculator__price-name" data-result="extra-name"></span>
+				<span class="calculator__price-value" data-result="extra"></span>
+			</div>
+			<div class="calculator__price calculator__price_discount" data-result="discount-row" hidden>
+				<span class="calculator__price-name">
+					Акционная скидка
+				</span>
+				<span class="calculator__price-value" data-result="discount"></span>
+			</div>
+		</div>
+
+		<div class="calculator__total">
+			<div class="calculator__total-info">
+				<span class="calculator__total-label">
+					Ориентировочно
+				</span>
+				<strong class="calculator__total-value" data-result="total"></strong>
+			</div>
+			<div class="calculator__total-button">
+				<button type="button" class="btn btn_md btn_white btn_wide js-metapets" aria-label="Записаться на КТ: открыть чат Метапетс">Перейти к&nbsp;записи</button>
+			</div>
+		</div>
+		<p class="calculator__note">* Окончательный объём исследования определяет врач</p>
+	</div>
+</div>

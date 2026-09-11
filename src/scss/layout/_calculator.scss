@@ -1,0 +1,159 @@
+@use '../abstracts' as *;
+
+.calculator {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 40px;
+	margin-bottom: 43px;
+	padding: 30px 25px;
+	background: var(--color-white);
+	border-radius: 20px;
+
+	// .calculator__parameters
+	// .calculator__result
+	&__parameters,
+	&__result {
+		min-width: 0;
+	}
+
+	// .calculator__fields
+	&__fields {
+		display: grid;
+		gap: 16px;
+		margin-top: 24px;
+	}
+
+	// .calculator__field
+	&__field {
+		display: grid;
+		gap: 8px;
+	}
+
+	// .calculator__label
+	&__label {
+		font-size: rem(18);
+	}
+
+	// .calculator__select
+	&__select {
+		width: 100%;
+	}
+
+	// .calculator__prices
+	&__prices {
+		display: grid;
+		gap: 24px;
+		margin-top: 24px;
+	}
+
+	// .calculator__price
+	&__price {
+		&:not([hidden]) {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: flex-start;
+			gap: 5px;
+
+			@include resp-from(sm) {
+				flex-flow: row wrap;
+				align-items: center;
+				gap: 20px;
+			}
+		}
+
+		// .calculator__price_discount
+		&_discount {
+			color: var(--color-primary);
+		}
+	}
+
+	// .calculator__price-name
+	&__price-name {
+		max-width: calc(100% - 120px);
+		font-size: rem(20);
+		hyphens: auto;
+	}
+
+	// .calculator__price-value
+	&__price-value {
+		font-size: rem(23);
+		font-weight: var(--font-weight-medium);
+		white-space: nowrap;
+	}
+
+	// .calculator__total
+	&__total {
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: space-between;
+		align-items: stretch;
+		gap: 24px;
+		margin-top: 30px;
+		padding-top: 32px;
+		border-top: 2px solid var(--color-primary);
+
+		@include resp-from(md) {
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+
+	// .calculator__total-info
+	&__total-info {
+		display: grid;
+		gap: 10px;
+	}
+
+	// .calculator__total-label
+	&__total-label {
+		font-size: rem(18);
+	}
+
+	// .calculator__total-button
+	&__total-button {
+		@include resp-from(md) {
+			align-self: flex-end;
+		}
+	}
+
+	// .calculator__total-value
+	&__total-value {
+		font-size: rem(38);
+		line-height: 1;
+		color: var(--color-primary);
+	}
+
+	// .calculator__button
+	&__button {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+
+	// .calculator__note
+	&__note {
+		margin-top: 24px;
+		font-size: rem(18);
+	}
+
+	@include resp-from(md) {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		gap: 70px;
+
+		&__fields {
+			gap: 16px;
+		}
+	}
+
+	@include resp-from(lg) {
+		gap: 55px;
+		margin-bottom: 60px;
+		padding: 65px 40px 80px;
+	}
+
+	@include resp-from(desktop) {
+		margin-bottom: 73px;
+	}
+}
