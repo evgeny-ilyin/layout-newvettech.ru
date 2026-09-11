@@ -1,0 +1,23 @@
+@use '../abstracts' as *;
+@use '../base/typography-placeholders' as *;
+
+.location {
+	--location-text-color: inherit;
+	--c: var(--color-primary);
+	display: flex;
+	align-items: center;
+	gap: var(--marker-gap, 5px);
+	font-family: var(--font-family-other);
+	font-size: var(--font-size, rem(13));
+	color: var(--location-text-color);
+
+	&::before {
+		content: '';
+		display: block;
+		width: 6px;
+		height: 6px;
+		margin-bottom: var(--marker-offset, 0);
+		background: var(--c);
+		border-radius: 50%;
+	}
+}

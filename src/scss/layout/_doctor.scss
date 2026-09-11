@@ -73,6 +73,15 @@
 	&__button {
 	}
 
+	// .doctor__location
+	&__location {
+		--font-size: 15px;
+		--marker-gap: 7px;
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+
 	// .doctor__name
 	&__name {
 		margin-bottom: 10px;

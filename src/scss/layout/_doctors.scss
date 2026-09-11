@@ -134,23 +134,3 @@
 		box-shadow: 0 4px 7px 0 rgb(159 149 221 / 35%);
 	}
 }
-
-.location {
-	--location-text-color: inherit;
-	--c: var(--color-primary);
-	display: flex;
-	align-items: center;
-	gap: 5px;
-	font-family: var(--font-family-other);
-	font-size: rem(13);
-	color: var(--location-text-color);
-
-	&::before {
-		content: '';
-		display: block;
-		width: 6px;
-		height: 6px;
-		background: var(--c);
-		border-radius: 50%;
-	}
-}
