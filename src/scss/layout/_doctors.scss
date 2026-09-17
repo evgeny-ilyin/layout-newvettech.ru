@@ -3,9 +3,20 @@
 @use '../base/typography-placeholders' as *;
 
 .doctors-list {
+	--loader-size-override: 48px;
 	display: grid;
 	gap: 20px;
+	min-height: 100px;
 	margin-bottom: 43px;
+
+	// .doctors-list__empty
+	&__empty {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		grid-column: 1 / -1;
+		text-align: center;
+	}
 
 	@include resp-from(md) {
 		grid-template-columns: repeat(2, 1fr);

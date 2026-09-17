@@ -92,7 +92,7 @@ export function searchInit({
 	const cache = {};
 	const maxCache = 10;
 
-	let result = '';
+	const result = '';
 	let lastSubmitQuery = '';
 	let lastSuggestQuery = '';
 	let submitController = null;
@@ -101,8 +101,93 @@ export function searchInit({
 	let debounceTimer = null;
 	let activeIndex = -1;
 
-	/* Submit поиск */
-	form.addEventListener('submit', function (e) {
+	/* Общий поиск */
+	async function searchDoctors(query, clinicId = '') {
+		const requestKey = `${clinicId}_${query}`;
+		const cacheKey = `full_${clinicId}_${query}`;
+
+		// Не дергаем одинаковый запрос
+		if (requestKey === lastSubmitQuery && !isLoading) {
+			return;
+		}
+
+		lastSubmitQuery = requestKey;
+
+		// Кэш
+		if (cache[cacheKey]) {
+			replaceContent(cache[cacheKey], resultsNode);
+			loadMoreHandler(pagerNode);
+			return;
+		}
+
+		if (submitController) {
+			submitController.abort();
+		}
+
+		submitController = new AbortController();
+		isLoading = true;
+
+		lockSubmitButton(submitButton, loaderClass);
+
+		const url = new URL(submitUrl);
+		url.searchParams.set('q', query);
+
+		if (clinicId) {
+			url.searchParams.set('CLINIC_ID', clinicId);
+		}
+
+		const startTime = Date.now();
+
+		try {
+			const response = await fetch(url.toString(), {
+				method: 'GET',
+				credentials: 'same-origin',
+				signal: submitController.signal,
+			});
+
+			if (!response.ok) {
+				throw new Error(`HTTP error: ${response.status}`);
+			}
+
+			const html = await response.text();
+			const result = getResult(html, resultsSelector);
+
+			cache[cacheKey] = result;
+
+			if (Object.keys(cache).length > maxCache) {
+				delete cache[Object.keys(cache)[0]];
+			}
+
+			const elapsed = Date.now() - startTime;
+
+			const apply = () => {
+				// Проверяем, что этот запрос всё ещё актуален
+				if (requestKey !== lastSubmitQuery) {
+					return;
+				}
+
+				replaceContent(result, resultsNode);
+				loadMoreHandler(pagerNode);
+				isLoading = false;
+				unlockSubmitButton(submitButton, loaderClass);
+			};
+
+			if (elapsed < delay) {
+				setTimeout(apply, delay - elapsed);
+			} else {
+				apply();
+			}
+		} catch (err) {
+			if (err.name !== 'AbortError') {
+				console.error(err);
+				isLoading = false;
+				unlockSubmitButton(submitButton, loaderClass);
+			}
+		}
+	}
+
+	/* Submit поиск v1 */
+	/*form.addEventListener('submit', function (e) {
 		e.preventDefault();
 		e.stopImmediatePropagation();
 
@@ -111,6 +196,22 @@ export function searchInit({
 		if (query.length < minLength) {
 			return;
 		}
+
+		const clinicId = resultsNode.dataset.clinicId || '';
+		const cacheKey = `full_${clinicId}_${query}`;
+		const requestKey = `${clinicId}_${query}`;
+
+		if (cache[cacheKey]) {
+			applyWithDelay(cache[cacheKey]);
+			return;
+		}
+
+		// Не дергаем одинаковый запрос
+		if (requestKey === lastSubmitQuery && !isLoading) {
+			return;
+		}
+
+		lastSubmitQuery = requestKey;
 
 		suggestBox.style.display = 'none';
 		suggestBox.innerHTML = '';
@@ -128,18 +229,6 @@ export function searchInit({
 			}, delay);
 		};
 
-		if (cache['full_' + query]) {
-			applyWithDelay(cache['full_' + query]);
-			return;
-		}
-
-		// Не дергаем одинаковый запрос
-		if (query === lastSubmitQuery && !isLoading) {
-			return;
-		}
-
-		lastSubmitQuery = query;
-
 		if (submitController) {
 			submitController.abort();
 		}
@@ -149,6 +238,10 @@ export function searchInit({
 
 		const url = new URL(submitUrl);
 		url.searchParams.set('q', query);
+
+		if (clinicId) {
+			url.searchParams.set('CLINIC_ID', clinicId);
+		}
 
 		const startTime = Date.now();
 
@@ -160,7 +253,7 @@ export function searchInit({
 			.then((res) => res.text())
 			.then((html) => {
 				result = getResult(html, resultsSelector);
-				cache['full_' + query] = result;
+				cache[cacheKey] = result;
 
 				if (Object.keys(cache).length > maxCache) {
 					delete cache[Object.keys(cache)[0]];
@@ -189,6 +282,51 @@ export function searchInit({
 				}
 			});
 	});
+	*/
+
+	/* Submit поиск */
+	form.addEventListener('submit', function (e) {
+		e.preventDefault();
+		e.stopImmediatePropagation();
+
+		const query = input.value.trim();
+
+		if (query.length < minLength) {
+			return;
+		}
+
+		const clinicId = resultsNode.dataset.clinicId || '';
+
+		suggestBox.style.display = 'none';
+		suggestBox.innerHTML = '';
+		input.blur();
+		input.setAttribute('aria-expanded', 'false');
+
+		searchDoctors(query, clinicId);
+	});
+
+	/* Смена клиники */
+	document.addEventListener('doctors:clinic-change', function (e) {
+		const clinicId = e.detail?.clinicId || '';
+		const query = input.value.trim();
+
+		// Обновляем clinicId сразу, чтобы suggest и поиск дальше использовали актуальную клинику
+		resultsNode.dataset.clinicId = clinicId;
+
+		// Если есть поисковый запрос — повторяем поиск с новой клиникой
+		if (query.length >= minLength) {
+			suggestBox.style.display = 'none';
+			suggestBox.innerHTML = '';
+			input.setAttribute('aria-expanded', 'false');
+			input.blur();
+
+			searchDoctors(query, clinicId);
+
+			return;
+		}
+
+		// Если поиска нет -- ничего здесь не делаем. doctorsFilterInit сам загрузит врачей выбранной клиники.
+	});
 
 	/* Suggest поиск */
 	input.addEventListener('input', function () {
@@ -215,8 +353,8 @@ export function searchInit({
 		}, suggestDelay);
 	});
 
-	/* Load suggest (json) */
-	function loadSuggest(query) {
+	/* Load suggest v1 (json) */
+	/*function loadSuggest(query) {
 		// Кэш suggest
 		if (cache['suggest_' + query]) {
 			renderSuggest(cache['suggest_' + query]);
@@ -251,6 +389,60 @@ export function searchInit({
 			.then((res) => res.json())
 			.then((data) => {
 				cache['suggest_' + query] = data;
+				renderSuggest(data);
+			})
+			.catch((err) => {
+				if (err.name !== 'AbortError') {
+					console.error(err);
+				}
+			});
+	}
+	*/
+
+	/* Load suggest (json) */
+	function loadSuggest(query) {
+		const clinicId = resultsNode.dataset.clinicId || '';
+		const cacheKey = `suggest_${clinicId}_${query}`;
+
+		// Кэш suggest с учетом клиники
+		if (cache[cacheKey]) {
+			renderSuggest(cache[cacheKey]);
+			return;
+		}
+
+		// Не дергаем одинаковый запрос
+		const requestKey = `${clinicId}_${query}`;
+
+		if (requestKey === lastSuggestQuery) {
+			return;
+		}
+
+		lastSuggestQuery = requestKey;
+
+		if (suggestController) {
+			suggestController.abort();
+		}
+
+		suggestController = new AbortController();
+
+		if (!suggestUrl) {
+			return;
+		}
+
+		fetch(suggestUrl, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				q: query,
+				clinicId: clinicId,
+			}),
+			signal: suggestController.signal,
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				cache[cacheKey] = data;
 				renderSuggest(data);
 			})
 			.catch((err) => {

@@ -5,7 +5,7 @@ import { tabsInit } from './modules/tabs.js';
 import { swipersInit } from './modules/swiper.js';
 import { modalsInit } from './modules/modal.js';
 import { searchInit } from './modules/search.js';
-import { loadMoreInit } from './modules/loadMore.js';
+import { loadMoreInit, doctorsFilterInit } from './modules/loadMore.js';
 import { wrapArticleImages } from './modules/wrapArticleImages.js';
 import { mapInit } from './modules/yandex-map.js';
 import * as form from './modules/formSubmit.js';
@@ -33,6 +33,7 @@ addEventListener('DOMContentLoaded', () => {
 	modalsInit();
 	searchInit();
 	loadMoreInit();
+	doctorsFilterInit();
 	wrapArticleImages();
 	serviceFilter();
 	cookieConsentInit();

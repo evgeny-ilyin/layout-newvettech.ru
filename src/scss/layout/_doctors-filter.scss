@@ -1,0 +1,9 @@
+@use '../abstracts' as *;
+
+.doctors-filter {
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-bottom: 20px;
+
+	@include flex-center;
+}
