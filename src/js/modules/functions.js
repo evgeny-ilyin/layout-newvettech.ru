@@ -208,6 +208,22 @@ export function initFilterSystem({
 		const itemsContainer = document.querySelector(`.${targetClass}`);
 		const items = itemsContainer ? itemsContainer.querySelectorAll(':scope > *') : [];
 
+		// Собираем все доступные фильтры из элементов
+		const availableFilters = new Set();
+
+		items.forEach((item) => {
+			const filters = (item.dataset[dataAttr] || '').split(/\s+/).filter(Boolean);
+			filters.forEach((filter) => availableFilters.add(filter));
+		});
+
+		// Скрываем кнопки, для которых нет элементов
+		buttons.forEach((button) => {
+			const filter = button.dataset.filter;
+			if (filter !== 'all' && !availableFilters.has(filter)) {
+				button.hidden = true;
+			}
+		});
+
 		const filterSelection = (filter) => {
 			items.forEach((item) => {
 				const filters = (item.dataset[dataAttr] || '').split(/\s+/).filter(Boolean);
